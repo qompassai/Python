@@ -1,4 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:422394877ba90a6b5fc9bca63537e1db51c05a41ce2b4f91f97fc4cac13a7d6a
-size 507
+# Xet-specific file handling
+# Media files
+*.mp4 filter=xet diff=xet merge=xet -text
+*.mov filter=xet diff=xet merge=xet -text
+*.avi filter=xet diff=xet merge=xet -text
+
+# ML model files
+*.pt filter=xet diff=xet merge=xet -text
+*.pth filter=xet diff=xet merge=xet -text
+*.onnx filter=xet diff=xet merge=xet -text
+# Large datasets
+*.csv filter=xet diff=xet merge=xet -text
+*.parquet filter=xet diff=xet merge=xet -text
+# Images (only if they're expected to be large)
+*.png filter=xet diff=xet merge=xet -text
+*.jpg filter=xet diff=xet merge=xet -text
 *.psd !text !filter !merge !diff
