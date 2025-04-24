@@ -1,3 +1,60 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8ebd148b5a695da6518569147d9648c6bf7173445e74c3cf0265d6f588873220
-size 2024
+const fetch = require('node-fetch');
+const fs = require('fs');
+const { execSync } = require('child_process');
+
+async function updateMetadata() {
+  // Get repository URL from git config
+  const remoteUrl = execSync('git config --get remote.origin.url').toString().trim();
+  
+  // Parse owner/repo from URL
+  const urlRegex = /github\.com[:\/]([^\/]+)\/([^\.]+)(\.git)?/;
+  const match = remoteUrl.match(urlRegex);
+  
+  if (!match) {
+    console.error('Could not parse GitHub repository URL');
+    return;
+  }
+  
+  const [, owner, repo] = match;
+  
+  // Fetch repository metadata from GitHub API
+  const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+    headers: {
+      'Accept': 'application/vnd.github+json',
+      'Authorization': process.env.GITHUB_TOKEN ? `Bearer ${process.env.GITHUB_TOKEN}` : '',
+    }
+  });
+  
+  if (!response.ok) {
+    console.error(`GitHub API error: ${response.status}`);
+    return;
+  }
+  
+  const repoData = await response.json();
+  
+  // Read current metadata template
+  const metadataTemplate = JSON.parse(fs.readFileSync('metadata_template.json', 'utf8'));
+  
+  // Update fields with repository data
+  metadataTemplate.title = repoData.name;
+  metadataTemplate.description = repoData.description || metadataTemplate.description;
+  metadataTemplate.version = repoData.pushed_at ? new Date(repoData.pushed_at).toISOString().split('T')[0] : metadataTemplate.version;
+  
+  // Update keywords with topics
+  if (repoData.topics && repoData.topics.length > 0) {
+    metadataTemplate.keywords = repoData.topics;
+  }
+  
+  // Update related identifier
+  if (metadataTemplate.related_identifiers && metadataTemplate.related_identifiers.length > 0) {
+    metadataTemplate.related_identifiers[0].identifier = repoData.html_url;
+  }
+  
+  // Write updated metadata back to file
+  fs.writeFileSync('CITATION.cff', JSON.stringify(metadataTemplate, null, 2));
+  
+  console.log('Metadata successfully updated with repository information');
+}
+
+updateMetadata().catch(console.error);
+

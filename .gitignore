@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aef6816c010a1690ebfad85cbf6972b0657a08a086337a763d1ee5a3fbbe050a
-size 174
+# Ignore common binary files that might trigger Git LFS
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.psd
+*.ai
+*.pdf
+*.zip
+*.tar.gz
+*.mp4
+*.mov
+*.avi
+*.mp3
+*.wav
+*.iso
+*.dmg
+*.exe
+*.dll
+*.jar
+/1_AI gifs/
+/'00_How do I'/
+/2_Hf/
+/3_Meta/
+/4_OpenAI/
+
