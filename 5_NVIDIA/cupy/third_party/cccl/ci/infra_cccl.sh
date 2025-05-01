@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d7ff00025c82e8f5070a6a16a6b6511b589d1482dfc3e48189e3c3c13a0240b9
-size 379
+#!/bin/bash
+
+source "$(dirname "$0")/build_common.sh"
+
+print_environment_details
+
+PRESET="cccl-infra"
+
+CMAKE_OPTIONS=""
+
+GPU_REQUIRED="false"
+
+if [ -n "${GITHUB_SHA:-}" ]; then
+  CMAKE_OPTIONS="$CMAKE_OPTIONS -DCCCL_EXAMPLE_CPM_TAG=${GITHUB_SHA}"
+fi
+
+configure_preset "CCCL Infra" "$PRESET" "$CMAKE_OPTIONS"
+test_preset "CCCL Infra" "$PRESET" "$GPU_REQUIRED"
+
+print_time_summary

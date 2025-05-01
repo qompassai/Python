@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:19a0d9afe30e0462dd0ca72b6f8bee5aafaa8248079b594aa8f79a39b734be5f
-size 102
+Fix a crash when multiple threads read and write to the same ``__class__`` of an object concurrently.

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3e763416cbc554b00aaf591d9934287e89a3c520587187857c2ca52c1f9ec60f
-size 69
+/bin
+/Debug
+/Release
+/cuda55.sdf
+/cuda55.suo
+/cuda60.sdf
+/cuda60.suo

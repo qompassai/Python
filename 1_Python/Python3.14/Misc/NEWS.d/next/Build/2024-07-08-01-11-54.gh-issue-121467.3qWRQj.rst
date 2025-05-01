@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e9a5ae861d4bbef17eaabfe3e49c554930155eb2a2e96da917e233582c6279fb
-size 78
+Fix a Makefile bug that prevented mimalloc header files from being installed.

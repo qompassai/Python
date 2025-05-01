@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4a46e23236732d1b2b0efaeaeb8a65db8a97ac1d3023205b66db75c9240efda3
-size 1048
+     CHECK: cached_allocator::allocate(): num_bytes == {{[0-9]+}}
+CHECK-NEXT: cached_allocator::allocate(): allocating new block
+CHECK-NEXT: cached_allocator::deallocate(): ptr == {{(0x)?}}{{[0-9a-z]+}}
+CHECK-NEXT: cached_allocator::allocate(): num_bytes == {{[0-9]+}}
+CHECK-NEXT: cached_allocator::allocate(): found a free block
+CHECK-NEXT: cached_allocator::deallocate(): ptr == {{(0x)?}}{{[0-9a-z]+}}
+CHECK-NEXT: cached_allocator::allocate(): num_bytes == {{[0-9]+}}
+CHECK-NEXT: cached_allocator::allocate(): found a free block
+CHECK-NEXT: cached_allocator::deallocate(): ptr == {{(0x)?}}{{[0-9a-z]+}}
+CHECK-NEXT: cached_allocator::allocate(): num_bytes == {{[0-9]+}}
+CHECK-NEXT: cached_allocator::allocate(): found a free block
+CHECK-NEXT: cached_allocator::deallocate(): ptr == {{(0x)?}}{{[0-9a-z]+}}
+CHECK-NEXT: cached_allocator::allocate(): num_bytes == {{[0-9]+}}
+CHECK-NEXT: cached_allocator::allocate(): found a free block
+CHECK-NEXT: cached_allocator::deallocate(): ptr == {{(0x)?}}{{[0-9a-z]+}}
+CHECK-NEXT: cached_allocator::free_all()

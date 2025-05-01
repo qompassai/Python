@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2d2dbbc7f59c376784eeb6e851248fcd9c8a6e58379f93429d549aec677ced74
-size 492
+# Security Policy
+
+## Supported Versions
+
+The Python team applies security fixes according to the table
+in [the devguide](
+https://devguide.python.org/versions/#supported-versions
+).
+
+## Reporting a Vulnerability
+
+Please read the guidelines on reporting security issues [on the
+official website](https://www.python.org/dev/security/) for
+instructions on how to report a security-related problem to
+the Python team responsibly.
+
+To reach the response team, email `security at python dot org`.

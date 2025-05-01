@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:813ec2c9bd19c14d7e3b88decaeef51b248e991eda50a64ae810ee90a83d3a90
-size 100
+Handle :exc:`ValueError`\s raised by :func:`os.stat` in :mod:`linecache`.
+Patch by Bénédikt Tran.

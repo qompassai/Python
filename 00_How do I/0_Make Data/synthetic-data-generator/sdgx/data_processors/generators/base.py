@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:72a0fb4617f3f1ad1c21269a841f4cf8187c2e68184a0ab8e5a8b121ca8579ea
-size 314
+from sdgx.data_processors.base import DataProcessor
+
+
+class Generator(DataProcessor):
+    """
+    Base class for generators.
+
+    Generator is used to generate data based on relationships, rules and restrictions defined by metadata.
+
+    For example, generate random numbers between 0 and 1 as a fraction.
+    """

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d7c55edcf7d38057e00d06190b8472250b740ce77693e988d9367674a15cbe89
-size 423
+Functional programming
+======================
+
+.. Hint:: `NumPy API Reference: Functional programming <https://numpy.org/doc/stable/reference/routines.functional.html>`_
+
+.. currentmodule:: cupy
+
+.. note::
+
+   :class:`cupy.vectorize` applies JIT compiler to the given Python function.
+   See :ref:`jit_kernel_definition` for details.
+
+.. autosummary::
+   :toctree: generated/
+
+   apply_along_axis
+   vectorize
+   piecewise

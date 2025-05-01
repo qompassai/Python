@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fe127bde11258d9fea475be802d0f7e460eb0c4fc3645c3459557ebbae8fb0c3
-size 736
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>pythondaily</id>
+    <title>Python (Daily build)</title>
+    <authors>Python Software Foundation</authors>
+    <version>0.0.0.0</version>
+    <license type="file">tools\LICENSE.txt</license>
+    <projectUrl>https://www.python.org/</projectUrl>
+    <description>Installs an unsigned, untested build of Python for test purposes only.</description>
+    <iconUrl>https://www.python.org/static/favicon.ico</iconUrl>
+    <tags>python</tags>
+  </metadata>
+  <files>
+    <file src="**\*" exclude="python.props" target="tools" />
+    <file src="python.props" target="build\native\python.props" />
+    <file src="python.props" target="build\native\pythondaily.props" />
+  </files>
+</package>

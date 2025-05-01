@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a768d13c6abaf7bcc9f30ef259b6bbf2386ca7a46faecf7a237ecacde8a0265b
-size 569
+Resources and Documentation
+---------------------------
+
+Example of Speech Intent Classification and Slot Filling can be found `here <https://github.com/NVIDIA/NeMo/tree/stable/examples/slu/speech_intent_slot/README.md>`_.
+
+Information about how to load model checkpoints (either local files or pretrained ones from NGC), 
+as well as a list of the checkpoints available on NGC are located on the `Checkpoints <./results.html>`__ 
+page.
+
+Documentation regarding the configuration files specific to SLU can be found in the 
+`Configuration Files <./configs.html>`__ page.

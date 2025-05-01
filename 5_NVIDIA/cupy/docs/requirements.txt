@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9cf8ad4fe0e6dd32eb1cd180205981ab27f51681a4ac91f022ae6fd167196ff3
-size 310
+sphinx==5.3.0
+# TODO(kmaehashi): Bump pydata-sphinx-theme when https://github.com/pydata/pydata-sphinx-theme/issues/1161 closed
+pydata_sphinx_theme==0.11.0
+sphinx-copybutton==0.5.1
+
+# These requirements must match with the Baseline API version documented in the Installation Guide.
+numpy==1.26.*
+scipy==1.11.*

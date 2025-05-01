@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4537cb85b57bca6b15641e411b05c11fee175c126c1e7bb10912179fb42eee6c
-size 584
+import traitlets
+import os
+
+    
+class CameraBase(traitlets.HasTraits):
+    
+    value = traitlets.Any()
+    
+    @staticmethod
+    def instance(*args, **kwargs):
+        raise NotImplementedError
+    
+    def widget(self):
+        if hasattr(self, '_widget'):
+            return self._widget   # cache widget, so we don't duplicate links
+        from ipywidgets import Image
+        from jetbot.image import bgr8_to_jpeg
+        image = Image()
+        traitlets.dlink((self, 'value'), (image, 'value'), transform=bgr8_to_jpeg)
+        self._widget = image
+        return image
+    

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9cfd7dc629568e13b3bfb38ebdcdc15a9eeb78b24492389ebcaa3feed31f08b9
-size 122
+Fix displaying the source line for warnings created by the C API if the
+:mod:`warnings` module had not yet been imported.

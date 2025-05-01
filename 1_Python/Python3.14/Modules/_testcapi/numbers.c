@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fd31dfa55c308b89296eab6e393326ccde932d6a0e30355c501c9c04120d0ae5
-size 236
+#include "parts.h"
+#include "util.h"
+
+static PyMethodDef test_methods[] = {
+    {NULL},
+};
+
+int
+_PyTestCapi_Init_Numbers(PyObject *mod)
+{
+    if (PyModule_AddFunctions(mod, test_methods) < 0) {
+        return -1;
+    }
+
+    return 0;
+}

@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2304f33c1960ed81f42daadc030a426772d173225de6ed2346aea7f11f064c9e
-size 261
+#!/bin/bash
+
+sudo docker push $JETBOT_DOCKER_REMOTE/jetbot:camera-$JETBOT_VERSION-$L4T_VERSION
+sudo docker push $JETBOT_DOCKER_REMOTE/jetbot:jupyter-$JETBOT_VERSION-$L4T_VERSION
+sudo docker push $JETBOT_DOCKER_REMOTE/jetbot:display-$JETBOT_VERSION-$L4T_VERSION

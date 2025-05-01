@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:68524af0ad46105c645eb974eef5fc987db3de37af161b852cee5d057f384a7a
-size 181
+.. _thrust-module-api-algorithms-set-operations:
+
+Set Operations
+---------------
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   ${repo_docs_api_path}/*function_group__set__operations*

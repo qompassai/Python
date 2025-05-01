@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8d9321886bef6c7f84eb5dcc09c7e505946272dda297ca5acac7ca6e0a2311ee
-size 170
+Model Name,Model Base Class,Model Card
+asrlm_en_transformer_large_ls,TransformerLMModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:asrlm_en_transformer_large_ls"

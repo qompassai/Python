@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7d611eda3b4e025c8a2cf88e440d6c5a716b17dbbbfaf7da4c4ca8129464735c
-size 282
+import gc
+
+thingy = object()
+class A(object):
+    def f(self):
+        return 1
+    x = thingy
+
+r = gc.get_referrers(thingy)
+if "__module__" in r[0]:
+    dct = r[0]
+else:
+    dct = r[1]
+
+a = A()
+for i in range(10):
+    a.f()
+dct["f"] = lambda self: 2
+
+print(a.f()) # should print 1

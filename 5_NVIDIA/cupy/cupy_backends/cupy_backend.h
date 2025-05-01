@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ee9f6f3748b7e5d8a05cbe58b00c5bd7bcd03ec33804fa07e2836381b22a1462
-size 308
+#ifndef INCLUDE_GUARD_CUPY_CUDA_H
+#define INCLUDE_GUARD_CUPY_CUDA_H
+
+#if CUPY_USE_HIP
+
+#include "hip/cupy_hip.h"
+
+#elif !defined(CUPY_NO_CUDA)
+
+#include "cuda/cupy_cuda.h"
+
+#else // #ifndef CUPY_NO_CUDA
+
+#include "stub/cupy_cuda.h"
+
+#endif // #ifndef CUPY_NO_CUDA
+#endif // #ifndef INCLUDE_GUARD_CUPY_CUDA_H

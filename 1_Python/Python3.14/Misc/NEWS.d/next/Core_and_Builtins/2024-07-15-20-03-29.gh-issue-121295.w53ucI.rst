@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:252f44fc7c0e9ae5a4818a444c66236668fe8f4f4ea46249acfe1b88fb6beac9
-size 80
+Fix PyREPL console getting into a blocked state after interrupting a long
+paste

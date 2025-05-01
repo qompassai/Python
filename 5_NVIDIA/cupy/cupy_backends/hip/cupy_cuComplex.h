@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3216289695c827756885857394dc0c98c0120c979efd311318eef458183b6267
-size 424
+#ifndef INCLUDE_GUARD_HIP_CUPY_COMPLEX_H
+#define INCLUDE_GUARD_HIP_CUPY_COMPLEX_H
+
+extern "C" {
+
+///////////////////////////////////////////////////////////////////////////////
+// cuComplex.h
+///////////////////////////////////////////////////////////////////////////////
+
+struct cuComplex{
+    float x, y;
+};
+
+struct cuDoubleComplex{
+    double x, y;
+};
+
+} // extern "C"
+
+#endif // #ifndef INCLUDE_GUARD_HIP_CUPY_COMPLEX_H

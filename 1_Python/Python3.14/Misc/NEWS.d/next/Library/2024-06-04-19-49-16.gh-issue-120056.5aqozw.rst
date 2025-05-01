@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:752763d28775c6acddc0952d2d5245e77f3ecd24fc1516d17880bf9f77664ca7
-size 186
+Add :data:`!socket.IP_RECVERR` and :data:`!socket.IP_RECVTTL` constants
+(both available since Linux 2.2).
+And :data:`!socket.IP_RECVORIGDSTADDR` constant (available since Linux 2.6.29).

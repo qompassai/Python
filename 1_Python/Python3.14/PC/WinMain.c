@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:22f6aa21eb27bc97ba1888a16a30c3dd61aefcf1e53bccfe8d89898484fcac10
-size 492
+/* Minimal main program -- everything is loaded from the library. */
+
+#include "Python.h"
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <stdlib.h>  /* __argc, __wargv */
+
+int WINAPI wWinMain(
+    HINSTANCE hInstance,      /* handle to current instance */
+    HINSTANCE hPrevInstance,  /* handle to previous instance */
+    LPWSTR lpCmdLine,         /* pointer to command line */
+    int nCmdShow              /* show state of window */
+)
+{
+    return Py_Main(__argc, __wargv);
+}

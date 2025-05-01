@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e3281506abec35029143ba87f8f4990104bef13d7b9edf71c576ce229a3cb1ca
-size 991
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>Python</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Python Runtime and Library</string>
+	<key>CFBundleIdentifier</key>
+	<string>@PYTHONFRAMEWORKIDENTIFIER@</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Python</string>
+	<key>CFBundlePackageType</key>
+	<string>FMWK</string>
+	<key>CFBundleShortVersionString</key>
+	<string>%VERSION%, (c) 2001-2024 Python Software Foundation.</string>
+	<key>CFBundleLongVersionString</key>
+	<string>%VERSION%, (c) 2001-2024 Python Software Foundation.</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>%VERSION%</string>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
+</dict>
+</plist>

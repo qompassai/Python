@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c5d12bc93d81e53ae14788fc28e4a7d30af6809eb5a4fc863aaf5b1e2156ea3c
-size 648
+.. _libcudacxx-extended-api-synchronization-pipeline-pipeline-producer-commit:
+
+cuda::pipeline::producer_commit
+===================================
+
+Defined in header ``<cuda/pipeline>``:
+
+.. code:: cuda
+
+   template <cuda::thread_scope Scope>
+   __host__ __device__
+   void cuda::pipeline<Scope>::producer_commit();
+
+Commits operations previously issued by the current thread to the current *pipeline stage*.
+
+.. note::
+
+   - If the calling thread is a *consumer thread*, the behavior is undefined.
+   - If the pipeline is in a :ref:`quitted state <libcudacxx-extended-api-synchronization-pipeline-pipeline-quit>`,
+     the behavior is undefined.

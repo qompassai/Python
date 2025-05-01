@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eca1324c7e49530483bda6ab0b38fb9b48a2ddf855fa47a3306c2234793a41c2
-size 224
+Improve :exc:`ZeroDivisionError` error message.
+Now, all error messages are harmonized: all ``/``, ``//``, and ``%``
+operations just use "division by zero" message.
+And ``0 ** -1`` operation uses "zero to a negative power".

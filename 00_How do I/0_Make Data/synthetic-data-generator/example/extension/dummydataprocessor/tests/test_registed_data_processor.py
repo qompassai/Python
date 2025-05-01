@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b7d947a6d35b4b0ada86bd06cb62ee7ad1838c81412119fc8788ce87b7c0eeeb
-size 373
+import pytest
+
+from sdgx.data_processors.manager import DataProcessorManager
+
+
+@pytest.fixture
+def manager():
+    yield DataProcessorManager()
+
+
+def test_registed_data_processor(manager: DataProcessorManager):
+    assert manager._normalize_name("DummyDataProcessor") in manager.registed_data_processors
+
+
+if __name__ == "__main__":
+    pytest.main(["-vv", "-s", __file__])

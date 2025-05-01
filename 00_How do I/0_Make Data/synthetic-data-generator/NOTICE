@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:26a8d46471ba0e99bab7dc7f86fd8f176929c810e01ad75dcba19b2e6436cd5c
-size 234
+sdgx/models/components/sdv_* is released under MIT License:
+- sdv_copulas: https://github.com/sdv-dev/copulas/tree/v0.7.0
+- sdv_ctgan: https://github.com/sdv-dev/CTGAN/tree/v0.6.0
+- sdv_rdt: https://github.com/sdv-dev/rdt/tree/v1.2.1

@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8e5bd25d07a999160f975bcf9481dc3550e4f9918a23bc9f5b7cddb8a708ea9d
-size 172
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+${DIR}/create-sdcard-image-from-scratch.sh 2>&1 | tee ~/jetbot-create-sdcard-image.log

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d565efe5aa6bdbc67a04d2273f71f1cf8930b82e79fb5a13ea64b1ebed277584
-size 327
+cmake_minimum_required(VERSION 3.4.1)
+project(testbed)
+
+set(PREFIX_DIR ${PYTHON_CROSS_DIR}/${CMAKE_LIBRARY_ARCHITECTURE}/prefix)
+include_directories(${PREFIX_DIR}/include/python${PYTHON_VERSION})
+link_directories(${PREFIX_DIR}/lib)
+link_libraries(log python${PYTHON_VERSION})
+
+add_library(main_activity SHARED main_activity.c)

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:310fa4a0ea329799abb64a16fb4ed2f91afca59d22e9ac050a456772ca3a7d80
-size 519
+file(GLOB test_srcs
+  RELATIVE "${CMAKE_CURRENT_LIST_DIR}}"
+  CONFIGURE_DEPENDS
+  *.cu *.cpp
+)
+
+foreach(thrust_target IN LISTS THRUST_TARGETS)
+  thrust_get_target_property(config_device ${thrust_target} DEVICE)
+  if (NOT config_device STREQUAL "OMP")
+    continue()
+  endif()
+
+  foreach(test_src IN LISTS test_srcs)
+    get_filename_component(test_name "${test_src}" NAME_WLE)
+    string(PREPEND test_name "omp.")
+    thrust_add_test(test_target ${test_name} "${test_src}" ${thrust_target})
+  endforeach()
+endforeach()

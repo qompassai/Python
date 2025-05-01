@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75bbb84ec0512459e9d94db854ce1beacb8d32c78ba2f8ac7f8e8e66dc71d435
-size 299
+Add additional methods to :ref:`proxy objects <multiprocessing-proxy_objects>`
+in the :mod:`!multiprocessing` module:
+
+* :meth:`!clear` and :meth:`!copy` for proxies of :class:`list`
+* :meth:`~dict.fromkeys`, ``reversed(d)``, ``d | {}``, ``{} | d``,
+  ``d |= {'b': 2}`` for proxies of :class:`dict`

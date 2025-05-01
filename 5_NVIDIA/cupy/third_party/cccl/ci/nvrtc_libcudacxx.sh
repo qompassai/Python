@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a904987507092dac0100546f2c29f6a84247849b9ab5b7455d3a8dd85dc8d85f
-size 333
+#!/bin/bash
+
+source "$(dirname "$0")/build_common.sh"
+
+print_environment_details
+
+
+PRESET="libcudacxx-nvrtc-cpp${CXX_STANDARD}"
+CMAKE_OPTIONS=""
+
+configure_and_build_preset "libcudacxx NVRTC" "$PRESET" "$CMAKE_OPTIONS"
+
+source "./sccache_stats.sh" "start"
+test_preset "libcudacxx NVRTC" "${PRESET}"
+source "./sccache_stats.sh" "end"

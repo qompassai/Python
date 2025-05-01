@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bcf570da73ec49e5c1da686bd42e1b7bef67dbcab8df28e4a1a7386abf32deb8
-size 142
+Creating :c:data:`immutable types <Py_TPFLAGS_IMMUTABLETYPE>` with mutable
+bases was deprecated since 3.12 and now raises a :exc:`TypeError`.

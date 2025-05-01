@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bdd843ed13af8eead0759f970d71800ead9c72865a62aa2813e1972151628581
-size 436
+.. _using-index:
+
+##########################
+  Python Setup and Usage
+##########################
+
+
+This part of the documentation is devoted to general information on the setup
+of the Python environment on different platforms, the invocation of the
+interpreter and things that make working with Python easier.
+
+
+.. toctree::
+   :numbered:
+
+   cmdline.rst
+   unix.rst
+   configure.rst
+   windows.rst
+   mac.rst
+   ios.rst
+   editors.rst

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:20fba2d1bf858f4e7e082c5f9630fb02f3b32dd7425051f24b43f322cd29eece
-size 151
+Correct invalid corner cases in complex division (resulted in ``(nan+nanj)``
+output), e.g.  ``1/complex('(inf+infj)')``.  Patch by Sergey B Kirpichev.

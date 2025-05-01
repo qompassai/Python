@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c72d8388b0821aebbd079fa0c4b739e681daa041436bae63c54f78bdaaf1df6f
-size 281
+from cupy import _util
+
+# Attributes and Methods for fallback_mode
+# Auto-execute numpy method when corresponding cupy method is not found
+
+# "NOQA" to suppress flake8 warning
+from cupyx.fallback_mode.fallback import numpy  # NOQA
+
+
+_util.experimental('cupyx.fallback_mode.numpy')

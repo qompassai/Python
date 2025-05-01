@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:210d1a1cfdcc8efdc932e43f326e3b7c83148ae044dba77d5d583b45afc1989f
-size 247
+Make sure that invariants of type versioning are maintained:
+* Superclasses always have their version number assigned before subclasses
+* The version tag is always zero if the tag is not valid.
+* The version tag is always non-if the tag is valid.

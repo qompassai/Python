@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0dd0359ffd01d86df05ff4c15f92747577b5a266b2a472b7744cadd348f54ec6
-size 492
+"""Lambert W function"""
+
+from cupy import _core
+
+
+lambertw_preamble = "#include <cupy/special/lambertw.h>"
+
+_lambertw_scalar = _core.create_ufunc(
+    "cupyx_scipy_lambertw_scalar",
+    ("Dld->D", "Fif->f"),
+    "out0 = special::lambertw(in0, in1, in2)",
+    preamble=lambertw_preamble,
+    doc='''Internal function. Do not use.''')
+
+
+def lambertw(z, k=0, tol=1e-8):
+    """Lambert W function.
+
+    .. seealso:: :meth:`scipy.special.lambertw`
+
+    """
+    return _lambertw_scalar(z, k, tol)

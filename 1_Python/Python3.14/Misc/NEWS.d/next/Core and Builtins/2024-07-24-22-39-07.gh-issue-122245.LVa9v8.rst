@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3593d8a58a63d6cf5cbc14a6de7b77ecc06d8c2eeb95a1e1eb206ea0b6564e21
-size 258
+Detection of writes to ``__debug__`` is moved from the compiler's codegen
+stage to the symtable. This means that these errors are now detected even in
+code that is optimized away before codegen (such as assertions with the
+:option:`-O` command line option).

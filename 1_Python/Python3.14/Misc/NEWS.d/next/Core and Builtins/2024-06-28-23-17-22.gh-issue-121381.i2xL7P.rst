@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c949b7c1d57fd6fd90d3816447c8136999b89cda31aabd9307c5c5a9e4ae1bb0
-size 147
+Remove ``subprocess._USE_VFORK`` escape hatch code and documentation.
+It was added just in case, and doesn't have any known cases that require it.

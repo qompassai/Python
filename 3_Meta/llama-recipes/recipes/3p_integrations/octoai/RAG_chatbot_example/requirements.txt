@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af4413d65fd560d8c9fca129a869af03cf600291530a0d543df928b844bf9d9a
-size 133
+gradio==4.19.2
+pypdf==4.0.0
+langchain==0.1.19
+sentence-transformers==2.2.2
+faiss-cpu==1.7.4
+text-generation==0.6.1
+octoai-sdk==0.10.1

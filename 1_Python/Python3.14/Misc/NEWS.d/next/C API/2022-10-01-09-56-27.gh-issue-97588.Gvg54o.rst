@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8d7ef6e28ad9ee25abb2461029c214e5436a5f6037fdf233b33f5700a15a4a8
-size 89
+Fix creating bitfields in :mod:`ctypes` structures and unions. Fields
+no longer overlap.

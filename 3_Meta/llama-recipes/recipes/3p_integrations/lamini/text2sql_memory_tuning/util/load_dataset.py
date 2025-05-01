@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4d6a0a06cf0d2983f4cdce9b06d9aae63850a3924df4384bbd2215fc3c2f0038
-size 630
+import jsonlines
+
+from util.make_llama_3_prompt import make_llama_3_prompt
+
+
+def load_training_data(args, make_question):
+    path = f"data/training_data/{args.training_file_name}"
+
+    limit = 1000
+
+    with jsonlines.open(path) as reader:
+        for index, obj in enumerate(reversed(list(reader))):
+            if index >= limit:
+                break
+
+            yield {
+                "input": make_llama_3_prompt(**make_question(obj)),
+                "output": obj["sql"] + "<|eot_id|>",
+            }
+
+
+def get_dataset(args, make_question):
+    dataset = list(load_training_data(args, make_question))
+    return dataset

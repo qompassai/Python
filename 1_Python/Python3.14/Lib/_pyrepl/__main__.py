@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c186f2d43416fb3e6a23fc9fb2a100c59ef6833298028e78632d8246bac364d2
-size 263
+# Important: don't add things to this module, as they will end up in the REPL's
+# default globals.  Use _pyrepl.main instead.
+
+if __name__ == "__main__":
+    from .main import interactive_console as __pyrepl_interactive_console
+    __pyrepl_interactive_console()

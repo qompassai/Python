@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b99ff157865a83c3f67dd0fe180ffd1402bc36cec809ba1e1d6d860eece8a4b5
-size 817
+#ifndef INCLUDE_GUARD_CUPY_CUDA_THRUST_H
+#define INCLUDE_GUARD_CUPY_CUDA_THRUST_H
+
+#ifndef CUPY_NO_CUDA
+#include <vector>
+#include <cstdint>
+#include <thrust/version.h>  // for THRUST_VERSION
+
+void thrust_sort(int, void *, size_t *, const std::vector<ptrdiff_t>&, intptr_t, void *);
+void thrust_lexsort(int, size_t *, void *, size_t, size_t, intptr_t, void *);
+void thrust_argsort(int, size_t *, void *, void *, const std::vector<ptrdiff_t>&, intptr_t, void *);
+
+#if (defined(_MSC_VER) && (__CUDACC_VER_MAJOR__ == 11 && __CUDACC_VER_MINOR__ == 2))
+  #define __builtin_unreachable() __assume(false)
+#endif
+
+#else // CUPY_NO_CUDA
+
+#define THRUST_VERSION 0
+
+void thrust_sort(...) {
+}
+
+void thrust_lexsort(...) {
+}
+
+void thrust_argsort(...) {
+}
+
+#endif // #ifndef CUPY_NO_CUDA
+
+#endif // INCLUDE_GUARD_CUPY_CUDA_THRUST_H

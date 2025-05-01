@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fb59c074e3099fc51df552dab4af74ef11622ad57f165c80b1990252f645e5de
-size 174
+.. bpo: 25071
+.. date: 9305
+.. nonce: EwjXl1
+.. release date: 2015-09-13
+.. section: Build
+
+Windows installer should not require TargetDir parameter when installing
+quietly.

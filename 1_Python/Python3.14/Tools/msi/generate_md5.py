@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:657066af2bfea6102f52289218c493f09f04734e09bf3a06aab3469ba9b46d1c
-size 679
+import hashlib
+import os
+import sys
+
+def main():
+    filenames, hashes, sizes = [], [], []
+
+    for file in sys.argv[1:]:
+        if not os.path.isfile(file):
+            continue
+
+        with open(file, 'rb') as f:
+            data = f.read()
+            md5 = hashlib.md5()
+            md5.update(data)
+            filenames.append(os.path.split(file)[1])
+            hashes.append(md5.hexdigest())
+            sizes.append(str(len(data)))
+
+    print('{:40s}  {:<32s}  {:<9s}'.format('File', 'MD5', 'Size'))
+    for f, h, s in zip(filenames, hashes, sizes):
+        print('{:40s}  {:>32s}  {:>9s}'.format(f, h, s))
+
+
+
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5dc0f853bdce69d26cff35190334ef4e1ac40ca23fe66b6b586c89fb902dd61
-size 465
+.. _thrust-module-api-function-objects-predefined-arithmetic:
+
+Arithmetic Operations
+----------------------
+
+  - :cpp:struct:`thrust::plus <thrust::plus>`
+  - :cpp:struct:`thrust::minus <thrust::minus>`
+  - :cpp:struct:`thrust::multiplies <thrust::multiplies>`
+  - :cpp:struct:`thrust::divides <thrust::divides>`
+  - :cpp:struct:`thrust::modulus <thrust::modulus>`
+  - :cpp:struct:`thrust::negate <thrust::negate>`
+  - :cpp:struct:`thrust::square <thrust::square>`

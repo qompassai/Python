@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0bd219428dcbc47e1d345aba73010fdb19fd735c1044e7f21df21354f9cf5573
-size 486
+:c:func:`PyUnicode_InternInPlace` no longer prevents its argument from being
+garbage collected.
+
+Several functions that take ``char *`` are now
+documented as possibly preventing string objects from being garbage
+collected; refer to their documentation for details:
+:c:func:`PyUnicode_InternFromString`,
+:c:func:`PyDict_SetItemString`,
+:c:func:`PyObject_SetAttrString`,
+:c:func:`PyObject_DelAttrString`,
+:c:func:`PyUnicode_InternFromString`,
+and ``PyModule_Add*`` convenience functions.

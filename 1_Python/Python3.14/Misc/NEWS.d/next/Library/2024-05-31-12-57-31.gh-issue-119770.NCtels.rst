@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b1863737b0ca57a3a910722eeaf7d0e98b59ce303e910661b85086f498a7febc
-size 77
+Make :mod:`termios` ``ioctl()`` constants positive. Patch by Victor Stinner.

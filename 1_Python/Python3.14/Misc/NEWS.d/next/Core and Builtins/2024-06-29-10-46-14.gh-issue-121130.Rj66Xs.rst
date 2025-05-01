@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d0283093fd38e08877a1a20f4dad43eabf86b2f3721df692ea729b05e87bf17c
-size 82
+Fix f-strings with debug expressions in format specifiers. Patch by Pablo
+Galindo

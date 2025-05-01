@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bd2cadd738c0715b14c677690c68fc54e321944b120f96926fc729fb04c0880c
-size 131
+#pragma once
+
+#if defined(_MSC_VER)
+#  define WINDOWS_STUFF
+#  include "platform.win.h"
+#else
+#  include "platform.linux.h"
+#endif

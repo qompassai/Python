@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a0522a7aff94aaeede5017420ef5055031d43d318f8bbd71089ac31fc727431a
-size 84
+Restore ``_PyWeakref_ClearRef`` that was previously removed in Python 3.13
+alpha 1.

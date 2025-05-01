@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11c324702510dd1042a6896347b11bf677f077f9ea6e2e76ce67686e16a74fce
-size 278
+China Mainland Unified Social Credit Code
+==========================================
+
+.. autoclass:: sdgx.data_models.inspectors.personal.ChinaMainlandUnifiedSocialCreditCode
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:
+    :private-members:

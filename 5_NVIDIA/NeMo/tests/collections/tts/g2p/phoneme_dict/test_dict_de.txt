@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eaed255d0558a87089c832a75d9a36ac3810bb0df90ca29f415e1d20c2cb005a
-size 55
+HALLO  hˈaloː
+WELT  vˈɛlt
+Weg  vˈeːk
+weg  vˈɛk

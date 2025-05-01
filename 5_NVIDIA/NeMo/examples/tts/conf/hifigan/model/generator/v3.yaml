@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:43d64dd5e24b5ca5c71b0d52f5c75df5f377439523d95d0472eceb5f8a4327f7
-size 243
+_target_: nemo.collections.tts.modules.hifigan_modules.Generator
+resblock: 2
+upsample_rates: [8,8,4]
+upsample_kernel_sizes: [16,16,8]
+upsample_initial_channel: 256
+resblock_kernel_sizes: [3,5,7]
+resblock_dilation_sizes: [[1,2], [2,6], [3,12]]

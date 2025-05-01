@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ea1c80524412076d29750657d71d8d23a780540407d6470802f48a51f1e0ba77
-size 474
+# This effectively does a `find_package` actually going through the find_package
+# machinery. Using `find_package` works for the first configure, but creates
+# inconsistencies during subsequent configurations when using CPM..
+#
+# More details are in the discussion at
+# https://github.com/NVIDIA/libcudacxx/pull/242#discussion_r794003857
+include(${cudax_SOURCE_DIR}/lib/cmake/cudax/cudax-config-version.cmake)
+include(${cudax_SOURCE_DIR}/lib/cmake/cudax/cudax-config.cmake)

@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3d4bc81afd75f7531cc20fff77cdafd233835ef56a2cac38dee4f55c9193d7fa
-size 670
+Model,Model Base Class,Model Card
+stt_enes_conformer_ctc_large,EncDecCTCModelBPE,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_enes_conformer_ctc_large"
+stt_enes_conformer_transducer_large,EncDecRNNTBPEModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_enes_conformer_transducer_large"
+stt_multilingual_fastconformer_hybrid_large_pc,EncDecHybridRNNTCTCBPEModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_multilingual_fastconformer_hybrid_large_pc"
+stt_multilingual_fastconformer_hybrid_large_pc_blend_eu,EncDecHybridRNNTCTCBPEModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_multilingual_fastconformer_hybrid_large_pc_blend_eu"

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1197dc1c204ecdafb68a3a112d57296a34b428cb93baeffc76fc9ff4440de542
-size 351
+import pytest
+
+from sdgx.data_models.inspectors.manager import InspectorManager
+
+
+@pytest.fixture
+def manager():
+    yield InspectorManager()
+
+
+def test_registed_cacher(manager: InspectorManager):
+    assert manager._normalize_name("DummyInspector") in manager.registed_inspectors
+
+
+if __name__ == "__main__":
+    pytest.main(["-vv", "-s", __file__])

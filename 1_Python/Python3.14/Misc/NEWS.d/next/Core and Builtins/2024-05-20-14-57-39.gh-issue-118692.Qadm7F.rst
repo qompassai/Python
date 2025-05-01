@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:699fff6654da3efa0812d85c9db1702095c65dd1df9bcc34ed19bc22a7808b60
-size 74
+Avoid creating unnecessary :exc:`StopIteration` instances for monitoring.

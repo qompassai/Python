@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f2668d0d3635d36b887c3c7b299b943c34c0340f525e2b8c8b3e49226db43cf6
-size 67
+Add ``socket.VMADDR_CID_LOCAL`` constant. Patch by Victor Stinner.

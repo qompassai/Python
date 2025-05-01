@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:da2939a30dfbb4fc63ee211e2c43f2de0d9bb1c6e755ebc3444f8e7864925183
-size 101
+Fix bug where names appearing after a generic class are mangled as if they
+are in the generic class.

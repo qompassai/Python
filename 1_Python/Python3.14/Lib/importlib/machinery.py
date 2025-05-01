@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eb28137f5a16b741e5a76a49cf805be17e5c066a3225e05e1599c2b69161f4ac
-size 1352
+"""The machinery of importlib: finders, loaders, hooks, etc."""
+
+from ._bootstrap import ModuleSpec
+from ._bootstrap import BuiltinImporter
+from ._bootstrap import FrozenImporter
+from ._bootstrap_external import (SOURCE_SUFFIXES, DEBUG_BYTECODE_SUFFIXES,
+                     OPTIMIZED_BYTECODE_SUFFIXES, BYTECODE_SUFFIXES,
+                     EXTENSION_SUFFIXES)
+from ._bootstrap_external import WindowsRegistryFinder
+from ._bootstrap_external import PathFinder
+from ._bootstrap_external import FileFinder
+from ._bootstrap_external import SourceFileLoader
+from ._bootstrap_external import SourcelessFileLoader
+from ._bootstrap_external import ExtensionFileLoader
+from ._bootstrap_external import AppleFrameworkLoader
+from ._bootstrap_external import NamespaceLoader
+
+
+def all_suffixes():
+    """Returns a list of all recognized module suffixes for this process"""
+    return SOURCE_SUFFIXES + BYTECODE_SUFFIXES + EXTENSION_SUFFIXES
+
+
+__all__ = ['AppleFrameworkLoader', 'BYTECODE_SUFFIXES', 'BuiltinImporter',
+           'DEBUG_BYTECODE_SUFFIXES', 'EXTENSION_SUFFIXES',
+           'ExtensionFileLoader', 'FileFinder', 'FrozenImporter', 'ModuleSpec',
+           'NamespaceLoader', 'OPTIMIZED_BYTECODE_SUFFIXES', 'PathFinder',
+           'SOURCE_SUFFIXES', 'SourceFileLoader', 'SourcelessFileLoader',
+           'WindowsRegistryFinder', 'all_suffixes']

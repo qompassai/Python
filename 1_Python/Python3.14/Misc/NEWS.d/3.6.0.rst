@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c6f18371e722e0dbcdd28e968c0197054acef5bdedbf3e39e02f5f8b273068b3
-size 147
+.. bpo: 0
+.. date: 9796
+.. no changes: True
+.. nonce: F9ENBV
+.. release date: 2016-12-23
+.. section: Library
+
+No changes since release candidate 2

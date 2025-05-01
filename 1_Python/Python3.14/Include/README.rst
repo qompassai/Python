@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b8e56d993cbd50daf76c822fe2cc28d40a3e66cec167224e0b06172fbc021d4
-size 486
+The Python C API
+================
+
+The C API is divided into these sections:
+
+1. ``Include/``: Limited API
+2. ``Include/cpython/``: CPython implementation details
+3. ``Include/cpython/``, names with the ``PyUnstable_`` prefix: API that can
+   change between minor releases
+4. ``Include/internal/``, and any name with ``_`` prefix: The internal API
+
+Information on changing the C API is available `in the developer guide`_
+
+.. _in the developer guide: https://devguide.python.org/c-api/

@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c767403526a8523ac52ad2da648e8751aaf9de8752f6b3a0ac48b4661e6f3976
-size 1227
+//===----------------------------------------------------------------------===//
+//
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES.
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef _LIBCUDACXX___UTILITY_UNREACHABLE_H
+#define _LIBCUDACXX___UTILITY_UNREACHABLE_H
+
+#include <cuda/std/detail/__config>
+
+#if defined(_CCCL_IMPLICIT_SYSTEM_HEADER_GCC)
+#  pragma GCC system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_CLANG)
+#  pragma clang system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_MSVC)
+#  pragma system_header
+#endif // no system header
+
+#include <cuda/std/detail/libcxx/include/cstdlib>
+
+_LIBCUDACXX_BEGIN_NAMESPACE_STD
+
+_CCCL_NORETURN _LIBCUDACXX_INLINE_VISIBILITY inline void __libcpp_unreachable()
+{
+  _LIBCUDACXX_UNREACHABLE();
+}
+
+#if _CCCL_STD_VER > 2020
+
+[[noreturn]] _LIBCUDACXX_INLINE_VISIBILITY inline void unreachable()
+{
+  _LIBCUDACXX_UNREACHABLE();
+}
+
+#endif // _CCCL_STD_VER > 2020
+
+_LIBCUDACXX_END_NAMESPACE_STD
+
+#endif

@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1dc962b437f2fd60c7baa412eecfc31dca6609e9eff15d8273383d07938e90f5
-size 869
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {"do_apply" = id; "do_filetype" = id; "do_reset" = id; }; 
+            CLASS = PreferencesWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                commandline = NSTextField; 
+                debug = NSButton; 
+                filetype = NSPopUpButton; 
+                honourhashbang = NSButton; 
+                inspect = NSButton; 
+                interpreter = NSTextField; 
+                nosite = NSButton; 
+                optimize = NSButton; 
+                others = NSTextField; 
+                tabs = NSButton; 
+                verbose = NSButton; 
+                "with_terminal" = NSButton; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

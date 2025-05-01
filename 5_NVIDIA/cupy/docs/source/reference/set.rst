@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cd08831ddc51b1abd9e72cb6bfad3f8c419b37646302e9ebd63af5784f246e7e
-size 389
+Set routines
+============
+
+.. Hint:: `NumPy API Reference: Set routines <https://numpy.org/doc/stable/reference/routines.set.html>`_
+
+.. currentmodule:: cupy
+
+Making proper sets
+------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   unique
+
+
+Boolean operations
+------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   in1d
+   intersect1d
+   isin
+   setdiff1d
+   setxor1d

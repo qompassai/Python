@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dba95118d8472277e0137b000e85d05482228457a75c36e6970fe0ad855851a2
-size 233
+from __future__ import annotations
+
+from sdgx.cachers.base import Cacher
+
+
+class MyOwnCache(Cacher): ...
+
+
+from sdgx.cachers.extension import hookimpl
+
+
+@hookimpl
+def register(manager):
+    manager.register("DummyCache", MyOwnCache)

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4113c37bc7f93ba859bb1911a17a28a90d238e4483661d589e62574a86581f37
-size 339
+.. _libcudacxx-extended-api-streams:
+
+Streams
+=======
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   cuda::stream_ref <streams/stream_ref>
+
+.. list-table::
+   :widths: 25 45 30
+   :header-rows: 0
+
+   * - :ref:`stream_ref <libcudacxx-extended-api-streams-stream-ref>`
+     - A wrapper around a ``cudaStream_t``
+     - CCCL 2.2.0 / CUDA 12.3

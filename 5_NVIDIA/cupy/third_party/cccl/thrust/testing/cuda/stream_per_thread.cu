@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a4017a1a39f93ae12fb18263ea8c9c807effcd1f1a704fdb25cb776286a612b5
-size 432
+#include <thrust/execution_policy.h>
+#include <thrust/system/cuda/detail/util.h>
+
+#include <thread>
+
+#include <unittest/unittest.h>
+
+void verify_stream()
+{
+  auto exec   = thrust::device;
+  auto stream = thrust::cuda_cub::stream(exec);
+  ASSERT_EQUAL(stream, cudaStreamPerThread);
+}
+
+void TestPerThreadDefaultStream()
+{
+  verify_stream();
+
+  std::thread t(verify_stream);
+  t.join();
+}
+DECLARE_UNITTEST(TestPerThreadDefaultStream);

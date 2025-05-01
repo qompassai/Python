@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ca93ee648983f6a2823ea88fede754090bdf5aacbce3becf237fc240ddf4a5e4
-size 131
+Fix :meth:`!io.TextIOWrapper.write` method breaks internal buffer when the method is called again during flushing internal buffer.

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9c0bdd0d56755f255a95525967e69377ed1d9066ec66cda21cc1347dbfd6c906
-size 175
+_target_: nemo.collections.tts.modules.univnet_modules.Generator
+noise_dim: 64
+channel_size: 16
+dilations: [1, 3, 9, 27]
+strides: [8, 8, 4]
+lrelu_slope: 0.2
+kpnet_conv_size: 3

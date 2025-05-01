@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:300f627fc2199deb246ec793ef47b032de742d763a4170c8bb15e19ccbf602a5
-size 308
+"""Test util, coverage 100%"""
+
+import unittest
+from idlelib import util
+
+
+class UtilTest(unittest.TestCase):
+    def test_extensions(self):
+        for extension in {'.pyi', '.py', '.pyw'}:
+            self.assertIn(extension, util.py_extensions)
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

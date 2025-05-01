@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c3b309d586dbdaad010de3675fc790fcdbb1e8ce864c2def0ce52e2fb887e8ad
-size 494
+# Python 3.14 (No GIL) for ARM64
+
+This is a custom build of Python 3.14.0a0 with the following specifications:
+
+- Compiled on Ubuntu 24.04
+- Global Interpreter Lock (GIL) disabled
+- Optimizations enabled
+- Compiled on NVIDIA AGX Orin Developer Kit
+- Target architecture: ARM64
+
+## Installation
+
+Extract the tarball and run the binary:
+
+```
+tar -xzvf p3.14noGIL_arm64.tar.gz
+./p3.14noGIL_arm64
+```
+
+## Notes
+
+This is an alpha version of Python 3.14. Use with caution in production environments.

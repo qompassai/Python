@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5b957050dad83160f3a3b632dd1904580cc7c96fb2cb2a4e59adc835cc1557e3
-size 110
+Add :meth:`pathlib.Path.copy`, which copies the content of one file to another,
+like :func:`shutil.copyfile`.

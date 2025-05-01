@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dd1a5636d76693251760eed708bf00f25b2f345df14a3efe70e90b3bb6892d56
-size 90
+Model Name,Language,MCV Test-Set v10.0 (kab)
+stt_kab_conformer_transducer_large,kab,18.86

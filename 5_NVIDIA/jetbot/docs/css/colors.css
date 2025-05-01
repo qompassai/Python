@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8b4cebe1ae6cbdcec33339e8f0536ce8514ff81e491a8a5ae0404f7e98329122
-size 189
+[data-md-color-scheme="nvgreen"] {
+	--md-primary-fg-color:        #76B900;
+	--md-primary-fg-color--light: #C5E1A5;
+	--md-primary-fg-color--dark:  #004D40;
+	--md-accent-fg-color: #FF087F;
+}

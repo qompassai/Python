@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cde74631c8c47b65b384aeb0b7c65ce0eed4ce33028dc897ab6120c3957eb726
-size 211
+# Display Container
+
+This container includes
+
+* A launch script to show JetBot stats on PiOLED display
+
+#### Build
+
+```bash
+cd docker/display
+./build.sh
+```
+
+#### Run
+
+```bash
+cd docker/display
+./enable.sh
+```
+

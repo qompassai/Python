@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d062d58d47f2a3a5509935d6e42426d6774ff0cc63b4f6e566ba8bf83d1482e9
-size 304
+Convert the Python evaluation stack to use internal stack references. The
+purpose is to support tagged pointers. In :pep:`703`, this will
+allow for its form of deferred reference counting. For both
+the default and free-threaded builds, this sets up the infrastructure
+for unboxed integers in the future.

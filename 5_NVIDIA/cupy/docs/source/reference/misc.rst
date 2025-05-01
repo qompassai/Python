@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:672b74159135130168140adea383eaf234430ebfcaf1283f80911a7ae2761352
-size 490
+Miscellaneous routines
+======================
+
+.. Hint:: `NumPy API Reference: Miscellaneous routines <https://numpy.org/doc/stable/reference/routines.other.html>`_
+
+.. currentmodule:: cupy
+
+Memory ranges
+-------------
+
+.. autosummary::
+   :toctree: generated/
+
+   byte_bounds
+   shares_memory
+   may_share_memory
+
+Utility
+-------------
+
+.. autosummary::
+   :toctree: generated/
+
+   show_config
+
+Matlab-like Functions
+---------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   who

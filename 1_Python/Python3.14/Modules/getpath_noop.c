@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8573d6611493b22ad038c1d208ef82755e430afa9a0b0ba9bd146160278a9f74
-size 267
+/* Implements the getpath API for compiling with no functionality */
+
+#include "Python.h"
+#include "pycore_pathconfig.h"
+
+PyStatus
+_PyConfig_InitPathConfig(PyConfig *config, int compute_path_config)
+{
+    return PyStatus_Error("path configuration is unsupported");
+}

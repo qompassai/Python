@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fef90a97f5d95ee21bab1068b947b8db172027417f23938a3b1dc3c38cdedebc
-size 505
+.. module:: cupyx.scipy.stats
+
+Statistical functions (:mod:`cupyx.scipy.stats`)
+================================================
+
+.. Hint:: `SciPy API Reference: Statistical functions (scipy.stats) <https://docs.scipy.org/doc/scipy/reference/stats.html>`_
+
+
+Summary statistics
+------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   trim_mean
+   entropy
+
+
+Other statistical functionality
+-------------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   boxcox_llf
+   zmap
+   zscore
+

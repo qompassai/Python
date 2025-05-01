@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a3fd8fb9d2a27bfdfa166379d26e59ee96e13419dd7e3a7fad4b08a338a98636
-size 421
+import pytest
+
+from cupy import array_api as xp
+
+
+@pytest.mark.parametrize(
+    "from_, to, expected",
+    [
+        (xp.int8, xp.int16, True),
+        (xp.int16, xp.int8, False),
+        (xp.bool, xp.int8, False),
+        (xp.asarray(0, dtype=xp.uint8), xp.int8, False),
+    ],
+)
+def test_can_cast(from_, to, expected):
+    """
+    can_cast() returns correct result
+    """
+    assert xp.can_cast(from_, to) == expected

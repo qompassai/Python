@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a621dae4c1f71e247fefb5512c03bcb2b8a2a82bf76a9f324ffa3d789c93ebcb
-size 327
+description: Employees without a purchase since Feb 1, 2024
+sql: |
+  SELECT employees.name as employees_without_purchases
+  FROM employees.csv AS employees
+  LEFT JOIN purchases.csv AS purchases ON employees.employee_id = purchases.employee_id
+  AND purchases.purchase_date > '2024-02-01'
+  WHERE purchases.purchase_id IS NULL

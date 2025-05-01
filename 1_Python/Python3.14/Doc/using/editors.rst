@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:808244cff1b35346204892a1955d9c2ffe7c8203cb50dfb6ce2e3a1dae108e1c
-size 461
+.. highlight:: none
+
+.. _editors:
+
+******************
+ Editors and IDEs
+******************
+
+There are a number of IDEs that support Python programming language.
+Many editors and IDEs provide syntax highlighting, debugging tools, and :pep:`8` checks.
+
+Please go to `Python Editors <https://wiki.python.org/moin/PythonEditors>`_ and
+`Integrated Development Environments <https://wiki.python.org/moin/IntegratedDevelopmentEnvironments>`_
+for a comprehensive list.

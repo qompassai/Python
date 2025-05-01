@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:608b50ce857a917d55ba0e01e3f093b96a2629ce9311c903de6ff9ba2a893ad0
-size 57
+Fix deprecation warning for ATOMIC_VAR_INIT in mimalloc.

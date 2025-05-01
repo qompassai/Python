@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:391475c76c25e97327f56e6a89999a895ffdddef77a14b5e090c1ef02289e975
-size 421
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Python Documentation contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+.. toctree::
+
+   whatsnew/index.rst
+   tutorial/index.rst
+   using/index.rst
+   reference/index.rst
+   library/index.rst
+   extending/index.rst
+   c-api/index.rst
+   installing/index.rst
+   howto/index.rst
+   faq/index.rst
+   deprecations/index.rst
+   glossary.rst
+
+   about.rst
+   bugs.rst
+   copyright.rst
+   license.rst

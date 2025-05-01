@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c41443b53cd684f567c8bbda054f288363e006e3fc852c892a2a552226e0edf
-size 126
+Add :c:macro:`PyHASH_MULTIPLIER` constant: prime multiplier used in string
+and various other hashes. Patch by Victor Stinner.

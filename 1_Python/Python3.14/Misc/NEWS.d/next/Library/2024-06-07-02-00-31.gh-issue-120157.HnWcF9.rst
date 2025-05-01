@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:13a0c4d3566738f1aa30906304b771806c8e380f2600218633411399934867b1
-size 134
+Remove unused constant ``concurrent.futures._base._FUTURE_STATES`` in :mod:`concurrent.futures`. Patch by Clinton Christian (pygeek).

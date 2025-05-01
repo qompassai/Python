@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:42643f1cd8c18a20a5abe334de979f90d5d130783c902e19759ec9f427295f1a
-size 73
+The critical section API is now public as part of the non-limited C API.

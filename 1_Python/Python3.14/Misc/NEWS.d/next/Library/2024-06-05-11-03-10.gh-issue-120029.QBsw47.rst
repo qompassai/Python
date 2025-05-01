@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9487abb643aed94e43c01a4f291b44f27c161db667f52225490c852bdfd8ebdc
-size 188
+Expose :class:`symtable.Symbol` methods :meth:`~symtable.Symbol.is_free_class`,
+:meth:`~symtable.Symbol.is_comp_iter` and :meth:`~symtable.Symbol.is_comp_cell`.
+Patch by Bénédikt Tran.
+

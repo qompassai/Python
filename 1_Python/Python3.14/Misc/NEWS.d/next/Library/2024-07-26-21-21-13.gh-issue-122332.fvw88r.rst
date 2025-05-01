@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c7e69e122533b3f04092d5bbe5bd86e57e5aa3eb3b8ad6f1dff60e69f4d716d
-size 84
+Fixed segfault with :meth:`asyncio.Task.get_coro` when using an eager task
+factory.

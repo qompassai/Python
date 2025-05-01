@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2eb312528d577bccb6233830edc2a62be65d45a5e5034ab06f1f4188a0a4f933
-size 238
+# Requirements file for external linters and checks we run on
+# Tools/clinic, Tools/cases_generator/, and Tools/peg_generator/ in CI
+mypy==1.11.1
+
+# needed for peg_generator:
+types-psutil==6.0.0.20240621
+types-setuptools==71.1.0.20240726

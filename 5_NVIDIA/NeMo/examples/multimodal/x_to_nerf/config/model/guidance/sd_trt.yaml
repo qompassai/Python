@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75fd8896caecbc107c14428ba71b29a73b96c3a8475c4db805e8a93abf47c512
-size 237
+_target_: nemo.collections.multimodal.modules.nerf.guidance.stablediffusion_trt_pipeline.StableDiffusion
+checkpoint: /sd_checkpoints/nemo-1.5/sd-1.5.nemo
+plan_dir: /sd_checkpoints/nemo-1.5/plan
+sampler_type=: DDIM"
+t_range: [0.02, 0.98]

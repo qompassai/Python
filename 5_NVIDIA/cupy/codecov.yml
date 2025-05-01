@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ed5ff9b41fa5fec8fff765787c59c886d1fc80160fd463603152f5333661b926
-size 320
+comment: false
+github_checks:
+  annotations: false
+
+coverage:
+  status:
+    # Disable coverage measurement for overall codebase.
+    project: off
+    # Enable coverage measurement for diff introduced in the pull-request,
+    # but do not mark "X" on commit status for now.
+    patch:
+      default:
+        target: '0%'

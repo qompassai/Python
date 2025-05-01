@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:879621b027682521f92f7003f69c05fed13ed59857ae020f878ee6775e5732be
-size 245
+*~
+*.egg/
+*.pyc
+*.pyo
+*.pyd
+*.cpp
+*.so
+build
+\#*\#
+.\#*
+.coverage
+.eggs/
+.mypy_cache
+_readthedocs_build
+/TAGS
+/docs/source/reference/**/generated
+/tags
+*.egg-info/
+dist/
+htmlcov/
+.idea/
+.vs/
+.cache/
+.pytest_cache/
+cupy/.data/
+cupy/cuda/thrust.h

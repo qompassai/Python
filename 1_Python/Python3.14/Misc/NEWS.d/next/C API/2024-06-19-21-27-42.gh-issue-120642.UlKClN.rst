@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:90d4b379708b7bee0faf825f5096c5b58d3a390f68a627fe3ca62838f995e6ab
-size 284
+Remove the following unstable functions:
+
+* ``PyUnstable_Replace_Executor()``
+* ``PyUnstable_SetOptimizer()``
+* ``PyUnstable_GetOptimizer()``
+* ``PyUnstable_GetExecutor()``
+* ``PyUnstable_Optimizer_NewCounter()``
+* ``PyUnstable_Optimizer_NewUOpOptimizer()``
+
+Patch by Victor Stinner.

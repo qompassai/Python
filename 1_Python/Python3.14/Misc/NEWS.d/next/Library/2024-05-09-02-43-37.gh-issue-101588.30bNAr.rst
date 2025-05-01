@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:93d205b6b3b19862e4fbb5f524ea9bc14fa92bca429f305918545da99a7ef974
-size 118
+Remove copy, deepcopy, and pickle from itertools. These had previously
+raised a DeprecationWarning since Python 3.12.

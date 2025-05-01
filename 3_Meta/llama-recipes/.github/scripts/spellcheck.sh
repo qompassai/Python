@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc28026ce8db94791323c3777ee5bee6688bf3e307f85b48d64760a7c5aed6f6
-size 609
+
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
+# Source: https://github.com/pytorch/torchx/blob/main/scripts/spellcheck.sh
+set -ex
+sudo apt-get install aspell
+
+if [[ -z "$@" ]]; then
+    sources=$(find -name '*.md')
+else
+    sources=$@
+fi
+
+sources_arg=""
+for src in $sources; do
+        sources_arg="${sources_arg} -S $src"
+done
+
+if [ ! "$sources_arg" ]; then
+	echo "No files to spellcheck"
+else
+	pyspelling -c .github/scripts/spellcheck_conf/spellcheck.yaml --name Markdown $sources_arg
+fi

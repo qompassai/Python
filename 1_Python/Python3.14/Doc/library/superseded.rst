@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:abef9da5f7bec1ea547280f13d5514baa9c657743391315066166604b72dd00c
-size 304
+.. _superseded:
+
+******************
+Superseded Modules
+******************
+
+The modules described in this chapter are deprecated or :term:`soft deprecated` and only kept for
+backwards compatibility. They have been superseded by other modules.
+
+
+.. toctree::
+   :maxdepth: 1
+
+   getopt.rst
+   optparse.rst

@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e1165823403084ceadf5bfbd8925515b4b1b0fcfe0e54e4b0b8f55e2804c602e
-size 1103
+//===----------------------------------------------------------------------===//
+//
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef DEFAULTONLY_H
+#define DEFAULTONLY_H
+
+#include <cuda/std/cassert>
+
+#include "test_macros.h"
+
+class DefaultOnly
+{
+  int data_;
+
+  __host__ __device__ DefaultOnly(const DefaultOnly&);
+  __host__ __device__ DefaultOnly& operator=(const DefaultOnly&);
+
+public:
+  STATIC_MEMBER_VAR(count, int);
+
+  __host__ __device__ DefaultOnly()
+      : data_(-1)
+  {
+    ++count();
+  }
+  __host__ __device__ ~DefaultOnly()
+  {
+    data_ = 0;
+    --count();
+  }
+
+  __host__ __device__ friend bool operator==(const DefaultOnly& x, const DefaultOnly& y)
+  {
+    return x.data_ == y.data_;
+  }
+  __host__ __device__ friend bool operator<(const DefaultOnly& x, const DefaultOnly& y)
+  {
+    return x.data_ < y.data_;
+  }
+};
+
+#endif // DEFAULTONLY_H

@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc4983d83de1ed5ffb2656ed3f376fb0eeac30bfe63557866621bf412bb531ee
-size 511
+/* Return the copyright string.  This is updated manually. */
+
+#include "Python.h"
+
+static const char cprt[] =
+"\
+Copyright (c) 2001-2024 Python Software Foundation.\n\
+All Rights Reserved.\n\
+\n\
+Copyright (c) 2000 BeOpen.com.\n\
+All Rights Reserved.\n\
+\n\
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.\n\
+All Rights Reserved.\n\
+\n\
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.\n\
+All Rights Reserved.";
+
+const char *
+Py_GetCopyright(void)
+{
+    return cprt;
+}

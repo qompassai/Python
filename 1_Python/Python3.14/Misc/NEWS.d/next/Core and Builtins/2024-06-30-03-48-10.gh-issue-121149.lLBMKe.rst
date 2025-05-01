@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d26ea0e34504370708f1b5806e8867227103d26d24d53178b40c88b17eb2c7e7
-size 147
+Added specialization for summation of complexes, this also improves accuracy
+of builtin :func:`sum` for such inputs.  Patch by Sergey B Kirpichev.

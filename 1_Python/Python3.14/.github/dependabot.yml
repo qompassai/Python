@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a90907443362430d1fce64043cdfd76b7c895d10643da648946045209dc87a5
-size 466
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels:
+      - "skip issue"
+      - "skip news"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
+  - package-ecosystem: "pip"
+    directory: "/Tools/"
+    schedule:
+      interval: "monthly"
+    labels:
+      - "skip issue"
+      - "skip news"

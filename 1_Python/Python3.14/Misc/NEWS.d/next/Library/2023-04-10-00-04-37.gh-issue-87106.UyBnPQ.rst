@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:99e1f8bee849d83430c12fc376de541d63f1c659469d2f1cf040ce0e3d84ae6b
-size 185
+Fixed handling in :meth:`inspect.Signature.bind` of keyword arguments having
+the same name as positional-only arguments when a variadic keyword argument
+(e.g. ``**kwargs``) is present.

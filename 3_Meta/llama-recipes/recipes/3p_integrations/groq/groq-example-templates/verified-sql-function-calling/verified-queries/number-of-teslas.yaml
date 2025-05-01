@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df1c15041764eee386bdc3bb604e410b8e9343111bd9228d1b955a8eff90e730
-size 203
+description: Number of Teslas purchased
+sql: |
+  SELECT COUNT(*) as number_of_teslas
+  FROM purchases.csv AS p
+  JOIN employees.csv AS e ON e.employee_id = p.employee_id
+  WHERE p.product_name = 'Tesla'

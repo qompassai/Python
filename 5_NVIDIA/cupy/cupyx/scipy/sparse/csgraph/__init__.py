@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:269234cb8bdc435f838450d59254de1e40911cfd3a9e55a01055b2d620fdeaee
-size 191
+# Functions from the following SciPy document
+# https://docs.scipy.org/doc/scipy/reference/sparse.csgraph.html
+
+from cupyx.scipy.sparse.csgraph._traversal import connected_components  # NOQA

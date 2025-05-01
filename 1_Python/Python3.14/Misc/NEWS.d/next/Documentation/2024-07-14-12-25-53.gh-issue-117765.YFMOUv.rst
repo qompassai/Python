@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:abcd2622e56264e4630b655aa2b392d29a6912ba849b73b15320bec7b766de09
-size 60
+Improved documentation for :func:`unittest.mock.patch.dict`

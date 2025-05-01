@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ff53f1097f64330329b80658b594780a9da72aae76bb53c4b4a6a8e6d33e3fa3
-size 422
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="Descriptor">Test Suite</String>
+    <String Id="ShortDescriptor">test</String>
+    <String Id="NativeModulesTitle">!(loc.FullProductName) native libtest</String>
+    <String Id="NativeModulesDescription">!(loc.ProductName) Native Test Modules</String>
+</WixLocalization>

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4e11e7216dc5f47a3360bdad3ade7b4cd16e0463ab014b06c91311c712f4396d
-size 369
+(Inverse) Text Normalization
+============================
+
+NeMo supports Text Normalization (TN) and Inverse Text Normalization (ITN) tasks via rule-based `nemo_text_processing` python package and Neural-based TN/ITN models.
+
+Rule-based (WFST) TN/ITN:
+
+.. toctree::
+   :maxdepth: 2
+
+   wfst/intro
+
+
+Neural-based TN/ITN:
+
+.. toctree::
+   :maxdepth: 2
+
+   neural_models
+

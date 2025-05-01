@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f1340e12ddea9e87ed7e7877cd99883c9c7005a6d271d08c997b50ebc522714a
-size 191
+_target_: nemo.collections.tts.parts.preprocessing.audio_trimming.EnergyAudioTrimmer
+
+db_threshold: 50.0
+speech_frame_threshold: 3
+trim_win_length: 4096
+trim_hop_length: 1024
+pad_seconds: 0.2

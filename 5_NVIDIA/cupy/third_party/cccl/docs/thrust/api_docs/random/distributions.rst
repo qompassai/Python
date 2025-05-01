@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8676b2b5e72528f4fada197670ca702ce6527cb564792a30c6af9e02ac4fc6b0
-size 530
+.. _thrust-module-api-random-number-generators-distributions:
+
+Random Number Distributions
+----------------------------
+
+  - :cpp:class:`thrust::random::normal_distribution <thrust::random::normal_distribution>`
+  - :cpp:class:`thrust::random::uniform_int_distribution <thrust::random::uniform_int_distribution>`
+  - :cpp:class:`thrust::random::uniform_real_distribution <thrust::random::uniform_real_distribution>`
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   ${repo_docs_api_path}/*function_group__random__number__distributions*

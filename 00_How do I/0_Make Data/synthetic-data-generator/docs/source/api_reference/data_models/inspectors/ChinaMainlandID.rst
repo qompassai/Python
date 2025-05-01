@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d1a871d483b5bd937358f61c3eeace4b84f2007bdcfe9eae2b25629f840fc8f6
-size 228
+China Mainland ID
+============================
+
+.. autoclass:: sdgx.data_models.inspectors.personal.ChinaMainlandIDInspector
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:
+    :private-members:

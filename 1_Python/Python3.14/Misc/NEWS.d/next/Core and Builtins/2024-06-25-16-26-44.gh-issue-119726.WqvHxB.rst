@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:99c10f3b5eb027d9f4ab63804f34386ff2051dce7b852d7b0912b03514246767
-size 100
+Improve the speed and memory use of C function calls from JIT code on AArch64.
+Patch by Diego Russo

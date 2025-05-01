@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:82d549d5f9cee7456fe0c54f1ed5fe5085751ea8592001a8fc52bee459d79d68
-size 48
+Ignore warnings on text completion inside REPL.

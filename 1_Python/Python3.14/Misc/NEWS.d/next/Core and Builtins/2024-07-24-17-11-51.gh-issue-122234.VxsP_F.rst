@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:23941fc8865d64c01105c55ffca7fce33dba25d36d1f89f11c94a4dcee5fbea7
-size 273
+Specializations for sums with float and complex inputs in :func:`sum()` now
+always use compensated summation.  Also, for integer items in above
+specializations: :c:func:`PyLong_AsDouble` is used, instead of
+:c:func:`PyLong_AsLongAndOverflow`.  Patch by Sergey B Kirpichev.

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f844d3062dc1c831911989200491903f2da8353424617e07866ffd1cbe34a844
-size 245
+from libc.stdint cimport intptr_t
+
+cdef intptr_t get_current_stream_ptr()
+cdef intptr_t get_stream_ptr(int device_id)
+cdef set_current_stream_ptr(intptr_t ptr, int device_id=*)
+cpdef intptr_t get_default_stream_ptr()
+cdef bint is_ptds_enabled()

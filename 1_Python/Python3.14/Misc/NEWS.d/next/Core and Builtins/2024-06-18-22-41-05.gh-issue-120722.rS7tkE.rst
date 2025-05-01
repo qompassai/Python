@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5c3b9d5dee2f70be80aaabaa8d9e668ad6bc210c5e25cca8ab93da9eebaa2a5d
-size 100
+Correctly set the bytecode position on return instructions within lambdas.
+Patch by Jelle Zijlstra.

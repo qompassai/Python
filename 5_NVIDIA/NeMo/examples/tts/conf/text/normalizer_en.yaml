@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d27284112f439d57f89a86df5dd76de470d59d55430cf0c712b720e903ca6e41
-size 97
+_target_: nemo_text_processing.text_normalization.normalize.Normalizer
+lang: en
+input_case: cased

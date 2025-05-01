@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:935da59da4b75c8a447e5bf37f798cfe2654aea5643024d4fca09bd1c77eb12e
-size 382
+// This file is a stub header file of cuda for Read the Docs.
+
+#ifndef INCLUDE_GUARD_STUB_CUPY_PROFILER_H
+#define INCLUDE_GUARD_STUB_CUPY_PROFILER_H
+
+#include "cupy_cuda_common.h"
+
+extern "C" {
+
+cudaError_t cudaProfilerStart() {
+  return cudaSuccess;
+}
+
+cudaError_t cudaProfilerStop() {
+  return cudaSuccess;
+}
+
+} // extern "C"
+
+#endif // #ifndef INCLUDE_GUARD_STUB_CUPY_PROFILER_H

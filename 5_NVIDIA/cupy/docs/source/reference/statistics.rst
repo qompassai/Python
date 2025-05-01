@@ -1,3 +1,61 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ff3bb40a44bec022fa75557e4947501a1813a7f3a60b0f133928c1d075769836
-size 721
+Statistics
+==========
+
+.. Hint:: `NumPy API Reference: Statistics <https://numpy.org/doc/stable/reference/routines.statistics.html>`_
+
+.. currentmodule:: cupy
+
+Order statistics
+----------------
+
+.. autosummary::
+   :toctree: generated/
+
+   amin
+   amax
+   nanmin
+   nanmax
+   ptp
+   percentile
+   quantile
+
+
+Averages and variances
+----------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   median
+   average
+   mean
+   std
+   var
+   nanmedian
+   nanmean
+   nanstd
+   nanvar
+
+
+Correlations
+------------
+
+.. autosummary::
+   :toctree: generated/
+
+   corrcoef
+   correlate
+   cov
+
+
+Histograms
+----------
+
+.. autosummary::
+   :toctree: generated/
+
+   histogram
+   histogram2d
+   histogramdd
+   bincount
+   digitize

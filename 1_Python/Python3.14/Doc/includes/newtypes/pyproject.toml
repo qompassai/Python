@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:08f1a611684984ff5165b3542d6b764ad13f81ba10882bf86eb4cb5fef6097bc
-size 122
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "custom"
+version = "1"

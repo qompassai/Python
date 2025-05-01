@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:13bdfa68cc615388cb8889fb0c7ed1d823ea149436eb86e27307df9b93cdaf5e
-size 97
+def evens():
+    i = 0
+    while True:
+        i += 1
+        if i % 2 == 0:
+            yield i

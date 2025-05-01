@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d08d3963920c669b5107e2207acaf438b131cc5ec2676165a1e3f5b71abe6730
-size 74
+Fix crash when rematerializing a managed dictionary after it was deleted.

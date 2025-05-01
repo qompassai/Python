@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0bb560c11ee1c6bf0ed75a02aee696f54c4b802528814075f0fcc277e5def251
-size 251
+_target_: nemo.collections.multimodal.modules.nerf.background.torchngp_background.TorchNGPBackground
+
+encoder_type: "frequency"
+encoder_input_dims: 3
+encoder_multi_res: 6
+
+num_output_dims: 3
+net_cfg:
+  num_hidden_dims: 32
+  num_layers: 2
+  bias: True

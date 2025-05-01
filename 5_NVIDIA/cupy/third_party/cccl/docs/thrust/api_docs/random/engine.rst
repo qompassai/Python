@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0db5f66ed886fe618d02a741aea7d41f3513a53301aed0b3b734d4c58b6107e7
-size 540
+.. _thrust-module-api-random-number-generators-engines:
+
+Random Number Engines
+----------------------
+
+  - :cpp:class:`thrust::random::linear_congruential_engine <thrust::random::linear_congruential_engine>`
+  - :cpp:class:`thrust::random::linear_feedback_shift_engine <thrust::random::linear_feedback_shift_engine>`
+  - :cpp:class:`thrust::random::subtract_with_carry_engine <thrust::random::subtract_with_carry_engine>`
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   ${repo_docs_api_path}/*function_group__random__number__engine__templates*

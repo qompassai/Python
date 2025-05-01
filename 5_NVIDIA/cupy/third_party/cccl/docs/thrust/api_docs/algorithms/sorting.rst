@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a651864d27b38214ab8adbbc82819b7aee64f9c6ab127851f23e84d121a71244
-size 152
+.. _thrust-module-api-algorithms-sorting:
+
+Sorting
+--------
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   ${repo_docs_api_path}/*function_group__sorting*

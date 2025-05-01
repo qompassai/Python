@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc3b89df4eb555d6a6a58df30883a65e2054be6edb9b416f5955a17dee991994
-size 284
+NeMo Speaker Recognition API
+=============================
+
+
+Model Classes
+-------------
+.. autoclass:: nemo.collections.asr.models.label_models.EncDecSpeakerLabelModel
+    :show-inheritance:
+    :members: setup_finetune_model, get_embedding, verify_speakers, verify_speakers_batch
+
+

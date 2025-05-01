@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:54111e0a0ea50eb2938150c8d5cb1c024024bb4b7247bc32b02b6b278b7d3bde
-size 92
+The *shallow* argument to :class:`filecmp.dircmp` (new in Python 3.13) is
+now keyword-only.

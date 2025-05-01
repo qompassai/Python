@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b8b71235d7ae630d1e270f2f41931e927e6e98c2d1854cd9eaa07fa6cf37ef90
-size 526
+[run]
+branch = True
+
+[report]
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    # Don't complain if non-runnable code isn't run:
+    if 0:
+    if __name__ == .__main__.:
+    raise AssertionError\(
+
+    # Empty bodies in protocols or abstract methods
+    ^\s*def [a-zA-Z0-9_]+\(.*\)(\s*->.*)?:\s*\.\.\.(\s*#.*)?$
+    ^\s*\.\.\.(\s*#.*)?$
+
+    .*# pragma: no cover
+    .*# pragma: no branch
+
+    # Additions for IDLE:
+    .*# htest #
+    if not (_htest or _utest):
+    if not .*_utest:
+    if .*_htest:
+    

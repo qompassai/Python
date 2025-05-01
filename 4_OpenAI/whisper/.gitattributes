@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c32d92ae6dda785a8fac2c0c628fcc9918ccfbf92b550d6ce5d2365f6c497fc1
-size 214
+# Override jupyter in Github language stats for more accurate estimate of repo code languages
+# reference: https://github.com/github/linguist/blob/master/docs/overrides.md#generated-code
+*.ipynb linguist-generated

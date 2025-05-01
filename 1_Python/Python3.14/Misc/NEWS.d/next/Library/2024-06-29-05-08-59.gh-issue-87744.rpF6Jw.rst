@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c526a7c28b9bf1a3ccde5891e35a1184ecfc5f4a101618e8ea13fa1f16feb5a1
-size 114
+Fix waitpid race while calling :meth:`~asyncio.subprocess.Process.send_signal` in asyncio. Patch by Kumar Aditya.

@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:90a775a66bd245a033476d10a90eb2bceeb932ce62099d2d62e3fd82bf6d6e58
-size 115
+[tool.black]
+
+[tool.isort]
+profile = "black"
+include_trailing_comma = true
+line_length = 88
+multi_line_output = 3
+

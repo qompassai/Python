@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a594085a60474e804154617fcaac7d959e86279acf5c622eca8ff203af5475f9
-size 244
+from __future__ import annotations
+
+from typing import Any, Generator
+
+import pandas as pd
+
+
+class DataExporter:
+    def write(self, dst: Any, data: pd.DataFrame | Generator[pd.DataFrame, None, None]) -> None:
+        raise NotImplementedError

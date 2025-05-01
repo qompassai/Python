@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:617fd046bbe402bdb91d004222a004480f3dfb9311149d25c357552bf06313b2
-size 685
+.. _concurrency:
+
+********************
+Concurrent Execution
+********************
+
+The modules described in this chapter provide support for concurrent
+execution of code. The appropriate choice of tool will depend on the
+task to be executed (CPU bound vs IO bound) and preferred style of
+development (event driven cooperative multitasking vs preemptive
+multitasking). Here's an overview:
+
+
+.. toctree::
+
+   threading.rst
+   multiprocessing.rst
+   multiprocessing.shared_memory.rst
+   concurrent.rst
+   concurrent.futures.rst
+   subprocess.rst
+   sched.rst
+   queue.rst
+   contextvars.rst
+
+
+The following are support modules for some of the above services:
+
+.. toctree::
+
+   _thread.rst

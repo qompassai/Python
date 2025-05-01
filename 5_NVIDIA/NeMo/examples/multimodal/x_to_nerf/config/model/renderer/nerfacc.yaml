@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e16ee5e7c6f2ab1fabc06aba69cb3af1a37104ed3b782c4d73da15effb9fe9fc
-size 250
+_target_: nemo.collections.multimodal.modules.nerf.renderers.nerfacc_volume_renderer.NerfaccVolumeBaseRenderer
+grid_resolution: 128
+grid_levels: 3
+bound: ${model.nerf.bound}
+render_step_size: 1.e-3
+near_plane: 0.2
+cone_angle: 0.004
+alpha_thre: 1.e-2

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5d6d4568921bbfe8e96b3866e1c5bc52bbc62796be6e308b1ee87603fd1a0996
-size 260
+Model Name,Language,MCV Dev-Set (v??) (de),MCV Dev-Set v12.0 (de),MCV Dev-Set v7.0 (de),MCV Test-Set v12.0 (de),MCV Test-Set v7.0 (de),MLS Dev (en),MLS Test (en),VoxPopuli Dev (de),VoxPopuli Test (de)
+stt_de_citrinet_1024,de,,,6.63,,7.59,4.06,5.07,12.33,10.02

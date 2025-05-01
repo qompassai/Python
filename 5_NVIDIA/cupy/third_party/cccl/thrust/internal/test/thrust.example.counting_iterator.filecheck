@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7878cdb1ebb4bfba8b49968d307a5e76181ab99a06cb4c0d90bd1d210a9c4617
-size 103
+     CHECK: found 4 nonzero values at indices:
+CHECK-NEXT: 1
+CHECK-NEXT: 2
+CHECK-NEXT: 5
+CHECK-NEXT: 7

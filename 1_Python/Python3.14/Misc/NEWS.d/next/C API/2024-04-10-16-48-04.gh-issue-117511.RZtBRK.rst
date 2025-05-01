@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ab1ee71c9c230f5371f60ce1a2b5930450b14eb7ac2302c0996928086619b132
-size 60
+Make the :c:type:`PyMutex` public in the non-limited C API.

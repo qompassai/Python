@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6e2978f0376f7530d49bc7a485fc15ac46423401c4bf013eff1d8d1d981f0ef1
-size 243
+NeMo Common Collection API
+==========================
+
+The common collection contains things that could be used across all collections.
+
+.. toctree::
+   :maxdepth: 8
+
+   callbacks
+   losses
+   metrics
+   tokenizers
+   data
+   s3_checkpointing

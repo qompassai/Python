@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f454d5bdfa3f42b2e7a534dfd924d11e5430bfef3847bcd9efbd602602e5cbc7
-size 583
+Speech AI Tools
+===============
+
+NeMo provides a set of tools useful for developing Automatic Speech Recognitions (ASR) and Text-to-Speech (TTS) synthesis models: \
+`https://github.com/NVIDIA/NeMo/tree/stable/tools <https://github.com/NVIDIA/NeMo/tree/stable/tools>`__ .
+
+.. toctree::
+   :maxdepth: 1
+
+   nemo_forced_aligner
+   ctc_segmentation
+   speech_data_explorer
+   comparison_tool
+   asr_evaluator
+
+
+There are also additional NeMo-related tools hosted in separate github repositories:
+
+.. toctree::
+   :maxdepth: 1
+
+   speech_data_processor
+   ../nlp/text_normalization/intro

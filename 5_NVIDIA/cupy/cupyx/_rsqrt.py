@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c44acef71553252c9afe7f6ba3a39f8f216088c698216a17dc972497093cd1d5
-size 204
+from cupy._core.core import create_ufunc
+
+rsqrt = create_ufunc(
+    'cupy_rsqrt',
+    ('e->e', 'f->f', 'd->d', 'F->F', 'D->D'),
+    'out0 = rsqrt(in0)',
+    doc='''Returns the reciprocal square root.''')

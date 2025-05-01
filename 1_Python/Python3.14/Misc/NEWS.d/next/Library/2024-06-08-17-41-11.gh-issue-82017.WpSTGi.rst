@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c29ad2a5d7dd09eb6c43116b610f31cfa0a2bf6b5ec74aa29880540c1cd38bbb
-size 123
+Added support for converting any objects that have the
+:meth:`!as_integer_ratio` method to a :class:`~fractions.Fraction`.

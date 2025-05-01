@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5ed9fc9a83f1d5b1900739964715a6846a353ceb1eb7b652d0de6591a799320e
-size 258
+attrdict
+einops
+janome
+jieba
+kornia
+librosa
+matplotlib
+# pynini does not currently support aarch, disable nemo_text_processing for now
+nemo_text_processing; 'arm' not in platform_machine and 'aarch' not in platform_machine
+nltk
+pandas
+pypinyin
+pypinyin-dict

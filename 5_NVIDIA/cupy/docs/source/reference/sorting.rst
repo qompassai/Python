@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ebe1337aa51ac097ed3579187414ac6e74ddbdb9f087a3b308dbf2a306d2dcc
-size 666
+Sorting, searching, and counting
+================================
+
+.. Hint:: `NumPy API Reference: Sorting, searching, and counting <https://numpy.org/doc/stable/reference/routines.sort.html>`_
+
+.. currentmodule:: cupy
+
+Sorting
+-------
+
+.. autosummary::
+   :toctree: generated/
+
+   sort
+   lexsort
+   argsort
+   msort
+   sort_complex
+   partition
+   argpartition
+
+.. seealso:: :func:`cupy.ndarray.sort`
+
+Searching
+---------
+
+.. autosummary::
+   :toctree: generated/
+
+   argmax
+   nanargmax
+   argmin
+   nanargmin
+   argwhere
+   nonzero
+   flatnonzero
+   where
+   searchsorted
+   extract
+
+Counting
+--------
+
+.. autosummary::
+   :toctree: generated/
+
+   count_nonzero

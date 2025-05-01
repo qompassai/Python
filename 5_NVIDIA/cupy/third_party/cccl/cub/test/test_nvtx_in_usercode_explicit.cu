@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:96cc64e8a0e8ffc55f53dffc6c0b4deefcd0c2413ad5360f05bb48fd1c43b58f
-size 527
+#define NVTX3_CPP_REQUIRE_EXPLICIT_VERSION
+#include <cub/device/device_for.cuh> // internal include of NVTX
+
+#include <thrust/iterator/counting_iterator.h>
+
+#include <cuda/std/functional>
+
+#include <nvtx3/nvtx3.hpp> // user-side include of NVTX, retrieved elsewhere
+
+int main()
+{
+  nvtx3::v1::scoped_range range("user-range"); // user-side use of explicit NVTX API
+
+  thrust::counting_iterator<int> it{0};
+  cub::DeviceFor::ForEach(it, it + 16, ::cuda::std::negate<int>{}); // internal use of NVTX
+  cudaDeviceSynchronize();
+}

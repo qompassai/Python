@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:10b29ef06f85b3e5a004ba70b3fbfcbbfae8987bccc7df7e61faf0f7b081a893
-size 359
+add_test(
+  NAME cub.example.cmake.add_subdir
+  COMMAND "${CMAKE_COMMAND}"
+    --log-level=VERBOSE
+    -G "${CMAKE_GENERATOR}"
+    -S "${CMAKE_CURRENT_SOURCE_DIR}/add_subdir"
+    -B "${CMAKE_CURRENT_BINARY_DIR}/add_subdir"
+    -D "CUB_ROOT=${CUB_SOURCE_DIR}"
+    -D "CMAKE_CUDA_COMPILER=${CMAKE_CUDA_COMPILER}"
+    -D "CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}"
+)

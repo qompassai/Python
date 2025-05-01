@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2e9c9f5992f9e912ebd759f8b7f155d61573442905de593f374029e34e89badd
-size 504
+Model Name,Model Base Class,Model Card
+titanet_large,EncDecSpeakerLabelModel,"https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/titanet_large"
+titanet_small,EncDecSpeakerLabelModel,"https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/titanet_small"
+speakerverification_speakernet,EncDecSpeakerLabelModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:speakerverification_speakernet"
+ecapa_tdnn,EncDecSpeakerLabelModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:ecapa_tdnn"

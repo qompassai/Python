@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1b2f98cd1fe046be900ebb45f7afa36f5267429c24ecba31701249fdf55691a5
-size 205
+#!/usr/bin/env python3
+import pyperf
+
+runner = pyperf.Runner()
+runner.timeit(name="sort a sorted list",
+              stmt="sorted(s, key=f)",
+              setup="f = lambda x: x; s = list(range(1000))")

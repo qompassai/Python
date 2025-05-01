@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df20d0062faa5c53cf528b9b1d7151db2c23e85434dc8b3eb6ec521ed4e76a1b
-size 343
+# Summary statistics
+
+from cupyx.scipy.stats._distributions import entropy  # NOQA
+from cupyx.scipy.stats._stats import trim_mean  # NOQA
+
+
+# Other statistical functionality
+
+from cupyx.scipy.stats._morestats import boxcox_llf  # NOQA
+from cupyx.scipy.stats._stats_py import zmap  # NOQA
+from cupyx.scipy.stats._stats_py import zscore  # NOQA

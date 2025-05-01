@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d555e3db72e3effd4339dc0f4d2a995c17ac3ec66078a69d26a53df7932316d7
-size 259
+from sdgx.data_processors.base import DataProcessor
+
+
+class Sampler(DataProcessor):
+    """
+    Base class for samplers.
+
+    Sampler is used to reduce the size of data against the large scale dataset.
+
+    Some models may embed sampler in the model.
+    """

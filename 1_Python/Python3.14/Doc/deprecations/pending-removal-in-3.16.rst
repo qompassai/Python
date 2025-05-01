@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:81c33126826c72f8b29d2915483c00988ffb7f51c677d9410862af6d0388991e
-size 330
+Pending Removal in Python 3.16
+------------------------------
+
+* :mod:`array`:
+  :class:`array.array` ``'u'`` type (:c:type:`wchar_t`):
+  use the ``'w'`` type instead (``Py_UCS4``).
+
+* :mod:`symtable`:
+  Deprecate :meth:`symtable.Class.get_methods` due to the lack of interest.
+  (Contributed by Bénédikt Tran in :gh:`119698`.)

@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d31405fb01e1d4bf4b5cc1a80d50220be4b17c99e1b30b067c48b963439e5279
-size 485
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="Descriptor">Executables</String>
+    <String Id="ShortDescriptor">executable</String>
+    <String Id="ShortcutName">Python {{ShortVersion}} ({{Bitness}})</String>
+    <String Id="ShortcutDescription">Launches the !(loc.ProductName) interpreter.</String>
+    <String Id="SupportUrl">https://www.python.org/</String>
+</WixLocalization>

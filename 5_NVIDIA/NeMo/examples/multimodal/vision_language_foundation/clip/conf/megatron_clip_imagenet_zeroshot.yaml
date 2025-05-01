@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:093e0dfdfe7774cbaabd97b911e15caaa74d01ee078d147e6c63d9ccb4add687
-size 377
+trainer:
+  devices: 8
+  num_nodes: 1
+  accelerator: gpu
+  logger: False # logger provided by exp_manager
+  precision: bf16 # 16, 32, or bf16
+
+model:
+  restore_from_path: null  # Path to a trained ViT .nemo file
+  precision: ${trainer.precision}
+  micro_batch_size: 1000
+  global_batch_size: 8000
+
+  data:
+    num_workers: 2
+    imagenet_val: ??? # path to imagenet val folder
+

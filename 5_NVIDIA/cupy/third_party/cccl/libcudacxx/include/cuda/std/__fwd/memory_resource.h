@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d843e9629621b33960719fcb1dbc697902265af54e77de667611f90819931e50
-size 1058
+//===----------------------------------------------------------------------===//
+//
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES.
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef _LIBCUDACXX___FWD_MEMORY_RESOURCE_H
+#define _LIBCUDACXX___FWD_MEMORY_RESOURCE_H
+
+#include <cuda/std/detail/__config>
+
+#if defined(_CCCL_IMPLICIT_SYSTEM_HEADER_GCC)
+#  pragma GCC system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_CLANG)
+#  pragma clang system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_MSVC)
+#  pragma system_header
+#endif // no system header
+
+_LIBCUDACXX_BEGIN_NAMESPACE_STD
+
+namespace pmr
+{
+template <class _ValueType>
+class _LIBCUDACXX_TEMPLATE_VIS polymorphic_allocator;
+} // namespace pmr
+
+_LIBCUDACXX_END_NAMESPACE_STD
+
+#endif // _LIBCUDACXX___FWD_MEMORY_RESOURCE_H

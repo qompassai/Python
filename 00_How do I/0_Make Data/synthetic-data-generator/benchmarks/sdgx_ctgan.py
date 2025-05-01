@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c5524a376f2f16bfd0216d227f1d39c490a1559ac30103cee4b5ec884096bc19
-size 647
+import os
+
+os.environ["SDGX_LOG_LEVEL"] = "DEBUG"
+
+
+from pathlib import Path
+
+from sdgx.data_connectors.csv_connector import CsvConnector
+from sdgx.models.ml.single_table.ctgan import CTGANSynthesizerModel
+from sdgx.synthesizer import Synthesizer
+
+_HERE = Path(__file__).parent
+
+dataset_csv = (_HERE / "dataset/benchmark.csv").expanduser().resolve()
+data_connector = CsvConnector(path=dataset_csv)
+synthesizer = Synthesizer(
+    model=CTGANSynthesizerModel,
+    data_connector=data_connector,
+    model_kwargs={"epochs": 1, "device": "cpu"},
+)
+synthesizer.fit()
+# sampled_data = synthesizer.sample(1000)
+# synthesizer.cleanup()  # Clean all cache

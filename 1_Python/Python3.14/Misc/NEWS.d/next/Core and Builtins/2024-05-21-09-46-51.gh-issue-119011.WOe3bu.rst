@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ba39696eedbabcaa2d1b01e6524f890751e5950ba3feccc74912767616df069b
-size 81
+Fixes ``type.__type_params__`` to return an empty tuple instead of a
+descriptor.

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aab8a084390cebdd927b96644255b3d3b05742243fe7e38fe10775fb825e5d47
-size 120
+``FrameLocalsProxy`` now subclasses ``collections.abc.Mapping`` and can be
+matched as a mapping in ``match`` statements

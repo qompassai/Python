@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f433b6923d1d37a9a78a4c3b6fb0effc07a66bea8df5d30b9cbf9088fc046636
-size 83
+name: adan
+lr: 5e-3
+eps: 1e-8
+weight_decay: 2e-5
+max_grad_norm: 5.0
+foreach: False

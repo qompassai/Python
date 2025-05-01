@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:abc4de08a40df2bbfc9504df57f67df378bbd4b3795a09f5826d53d9471c9b6d
-size 322
+cd ../
+docker run --rm -v $PWD:/workspace python:3.10 /bin/bash -c "cd /workspace && \
+pip install -r requirements/requirements_docs.txt && cd docs/ && rm -rf build && make clean && make html && make html"
+echo "To start web server just run in docs directory:"
+echo "python3 -m http.server 8000 --directory ./build/html/"

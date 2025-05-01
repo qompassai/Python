@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77597cdd6b9c2c4e1d508a75ea5c3110da8533dfd7f864bfad40de2abcbce64a
-size 110
+Using :data:`NotImplemented` in a boolean context now raises
+:exc:`TypeError`. Contributed by Jelle Zijlstra.

@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:28ad3e26968f323065267330732a93fffb0d725b5ce325cb8ecc72da18c1a6e2
-size 700
+.. _thrust-module-api-system-diagnostics:
+
+System Diagnostics
+----------------------------
+
+  - :cpp:struct:`thrust::system::is_error_code_enum <thrust::system::is_error_code_enum>`
+  - :cpp:struct:`thrust::system::is_error_condition_enum <thrust::system::is_error_condition_enum>`
+  - :cpp:class:`thrust::system::error_category <thrust::system::error_category>`
+  - :cpp:class:`thrust::system::error_code <thrust::system::error_code>`
+  - :cpp:class:`thrust::system::error_condition <thrust::system::error_condition>`
+  - :cpp:class:`thrust::system::system_error <thrust::system::system_error>`
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   ${repo_docs_api_path}/*function_group__system__diagnostics*

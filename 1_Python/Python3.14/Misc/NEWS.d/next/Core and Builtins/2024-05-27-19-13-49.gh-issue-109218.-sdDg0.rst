@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5121a15312b2634ddc68a7100be7775263bf3943042da202ac8663d71013fda
-size 199
+:func:`complex` accepts now a string only as a positional argument. Passing
+a complex number as the "real" or "imag" argument is deprecated; it should
+only be passed as a single positional argument.

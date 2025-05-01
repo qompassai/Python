@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:571aa142b91fefb9008a96d95951bd4078a68892525b9fdb9fecd179fbc4729e
-size 46
+Support building :mod:`tkinter` with Tcl 9.0.

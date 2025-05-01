@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cc6ed796301378fa9a71a6b03fd27ca630af50f2802a5eb06b51dfa875fffc48
-size 88
+Remove deprecated names from ``importlib.abc`` as found in
+``importlib.resources.abc``.

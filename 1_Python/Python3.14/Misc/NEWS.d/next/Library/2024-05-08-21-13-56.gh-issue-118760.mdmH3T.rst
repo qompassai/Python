@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6f62b63f02cdcf30bb078058bf5fa453a8b83ae567abe4aa87997b6b1c130920
-size 51
+Fix errors in calling Tkinter bindings on Windows.

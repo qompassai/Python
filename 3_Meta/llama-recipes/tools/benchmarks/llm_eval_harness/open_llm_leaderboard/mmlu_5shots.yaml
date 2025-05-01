@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ae91785da1c27d6a4c27e4f379cc242a76a41c606134a39b4f459ac78f299b09
-size 183
+include: {$EVAL_PATH}/lm_eval/tasks/mmlu/default/_mmlu.yaml
+task:
+  - mmlu_stem
+  - mmlu_other
+  - mmlu_social_sciences
+  - mmlu_humanities
+num_fewshot: 5
+metric_list:
+  - metric: acc

@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b36a84679badefda6888d9b6e3bd07aad20a68925299a1ca496bfd79292715a6
-size 823
+from __future__ import annotations
+
+from ._array_object import Array
+
+from typing import Optional, Tuple, Union
+
+import cupy as np
+
+
+def all(
+    x: Array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    keepdims: bool = False,
+) -> Array:
+    """
+    Array API compatible wrapper for :py:func:`np.all <numpy.all>`.
+
+    See its docstring for more information.
+    """
+    return Array._new(np.asarray(np.all(x._array, axis=axis, keepdims=keepdims)))
+
+
+def any(
+    x: Array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    keepdims: bool = False,
+) -> Array:
+    """
+    Array API compatible wrapper for :py:func:`np.any <numpy.any>`.
+
+    See its docstring for more information.
+    """
+    return Array._new(np.asarray(np.any(x._array, axis=axis, keepdims=keepdims)))

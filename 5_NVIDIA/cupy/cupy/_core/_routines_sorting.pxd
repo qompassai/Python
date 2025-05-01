@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6f51c3e72de943dac446e32f6fa4f17e17ba8c5210ab1391721d217d413c5551
-size 273
+from cupy._core.core cimport _ndarray_base
+
+
+cdef _ndarray_sort(_ndarray_base self, int axis)
+cdef _ndarray_base _ndarray_argsort(_ndarray_base self, axis)
+cdef _ndarray_partition(_ndarray_base self, kth, int axis)
+cdef _ndarray_base _ndarray_argpartition(self, kth, axis)

@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8ca51521e0b4e31b2df44250b79a5783c9d216bc01389c348f68ead7b10718b8
-size 133
+[tool.black]
+line-length = 99
+target_version = ['py311']
+exclude = '''
+(
+          /pegen/grammar_parser.py   # generated file
+)
+'''

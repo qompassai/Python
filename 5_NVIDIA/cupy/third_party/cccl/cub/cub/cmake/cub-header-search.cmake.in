@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:23a0a8f680d513b3d393bf52106c383c77928709aaa9dd08d198b148255ddac4
-size 571
+# Parse version information from version.h:
+unset(_CUB_VERSION_INCLUDE_DIR CACHE) # Clear old result to force search
+
+# Find CMAKE_INSTALL_INCLUDEDIR=@CMAKE_INSTALL_INCLUDEDIR@ directory"
+set(from_install_prefix "@from_install_prefix@")
+
+find_path(_CUB_VERSION_INCLUDE_DIR cub/version.cuh
+  NO_CMAKE_FIND_ROOT_PATH # Don't allow CMake to re-root the search
+  NO_DEFAULT_PATH # Only search explicit paths below:
+  PATHS
+    "${CMAKE_CURRENT_LIST_DIR}/${from_install_prefix}/@CMAKE_INSTALL_INCLUDEDIR@"
+)
+set_property(CACHE _CUB_VERSION_INCLUDE_DIR PROPERTY TYPE INTERNAL)

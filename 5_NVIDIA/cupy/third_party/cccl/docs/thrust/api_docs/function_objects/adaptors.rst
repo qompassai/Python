@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:48699dee3f236a133fafb437479f1810e5170c1a5e25bcb69ca9a17382108a94
-size 423
+.. _thrust-module-api-function-objects-adaptors:
+
+Function Object Adaptors
+-------------------------
+
+  - :cpp:struct:`thrust::unary_function <thrust::unary_function>`
+  - :cpp:struct:`thrust::binary_function <thrust::binary_function>`
+  - :cpp:struct:`thrust::unary_negate <thrust::unary_negate>`
+  - :cpp:struct:`thrust::binary_negate <thrust::binary_negate>`
+  - :cpp:class:`thrust::zip_function <thrust::zip_function>`

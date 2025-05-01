@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0b884e46fd0d44f24fd38f4dec2fdb66baf0256130ab4d5b7ee0fe842aaa5036
-size 147
+cmake_minimum_required(VERSION 3.8)
+
+project(getsm CUDA)
+
+add_executable(getsm
+    main.cu)
+
+add_custom_target(
+    get-sm ALL
+    COMMAND getsm
+)

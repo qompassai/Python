@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a8b0c446e593627086979fc8d941158aa158ff60e32e19ee117daf52c6ef079c
-size 477
+.. _libcudacxx-standard-api-numerics-numeric:
+
+``<cuda/std/numeric>``
+======================
+
+Omissions
+---------
+
+-  Currently we do not expose any parallel algorithms.
+-  Saturation arithmetics have not been implemented yet
+
+Extensions
+----------
+
+-  All features of ``<numeric>`` are made available in C++11 onwards
+-  All features of ``<numeric>`` are made constexpr in C++14 onwards
+-  Algorithms that return a value and not an iterator have been marked ``[[nodiscard]]``

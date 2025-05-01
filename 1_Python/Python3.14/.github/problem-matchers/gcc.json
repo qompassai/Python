@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fbdb0b873f10be7f767d8371ebeab931f8c1ac46cb01def989fd937d70c999d1
-size 513
+{
+    "__comment": "Taken from vscode-cpptools's Extension/package.json gcc rule",
+    "problemMatcher": [
+        {
+            "owner": "gcc-problem-matcher",
+            "pattern": [
+                {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(?:fatal\\s+)?(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            ]
+        }
+    ]
+}

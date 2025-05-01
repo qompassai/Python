@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e457b44374209b3fb59dd94014e7c73af2a1c5b25c08e0c348df72996e9d61b0
-size 1026
+# Copyright (c) 2022, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+from dataclasses import dataclass
+from typing import List, Optional
+
+
+@dataclass
+class S2SQAInputExample(object):
+    """ A single set of features of a QA example for T5/BART-like model """
+
+    unique_id: int
+    input_ids: List[int]
+    input_attn_mask: List[int]
+    labels: List[int] = None
+    example_index: int = None
+    context_span_index: int = None
+    is_impossible: Optional[bool] = False

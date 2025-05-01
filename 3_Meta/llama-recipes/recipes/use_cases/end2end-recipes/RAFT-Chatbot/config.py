@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e364f8235134be15767d418f8f433f0b25d13a1e014fe1317ad5f1d344562d22
-size 367
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
+
+import yaml
+
+def load_config(config_path: str = "./config.yaml"):
+    # Read the YAML configuration file
+    with open(config_path, "r") as file:
+        config = yaml.safe_load(file)
+    return config

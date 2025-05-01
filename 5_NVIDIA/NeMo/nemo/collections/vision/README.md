@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ab9e1e24a367a75c782b8c99e9949c032383e72b33318dabdc6eadd8f245ebc5
-size 555
+NeMo Vision Collection
+========================
+
+The NeMo Vision Collection is designed to support the multimodal collection, particularly for models like LLAVA that necessitate a vision encoder implementation. At present, the vision collection features support for ViT, a customized version of the transformer model from Megatron core.
+
+Our [documentation](https://docs.nvidia.com/nemo-framework/user-guide/latest/index.html) offers comprehensive insights into each supported model, facilitating seamless integration and utilization within your projects.

@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9f7337dfad367236fbf32e5ba1a9f2971b27148c708ca08daeb93d5698d91746
-size 714
+Speech Intent Classification and Slot Filling
+==============================================
+
+**Intent Classification and Slot Filling** aims to not only recognize the user's intention, but also detect entity slots and their corresponding lexical fillers. Below is an example:
+
+
+.. image:: images/example.png
+        :align: center
+        :scale: 50%
+        :alt: slurp_example
+
+
+Different from its counterpart in Natural Language Understanding (NLU) that takes text as input, here the model predicts the semantics directly from audio input. 
+
+
+
+The full documentation tree is as follows:
+
+.. toctree::
+   :maxdepth: 8
+
+   models
+   datasets
+   results
+   configs
+   api
+   resources
+
+.. include:: resources.rst

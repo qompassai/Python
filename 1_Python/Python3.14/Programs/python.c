@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e95aa9b44746ea3b42859fdbbd07cda8f223e78e49556678d87f1283fcfaa1f0
-size 266
+/* Minimal main program -- everything is loaded from the library */
+
+#include "Python.h"
+
+#ifdef MS_WINDOWS
+int
+wmain(int argc, wchar_t **argv)
+{
+    return Py_Main(argc, argv);
+}
+#else
+int
+main(int argc, char **argv)
+{
+    return Py_BytesMain(argc, argv);
+}
+#endif

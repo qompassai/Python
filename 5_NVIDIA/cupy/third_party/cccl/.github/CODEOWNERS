@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:51cd1863a08a8308884341fc2f48d21e36be14867f79c72478dd4bc1c77d2ece
-size 666
+# general codeowners for all files
+# (Order matters. This needs to be at the top)
+* @nvidia/cccl-codeowners
+
+# Libraries
+thrust/ @nvidia/cccl-thrust-codeowners @nvidia/cccl-codeowners
+cub/ @nvidia/cccl-cub-codeowners @nvidia/cccl-codeowners
+libcudacxx/ @nvidia/cccl-libcudacxx-codeowners @nvidia/cccl-codeowners
+
+# Infrastructure
+.github/ @nvidia/cccl-infra-codeowners @nvidia/cccl-codeowners
+ci/ @nvidia/cccl-infra-codeowners @nvidia/cccl-codeowners
+.devcontainer/ @nvidia/cccl-infra-codeowners @nvidia/cccl-codeowners
+
+# cmake
+**/CMakeLists.txt @nvidia/cccl-cmake-codeowners @nvidia/cccl-codeowners
+**/cmake/ @nvidia/cccl-cmake-codeowners  @nvidia/cccl-codeowners

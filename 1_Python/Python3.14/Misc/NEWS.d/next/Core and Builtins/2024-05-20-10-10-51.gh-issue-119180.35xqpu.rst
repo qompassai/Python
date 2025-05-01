@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fc7ef4e2b4c19d4a1a5503d0c7fc5155b585d4bc7854988006399c4fc509d99a
-size 117
+Add an ``__annotate__`` attribute to functions, classes, and modules as part
+of :pep:`649`. Patch by Jelle Zijlstra.

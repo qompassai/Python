@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ec37cde0d2234efc776f99b71d35df7b187e3ee7bbc45e96cdd8b67aecdf70a5
-size 542
+import os.path
+import sys
+import unittest
+from test import support
+
+if support.PGO:
+    raise unittest.SkipTest("test is not helpful for PGO")
+
+if sys.platform == "win32":
+    raise unittest.SkipTest("fork is not available on Windows")
+
+if sys.platform == 'darwin':
+    raise unittest.SkipTest("test may crash on macOS (bpo-33725)")
+
+if support.check_sanitizer(thread=True):
+    raise unittest.SkipTest("TSAN doesn't support threads after fork")
+
+def load_tests(*args):
+    return support.load_package_tests(os.path.dirname(__file__), *args)

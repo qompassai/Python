@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6eca7c1ccfbb58abdb02876e4099351b8412d5bb9d5b8d0d392478ce220b5a08
-size 216
+_target_: nemo.collections.multimodal.modules.nerf.guidance.stablediffusion_huggingface_pipeline.StableDiffusion
+precision: ${trainer.precision}
+model_key: stabilityai/stable-diffusion-2-1-base
+t_range: [0.02, 0.98]

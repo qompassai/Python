@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:efe387e89b7a813c5e426819a3f03bbe4ca3fecad7ed6ce66457316aa35c7fd7
-size 110
+
+jitify_example
+stringify
+*.jit
+*.o
+jitify_2nd_compilation_unit.cpp
+jitify_test
+googletest/
+# Backup files
+*~

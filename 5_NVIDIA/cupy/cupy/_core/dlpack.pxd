@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:365caad9a60d1884e2a46eb6d4b327d435eecca0e42a433e774388853904759c
-size 337
+from cupy._core.core cimport _ndarray_base
+
+
+cdef extern from './include/cupy/_dlpack/dlpack.h' nogil:
+    int device_CUDA 'kDLCUDA'
+    int managed_CUDA 'kDLCUDAManaged'
+    int device_ROCM 'kDLROCM'
+
+
+cpdef object toDlpack(_ndarray_base array) except +
+cpdef _ndarray_base fromDlpack(object dltensor) except +
+cpdef from_dlpack(array)

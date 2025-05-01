@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5bca8fddd87e6a396e01bf7ce648e74b012532076364c1bf7264c59cf9e22db6
-size 266
+from setuptools import Extension, setup
+setup(ext_modules=[
+    Extension("custom", ["custom.c"]),
+    Extension("custom2", ["custom2.c"]),
+    Extension("custom3", ["custom3.c"]),
+    Extension("custom4", ["custom4.c"]),
+    Extension("sublist", ["sublist.c"]),
+])

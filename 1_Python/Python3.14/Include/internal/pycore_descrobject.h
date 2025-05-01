@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7ff394c3a00c8c965005354a36eaee28d0b16ac7b6fda9e1993a6dbe8981a916
-size 543
+#ifndef Py_INTERNAL_DESCROBJECT_H
+#define Py_INTERNAL_DESCROBJECT_H
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifndef Py_BUILD_CORE
+#  error "this header requires Py_BUILD_CORE define"
+#endif
+
+typedef struct {
+    PyObject_HEAD
+    PyObject *prop_get;
+    PyObject *prop_set;
+    PyObject *prop_del;
+    PyObject *prop_doc;
+    PyObject *prop_name;
+    int getter_doc;
+} propertyobject;
+
+typedef propertyobject _PyPropertyObject;
+
+extern PyTypeObject _PyMethodWrapper_Type;
+
+#ifdef __cplusplus
+}
+#endif
+#endif   /* !Py_INTERNAL_DESCROBJECT_H */

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d42db79c573fb74b279ed7cee84107aab30ffcd6a209ffaaeeedaa624442f398
-size 152
+:meth:`datetime.datetime.strftime` now 0-pads years with less than four digits for the format specifiers ``%Y`` and ``%G`` on Linux.
+Patch by Ben Hsing

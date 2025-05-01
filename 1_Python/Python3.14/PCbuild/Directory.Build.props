@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e4e78eef6515c8e590bf6637fdbdfa2f860f9b37055b978bc3296d7ef68cb842
-size 249
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This is intentionally left blank but exists to avoid being imported from some directory above -->
+</Project>

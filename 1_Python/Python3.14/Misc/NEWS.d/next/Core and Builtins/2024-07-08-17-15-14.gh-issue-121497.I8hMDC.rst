@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a0f85c815c10306d0c004308878e125498d13918fe129e6e3a4067f20bc2e00e
-size 123
+Fix a bug that was preventing the REPL to correctly respect the history when
+an input hook was set. Patch by Pablo Galindo

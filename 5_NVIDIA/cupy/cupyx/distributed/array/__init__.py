@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a71554f6f77bbf91599440a21bd06def78b86e3a625f2954dd753f4d93834758
-size 402
+from cupyx.distributed.array._array import DistributedArray  # NOQA
+from cupyx.distributed.array._array import distributed_array  # NOQA
+from cupyx.distributed.array._linalg import make_2d_index_map  # NOQA
+from cupyx.distributed.array._linalg import matmul  # NOQA
+from cupyx.distributed.array._modes import Mode  # NOQA
+from cupyx.distributed.array._modes import REPLICA, MIN, MAX, SUM, PROD  # NOQA

@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f17f324d0e49033f485e9b4221142f8c8a86052d683b304caa2fb7730a735251
-size 642
+name: 🚀 Feature Request
+description: Submit a request for a new feature.
+labels: ["cat:feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: Propose a feature or change. Including a motivation or use-case would help us prioritize the request.
+    validations:
+      required: true
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: |
+        Add other information related to this case, if any.

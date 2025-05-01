@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7ab72b36bbbd1c3ef4e2242371339ff3174f647ca8e2d777147417dbe7df4172
-size 72
+:attr:`frame.f_locals` now supports arbitrary hashable objects as keys.

@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75a50066a711559fa959545b19b3739be278efe9d227184b75aad26292b9f64d
-size 443
+Speech Data Processor
+=====================
+
+Speech Data Processor (SDP) is a toolkit to make it easy to:
+  1. write code to process a new dataset, minimizing the amount of boilerplate code required.
+  2. share the steps for processing a speech dataset.
+
+SDP is hosted here: https://github.com/NVIDIA/NeMo-speech-data-processor.
+
+To learn more about SDP, please check the [documentation](https://nvidia.github.io/NeMo-speech-data-processor/).

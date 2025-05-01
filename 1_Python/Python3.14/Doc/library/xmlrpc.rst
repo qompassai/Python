@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6e888f204675d0fb34f11d937e877a20d1da80ee88dc1ef7a855560245b94e16
-size 477
+:mod:`!xmlrpc` --- XMLRPC server and client modules
+===================================================
+
+XML-RPC is a Remote Procedure Call method that uses XML passed via HTTP as a
+transport.  With it, a client can call methods with parameters on a remote
+server (the server is named by a URI) and get back structured data.
+
+``xmlrpc`` is a package that collects server and client modules implementing
+XML-RPC.  The modules are:
+
+* :mod:`xmlrpc.client`
+* :mod:`xmlrpc.server`

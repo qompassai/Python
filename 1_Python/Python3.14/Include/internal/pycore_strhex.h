@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dfa41f1a6954e18e030b6e17d61b2ad8ad54bb4e7eb9726cbfcf59a979436e13
-size 1013
+#ifndef Py_INTERNAL_STRHEX_H
+#define Py_INTERNAL_STRHEX_H
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifndef Py_BUILD_CORE
+#  error "this header requires Py_BUILD_CORE define"
+#endif
+
+// Returns a str() containing the hex representation of argbuf.
+// Export for '_hashlib' shared extension.
+PyAPI_FUNC(PyObject*) _Py_strhex(const
+    char* argbuf,
+    const Py_ssize_t arglen);
+
+// Returns a bytes() containing the ASCII hex representation of argbuf.
+extern PyObject* _Py_strhex_bytes(
+    const char* argbuf,
+    const Py_ssize_t arglen);
+
+// These variants include support for a separator between every N bytes:
+extern PyObject* _Py_strhex_with_sep(
+    const char* argbuf,
+    const Py_ssize_t arglen,
+    PyObject* sep,
+    const int bytes_per_group);
+
+// Export for 'binascii' shared extension
+PyAPI_FUNC(PyObject*) _Py_strhex_bytes_with_sep(
+    const char* argbuf,
+    const Py_ssize_t arglen,
+    PyObject* sep,
+    const int bytes_per_group);
+
+#ifdef __cplusplus
+}
+#endif
+#endif /* !Py_INTERNAL_STRHEX_H */

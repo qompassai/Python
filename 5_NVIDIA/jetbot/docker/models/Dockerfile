@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5116f569e2f1d4f1acd7e3c4b955cff41067b798317d75e897859b9fc2a5a87c
-size 380
+ARG BASE_IMAGE=jetbot-base:jp44
+FROM ${BASE_IMAGE}
+
+RUN python3 -c "import torchvision; \
+                model = torchvision.models.alexnet(pretrained=True); \
+                model = torchvision.models.squeezenet1_1(pretrained=True); \
+                model = torchvision.models.resnet18(pretrained=True); \
+                model = torchvision.models.resnet34(pretrained=True)"

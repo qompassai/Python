@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5cfb7603e2f32187a394a81d20c08e090723907fe3eb47147f6d816379662a6f
-size 190
+Prepare Tkinter for C API changes in Tcl 8.7/9.0 to avoid
+:class:`!_tkinter.Tcl_Obj` being unexpectedly returned
+instead of :class:`bool`, :class:`str`,
+:class:`bytearray`, or :class:`int`.

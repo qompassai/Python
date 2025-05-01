@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8078381334759875684bf271959e31c8f0e163ae8aae07ed33be48c1502ac540
-size 160
+Fix Python implementation of :class:`pickle.Pickler` for :class:`bytes` and
+:class:`bytearray` objects when using protocol version 5. Patch by Bénédikt
+Tran.

@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e3154de57c50688f104b822fd0c754de3aae0c0c9210a92d537e9787d665a16e
-size 902
+// -*- C++ -*-
+//===----------------------------------------------------------------------===//
+//
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef SUPPORT_TEST_WORKAROUNDS_H
+#define SUPPORT_TEST_WORKAROUNDS_H
+
+#include "test_macros.h"
+
+#if defined(TEST_COMPILER_EDG)
+#  define TEST_WORKAROUND_EDG_EXPLICIT_CONSTEXPR // VSO#424280
+#endif
+
+#if defined(TEST_COMPILER_MSVC)
+#  ifndef _MSC_EXTENSIONS
+#    define TEST_WORKAROUND_C1XX_BROKEN_ZA_CTOR_CHECK // VSO#119998
+#  endif
+#endif
+
+#if defined(TEST_COMPILER_GCC)
+#  if __GNUC__ < 9
+#    define TEST_WORKAROUND_CONSTEXPR_IMPLIES_NOEXCEPT // GCC PR 87603
+#  endif
+#endif
+
+#endif // SUPPORT_TEST_WORKAROUNDS_H

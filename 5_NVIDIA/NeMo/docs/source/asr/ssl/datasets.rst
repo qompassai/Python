@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:10599ac2091da816c99bdfa77b3e14889796003a383ada26fb9e3d2ee69cac01
-size 380
+Datasets
+========
+
+Any dataset available in NeMo for ASR (`ASR datasets <../datasets.html>`__) can be used for SSL. 
+To create your own NeMo compatible datasets, refer to 
+`Preparing Custom ASR Data <../datasets.html#preparing-custom-asr-data>`__  
+section. Note that explicit labels (transcriptions) are not utilized in SSL and hence are optional 
+when creating datasets for SSL.

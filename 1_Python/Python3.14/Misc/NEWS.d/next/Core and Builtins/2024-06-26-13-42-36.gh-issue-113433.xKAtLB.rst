@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af1dfdd68a456ba30bc6714ae31b6f7f2220a1c1f5647f7cec70c846d28130a9
-size 78
+Subinterpreters now get cleaned up automatically during runtime
+finalization.

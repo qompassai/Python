@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e91be68d0c6e61363dce6f6fd36607595270dd5f6d1ee9024e00074daa8a4a85
-size 109
+Fix ``name`` passing to :class:`unittest.mock.Mock` object when using
+:func:`unittest.mock.create_autospec`.

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7a3a46bb74f7ca5ea6b7ff78bbd6b76d738247455719c6c74b861696bb3d51d2
-size 294
+import os.path
+from test import support
+from test.support import load_package_tests
+
+
+# Creating a virtual environment and building C extensions is slow
+support.requires('cpu')
+
+
+# Load all tests in package
+def load_tests(*args):
+    return load_package_tests(os.path.dirname(__file__), *args)

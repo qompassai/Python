@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:137db948081b452395fadc1f99a6bf523e96e8294d60f6a78b0925aa0a948b18
-size 71
+Fall back to the bundled libmpdec if a system version cannot be found.

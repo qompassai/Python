@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bdfd6cde8cb49efbba68d5900cc0ae910480dbb9409f5108f8452f149fc15914
-size 233
+Fix a possible race condition affecting parallel builds configured with
+``--enable-experimental-jit``, in which :exc:`FileNotFoundError` could be caused by
+another process already moving ``jit_stencils.h.new`` to ``jit_stencils.h``.

@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b17bf2df3bfcc20f7af2abd32a5f3cf4a9af71095da29f12e7982de66a093f41
-size 714
+"""This is a sample module used for testing doctest.
+
+This module includes various scenarios involving skips.
+"""
+
+def no_skip_pass():
+    """
+    >>> 2 + 2
+    4
+    """
+
+def no_skip_fail():
+    """
+    >>> 2 + 2
+    5
+    """
+
+def single_skip():
+    """
+    >>> 2 + 2  # doctest: +SKIP
+    4
+    """
+
+def double_skip():
+    """
+    >>> 2 + 2  # doctest: +SKIP
+    4
+    >>> 3 + 3  # doctest: +SKIP
+    6
+    """
+
+def partial_skip_pass():
+    """
+    >>> 2 + 2  # doctest: +SKIP
+    4
+    >>> 3 + 3
+    6
+    """
+
+def partial_skip_fail():
+    """
+    >>> 2 + 2  # doctest: +SKIP
+    4
+    >>> 2 + 2
+    5
+    """
+
+def no_examples():
+    """A docstring with no examples should not be counted as run or skipped."""

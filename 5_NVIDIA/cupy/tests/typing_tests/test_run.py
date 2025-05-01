@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:350c597d6ea01a7e459dffd6a1912a6c71d6d31683874cc26705e49969cf4a31
-size 480
+from pathlib import Path
+
+import pytest
+
+
+@pytest.mark.parametrize("t", map(str, Path(__file__).parent.glob("**/*.pyi")))
+def test_run(t: Path) -> None:
+    assert not t.endswith("._numpy.pyi")
+
+    with open(t) as f:
+        lines = f.readlines()
+
+    for _lineno, _line in enumerate(lines, start=1):
+        if "# E: " not in _line:
+            try:
+                exec(_line)
+            except Exception:
+                print(f"{t}:{_lineno} {_line}")
+                raise

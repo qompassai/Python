@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8c2057828cf4365df1350933f2aaa25e7bf44e768e111256212084a95cff1b7e
-size 300
+In the free-threaded build, the reference counts for heap type objects are now
+partially stored in a distributed manner in per-thread arrays.  This reduces
+contention on the heap type's reference count fields when creating or
+destroying instances of the same type from multiple threads concurrently.

@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f379158e29699e2faf69d36a24cc7c89ad133b550bbcb833ebe929d3ab25910b
-size 1104
+//===----------------------------------------------------------------------===//
+//
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// SPDX-FileCopyrightText: Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES.
+//
+//===----------------------------------------------------------------------===//
+#ifndef _LIBCUDACXX___EXPECTED_UNEXPECT_H
+#define _LIBCUDACXX___EXPECTED_UNEXPECT_H
+
+#include <cuda/std/detail/__config>
+
+#if defined(_CCCL_IMPLICIT_SYSTEM_HEADER_GCC)
+#  pragma GCC system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_CLANG)
+#  pragma clang system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_MSVC)
+#  pragma system_header
+#endif // no system header
+
+#if _CCCL_STD_VER > 2011
+
+_LIBCUDACXX_BEGIN_NAMESPACE_STD
+
+struct unexpect_t
+{
+  explicit unexpect_t() = default;
+};
+
+_LIBCUDACXX_CPO_ACCESSIBILITY unexpect_t unexpect{};
+
+_LIBCUDACXX_END_NAMESPACE_STD
+
+#endif // _CCCL_STD_VER > 2011
+
+#endif // _LIBCUDACXX___EXPECTED_UNEXPECT_H

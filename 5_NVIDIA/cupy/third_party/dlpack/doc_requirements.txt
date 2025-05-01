@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d0038c9393114ee2ea803308608fc095004e294a360629a958f21081f231d47f
-size 57
+Sphinx==4.4.0
+pydata-sphinx-theme==0.7.1
+breathe==4.31.0

@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:43d1d9bbc937b5b5afdd908f09531dc253424bc57853329b36d57ff819df1d49
-size 287
+.. bpo: 25029
+.. date: 9304
+.. nonce: Zf97rk
+.. release date: 2015-09-09
+.. section: Library
+
+Fixes MemoryError in test_strptime.
+
+..
+
+.. bpo: 25027
+.. date: 9303
+.. nonce: Zaib78
+.. section: Build
+
+Reverts partial-static build options and adds vcruntime140.dll to Windows
+installation.

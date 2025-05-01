@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b966bf5d6c3d3e1ccc977048c60932a22308c5a88d1fea0fcb1e5e31685d4957
-size 176
+Fix race condition in ``_PyType_Lookup`` in the free-threaded build due to
+a missing memory fence.  This could lead to ``_PyType_Lookup`` returning
+incorrect results on arm64.

@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d3a4abbeab1388f5643efdc176b48c2fdb39c9d92f4b0f0a8bec2ad52de5ebd9
-size 261
+.. _thrust-module-api-random-number-generators-predefined:
+
+Random Number Engines with Predefined Parameters
+-------------------------------------------------
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   ${repo_docs_api_path}/*typedef_group__predefined__random*

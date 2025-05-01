@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b751938944602619152d20e90547678d479b44d866e0fa0b82063ed351dc4fc7
-size 403
+# The Gradle wrapper should be downloaded by running `../android.py setup-testbed`.
+/gradlew
+/gradlew.bat
+/gradle/wrapper/gradle-wrapper.jar
+
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/deploymentTargetDropdown.xml
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties

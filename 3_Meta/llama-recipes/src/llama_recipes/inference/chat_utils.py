@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cd68ca0a236b99b573098c254b318fd087f0d63dea55cadaed3503fe5d2635c9
-size 309
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
+
+import json
+
+def read_dialogs_from_file(file_path):
+    with open(file_path, 'r') as file:
+        dialogs = json.load(file)
+    return dialogs

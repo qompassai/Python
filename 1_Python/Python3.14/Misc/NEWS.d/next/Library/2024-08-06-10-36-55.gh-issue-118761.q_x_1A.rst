@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:82790df1cc380640ba7e34d3d19f1b6e1e1b8e0874a3823b2c56e8f9682d82b0
-size 88
+Improve import time of :mod:`pprint` by around seven times. Patch by Hugo
+van Kemenade.

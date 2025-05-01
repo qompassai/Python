@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:223d9be6c43553dfaa34affe8aeca82940922dc37e446880a4699b3b3362d3a0
-size 1111
+<h3>{% trans %}Download{% endtrans %}</h3>
+<p><a href="{{ pathto('download') }}">{% trans %}Download these documents{% endtrans %}</a></p>
+<h3>{% trans %}Docs by version{% endtrans %}</h3>
+<ul>
+  <li><a href="https://docs.python.org/">{% trans %}Stable{% endtrans %}</a></li>
+  <li><a href="https://docs.python.org/dev/">{% trans %}In development{% endtrans %}</a></li>
+  <li><a href="https://www.python.org/doc/versions/">{% trans %}All versions{% endtrans %}</a></li>
+</ul>
+
+<h3>{% trans %}Other resources{% endtrans %}</h3>
+<ul>
+  {# XXX: many of these should probably be merged in the main docs #}
+  <li><a href="https://peps.python.org/">{% trans %}PEP Index{% endtrans %}</a></li>
+  <li><a href="https://wiki.python.org/moin/BeginnersGuide">{% trans %}Beginner's Guide{% endtrans %}</a></li>
+  <li><a href="https://wiki.python.org/moin/PythonBooks">{% trans %}Book List{% endtrans %}</a></li>
+  <li><a href="https://www.python.org/doc/av/">{% trans %}Audio/Visual Talks{% endtrans %}</a></li>
+  <li><a href="https://devguide.python.org/">{% trans %}Python Developer’s Guide{% endtrans %}</a></li>
+</ul>

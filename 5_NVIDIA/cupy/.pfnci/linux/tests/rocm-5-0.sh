@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f4c86a3fdf12e1cd5ba0d03f706791520503ad0f3dbc13d8de21a1d41752a5b8
-size 363
+#!/bin/bash
+
+# AUTO GENERATED: DO NOT EDIT!
+
+set -uex
+
+ACTIONS="$(dirname $0)/actions"
+. "$ACTIONS/_environment.sh"
+
+# TODO(kmaehashi): Tentatively sparsen parameterization to make test run complete.
+export CUPY_TEST_FULL_COMBINATION="0"
+export CUPY_INSTALL_USE_HIP=1
+
+"$ACTIONS/build.sh"
+"$ACTIONS/unittest.sh" "not slow and not multi_gpu"
+"$ACTIONS/cleanup.sh"

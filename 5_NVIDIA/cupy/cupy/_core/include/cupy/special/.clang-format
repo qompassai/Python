@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8130836e942ad18242cdc4c1914fa011e05975e839a61d5fcd830253ba1a7c5c
-size 227
+BasedOnStyle: LLVM
+Standard: Cpp11
+UseTab: Never
+IndentWidth: 4
+BreakBeforeBraces: Attach
+Cpp11BracedListStyle: true
+NamespaceIndentation: Inner
+AlwaysBreakTemplateDeclarations: true
+SpaceAfterCStyleCast: true
+ColumnLimit: 120

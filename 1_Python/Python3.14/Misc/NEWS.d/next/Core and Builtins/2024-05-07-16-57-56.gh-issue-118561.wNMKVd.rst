@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:69fdc45de124d2c523ae3c1ffb821e0b6e0f795c55b62c5af6743ea25258bc96
-size 126
+Fix race condition in free-threaded build where :meth:`!list.extend` could
+expose uninitialised memory to concurrent readers.

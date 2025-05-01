@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dec38634dcdd5a2234fbcfeb4ce27a4fb33fb3b02c4bb7de266e732f5fe25db0
-size 538
+{% extends "!search.html" %}
+{% block extrahead %}
+    {{ super() }}
+    <meta name="robots" content="noindex">
+    <script type="text/javascript" src="{{ pathto('_static/glossary_search.js', resource=True) }}"></script>
+{% endblock %}
+{% block searchresults %}
+<div id="search-results">
+  {# For glossary_search.js #}
+  <div style="display: none;" class="admonition seealso" id="glossary-result">
+    <p class="topic-title">
+    <a id="glossary-title" href="#"></a>
+    </p>
+  <div id="glossary-body"></div>
+</div>
+</div>
+{% endblock %}

@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f66f84c5b6c2805160c7fe6d870bf7001beb7d19d54564cdf487efa838631c83
-size 736
+#!/bin/bash -uex
+
+yum-config-manager --add-repo http://ftp.jaist.ac.jp/pub/Linux/CentOS-vault/7.9.2009/os/x86_64/
+yum-config-manager --add-repo http://ftp.jaist.ac.jp/pub/Linux/CentOS-vault/7.9.2009/updates/x86_64/
+yum-config-manager --add-repo http://ftp.jaist.ac.jp/pub/Linux/CentOS-vault/7.9.2009/extras/x86_64/
+yum-config-manager --add-repo http://ftp.jaist.ac.jp/pub/Linux/CentOS-vault/7.9.2009/centosplus/x86_64/
+yum-config-manager --add-repo http://ftp.jaist.ac.jp/pub/Linux/CentOS-vault/7.9.2009/sclo/x86_64/rh
+
+yum-config-manager --disable 'CentOS-7 - Base'
+yum-config-manager --disable 'CentOS-7 - Extras'
+yum-config-manager --disable 'CentOS-7 - Updates'
+
+rpm --import https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-SCLo

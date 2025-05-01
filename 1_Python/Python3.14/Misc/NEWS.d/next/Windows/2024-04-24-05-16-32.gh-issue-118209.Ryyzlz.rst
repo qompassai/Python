@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:878881cfac4cc7f126ed19e254cca4a3431a1c65f674f9ec8838fa4cef1f9ba3
-size 128
+Avoid crashing in :mod:`mmap` on Windows when the mapped memory is inaccessible
+due to file system errors or access violations.

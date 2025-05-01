@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f6b65bddd386894e8f742da1914edd1448adaf3c21ad09c6eebfbb0ead28bda3
-size 195
+from cpython.__main__ import parse_args, main, configure_logger
+
+
+cmd, cmd_kwargs, verbosity, traceback_cm = parse_args()
+configure_logger(verbosity)
+with traceback_cm:
+    main(cmd, cmd_kwargs)

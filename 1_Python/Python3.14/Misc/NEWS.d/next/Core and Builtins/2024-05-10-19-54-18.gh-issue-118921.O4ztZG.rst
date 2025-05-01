@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f1f243ce8ef09f2b499014e843f7c4b2cd19c61e09c463738be85b15b4616c6f
-size 102
+Add ``copy()`` method for ``FrameLocalsProxy`` which returns a snapshot ``dict`` for local variables.

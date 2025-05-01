@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1ff00fc412dba934d5276ececb48f9dd6ec2e479e6303d6d9d276b5a902b3200
-size 548
+@rem Used by the buildbot "compile" step.
+
+@rem Clean up
+call "%~dp0clean.bat" %*
+
+@rem If you need the buildbots to start fresh (such as when upgrading to
+@rem a new version of an external library, especially Tcl/Tk):
+@rem 1) uncomment the following line:
+
+@rem    call "%~dp0..\..\PCbuild\get_externals.bat" --clean-only
+
+@rem 2) commit and push
+@rem 3) wait for all Windows bots to start a build with that changeset
+@rem 4) re-comment, commit and push again
+
+@rem Do the build
+call "%~dp0..\..\PCbuild\build.bat" -e -d -k -v %*

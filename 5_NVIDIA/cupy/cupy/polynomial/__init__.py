@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9eb875a2d9f485be8e10e015ae40425e28cde86b3cafb1c98fc1c8893e226a2a
-size 243
+# Functions from the following NumPy document
+# https://numpy.org/doc/stable/reference/routines.polynomials.html
+
+# "NOQA" to suppress flake8 warning
+from cupy.polynomial import polynomial  # NOQA
+from cupy.polynomial import polyutils  # NOQA

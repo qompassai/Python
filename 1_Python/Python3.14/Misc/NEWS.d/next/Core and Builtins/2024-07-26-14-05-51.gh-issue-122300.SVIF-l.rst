@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e949624cd978177bf57a3f23e2b5952fa1ca98337bc4ed514f4717bf6feb0ccd
-size 94
+Preserve AST nodes for f-string with single-element format specifiers. Patch
+by Pablo Galindo

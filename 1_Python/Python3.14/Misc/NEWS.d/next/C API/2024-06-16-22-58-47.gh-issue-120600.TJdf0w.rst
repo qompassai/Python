@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c07e73eea12d958bba49569c503a06cd89410e6727c9b96f41524901ce2cf8e1
-size 158
+In the limited C API 3.14 and newer, :c:func:`Py_TYPE` is now implemented as an
+opaque function call to hide implementation details. Patch by Victor Stinner.

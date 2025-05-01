@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:40eff7d5ce98a6cbc01490a680f5c208e75ba308bd7dddfb901c2462d38666cd
-size 335
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="Descriptor">pip Bootstrap</String>
+    <String Id="ShortDescriptor">pip</String>
+    <String Id="NoPython">No !(loc.ProductName) installation was detected.</String>
+</WixLocalization>

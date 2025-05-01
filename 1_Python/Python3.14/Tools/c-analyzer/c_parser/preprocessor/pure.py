@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ff39bce31a93ba673b95809f319989fcd9b9a06df095b821857a7549670e60d9
-size 592
+from ..source import (
+    opened as _open_source,
+)
+from . import common as _common
+
+
+def preprocess(lines, filename=None, cwd=None):
+    if isinstance(lines, str):
+        with _open_source(lines, filename) as (lines, filename):
+            yield from preprocess(lines, filename)
+        return
+
+    # XXX actually preprocess...
+    for lno, line in enumerate(lines, 1):
+        kind = 'source'
+        data = line
+        conditions = None
+        yield _common.SourceLine(
+            _common.FileInfo(filename, lno),
+            kind,
+            data,
+            conditions,
+        )

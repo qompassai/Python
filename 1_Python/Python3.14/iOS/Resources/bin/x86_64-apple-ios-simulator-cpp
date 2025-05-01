@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:38c84c44232df5a481f9b54318df91e3aff461207c159154758f9dc8f5db6b85
-size 103
+#!/bin/sh
+xcrun --sdk iphonesimulator${IOS_SDK_VERSION} clang -target x86_64-apple-ios-simulator -E $@

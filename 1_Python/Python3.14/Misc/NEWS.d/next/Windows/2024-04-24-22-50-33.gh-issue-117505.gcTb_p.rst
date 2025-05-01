@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ace19f842ddeed1f85fa15210f4b0f891485e74d03e0cc6fa571bdb4e21b06b7
-size 167
+Fixes an issue with the Windows installer not running ensurepip in a fully isolated environment. This could cause unexpected interactions with the user site-packages.

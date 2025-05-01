@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:704f66c442081c558c8efc0734b84f0d506e873413ecdc64c7611edf413ea4cd
-size 187
+Model,Model Base Class,Model Card
+stt_ua_fastconformer_hybrid_large_pc,EncDecHybridRNNTCTCBPEModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_ua_fastconformer_hybrid_large_pc"

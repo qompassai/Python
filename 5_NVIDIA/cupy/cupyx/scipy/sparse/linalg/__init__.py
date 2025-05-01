@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:008f2ba8281d0e5136447d8ed5426166ce4c40afe36db8ec6b38218ec36863f2
-size 1263
+# Functions from the following SciPy document
+# https://docs.scipy.org/doc/scipy/reference/sparse.linalg.html
+
+# "NOQA" to suppress flake8 warning
+from cupyx.scipy.sparse.linalg._norm import norm  # NOQA
+from cupyx.scipy.sparse.linalg._solve import spsolve  # NOQA
+from cupyx.scipy.sparse.linalg._solve import spsolve_triangular  # NOQA
+from cupyx.scipy.sparse.linalg._solve import factorized  # NOQA
+from cupyx.scipy.sparse.linalg._solve import lsqr  # NOQA
+from cupyx.scipy.sparse.linalg._solve import lsmr  # NOQA
+from cupyx.scipy.sparse.linalg._solve import splu  # NOQA
+from cupyx.scipy.sparse.linalg._solve import spilu  # NOQA
+from cupyx.scipy.sparse.linalg._solve import SuperLU  # NOQA
+from cupyx.scipy.sparse.linalg._solve import minres  # NOQA
+from cupyx.scipy.sparse.linalg._eigen import eigsh  # NOQA
+from cupyx.scipy.sparse.linalg._eigen import svds  # NOQA
+from cupyx.scipy.sparse.linalg._iterative import cg  # NOQA
+from cupyx.scipy.sparse.linalg._iterative import gmres  # NOQA
+from cupyx.scipy.sparse.linalg._iterative import cgs  # NOQA
+from cupyx.scipy.sparse.linalg._interface import LinearOperator  # NOQA
+from cupyx.scipy.sparse.linalg._interface import aslinearoperator  # NOQA
+from cupyx.scipy.sparse.linalg._lobpcg import lobpcg  # NOQA

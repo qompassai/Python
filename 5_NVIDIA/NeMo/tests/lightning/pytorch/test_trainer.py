@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74be547fba6d14aa627e9499fa2fd75993d5cb2dfb333996757fbaec47afaa48
-size 643
+from nemo import lightning as nl
+
+
+class TestFabricConversion:
+    def test_simple_conversion(self):
+        trainer = nl.Trainer(
+            devices=1,
+            accelerator="cpu",
+            strategy=nl.MegatronStrategy(tensor_model_parallel_size=2),
+            plugins=nl.MegatronMixedPrecision(precision='16-mixed'),
+        )
+
+        fabric = trainer.to_fabric()
+
+        assert isinstance(fabric.strategy, nl.FabricMegatronStrategy)
+        assert fabric.strategy.tensor_model_parallel_size == 2
+        assert isinstance(fabric._precision, nl.FabricMegatronMixedPrecision)
+        assert fabric._precision.precision == '16-mixed'

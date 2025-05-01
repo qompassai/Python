@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c3a76cb711189457c8ba373bf9de3250b4651737c3499a472344950089ef25a8
-size 443
+/* Windows mpdecimal.h shim
+ *
+ * Generally, the mpdecimal library build will copy the correct header into
+ * place named "mpdecimal.h", but since we're building it ourselves directly
+ * into _decimal.pyd, we need to pick the right one.
+ *
+ * */
+
+#if defined(_MSC_VER)
+  #if defined(CONFIG_64)
+    #include <mpdecimal64vc.h>
+  #elif defined(CONFIG_32)
+    #include <mpdecimal32vc.h>
+  #else
+    #error "Unknown configuration!"
+  #endif
+#endif

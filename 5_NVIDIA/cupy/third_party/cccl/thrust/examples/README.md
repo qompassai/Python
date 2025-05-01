@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:88d02620ad33073b66c91cb7ac6d40771e80227e289b7fcc9424326180438bcd
-size 280
+Once Thrust has been installed, these example programs can be compiled
+directly with nvcc.  For example, the following command will compile the
+norm example.
+  $ nvcc norm.cu -o norm
+
+These examples are also available online:
+  https://github.com/NVIDIA/thrust/tree/main/examples

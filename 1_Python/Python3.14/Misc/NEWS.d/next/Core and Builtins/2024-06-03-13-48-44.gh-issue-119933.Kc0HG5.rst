@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b470e9861582dadd933dac567c5ece56b829fa539ddd5e97e657343b09181ff7
-size 177
+Improve :exc:`SyntaxError` messages for invalid expressions in a type
+parameters bound, a type parameter constraint tuple or a default type
+parameter.
+Patch by Bénédikt Tran.

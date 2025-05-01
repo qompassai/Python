@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e88c30a99818bc4916c98672fa04f564cbab992abb649a23be4d77bd5929f4cc
-size 71
+Evaluation of annotations is now deferred. See :pep:`649` for details.

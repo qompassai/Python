@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:87ee1b250c3eb3ef753ffd667a4c14f8f193013464220a4eaf96b1294139b3ef
-size 267
+Reduce the number of system calls invoked when reading a whole file (ex. ``open('a.txt').read()``). For a sample program that reads the contents of the 400+ ``.rst`` files in the cpython repository ``Doc`` folder, there is an over 10% reduction in system call count.

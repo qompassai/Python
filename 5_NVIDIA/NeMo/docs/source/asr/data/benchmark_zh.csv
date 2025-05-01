@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:06c3e3a1174c4d1959a47e9b4c41f40cb05262d5c5839c59da02a6b69bc1add6
-size 408
+Model,Model Base Class,Model Card
+stt_zh_citrinet_512,EncDecCTCModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_zh_citrinet_512"
+stt_zh_citrinet_1024_gamma_0_25,EncDecCTCModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_zh_citrinet_1024_gamma_0_25"
+stt_zh_conformer_transducer_large,EncDecRNNTModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_zh_conformer_transducer_large"

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2a63c2cde22da5a5da44d56523395a8535da4434a14b1400dbaf4e0bbdbd18a1
-size 471
+#ifndef Py_TESTINTERNALCAPI_PARTS_H
+#define Py_TESTINTERNALCAPI_PARTS_H
+
+// Always enable assertions
+#undef NDEBUG
+
+#ifndef Py_BUILD_CORE_BUILTIN
+#  define Py_BUILD_CORE_MODULE 1
+#endif
+
+#include "Python.h"
+
+int _PyTestInternalCapi_Init_Lock(PyObject *module);
+int _PyTestInternalCapi_Init_PyTime(PyObject *module);
+int _PyTestInternalCapi_Init_Set(PyObject *module);
+int _PyTestInternalCapi_Init_CriticalSection(PyObject *module);
+
+#endif // Py_TESTINTERNALCAPI_PARTS_H

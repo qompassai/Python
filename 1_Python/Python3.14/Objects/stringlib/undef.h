@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:81256170509ef5798cef60b29a2c9dcc33b680998ab00651be27df5fd254faef
-size 257
+#undef FASTSEARCH
+#undef STRINGLIB
+#undef STRINGLIB_SIZEOF_CHAR
+#undef STRINGLIB_MAX_CHAR
+#undef STRINGLIB_CHAR
+#undef STRINGLIB_STR
+#undef STRINGLIB_LEN
+#undef STRINGLIB_NEW
+#undef STRINGLIB_IS_UNICODE
+#undef STRINGLIB_MUTABLE
+#undef STRINGLIB_FAST_MEMCHR

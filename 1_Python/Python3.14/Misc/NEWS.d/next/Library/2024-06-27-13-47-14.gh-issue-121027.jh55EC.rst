@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:67c38bd0ff3efefddc4187c927c13e1d2384417b22fa6ae3ac92c6e17243f30a
-size 142
+Add a future warning in :meth:`!functools.partial.__get__`. In future Python
+versions :class:`functools.partial` will be a method descriptor.

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:91659fd93cf176fd47276a3263d18ea59e65420a32dacb10adf389397ffd1c4a
-size 366
+#include <cuda_runtime_api.h>
+
+#include <thrust/detail/util/align.h>
+
+#include <unittest/unittest.h>
+
+template <typename T>
+void TestCudaMallocResultAligned(const std::size_t n)
+{
+  T* ptr = 0;
+  cudaMalloc(&ptr, n * sizeof(T));
+  cudaFree(ptr);
+
+  ASSERT_EQUAL(true, thrust::detail::util::is_aligned(ptr));
+}
+DECLARE_VARIABLE_UNITTEST(TestCudaMallocResultAligned);

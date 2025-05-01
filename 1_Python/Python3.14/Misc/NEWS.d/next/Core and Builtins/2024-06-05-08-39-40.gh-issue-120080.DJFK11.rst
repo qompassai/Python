@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2d9ac48832eca4dabd22533c17156eb64c2322c89e88c30f615ab779d160de6a
-size 84
+Direct call to the :meth:`!int.__round__` now accepts ``None``
+as a valid argument.

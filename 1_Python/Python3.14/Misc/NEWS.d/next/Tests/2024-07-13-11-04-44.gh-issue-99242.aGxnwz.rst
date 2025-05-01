@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ec1af7b4b061a2832f47602cf6d34dc71dfd20a590ddd4be09c22ea6abd21324
-size 197
+:func:`os.getloadavg` may throw :exc:`OSError` when running regression tests
+under certain conditions (e.g. chroot). This error is now caught and
+ignored, since reporting load average is optional.

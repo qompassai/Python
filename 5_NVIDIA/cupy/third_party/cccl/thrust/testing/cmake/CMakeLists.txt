@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f78aaec89459d6fd62d5914346045370967d1fb3661be3bfaeda7c5bfea07f33
-size 271
+# Check source code for issues that can be found by pattern matching:
+add_test(
+  NAME thrust.test.cmake.check_source_files
+  COMMAND
+    "${CMAKE_COMMAND}"
+      -D "Thrust_SOURCE_DIR=${Thrust_SOURCE_DIR}"
+      -P "${CMAKE_CURRENT_LIST_DIR}/check_source_files.cmake"
+)

@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4c9d2f57e84681c15dc86ce546d0bf704a4acb58b7422826397c310fda082bcc
-size 447
+.. _libcudacxx-standard-api-utility-optional:
+
+<cuda/std/optional>
+=======================
+
+See the documentation of the standard header `\<optional\> <https://en.cppreference.com/w/cpp/header/optional>`_
+
+Extensions
+----------
+
+-  All features are available from C++14 onwards.
+-  All features are available at compile time if the value type supports it.
+
+Restrictions
+------------
+
+-  On device no exceptions are thrown in case of a bad access.

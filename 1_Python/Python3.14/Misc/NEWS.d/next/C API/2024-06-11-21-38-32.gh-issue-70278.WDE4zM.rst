@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e674ded70570c8f64a4cd6d85b2c9d2c71e7c55d068f485a71c0a73278a9f5a7
-size 227
+:c:func:`PyUnicode_FromFormat` no longer produces the ending ``\ufffd``
+character for truncated C string when use precision with ``%s`` and ``%V``.
+It now truncates the string before the start of truncated multibyte
+sequences.

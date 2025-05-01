@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4da0e1cc3afc7779b45fc7bafc0910c3488a5de1f967fe33d97c029bbb9cbbdc
-size 917
+# Copyright (c) 2021, NVIDIA CORPORATION.  All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+from nemo.collections.nlp.data.text_normalization.decoder_dataset import TextNormalizationDecoderDataset
+from nemo.collections.nlp.data.text_normalization.tagger_dataset import TextNormalizationTaggerDataset
+from nemo.collections.nlp.data.text_normalization.test_dataset import TextNormalizationTestDataset

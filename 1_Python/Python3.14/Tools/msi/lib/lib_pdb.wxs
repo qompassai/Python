@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce32af79efb88e36663d29a9bb0b49ed1e935eb09af00191456779a7d4001fbc
-size 679
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Language="!(loc.LCID)" Name="!(loc.TitlePdb)" Version="$(var.Version)" Manufacturer="!(loc.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
+        <Package InstallerVersion="500" Compressed="yes" InstallScope="perUser" />
+        <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+        
+        <PropertyRef Id="UpgradeTable" />
+        
+        <Feature Id="Symbols" AllowAdvertise="no" Title="!(loc.TitlePdb)" Description="!(loc.DescriptionPdb)">
+            <ComponentGroupRef Id="lib_extensions_symbols" />
+        </Feature>
+    </Product>
+</Wix>

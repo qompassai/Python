@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75d7320c75ffaf1b8ec9019e2cc9f188e28521128c3349cb3be6b41eb69520e7
-size 147
+CPython now detects whether its linked TLS library supports TLSv1.3 post-handshake authentication and disables that feature if support is lacking.

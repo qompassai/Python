@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cf70ae1cc7d53a6ed73876a538833210f5a356aec9cf5a5cbd9b49c8ba81a1be
-size 730
+"""UniformUnivariate module."""
+
+import numpy as np
+from scipy.stats import uniform
+
+from sdgx.models.components.sdv_copulas.univariate.base import (
+    BoundedType,
+    ParametricType,
+    ScipyModel,
+)
+
+
+class UniformUnivariate(ScipyModel):
+    """Uniform univariate model."""
+
+    PARAMETRIC = ParametricType.PARAMETRIC
+    BOUNDED = BoundedType.BOUNDED
+
+    MODEL_CLASS = uniform
+
+    def _fit_constant(self, X):
+        self._params = {"loc": np.min(X), "scale": np.max(X) - np.min(X)}
+
+    def _fit(self, X):
+        self._params = {"loc": np.min(X), "scale": np.max(X) - np.min(X)}
+
+    def _is_constant(self):
+        return self._params["scale"] == 0
+
+    def _extract_constant(self):
+        return self._params["loc"]

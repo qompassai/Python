@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:49b4dbea6627d535ae0037692838a0ee22d2932eb2b3151b138cb367c124db96
-size 456
+import os.path
+
+
+TOOL_ROOT = os.path.normcase(
+    os.path.abspath(
+        os.path.dirname(  # c-analyzer/
+            os.path.dirname(__file__))))  # cpython/
+REPO_ROOT = (
+        os.path.dirname(  # ..
+            os.path.dirname(TOOL_ROOT)))  # Tools/
+
+INCLUDE_DIRS = [os.path.join(REPO_ROOT, name) for name in [
+    'Include',
+]]
+SOURCE_DIRS = [os.path.join(REPO_ROOT, name) for name in [
+    'Python',
+    'Parser',
+    'Objects',
+    'Modules',
+]]

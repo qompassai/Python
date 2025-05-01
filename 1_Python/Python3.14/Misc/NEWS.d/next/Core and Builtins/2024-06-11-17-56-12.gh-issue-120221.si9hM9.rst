@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c195ff752f8d53d2d674f6210a2999cc91ad80ce182546db9213c0a6fe61602e
-size 82
+Deliver real signals on Ctrl-C and Ctrl-Z in the new REPL. Patch by Pablo
+Galindo

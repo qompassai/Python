@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3d91e07cad4b6d0cc9553b0bb36852b9a23b4eb4247c08e9b100826c992685d
-size 337
+#include <thrust/version.h>
+
+#include <iostream>
+
+int main()
+{
+  int major    = THRUST_MAJOR_VERSION;
+  int minor    = THRUST_MINOR_VERSION;
+  int subminor = THRUST_SUBMINOR_VERSION;
+  int patch    = THRUST_PATCH_NUMBER;
+
+  std::cout << "Thrust v" << major << "." << minor << "." << subminor << "-" << patch << std::endl;
+
+  return 0;
+}

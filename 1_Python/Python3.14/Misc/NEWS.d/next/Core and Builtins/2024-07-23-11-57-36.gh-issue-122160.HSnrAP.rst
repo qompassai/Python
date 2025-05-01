@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5edc9f20521b46e0885114c0dae0e1378001ecc504c7993a56cd7b2c56510474
-size 76
+Remove the ``BUILD_CONST_KEY_MAP`` opcode. Use :opcode:`BUILD_MAP` instead.

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ffeefdde8b2146c8cbcb5f2723febd158ae8c13f0b869983aae34277c381bdfd
-size 257
+ASR Evaluator
+========================
+
+ASR evaluator is a tool for thoroughly evaluating the performance of ASR models and other features such as Voice Activity Detection.
+
+See more details in: https://github.com/NVIDIA/NeMo/tree/stable/tools/asr_evaluator

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a29fd1e339a960763c199d41ce90d5b2786af9bd2e7cc7f919d64f50d8ae1d4d
-size 625
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>python</id>
+    <title>Python</title>
+    <version>0.0.0.0</version>
+    <authors>Python Software Foundation</authors>
+    <license type="file">tools\LICENSE.txt</license>
+    <projectUrl>https://www.python.org/</projectUrl>
+    <description>Installs 64-bit Python for use in build scenarios.</description>
+    <iconUrl>https://www.python.org/static/favicon.ico</iconUrl>
+    <tags>python</tags>
+  </metadata>
+  <files>
+    <file src="**\*" exclude="python.props" target="tools" />
+    <file src="python.props" target="build\native\python.props" />
+  </files>
+</package>

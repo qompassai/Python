@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77c4e3146cf4f5336ffe8aca752c47c98946d142e40a166a06eddaf07a0727b0
-size 282
+#ifndef Py_CPYTHON_TRACEBACK_H
+#  error "this header file must not be included directly"
+#endif
+
+typedef struct _traceback PyTracebackObject;
+
+struct _traceback {
+    PyObject_HEAD
+    PyTracebackObject *tb_next;
+    PyFrameObject *tb_frame;
+    int tb_lasti;
+    int tb_lineno;
+};

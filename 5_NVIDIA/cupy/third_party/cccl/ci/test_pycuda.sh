@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:49455b83d5d0a0c8807078561bb79149ec0ae1f631052ce3b018d5a158b77bf4
-size 431
+#!/bin/bash
+
+set -euo pipefail
+
+source "$(dirname "$0")/build_common.sh"
+
+print_environment_details
+
+fail_if_no_gpu
+
+readonly prefix="${BUILD_DIR}/python/"
+export PYTHONPATH="${prefix}:${PYTHONPATH:-}"
+
+pushd ../python/cuda >/dev/null
+
+run_command "⚙️  Pip install cuda" pip install --force-reinstall --target "${prefix}" .[test]
+run_command "🚀  Pytest cuda" python -m pytest -v ./tests
+
+popd >/dev/null
+
+print_time_summary

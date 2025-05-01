@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:85d478b6ad31de498190f12afd526c2329d94a789c22a3bf917f76872910f729
-size 256
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="Descriptor">C Runtime Library</String>
+    <String Id="ShortDescriptor">ucrt</String>
+</WixLocalization>

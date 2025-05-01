@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7596f93a7e3f2ae9adc353119253d0c8cef76bd7e23bf9a865ec11ad248f8e15
-size 378
+# Parse version information from version.h in source tree
+set(_THRUST_VERSION_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/../..")
+if(EXISTS "${_THRUST_VERSION_INCLUDE_DIR}/thrust/version.h")
+  set(_THRUST_VERSION_INCLUDE_DIR "${_THRUST_VERSION_INCLUDE_DIR}" CACHE FILEPATH "" FORCE) # Clear old result
+  set_property(CACHE _THRUST_VERSION_INCLUDE_DIR PROPERTY TYPE INTERNAL)
+endif()

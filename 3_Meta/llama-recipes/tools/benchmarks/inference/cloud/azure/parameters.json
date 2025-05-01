@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61edf06f2b2b70b3a4d0e787b847460c18d5ee4598b5da5a58c903047f20c5bd
-size 408
+{
+    "MAX_NEW_TOKEN" : 256,
+    "CONCURRENT_LEVELS" : [1, 2, 4, 8, 16, 32, 64],
+    "THRESHOLD_TPS" : 7,
+    "MODEL_PATH" : "meta-llama/your-model-path",
+    "RANDOM_PROMPT_LENGTH" : 25,
+    "TEMPERATURE" : 0.6,
+    "TOP_P" : 0.9,
+    "MODEL_ENDPOINTS" : "https://your-endpoint.inference.ai.azure.com/v1/chat/completions",
+    "API_KEY" : "your-auth-key",
+    "SYS_PROMPT" : "You are a helpful assistant."
+}

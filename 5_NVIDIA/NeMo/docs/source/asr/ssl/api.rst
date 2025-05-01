@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:63785a5b8cb29a186120a50d47b0ed72b3f0e668fe40274d9b2c178512100673
-size 459
+NeMo SSL collection API
+=============================
+
+
+Model Classes
+-------------
+.. autoclass:: nemo.collections.asr.models.SpeechEncDecSelfSupervisedModel
+    :show-inheritance:
+    :members: 
+
+
+Mixins
+------
+
+.. autoclass:: nemo.collections.asr.parts.mixins.mixins.ASRModuleMixin
+    :show-inheritance:
+    :members:
+    :no-index:
+
+.. autoclass:: nemo.core.classes.mixins.access_mixins.AccessMixin
+    :show-inheritance:
+    :members:
+    :no-index:
+
+
+

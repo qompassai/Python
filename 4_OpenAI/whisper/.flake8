@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4563b869c51bc6fec08166d455731dabe0f46553c2ddd8508abc65c84ed899bf
-size 53
+[flake8]
+per-file-ignores =
+    */__init__.py: F401
+

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b2fc68e0355cfd8c2cd57dabdf1dda022b78a6116cf18f0bf70954184222354
-size 409
+# Remove all the .pyc files under ../Lib.
+
+
+def deltree(root):
+    import os
+    from os.path import join
+
+    npyc = 0
+    for root, dirs, files in os.walk(root):
+        for name in files:
+            # to be thorough
+            if name.endswith(('.pyc', '.pyo')):
+                npyc += 1
+                os.remove(join(root, name))
+
+    return npyc
+
+npyc = deltree("../Lib")
+print(npyc, ".pyc deleted")

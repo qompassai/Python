@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2282944f6c11997b1599de6c811e115d0dafb2b5b6ab11d88df11970ab69c9d4
-size 57
+The Windows build of CPython now requires 3.10 or newer.

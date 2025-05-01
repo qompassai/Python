@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8fe3ddf6ef481e35d5f90206a972ba5015e07b3adeeef239da2d157ad6ea203f
-size 676
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D3677DCF-098A-4398-9FA5-8E74AC37E0DF}</ProjectGuid>
+        <SchemaVersion>2.0</SchemaVersion>
+        <OutputName>core_d</OutputName>
+        <OutputType>Package</OutputType>
+    </PropertyGroup>
+    <Import Project="..\msi.props" />
+    <ItemGroup>
+        <Compile Include="core_d.wxs" />
+        <Compile Include="core_files.wxs" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="*.wxl" />
+    </ItemGroup>
+
+    <Import Project="..\msi.targets" />
+</Project>

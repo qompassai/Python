@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9fb3430d7019a19c8b4328a0551a9e4aa5e8cfb90706fb4cb051079f1bca139d
-size 27
+HOLA  ˈola
+MUNDO  mˈundo

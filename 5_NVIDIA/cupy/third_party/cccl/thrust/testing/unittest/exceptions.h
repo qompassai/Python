@@ -1,3 +1,62 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:db2743f56195c5fb7eb0029324695c0ba29c07c4bc9fc6871ef75f156a23c4cd
-size 1061
+#pragma once
+
+#include <iostream>
+#include <sstream>
+#include <string>
+
+namespace unittest
+{
+
+class UnitTestException
+{
+public:
+  std::string message;
+
+  UnitTestException() {}
+  UnitTestException(const std::string& msg)
+      : message(msg)
+  {}
+
+  friend std::ostream& operator<<(std::ostream& os, const UnitTestException& e)
+  {
+    return os << e.message;
+  }
+
+  template <typename T>
+  UnitTestException& operator<<(const T& t)
+  {
+    std::ostringstream oss;
+    oss << t;
+    message += oss.str();
+    return *this;
+  }
+};
+
+class UnitTestError : public UnitTestException
+{
+public:
+  UnitTestError() {}
+  UnitTestError(const std::string& msg)
+      : UnitTestException(msg)
+  {}
+};
+
+class UnitTestFailure : public UnitTestException
+{
+public:
+  UnitTestFailure() {}
+  UnitTestFailure(const std::string& msg)
+      : UnitTestException(msg)
+  {}
+};
+
+class UnitTestKnownFailure : public UnitTestException
+{
+public:
+  UnitTestKnownFailure() {}
+  UnitTestKnownFailure(const std::string& msg)
+      : UnitTestException(msg)
+  {}
+};
+
+}; // end namespace unittest

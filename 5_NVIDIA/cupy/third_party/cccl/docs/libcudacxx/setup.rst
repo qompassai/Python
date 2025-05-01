@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:394144b1da943c9b486202bab018f330ae34cf59d4704dafab765a8558076cd5
-size 135
+.. _libcudacxx-setup:
+
+Setup
+=====
+
+.. toctree::
+   :maxdepth: 1
+
+   setup/requirements
+   setup/getting
+   setup/building_and_testing

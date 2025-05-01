@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:389d5d8cf4d9a13010dc2cc0bacdaa2c7df75222b4457317e83f1f5a34b4ffe5
-size 270
+.. _libcudacxx-contributing:
+
+Contributing
+============
+
+.. toctree::
+   :maxdepth: 1
+
+   contributing/code_of_conduct
+
+We welcome contributions - just send us a pull request!
+
+libcu++ uses the `Apache License v2.0 with LLVM Exceptions <https://llvm.org/LICENSE.txt>`_.

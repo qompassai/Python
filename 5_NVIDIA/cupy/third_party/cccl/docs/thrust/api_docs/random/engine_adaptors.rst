@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c12d06a1be7ccdf253bb72f9d3325fb7295b6b3c64d73cc6319c37f37397b002
-size 426
+.. _thrust-module-api-random-number-generators-engine-adaptors:
+
+Random Number Engine Adaptors
+------------------------------
+
+  - :cpp:class:`thrust::random::discard_block_engine <thrust::random::discard_block_engine>`
+  - :cpp:class:`thrust::random::xor_combine_engine <thrust::random::xor_combine_engine>`
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   ${repo_docs_api_path}/*function_group__random__number__engine__adaptors*

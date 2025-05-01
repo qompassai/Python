@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:58167db9143c6c487c2494faa90ed7db4c3788a67ca60ae0c0c594200369e96b
-size 639
+import os
+from typing import List, Optional
+
+
+def print_warning(*lines: str) -> None:
+    print('**************************************************')
+    for line in lines:
+        print('*** WARNING: %s' % line)
+    print('**************************************************')
+
+
+def get_path(key: str) -> List[str]:
+    return os.environ.get(key, '').split(os.pathsep)
+
+
+def search_on_path(filenames: List[str]) -> Optional[str]:
+    for p in get_path('PATH'):
+        for filename in filenames:
+            full = os.path.join(p, filename)
+            if os.path.exists(full):
+                return os.path.abspath(full)
+    return None

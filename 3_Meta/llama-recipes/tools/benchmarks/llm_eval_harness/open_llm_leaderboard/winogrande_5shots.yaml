@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3ca24fa73b23e103a976726ec5ae60b5386259fe13857ae38e5cb84b2bb8e16c
-size 158
+include: {$EVAL_PATH}/lm_eval/tasks/winogrande/default.yaml
+task: winogrande_5_shot
+task_alias: winogrande 5 shot
+num_fewshot: 5
+metric_list:
+  - metric: acc

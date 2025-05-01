@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:41afb34d5abc7f831504d1f5eec58b92919a5265dba8cadb7258cf33b0dace53
-size 173
+Remove the private ``_Py_CODEUNIT`` type from the public C API. The internal
+``pycore_code.h`` header should now be used to get this internal type. Patch by
+Victor Stinner.

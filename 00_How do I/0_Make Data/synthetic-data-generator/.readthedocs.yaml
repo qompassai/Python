@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df183ae037807359db84d7cdb4c524d8eff2008aa54962cf1566916aae79a595
-size 448
+# .readthedocs.yaml
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+# Required
+version: 2
+
+# Set the OS, Python version and other tools you might need
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.10"
+
+sphinx:
+  configuration: docs/source/conf.py
+
+python:
+  install:
+    # install itself with pip install .
+    - method: pip
+      path: .
+      extra_requirements:
+        - docs

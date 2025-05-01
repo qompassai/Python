@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eec798de483054228c2ff95bf6e484b8a7d3a2797c5e7563338b963263ef38f2
-size 106
+Cleaned up fixtures for importlib.metadata tests and consolidated behavior
+with 'test.support.os_helper'.

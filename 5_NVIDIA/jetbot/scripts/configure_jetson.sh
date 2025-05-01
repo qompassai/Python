@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e1e05038664ce83ea75b3398851e8e9b435da48c5e6e152e063b99964f2bc916
-size 196
+#!/bin/bash
+
+# Disable GUI to free up more RAM
+sudo systemctl set-default multi-user
+
+# Disable ZRAM
+sudo systemctl disable nvzramconfig.service
+
+# Default to Max-N power mode
+sudo nvpmodel -m 0
+

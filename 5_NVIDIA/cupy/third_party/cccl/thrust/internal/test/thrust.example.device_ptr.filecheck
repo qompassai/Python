@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4d31493021b431bec94478c2c828a6cd609e130b79144b97f491204f3a72cbcc
-size 76
+     CHECK: device array contains 10 values
+CHECK-NEXT: sum of values is 45

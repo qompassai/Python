@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f3a0bdef5a6c573451c290da7af72e1966457bb03e6bd92441ebeb616eef22af
-size 425
+.. _libcudacxx-extended-api-functional:
+
+Function wrapper
+-----------------
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   functional/proclaim_return_type
+
+.. list-table::
+   :widths: 25 45 30
+   :header-rows: 0
+
+   * - :ref:`cuda::proclaim_return_type <libcudacxx-extended-api-functional-proclaim-return-type>`
+     - Creates a forwarding call wrapper that proclaims return type
+     - libcu++ 1.9.0 / CCCL 2.0.0 / CUDA 11.8

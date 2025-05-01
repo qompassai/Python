@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:012ec745cd539804b815c4d0be32238bf0ebbc816df3ea0a44b2321b2b4e5031
-size 312
+#ifndef INCLUDE_GUARD_CUPY_CURAND_H
+#define INCLUDE_GUARD_CUPY_CURAND_H
+
+#if CUPY_USE_HIP
+
+#include "hip/cupy_hiprand.h"
+
+#elif !defined(CUPY_NO_CUDA)
+
+#include <curand.h>
+
+#else // #ifndef CUPY_NO_CUDA
+
+#include "stub/cupy_curand.h"
+
+#endif // #ifndef CUPY_NO_CUDA
+#endif // #ifndef INCLUDE_GUARD_CUPY_CURAND_H

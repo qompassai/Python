@@ -1,3 +1,135 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:961e7c482400b093fc4dbd5f4b051653dae64d5a6659575333ec0462ba8d37b2
-size 1779
+Array manipulation routines
+===========================
+
+.. Hint:: `NumPy API Reference: Array manipulation routines <https://numpy.org/doc/stable/reference/routines.array-manipulation.html>`_
+
+.. currentmodule:: cupy
+
+Basic operations
+----------------
+
+.. autosummary::
+   :toctree: generated/
+
+   copyto
+   shape
+
+
+Changing array shape
+--------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   reshape
+   ravel
+
+.. seealso:: :attr:`cupy.ndarray.flat` and :func:`cupy.ndarray.flatten`
+
+Transpose-like operations
+-------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   moveaxis
+   rollaxis
+   swapaxes
+   transpose
+
+.. seealso:: :attr:`cupy.ndarray.T`
+
+Changing number of dimensions
+-----------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   atleast_1d
+   atleast_2d
+   atleast_3d
+   broadcast
+   broadcast_to
+   broadcast_arrays
+   expand_dims
+   squeeze
+
+
+Changing kind of array
+----------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   asarray
+   asanyarray
+   asfarray
+   asfortranarray
+   ascontiguousarray
+   asarray_chkfinite
+   require
+
+
+Joining arrays
+--------------
+
+.. autosummary::
+   :toctree: generated/
+
+   concatenate
+   stack
+   vstack
+   hstack
+   dstack
+   column_stack
+   row_stack
+
+
+Splitting arrays
+----------------
+
+.. autosummary::
+   :toctree: generated/
+
+   split
+   array_split
+   dsplit
+   hsplit
+   vsplit
+
+
+Tiling arrays
+-------------
+
+.. autosummary::
+   :toctree: generated/
+
+   tile
+   repeat
+
+
+Adding and removing elements
+----------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   delete
+   append
+   resize
+   unique
+   trim_zeros
+
+
+Rearranging elements
+--------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   flip
+   fliplr
+   flipud
+   reshape
+   roll
+   rot90

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d8718b37263956289aa6545e3e4328ebedcee76d56e74813a29e97d49eca5011
-size 320
+import pytest
+
+from sdgx.cachers.manager import CacherManager
+
+
+@pytest.fixture
+def manager():
+    yield CacherManager()
+
+
+def test_registed_cacher(manager: CacherManager):
+    assert manager._normalize_name("DummyCache") in manager.registed_cachers
+
+
+if __name__ == "__main__":
+    pytest.main(["-vv", "-s", __file__])

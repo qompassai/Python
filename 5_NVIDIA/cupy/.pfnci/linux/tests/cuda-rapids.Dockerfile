@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:59e1aac270f5169f0df9232c3c54760a132af73eae0a7f87883e0c5d454e1b9b
-size 303
+ARG BASE_IMAGE="rapidsai/base:23.12-cuda12.0-py3.10"
+FROM ${BASE_IMAGE}
+
+USER root
+
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get -qqy update && \
+    apt-get -qqy install build-essential cuda-toolkit-12-0 ccache git curl
+
+ENV CUDA_PATH "/usr/local/cuda"
+ENV PATH "/usr/lib/ccache:${PATH}"

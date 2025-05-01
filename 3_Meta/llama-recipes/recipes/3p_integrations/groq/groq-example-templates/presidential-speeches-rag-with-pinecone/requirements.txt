@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d7a66d11a03211a2ef4a9b2aa4707f5a320923ae66f8e62c5c76750f90c9b203
-size 104
+pandas
+numpy
+groq
+langchain_community
+langchain_pinecone
+transformers
+scikit-learn
+sentence-transformers

@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:531dc3bc9a1cd582b34033b1cf75f80fd2b7668bed846a6cf11cc79a61b3cc5c
-size 159
+:c:func:`PyDict_Next` no longer locks the dictionary in the free-threaded
+build.  The locking needs to be done by the caller around the entire iteration
+loop.

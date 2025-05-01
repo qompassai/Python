@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8a1be0d95d03db341aebb6166211d986c13e024c9deace62db2ed93b83ace5a5
-size 480
+{%- if show_source and has_source and sourcename %}
+  <div role="note" aria-label="source link">
+    <h3>{{ _('This Page') }}</h3>
+    <ul class="this-page-menu">
+      <li><a href="{{ pathto('bugs') }}">{% trans %}Report a Bug{% endtrans %}</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/main/Doc/{{ sourcename|replace('.rst.txt', '.rst') }}"
+            rel="nofollow">{{ _('Show Source') }}
+        </a>
+      </li>
+    </ul>
+  </div>
+{%- endif %}

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4492f07b2c295ec1995110af34436f28e694f2f5f565856d9321fd10cc234322
-size 413
+import pytest
+
+from sdgx.cachers.manager import CacherManager
+
+
+@pytest.fixture
+def manager():
+    yield CacherManager()
+
+
+@pytest.mark.parametrize(
+    "supportd_cacher",
+    ["NoCache", "DiskCache"],
+)
+def test_manager(supportd_cacher, manager: CacherManager):
+    assert manager._normalize_name(supportd_cacher) in manager.registed_cachers
+
+
+if __name__ == "__main__":
+    pytest.main(["-vv", "-s", __file__])

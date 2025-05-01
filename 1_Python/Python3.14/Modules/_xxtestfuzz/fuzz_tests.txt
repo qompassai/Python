@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:84859aa86739c695063c06e5048e30fcef41c2bae408a151ac5b2aef6868f888
-size 205
+fuzz_builtin_float
+fuzz_builtin_int
+fuzz_builtin_unicode
+fuzz_json_loads
+fuzz_sre_compile
+fuzz_sre_match
+fuzz_csv_reader
+fuzz_struct_unpack
+fuzz_ast_literal_eval
+fuzz_elementtree_parsewhole
+fuzz_pycompile

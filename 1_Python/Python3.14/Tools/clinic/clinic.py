@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b74588017454243af92c8fa4c0d3e6331a4970f04df0d6ee54a86cc254403859
-size 210
+#!/usr/bin/env python3
+#
+# Argument Clinic
+# Copyright 2012-2013 by Larry Hastings.
+# Licensed to the PSF under a contributor agreement.
+#
+from libclinic.cli import main
+
+
+if __name__ == "__main__":
+    main()

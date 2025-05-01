@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e2616d30893b0078f084f9a8c135e43025fc058948547c00763a9a53fa15d2dd
-size 303
+Support :c:expr:`float complex`, :c:expr:`double complex` and
+:c:expr:`long double complex` C types in :mod:`ctypes` as
+:class:`~ctypes.c_float_complex`, :class:`~ctypes.c_double_complex` and
+:class:`~ctypes.c_longdouble_complex` if the compiler has C11 complex arithmetic.
+Patch by Sergey B Kirpichev.

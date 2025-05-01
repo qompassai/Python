@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:64fdd75a0f9ba8deda4964d260ef8af17d54216fda10ebc275673aad515022e7
-size 176
+Model Name,Model Base Class,Model Card
+stt_hi_conformer_ctc_medium,EncDecCTCModelBPE,"https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/stt_hi_conformer_ctc_medium"

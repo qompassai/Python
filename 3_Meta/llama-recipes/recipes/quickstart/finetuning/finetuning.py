@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eb02b4c89ccd66c919957d17138284ca76e09fed4ad3474426cddb3f494243ca
-size 266
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
+
+import fire
+from llama_recipes.finetuning import main
+
+if __name__ == "__main__":
+    fire.Fire(main)

@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:805884bd37327def45c1702624de53a1ab659308a234b65923c0ae71b72783fc
-size 876
+# Copyright (c) 2023, NVIDIA CORPORATION.  All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+from nemo.collections.nlp.modules.common.megatron.hiddens.megatron_hidden_loss import *
+from nemo.collections.nlp.modules.common.megatron.hiddens.megatron_hidden_transform import *
+from nemo.collections.nlp.modules.common.megatron.hiddens.megatron_hiddens import *

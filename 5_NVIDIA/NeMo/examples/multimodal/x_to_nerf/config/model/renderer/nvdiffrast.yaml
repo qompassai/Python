@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1b7691ddd3a004cf4e2832213bc43023fdcfcc5ab5e61a7ae28cd09f43d92bc9
-size 232
+_target_: nemo.collections.multimodal.modules.nerf.renderers.nvdiffrast_renderer.NVDiffRastRenderer
+bound: ${model.nerf.bound}
+grid_resolution: 128
+density_thresh: 10.0
+update_interval: 16
+quartet_file: "/results/tets/128_tets.npz"

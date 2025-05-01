@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a77a6b97a187f975795c0f72a7710acf3bfd2ebb5b2f8888d63711a9749c8f28
-size 704
+//===----------------------------------------------------------------------===//
+//
+// Part of CUDA Experimental in CUDA C++ Core Libraries,
+// under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// SPDX-FileCopyrightText: Copyright (c) 2024 NVIDIA CORPORATION & AFFILIATES.
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef _CUDAX_EVENT_H
+#define _CUDAX_EVENT_H
+
+#include <cuda/experimental/__event/event.cuh>
+#include <cuda/experimental/__event/event_ref.cuh>
+#include <cuda/experimental/__event/timed_event.cuh>
+
+#endif // _CUDAX_EVENT_H

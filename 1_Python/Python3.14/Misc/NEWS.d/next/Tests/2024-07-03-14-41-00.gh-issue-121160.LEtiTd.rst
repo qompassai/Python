@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0f3a83bad406683eb41aacdc44d0ed41bfe8f664cf827e0dedfc31ecb97a8bdb
-size 104
+Add a test for :func:`readline.set_history_length`. Note that this test may
+fail on readline libraries.

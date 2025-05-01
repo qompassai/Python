@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4774ad2e3fb15e9db9b5ec94cb584f3b65c4fc14b72f62503f26e07afb3849ea
-size 161
+addict
+clip
+decord
+diffusers>=0.19.3
+einops_exts
+imageio
+kornia
+nerfacc>=0.5.3
+open_clip_torch==2.24.0
+PyMCubes
+taming-transformers
+torchdiffeq
+torchsde
+trimesh

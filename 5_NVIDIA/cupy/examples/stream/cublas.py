@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77921227b548391b69c043372b8f42fb5c83c2ce4bc4bb31537f8939a3d8792e
-size 471
+# nvprof --print-gpu-trace python examples/stream/cublas.py
+import cupy
+
+x = cupy.array([1, 2, 3])
+y = cupy.array([[1], [2], [3]])
+expected = cupy.matmul(x, y)
+cupy.cuda.Device().synchronize()
+
+stream = cupy.cuda.stream.Stream()
+with stream:
+    z = cupy.matmul(x, y)
+stream.synchronize()
+cupy.testing.assert_array_equal(z, expected)
+
+stream = cupy.cuda.stream.Stream()
+stream.use()
+z = cupy.matmul(x, y)
+stream.synchronize()
+cupy.testing.assert_array_equal(z, expected)

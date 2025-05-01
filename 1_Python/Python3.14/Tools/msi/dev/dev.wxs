@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:226c9dcdf07b49584903f03c5b3ff63feb199f9dfc96def6388c6ed1ef4bfd74
-size 861
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Language="!(loc.LCID)" Name="!(loc.Title)" Version="$(var.Version)" Manufacturer="!(loc.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
+        <Package InstallerVersion="500" Compressed="yes" InstallScope="perUser" />
+        <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+        
+        <PropertyRef Id="DetectTargetDir" />
+        <PropertyRef Id="UpgradeTable" />
+        
+        <Feature Id="DefaultFeature" AllowAdvertise="no" Title="!(loc.Title)" Description="!(loc.Description)">
+            <ComponentGroupRef Id="dev_include" />
+            <ComponentGroupRef Id="dev_pyconfig" />
+            <ComponentGroupRef Id="dev_libs" />
+            <ComponentRef Id="OptionalFeature" />
+        </Feature>
+    </Product>
+</Wix>

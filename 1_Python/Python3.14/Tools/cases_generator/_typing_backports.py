@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4fe25f5705e4f9f047ba330c70264032291c64d24cbd5f2d6da0615978521021
-size 469
+"""Backports from newer versions of the typing module.
+
+We backport these features here so that Python can still build
+while using an older Python version for PYTHON_FOR_REGEN.
+"""
+
+from typing import NoReturn
+
+
+def assert_never(obj: NoReturn) -> NoReturn:
+    """Statically assert that a line of code is unreachable.
+
+    Backport of typing.assert_never (introduced in Python 3.11).
+    """
+    raise AssertionError(f"Expected code to be unreachable, but got: {obj}")

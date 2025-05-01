@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:023603b00b10f1eb818fd6b6e206779ab0b11a44b1ab5bcf72f07550ef1d6947
-size 534
+.. _libcudacxx-ptx-instructions-getctarank:
+
+getctarank
+==========
+
+-  PTX ISA:
+   `getctarank <https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#data-movement-and-conversion-instructions-getctarank>`__
+
+getctarank.shared::cluster.u32
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code:: cuda
+
+   // getctarank{.space}.u32 dest, addr; // PTX ISA 78, SM_90
+   // .space     = { .shared::cluster }
+   template <typename=void>
+   __device__ static inline uint32_t getctarank(
+     cuda::ptx::space_cluster_t,
+     const void* addr);

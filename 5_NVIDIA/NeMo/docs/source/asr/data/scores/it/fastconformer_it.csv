@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2cbab3771c6b6fe49582f4a0e5bc29e7da238a8559127cd6268542e078f2c193
-size 286
+Model Name,Language,MCV Dev-Set (v??) (it),MCV Dev-Set v11.0 (it),MCV Dev-Set v12.0 (it),MCV Test-Set v11.0 (it),MCV Test-Set v12.0 (it),MLS Dev (en),MLS Test (en),VoxPopuli Dev (it),VoxPopuli Test (it)
+stt_it_fastconformer_hybrid_large_pc,it,,,5.2 %,,5.8 %,13.6 %,11.5 %,12.7 %,15.6 %

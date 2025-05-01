@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4657d7eeae3692c999cefe2f79017e20642091ddbb95edc53d1f9a1207767698
-size 243
+Fix an error in :class:`logging.LogRecord`, when the integer part of the
+timestamp is rounded up, while the millisecond calculation truncates,
+causing the log timestamp to be wrong by up to 999 ms (affected roughly 1 in
+8 million timestamps).

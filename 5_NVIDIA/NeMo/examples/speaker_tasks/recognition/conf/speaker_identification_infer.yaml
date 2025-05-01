@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:36e55e09497f6d95e99f107529af57574f8919f74cdcf6c5df06bf9d23f7d616
-size 789
+name: &name "SpeakerIdentificationInfer"
+
+data:
+    enrollment_manifest: ???
+    test_manifest: ???
+    out_manifest: './infer_output.json'
+    sample_rate: 16000
+
+backend:
+    backend_model: cosine_similarity # supported backends are cosine_similarity and neural_classifier
+
+    cosine_similarity:
+        model_path: titanet_large # or path to .nemo file
+        batch_size: 32
+
+    neural_classifier:
+        model_path: ??? # path to neural model trained/finetuned with enrollment dataset
+        batch_size: 32
+
+# json manifest line example
+#
+# enrollment_manifest:
+# {"audio_filepath": "/path/to/audio_file", "offset": 0, "duration": null, "label": "<speaker_label>"}
+# 
+# test_manifest:
+# {"audio_filepath": "/path/to/audio_file", "offset": 0, "duration": null, "label": "infer"}
+#

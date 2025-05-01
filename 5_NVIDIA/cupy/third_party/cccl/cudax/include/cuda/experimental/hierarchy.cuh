@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0d2f38c0fca4dbf830cd5d9a74b449795f80c97b60130f004eb536979d96dacb
-size 613
+//===----------------------------------------------------------------------===//
+//
+// Part of CUDA Experimental in CUDA C++ Core Libraries,
+// under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// SPDX-FileCopyrightText: Copyright (c) 2024 NVIDIA CORPORATION & AFFILIATES.
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef __CUDAX_HIERARCHY___
+#define __CUDAX_HIERARCHY___
+
+#include <cuda/experimental/__hierarchy/hierarchy_dimensions.cuh>
+
+#endif

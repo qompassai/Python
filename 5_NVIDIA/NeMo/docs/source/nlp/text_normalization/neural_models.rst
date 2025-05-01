@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1f351130d464a4aca7b2e67a1f0015bed946a87bb11787bebf24738ddec16d7b
-size 336
+.. _neural_models:
+
+Neural Models for (Inverse) Text Normalization
+==============================================
+
+NeMo provides two types of neural models:
+
+
+Duplex T5-based TN/ITN:
+
+.. toctree::
+   :maxdepth: 1
+
+   nn_text_normalization
+
+
+Single-pass Tagger-based ITN:
+
+.. toctree::
+   :maxdepth: 1
+
+   text_normalization_as_tagging
+

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:be75e8e708bbc3f9112c4e0831a9e53899268e78a14e423eda905f837e321a28
-size 281
+name: stable-diffusion-train
+
+trainer:
+  devices: 1
+  num_nodes: 1
+  accelerator: gpu
+  precision: 16
+  logger: False # logger provided by exp_manager
+
+model:
+  restore_from_path: null
+  precision: ${trainer.precision}
+
+lora_model_path: null
+lora_scale: 1.0
+merged_model_path: null

@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9120c09b02003a862035d4e1984b3e7f52e73fec1af2d7ceab57be661b2e4ff2
-size 343
+description: Five most recent purchases
+sql: |
+  SELECT 
+         purchases.purchase_date,
+         purchases.product_name,
+         purchases.amount,
+         employees.name
+  FROM purchases.csv AS purchases
+  JOIN employees.csv AS employees ON purchases.employee_id = employees.employee_id
+  ORDER BY purchases.purchase_date DESC
+  LIMIT 5;

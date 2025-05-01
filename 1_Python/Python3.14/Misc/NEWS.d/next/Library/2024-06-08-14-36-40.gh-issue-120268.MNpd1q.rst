@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:030f36af035bcdb2ce2bcf6f11803be34dfebc2cd5b9267e55274fe0ae817bd4
-size 133
+Prohibit passing ``None`` to pure-Python :meth:`datetime.date.fromtimestamp`
+to achieve consistency with C-extension implementation.

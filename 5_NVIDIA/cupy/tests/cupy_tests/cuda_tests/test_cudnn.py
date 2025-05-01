@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bf6e5b2db05c86f81d82d1476ded3cefc4a1704fffff9f199de31010a42e7801
-size 374
+import pickle
+import unittest
+
+from cupy.cuda import cudnn
+
+
+cudnn_available = cudnn.available
+
+
+@unittest.skipUnless(cudnn_available, 'cuDNN is unavailable')
+class TestExceptionPicklable(unittest.TestCase):
+
+    def test(self):
+        e1 = cudnn.CuDNNError(1)
+        e2 = pickle.loads(pickle.dumps(e1))
+        assert e1.args == e2.args
+        assert str(e1) == str(e2)

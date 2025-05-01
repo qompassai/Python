@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b8a5bc58b9cca29a5b32ea7b08833952df207d119da46af00b79dd164b35fb39
-size 289
+import os
+import unittest
+from test.support import load_package_tests
+from test.support import TEST_MODULES_ENABLED
+
+
+if not TEST_MODULES_ENABLED:
+    raise unittest.SkipTest("requires test modules")
+
+
+def load_tests(*args):
+    return load_package_tests(os.path.dirname(__file__), *args)

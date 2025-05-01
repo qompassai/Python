@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2d61445ef29d17277360114731ef7c4eb05dcf337224089f22f5e88d066f02ae
-size 89
+Improve :mod:`curses` and :mod:`curses.panel` dependency checks in
+:program:`configure`.

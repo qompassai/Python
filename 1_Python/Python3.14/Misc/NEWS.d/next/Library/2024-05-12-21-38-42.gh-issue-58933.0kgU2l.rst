@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bdea2585b668208b998b41b39dd95836440452f5d0dd46124c885420ebfaa40c
-size 97
+Make :mod:`pdb` return to caller frame correctly when ``f_trace`` of the caller frame is not set

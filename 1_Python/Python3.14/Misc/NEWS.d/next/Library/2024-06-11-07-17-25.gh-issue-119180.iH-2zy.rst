@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3abe8927da21567c7716a7fa17536d381c4744ee38e9ae994d1b361bdc195c72
-size 230
+As part of implementing :pep:`649` and :pep:`749`, add a new module
+``annotationlib``. Add support for unresolved forward references in
+annotations to :mod:`dataclasses`, :class:`typing.TypedDict`, and
+:class:`typing.NamedTuple`.

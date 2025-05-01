@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c9083de7c15fae0384908d30b482e72bfbf5fed1a2445148be5d593c4c853ca0
-size 252
+.. _thrust-module-api-memory-management:
+
+Memory Management
+==================
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+
+   memory_management/allocators
+   memory_management/memory_resources
+   ${repo_docs_api_path}/*function_group__memory__management*

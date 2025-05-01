@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5acb20a7fcf2da536549042425ba0d6ba456e1fdd4a4fa1e4bb9b334dbf4069f
-size 412
+============================================================
+CuPy -- NumPy & SciPy for GPU
+============================================================
+
+.. module:: cupy
+
+.. toctree::
+   :maxdepth: 2
+
+   overview
+   install
+   user_guide/index
+   reference/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Development
+
+   contribution
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Misc Notes
+
+   upgrade
+   license

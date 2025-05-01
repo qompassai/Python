@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3b8cd0507df2d555540ef53b8c9aa0a61b58530c3cf1d25f384820589a1bfc55
-size 87
+einops
+lhotse>=1.22.0
+librosa>=0.10.0
+matplotlib
+pesq
+pystoi
+scipy>=0.14
+soundfile
+sox

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:79d795988f679efab50ca81862294b76df51fbe69607e5a13c55ef2eb2f70948
-size 389
+
+
+This directory contains extended tests and a benchmark against decimal.py:
+
+  bench.py  ->  Benchmark for small and large precisions.
+  Usage: ../../../python bench.py
+
+  formathelper.py   ->
+  randdec.py        ->  Generate test cases for deccheck.py.
+  randfloat.py      ->
+
+  deccheck.py  ->  Run extended tests.
+  Usage: ../../../python deccheck.py [--short|--medium|--long|--all]
+
+

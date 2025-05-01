@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:29e48e094d4ee46c7fcac4a95ff2b61c37bd84df9ae301ba51ea80b576293567
-size 516
+.. _libcudacxx-ptx-instructions-cp-async-bulk-commit_group:
+
+cp.async.bulk.commit_group
+==========================
+
+-  PTX ISA:
+   `cp.async.bulk.commit_group <https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#data-movement-and-conversion-instructions-cp-async-bulk-commit-group>`__
+
+cp.async.bulk.commit_group
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code:: cuda
+
+   // cp.async.bulk.commit_group; // PTX ISA 80, SM_90
+   template <typename=void>
+   __device__ static inline void cp_async_bulk_commit_group();

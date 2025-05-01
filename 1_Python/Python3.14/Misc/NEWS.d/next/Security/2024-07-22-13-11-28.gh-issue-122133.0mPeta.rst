@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:78b5c223de95fd04c8e3d17c162ce249d2e78080fc771a0f19da59c0ade0bd32
-size 253
+Authenticate the socket connection for the ``socket.socketpair()`` fallback
+on platforms where ``AF_UNIX`` is not available like Windows.
+
+Patch by Gregory P. Smith <greg@krypto.org> and Seth Larson <seth@python.org>. Reported by Ellie
+<el@horse64.org>

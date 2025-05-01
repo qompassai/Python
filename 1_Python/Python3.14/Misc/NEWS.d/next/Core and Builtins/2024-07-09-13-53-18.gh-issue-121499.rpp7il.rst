@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8ae397851f325cefbf20623d9e2641d5201296afa82a648a38e741664f4ea307
-size 146
+Fix a bug affecting how multi-line history was being rendered in the new
+REPL after interacting with the new screen cache. Patch by Pablo Galindo

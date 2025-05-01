@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:32721c4be08e49c74a9442c8fafedeec5f47ef1358bd8d3769a5cfe5c5857d92
-size 116
+Emit ``c_call`` events in :func:`sys.setprofile` when a ``PyMethodObject`` pointing to a ``PyCFunction`` is called.

@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6c67261c5f402d06c82ce874a0b8f11d3aecba96194c6dcd676057c2ec152bda
-size 199
+Fix bug where compiler creates a redundant jump during pseudo-op replacement. Can only happen with a synthetic AST that has a try on the same line as the instruction following the exception handler.

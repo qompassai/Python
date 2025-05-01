@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:598e4167a7f4bc96b91e6d23c00ea80274505b819945dfa984a1cd0fde0d15ff
-size 401
+.. _thrust-module-api-function-objects-predefined-identity:
+
+Generalized Identity Operations
+--------------------------------
+
+  - :cpp:struct:`thrust::identity <thrust::identity>`
+  - :cpp:struct:`thrust::maximum <thrust::maximum>`
+  - :cpp:struct:`thrust::minimum <thrust::minimum>`
+  - :cpp:struct:`thrust::project1st <thrust::project1st>`
+  - :cpp:struct:`thrust::project2nd <thrust::project2nd>`

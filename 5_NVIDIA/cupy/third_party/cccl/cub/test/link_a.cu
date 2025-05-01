@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8c5f8fdc00d0fa5dc2197c9ef449fbd3cac44f0f1672293e855182838e5f7e04
-size 272
+#include <cub/cub.cuh>
+
+void a()
+{
+  printf("a() called\n");
+
+  cub::DoubleBuffer<unsigned int> d_keys;
+  cub::DoubleBuffer<cub::NullType> d_values;
+  size_t temp_storage_bytes = 0;
+  cub::DeviceRadixSort::SortPairs(nullptr, temp_storage_bytes, d_keys, d_values, 1024);
+}

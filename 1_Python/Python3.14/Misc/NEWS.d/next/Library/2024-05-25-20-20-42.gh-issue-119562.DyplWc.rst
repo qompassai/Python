@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f34f58d0f0c11c929f9345d9e9172ae655e1861bd15afd899e1196868ae38c04
-size 205
+Remove :class:`!ast.Num`, :class:`!ast.Str`, :class:`!ast.Bytes`,
+:class:`!ast.NameConstant` and :class:`!ast.Ellipsis`. They had all emitted
+deprecation warnings since Python 3.12. Patch by Alex Waygood.

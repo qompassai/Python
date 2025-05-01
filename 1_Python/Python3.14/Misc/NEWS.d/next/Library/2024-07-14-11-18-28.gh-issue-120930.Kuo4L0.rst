@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:020b654c7ba8dbed9be2a803027d5a2d2d01bd116df06169f978432f7c0b34d1
-size 118
+Fixed a bug introduced by gh-92081 that added an incorrect extra
+blank to encoded words occurring in wrapped headers.

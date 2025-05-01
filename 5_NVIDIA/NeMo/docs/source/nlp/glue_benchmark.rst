@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7d31f2c062bab2626b59ae088fc64313ebdca4df6f2fec8a9144bc09413b21c6
-size 670
+.. _glue_benchmark:
+
+GLUE Benchmark
+==============
+
+We recommend you try the GLUE Benchmark model in a Jupyter notebook (can run on `Google's Colab <https://colab.research.google.com/notebooks/intro.ipynb>`_): `NeMo/tutorials/nlp/GLUE_Benchmark.ipynb <https://github.com/NVIDIA/NeMo/blob/stable/tutorials/nlp/GLUE_Benchmark.ipynb>`__.
+
+Connect to an instance with a GPU (**Runtime** -> **Change runtime type** -> select **GPU** for the hardware accelerator).
+
+An example script on how to train the model can be found here: `NeMo/examples/nlp/glue_benchmark/glue_benchmark.py <https://github.com/NVIDIA/NeMo/blob/stable/examples/nlp/glue_benchmark/glue_benchmark.py>`__.

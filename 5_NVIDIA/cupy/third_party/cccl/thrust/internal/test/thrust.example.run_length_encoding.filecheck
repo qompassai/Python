@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:28044df1aae52263ccfbd1176e884c44ea45bd4f791002b0bc8252e91a0ae654
-size 141
+     CHECK: input data:
+CHECK-NEXT: aaabbbbbcddeeeeeeeeeff
+     CHECK: run-length encoded output:
+CHECK-NEXT: (a,3)(b,5)(c,1)(d,2)(e,9)(f,2)

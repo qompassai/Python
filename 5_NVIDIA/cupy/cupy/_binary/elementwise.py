@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:abb4e6d59943a0c41e0efb77f6adcf295c32ae341e92af12d9e90ca676e40530
-size 242
+from cupy import _core
+
+
+bitwise_and = _core.bitwise_and
+
+
+bitwise_or = _core.bitwise_or
+
+
+bitwise_xor = _core.bitwise_xor
+
+
+bitwise_not = _core.invert
+
+
+invert = _core.invert
+
+
+left_shift = _core.left_shift
+
+
+right_shift = _core.right_shift

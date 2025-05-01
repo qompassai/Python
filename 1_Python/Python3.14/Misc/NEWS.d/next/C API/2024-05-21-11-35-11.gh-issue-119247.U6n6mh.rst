@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0746902569b71ad8b0b581eba0e266538e87ad42d96254d7dc3d0264e1fc2073
-size 234
+Added ``Py_BEGIN_CRITICAL_SECTION_SEQUENCE_FAST`` and
+``Py_END_CRITICAL_SECTION_SEQUENCE_FAST`` macros to make it possible to use
+PySequence_Fast APIs safely when free-threaded, and update str.join to work
+without the GIL using them.

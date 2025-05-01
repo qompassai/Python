@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b69bc076294006780cf361924c683d7a57edb3ab856bbce17e2d2c883cb99b53
-size 153
+from __future__ import annotations
+
+def test() -> None:
+    x: list[int] = []
+    x: dict[int, str] = {}
+    x: set[bytes] = {}
+    print(5 + 42 * 3, x)

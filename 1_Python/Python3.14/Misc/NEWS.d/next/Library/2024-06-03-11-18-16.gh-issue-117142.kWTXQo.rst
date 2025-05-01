@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f7fe1b62edb5313f8cd3c57e88576fd981d43d5397c07de544a96fbf81c7b631
-size 110
+The :mod:`ctypes` module may now be imported in all subinterpreters, including
+those that have their own GIL.

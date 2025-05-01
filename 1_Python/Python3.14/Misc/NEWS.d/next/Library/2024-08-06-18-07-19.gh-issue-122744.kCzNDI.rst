@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3b5495c4c8c3dafeaf8b9c976ba3bbe3b54d863aa9ab44503bfe2f6616156802
-size 62
+Bump the version of pip bundled in ensurepip to version 24.2.

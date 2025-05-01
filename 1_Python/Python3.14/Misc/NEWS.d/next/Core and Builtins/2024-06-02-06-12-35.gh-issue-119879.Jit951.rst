@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0be815ff3ffd2d20e8bed0c06341d61851bbaeaf6675cb09940c4ded65b546d6
-size 140
+String search is now slightly faster for certain cases. It now utilizes last character gap (good suffix rule) for two-way periodic needles.

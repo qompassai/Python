@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce173550cc253fa19d43b58aa66a42915dbb794a0a4f4c07ae954f4e5f9bdfdc
-size 101
+Fix performance degradation in
+:class:`logging.handlers.RotatingFileHandler`. Patch by Craig Robson.

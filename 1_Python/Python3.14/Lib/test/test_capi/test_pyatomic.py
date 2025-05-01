@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ca2b637fe687dd64ebc9dfb8bf2cc973d9d122e8cf58a7e9fb2ab81ec494921b
-size 404
+import unittest
+from test.support import import_helper
+
+# Skip this test if the _testcapi module isn't available.
+_testcapi = import_helper.import_module('_testcapi')
+
+class PyAtomicTests(unittest.TestCase):
+    pass
+
+for name in sorted(dir(_testcapi)):
+    if name.startswith('test_atomic'):
+        setattr(PyAtomicTests, name, getattr(_testcapi, name))
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6360201bed3c8e2f9fa57686c0f7153a48736963200a1f7dcfcd1a12600f5e86
-size 380
+Model Name,Language,Call Home Dev Test (es),Call Home Eval Test (es),Call Home Train (es),Fisher Dev Set (es),Fisher Test Set (es),MCV Dev-Set (v??) (es),MCV Dev-Set v12.0 (es),MCV Dev-Set v7.0 (es),MCV Test-Set (v??) (es),MCV Test-Set v12.0 (es),MCV Test-Set v7.0 (es),MLS Dev (en),MLS Test (en),VoxPopuli Dev (es),VoxPopuli Test (es)
+stt_es_quartznet15x5,es,,,,,,12.97,,,,,,,,,

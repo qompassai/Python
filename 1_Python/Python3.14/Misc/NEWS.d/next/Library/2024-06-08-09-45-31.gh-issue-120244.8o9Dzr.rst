@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3fb21ff72c1446ac6835fb3f6828f1e4fe09dd713c8aae4c78fa585a98421dc
-size 89
+Fix memory leak in :func:`re.sub()` when the replacement string contains backreferences.

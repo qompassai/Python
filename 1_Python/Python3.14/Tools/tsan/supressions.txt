@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4ce110714b4dd49c54be0919ffcf7434976ca6133c9c39fe44ed279d6380086e
-size 295
+# This file contains suppressions for the default (with GIL) build.
+# reference: https://github.com/google/sanitizers/wiki/ThreadSanitizerSuppressions
+race:get_allocator_unlocked
+race:set_allocator_unlocked
+
+# https://gist.github.com/mpage/daaf32b39180c1989572957b943eb665
+thread:pthread_create

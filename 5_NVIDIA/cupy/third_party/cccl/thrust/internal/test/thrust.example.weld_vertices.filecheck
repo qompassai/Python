@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e6aa0cd352d429cc0e29d4ada3b1be02fc3120263a4d53582183408964f8dee3
-size 451
+     CHECK: Output Representation
+CHECK-NEXT:  vertices[0] = (0,0)
+CHECK-NEXT:  vertices[1] = (0,1)
+CHECK-NEXT:  vertices[2] = (1,0)
+CHECK-NEXT:  vertices[3] = (1,1)
+CHECK-NEXT:  vertices[4] = (2,0)
+CHECK-NEXT:  indices[0] = 0
+CHECK-NEXT:  indices[1] = 2
+CHECK-NEXT:  indices[2] = 1
+CHECK-NEXT:  indices[3] = 2
+CHECK-NEXT:  indices[4] = 3
+CHECK-NEXT:  indices[5] = 1
+CHECK-NEXT:  indices[6] = 2
+CHECK-NEXT:  indices[7] = 4
+CHECK-NEXT:  indices[8] = 3

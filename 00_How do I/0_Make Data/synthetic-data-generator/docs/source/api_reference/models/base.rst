@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d25daab1fe7ef2247525e8efacd03bb5d37edd6952c58a43388d28aad90dfa50
-size 189
+SynthesizerModel
+=======================
+
+.. autoclass:: sdgx.models.base.SynthesizerModel
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:
+   :private-members:

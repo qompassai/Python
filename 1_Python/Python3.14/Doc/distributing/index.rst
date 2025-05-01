@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:005ccab558f4383f7e18208d9005120b1514df0699ca81b05fa5e135b865a2e1
-size 613
+:orphan:
+
+.. This page is retained solely for existing links to /distributing/index.html.
+   Direct readers to the PPUG instead.
+
+.. _distributing-index:
+
+###############################
+  Distributing Python Modules
+###############################
+
+.. note::
+
+   Information and guidance on distributing Python modules and packages
+   has been moved to the `Python Packaging User Guide`_,
+   and the tutorial on `packaging Python projects`_.
+
+   .. _Python Packaging User Guide: https://packaging.python.org/
+   .. _packaging Python projects: https://packaging.python.org/en/latest/tutorials/packaging-projects/

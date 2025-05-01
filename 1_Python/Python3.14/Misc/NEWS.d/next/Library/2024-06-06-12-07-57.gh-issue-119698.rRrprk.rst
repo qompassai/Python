@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cd13ccd6c3989d7c8fa41b8d60992b50f21e877a8527d64b84c7fff0a4708de1
-size 93
+Fix :meth:`symtable.Class.get_methods` and document its behaviour. Patch by
+Bénédikt Tran.

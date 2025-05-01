@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bff628c66a3df9d9082c86064598167a8052e3e155d42d725e9c76182403fc88
-size 488
+edit:
+  resolution: 256
+  steps: 100
+  input: path/to/input/picture
+  outpath: path/to/output/folder
+  prompt: ""
+  cfg_text: 7.5
+  cfg_image: 1.2
+  num_images_per_prompt: 8
+  combine_images: [ 2, 4 ] # [row, column]
+  seed: 1234
+
+trainer:
+  devices: 1
+  num_nodes: 1
+  accelerator: gpu
+  logger: False # logger provided by exp_manager
+  precision: 16 # 16, 32, or bf16
+
+model:
+  restore_from_path: null  # Path to a trained instruct pix2pix .nemo file
+  precision: ${trainer.precision}
+

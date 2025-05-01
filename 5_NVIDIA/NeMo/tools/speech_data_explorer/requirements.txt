@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a1b50a3b3bbc7e3803a60cab14cdee58cc00adb19be9988977dbafb95f4dfe2
-size 124
+dash>=2.1.0
+dash_bootstrap_components>=1.0.3
+diff_match_patch
+editdistance
+jiwer
+librosa>=0.9.1
+numpy
+plotly
+SoundFile
+tqdm

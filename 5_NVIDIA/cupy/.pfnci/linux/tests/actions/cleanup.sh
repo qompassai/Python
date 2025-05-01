@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cd81f35e0b40c54d26a1a0b011e8987af3eeecabec141a403c552fb4eb899dd2
-size 149
+#!/bin/bash
+
+set -uex
+
+python3 .pfnci/trim_cupy_kernel_cache.py --max-size $((3*1024*1024*1024)) --rm
+ccache --max-size 0.5Gi --cleanup --show-stats

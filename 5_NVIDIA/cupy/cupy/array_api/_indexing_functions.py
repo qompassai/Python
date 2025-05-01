@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5b1ffb9b3337a82bd082efeec82a62df4247f4a86ec8a9b3b3091559da85f3af
-size 599
+from __future__ import annotations
+
+from ._array_object import Array
+from ._dtypes import _integer_dtypes
+
+import cupy as np
+
+def take(x: Array, indices: Array, /, *, axis: int) -> Array:
+    """
+    Array API compatible wrapper for :py:func:`np.take <numpy.take>`.
+    See its docstring for more information.
+    """    
+    if indices.dtype not in _integer_dtypes:
+        raise TypeError("Only integer dtypes are allowed in indexing")
+    if indices.ndim != 1: 
+        raise ValueError("Only 1-dim indices array is supported")
+    return Array._new(np.take(x._array, indices._array, axis=axis))

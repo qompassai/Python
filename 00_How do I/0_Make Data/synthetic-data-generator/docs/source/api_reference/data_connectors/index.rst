@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cdb90285743bc76902d03f0c6640ae72a575fbe34e50992b5835240c908fe10a
-size 470
+DataConnector
+========================================================
+
+.. toctree::
+    :maxdepth: 1
+
+    Base Class for DataConnector <base>
+
+Built-in DataConnector
+-----------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    CsvConnector <csv_connector>
+    GeneratorConnector <generator_connector>
+
+Custom DataConnector Relevant
+-----------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    Extension hookspec <extension>
+    DataConnectorManager <manager>

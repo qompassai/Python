@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:383ca465c0ed549cc51e762eb536fa3473909f3af489b869878d02f05a783d18
-size 75
+fastapi
+nvidia-pytriton
+pydantic-settings
+tensorstore==0.1.45
+uvicorn
+zarr

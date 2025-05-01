@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:914965b88837bfe716d82af6f76cbe4ffaaf9e23410b638f2872810a6e8583ed
-size 111
+Model Name,Language,MCV Test-Set v12.0 (nl),MLS Test (nl)
+stt_nl_fastconformer_hybrid_large_pc,nl,32.1 %,25.1 %

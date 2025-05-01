@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:14c96199e18f46b4c89fc1de0136da241346beb24b43ec369c3931b33d69a8bd
-size 147
+from _collections_abc import *
+from _collections_abc import __all__  # noqa: F401
+from _collections_abc import _CallableGenericAlias  # noqa: F401

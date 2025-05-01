@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9b88fbcf2295deb1c14620d70e21bf46bbdb2bbc1c8dc087ce5964f8760e8599
-size 103
+The *isdst* parameter has been removed from :func:`email.utils.localtime`.
+Patch by Hugo van Kemenade.

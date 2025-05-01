@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac8a1dd5d91dfc81828f4ebf59443002cdd9f6f0f47d19be98c1f56def7ce46c
-size 239
+Model Name,Language,MCV Dev-Set (v??) (de),MCV Dev-Set v12.0 (de),MCV Dev-Set v7.0 (de),MCV Test-Set v12.0 (de),MCV Test-Set v7.0 (de),MLS Dev (en),MLS Test (en),VoxPopuli Dev (de),VoxPopuli Test (de)
+stt_de_quartznet15x5,de,11.78,,,,,,,,

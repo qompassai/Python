@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:769f6faa9926507bc69b6f3072dbcbf1373e4d92bd86dff238aee3a547592cee
-size 97
+groq
+sentence-transformers
+langchain_community
+scikit-learn
+numpy
+duckdb
+pyyaml
+sqlparse
+tabulate

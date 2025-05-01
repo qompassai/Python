@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cf5758c4ebeb66de2ccca1666fb29909a7e6ae9e59b4b1b18e3829abcde4adf6
-size 510
+.. _libcudacxx-ptx-instructions-mbarrier-init:
+
+mbarrier.init
+=============
+
+-  PTX ISA:
+   `mbarrier.arrive <https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#parallel-synchronization-and-communication-instructions-mbarrier-init>`__
+
+mbarrier.init.shared.b64
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. code:: cuda
+
+   // mbarrier.init.shared.b64 [addr], count; // PTX ISA 70, SM_80
+   template <typename=void>
+   __device__ static inline void mbarrier_init(
+     uint64_t* addr,
+     const uint32_t& count);

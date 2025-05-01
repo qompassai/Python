@@ -1,3 +1,66 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7843aa531dd2f0b0e2c56e1c43122cb1e1c634b44040a5ae8b16f1385c110bf2
-size 953
+Indexing routines
+=================
+
+.. Hint:: `NumPy API Reference: Indexing routines <https://numpy.org/doc/stable/reference/routines.indexing.html>`_
+
+.. currentmodule:: cupy
+
+Generating index arrays
+-----------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   c_
+   r_
+   nonzero
+   where
+   indices
+   mask_indices
+   tril_indices
+   tril_indices_from
+   triu_indices
+   triu_indices_from
+   ix_
+   ravel_multi_index
+   unravel_index
+   diag_indices
+   diag_indices_from
+
+
+Indexing-like operations
+------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   take
+   take_along_axis
+   choose
+   compress
+   diag
+   diagonal
+   select
+   lib.stride_tricks.as_strided
+
+
+Inserting data into arrays
+--------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   place
+   put
+   put_along_axis
+   putmask
+   fill_diagonal
+
+
+Iterating over arrays
+---------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   flatiter

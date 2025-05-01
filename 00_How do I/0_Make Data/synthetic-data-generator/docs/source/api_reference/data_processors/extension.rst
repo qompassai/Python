@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:334e8f530bad3e2b1e0410bd410c3584180d4c617841efebfc381c0f83b81926
-size 240
+.. _api_reference/data-processors-extension:
+
+Extension hookspec
+============================
+
+.. automodule:: sdgx.data_processors.extension
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:
+   :private-members:

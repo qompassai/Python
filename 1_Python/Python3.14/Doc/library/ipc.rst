@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5c3ae81eebcce8c08ebcbf4f6607c7fdeb32b09057985c375cc3cef3bbb9b728
-size 643
+.. _ipc:
+
+*****************************************
+Networking and Interprocess Communication
+*****************************************
+
+The modules described in this chapter provide mechanisms for
+networking and inter-processes communication.
+
+Some modules only work for two processes that are on the same machine, e.g.
+:mod:`signal` and :mod:`mmap`.  Other modules support networking protocols
+that two or more processes can use to communicate across machines.
+
+The list of modules described in this chapter is:
+
+
+.. toctree::
+   :maxdepth: 1
+
+   asyncio.rst
+   socket.rst
+   ssl.rst
+   select.rst
+   selectors.rst
+   signal.rst
+   mmap.rst

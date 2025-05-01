@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:97f803da5cb70c0aad9b93e200b2a28ac822f7c79086bc6cd096d9f9512a3948
-size 272
+# nvprof --print-gpu-trace python examples/stream/curand.py
+import cupy
+
+rand = cupy.random.RandomState()
+
+stream = cupy.cuda.stream.Stream()
+with stream:
+    y = rand.lognormal(size=(1, 3))
+
+stream = cupy.cuda.stream.Stream()
+stream.use()
+y = rand.lognormal(size=(1, 3))

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d91afb7e4552f8ddc71ea5d50cc079303939b33047bcc1a7e2934737c0f9e31a
-size 145
+Fix a bug that caused the tokenizer to not correctly identify mismatched
+parentheses inside f-strings in some situations. Patch by Pablo Galindo

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1dbb5caec0a5cc99c4b8ed64a7d41b6d340d955bc16c74a8f2ca18e699dbf6ae
-size 298
+data_path: ??? # Path to a image folder for inference
+
+trainer:
+  devices: 1
+  num_nodes: 1
+  accelerator: gpu
+  logger: False # logger provided by exp_manager
+  precision: 16 # 16, 32, or bf16
+
+model:
+  restore_from_path: null  # Path to a trained ViT .nemo file
+  precision: ${trainer.precision}

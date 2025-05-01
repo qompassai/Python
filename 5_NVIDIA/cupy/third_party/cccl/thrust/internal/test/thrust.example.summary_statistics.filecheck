@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c601070758df211db138cf381c7e2653ed3f113dd5843b92e533430da755cf04
-size 374
+     CHECK: ******Summary Statistics Example*****
+CHECK-NEXT: The data: 4 7 13 16
+CHECK-NEXT: Count              : 4
+CHECK-NEXT: Minimum            : 4
+CHECK-NEXT: Maximum            : 16
+CHECK-NEXT: Mean               : 10
+CHECK-NEXT: Variance           : 30
+CHECK-NEXT: Standard Deviation : 4.74342
+CHECK-NEXT: Skewness           : 0
+CHECK-NEXT: Kurtosis           : 1.36

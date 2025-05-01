@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e5ba175d8ca3b10e48d0a2d5c102bc1a59e54ada7ac741f437f9f362ff7d733d
-size 93
+Improve the prompt in the "less" pager when :func:`help` is called with
+non-string argument.

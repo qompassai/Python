@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5c5dcb5c3f8a4e4985fa93c08962b42d83d9bfa97fcbbff030f600c2b2ff0e42
-size 1556
+//===----------------------------------------------------------------------===//
+//
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES.
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef _LIBCUDACXX___TYPE_TRAITS_IS_UNBOUNDED_ARRAY_H
+#define _LIBCUDACXX___TYPE_TRAITS_IS_UNBOUNDED_ARRAY_H
+
+#include <cuda/std/detail/__config>
+
+#if defined(_CCCL_IMPLICIT_SYSTEM_HEADER_GCC)
+#  pragma GCC system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_CLANG)
+#  pragma clang system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_MSVC)
+#  pragma system_header
+#endif // no system header
+
+#include <cuda/std/__type_traits/integral_constant.h>
+
+_LIBCUDACXX_BEGIN_NAMESPACE_STD
+
+template <class>
+struct _LIBCUDACXX_TEMPLATE_VIS __libcpp_is_unbounded_array : false_type
+{};
+template <class _Tp>
+struct _LIBCUDACXX_TEMPLATE_VIS __libcpp_is_unbounded_array<_Tp[]> : true_type
+{};
+
+#if _CCCL_STD_VER > 2011
+
+template <class>
+struct _LIBCUDACXX_TEMPLATE_VIS is_unbounded_array : false_type
+{};
+template <class _Tp>
+struct _LIBCUDACXX_TEMPLATE_VIS is_unbounded_array<_Tp[]> : true_type
+{};
+
+template <class _Tp>
+_LIBCUDACXX_INLINE_VAR constexpr bool is_unbounded_array_v = is_unbounded_array<_Tp>::value;
+#endif
+
+_LIBCUDACXX_END_NAMESPACE_STD
+
+#endif // _LIBCUDACXX___TYPE_TRAITS_IS_UNBOUNDED_ARRAY_H

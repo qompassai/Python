@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:13f4015ee13fd7c5eaf6e6d8406cd9b4126d2f645cf53bd4ffe0dc3a57eab9fa
-size 435
+***********************************
+Software Packaging and Distribution
+***********************************
+
+These libraries help you with publishing and installing Python software.
+While these modules are designed to work in conjunction with the
+`Python Package Index <https://pypi.org>`__, they can also be used
+with a local index server, or without any index server at all.
+
+.. toctree::
+
+   ensurepip.rst
+   venv.rst
+   zipapp.rst

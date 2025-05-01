@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5be709ae2ff3761391207a4a79b934e908629c15004c20a0e421b205f8ec1212
-size 307
+.. _thrust-module-api-algorithms-reductions:
+
+Reductions
+----------
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   reductions/comparisons
+   reductions/counting
+   reductions/extrema
+   reductions/logical
+   reductions/predicates
+   reductions/transformed
+   ${repo_docs_api_path}/*function_group__reductions*

@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:338a06ed851746f427f927d300012791ec4592edac4527cc58f8d54bfd4a5f58
-size 152
+Name: The Tk Toolkit
+Version: 8.5.12
+Requires: tcl >= 8.5.12
+Libs: -ltk8.5 -ltkstub8.5
+# Libs.private: -lXft -lfontconfig -lfreetype -lfontconfig -lX11

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:19b4bff9b732a9580f275fc3febd3fa47493070eca65266f2c13ad110657b88d
-size 99
+Remove :data:`!version` and :data:`!version_info` from :mod:`sqlite3`.
+Patch by Hugo van Kemenade.

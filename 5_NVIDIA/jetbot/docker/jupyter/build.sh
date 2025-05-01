@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ee0c4b69508f903447f0cdf9e47f6da2388d272b953984dee391df46df8e1292
-size 209
+sudo docker build \
+    --build-arg BASE_IMAGE=$JETBOT_DOCKER_REMOTE/jetbot:models-$JETBOT_VERSION-$L4T_VERSION \
+    -t $JETBOT_DOCKER_REMOTE/jetbot:jupyter-$JETBOT_VERSION-$L4T_VERSION \
+    -f Dockerfile .

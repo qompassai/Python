@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5d7894c4ed9cf3f7a9bd458a5673af7f9909166493cb6efa525df902cc7dc410
-size 488
+method=$1
+if [[ ${method} == 'h2o' ]]; then
+    python -u run_streaming.py \
+        --input-path data \
+        --model-name lmsys/vicuna-13b-v1.5 \
+        --enable_h2o_generation \
+        --num_heavy_hitter_tokens 2048 \
+        --num_window_length 4096 \
+        --enable_position_rolling
+elif [[ ${method} == 'full' ]]; then
+    python -u run_streaming.py \
+        --input-path data \
+        --model-name lmsys/vicuna-13b-v1.5
+else
+    echo 'unknown argment for method'
+fi
+
+
+
+
+
+
+

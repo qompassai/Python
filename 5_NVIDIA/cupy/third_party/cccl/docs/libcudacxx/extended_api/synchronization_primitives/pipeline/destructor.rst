@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3009904de9c0931ed987ab8de17e7b780608c6a03e7bd2eff7f1bbd7fd0bc698
-size 484
+.. _libcudacxx-extended-api-synchronization-pipeline-pipeline-destructor:
+
+cuda::pipeline::~pipeline
+=============================
+
+Defined in header ``<cuda/pipeline>``:
+
+.. code:: cuda
+
+   template <cuda::thread_scope Scope>
+   __host__ __device__
+   cuda::pipeline<Scope>::~pipeline();
+
+Destructs the pipeline. Calls :ref:`cuda::pipeline::quit <libcudacxx-extended-api-synchronization-pipeline-pipeline-quit>`
+if it was not called by the current thread and destructs the pipeline.

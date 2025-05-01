@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f66b5ff06dd7773167fbffad64a814677befa36902feec0d7ddae127d7784383
-size 103
+:c:func:`Py_Finalize()` and :c:func:`Py_FinalizeEx()` now always run with
+the main interpreter active.

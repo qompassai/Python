@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7ebdaf88aa5a993ecf103149728d657c3b8a90460ebc675fdcef666b6625e7db
-size 168
+Changed the error message for awaiting something that can't be awaited from "object <type> can't be used in an await expression" to "'<type>' object can't be awaited".

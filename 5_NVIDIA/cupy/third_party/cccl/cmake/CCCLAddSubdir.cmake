@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7fb7196fd55eb59c2506ee0c0a69ada037555aed1b1c84366297a4c24cfc0500
-size 215
+find_package(CCCL REQUIRED CONFIG
+  NO_DEFAULT_PATH # Only check the explicit path in HINTS:
+  HINTS "${CCCL_SOURCE_DIR}"
+  COMPONENTS ${CCCL_REQUIRED_COMPONENTS}
+  OPTIONAL_COMPONENTS ${CCCL_OPTIONAL_COMPONENTS}
+)

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fcd8e12237ae7f32513de77cb6ab61594faf92de4c26600ecb05ec5e1afa0770
-size 360
+from nemo.lightning import io
+
+
+class DummyClass(io.IOMixin):
+    def __init__(self, a: int, b: int):
+        self.a = a
+        self.b = b
+
+
+class TestIOMixin:
+    def test_reinit(self):
+        dummy = DummyClass(5, 5)
+        copied = io.reinit(dummy)
+        assert copied is not dummy
+        assert copied.a == dummy.a
+        assert copied.b == dummy.b

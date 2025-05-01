@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a1884f782f97a3ce5446290476d20b26b72f004cafb359af1b4c0b73af9b3245
-size 737
+name: 📚 Documentation
+description: Submit an issue related to the CuPy documentation.
+labels: ["cat:document"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this documentation request!
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: |
+        Please describe the issue with the current documentation. Make sure to provide relevant links to the document you are referring to.
+    validations:
+      required: true
+  - type: textarea
+    id: description-idea
+    attributes:
+      label: Idea or request for content
+      description: |
+        Please give a clear description of what topics are missing from the documentation.

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1d2528ce19094e494c049fe932cdf27cbdb3ec99a878642ae1eb57906c6b2511
-size 77
+Add tooling to check for changes in compiler warnings.
+Patch by Nate Ohlson.

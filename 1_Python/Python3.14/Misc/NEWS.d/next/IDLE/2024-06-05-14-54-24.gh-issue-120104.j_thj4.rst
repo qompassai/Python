@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:43f409079fa9f58c8c417bdcc7a0c84acd6043419e6d2b79b87c8582e8483941
-size 57
+Fix padding in config and search dialog windows in IDLE.

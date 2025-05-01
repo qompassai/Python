@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5cb16027f674039b498f6857581665b735d86309037f1990693ba5bbdcb2ecdd
-size 28
+duckdb
+groq
+sqlparse
+pandas

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a9bd895cd4a28160270ac6aa50ffd7e5b365bc4fab21cf06f07829a9f02e639b
-size 346
+
+trainer:
+  devices: 1
+  num_nodes: 1
+  accelerator: gpu
+  logger: False # logger provided by exp_manager
+  precision: 'bf16-mixed'
+  use_distributed_sampler: False
+  
+indexing:
+  embedder:
+    model_type: bert
+    model_path: null
+    embed_batch_size: 128
+  data:
+    data_path: null
+    chunk_size: 256
+    chunk_overlap: 10
+  index_path: null

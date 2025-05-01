@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2435f3796ea9920d7c49e60ce2c2be97884df5b8b3c6bf3843a536eb0f050ce1
-size 218
+.. _thrust-module-api-algorithms-prefix_sums:
+
+Prefix sums
+-----------
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   prefix_sums/segmented
+   prefix_sums/transformed
+   ${repo_docs_api_path}/*function_group__prefixsums*

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:063fd5573d95ce5683f7b31f32d972bf15590813572c2a7b58a41cd693d4fc7b
-size 275
+Thuthmose-tagger is a single-pass model for inverse text normalization (ITN).
+
+prepare_dataset_en.sh  - English data preparation
+prepare_dataset_ru.sh  - Russian data preparation
+normalization_as_tagging_train.py  - Training a model
+run_infer.sh  - Inference and evaluation
+

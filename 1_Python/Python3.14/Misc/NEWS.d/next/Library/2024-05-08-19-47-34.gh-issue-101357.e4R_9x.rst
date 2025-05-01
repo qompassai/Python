@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:187c67cfd0348e446d56886bd83050c6851b8f494d81d0f4481dc54747a7b09c
-size 322
+Suppress all :exc:`OSError` exceptions from :meth:`pathlib.Path.exists` and
+``is_*()`` methods, rather than a selection of more common errors. The new
+behaviour is consistent with :func:`os.path.exists`, :func:`os.path.isdir`,
+etc. Use :meth:`pathlib.Path.stat` to retrieve the file status without
+suppressing exceptions.

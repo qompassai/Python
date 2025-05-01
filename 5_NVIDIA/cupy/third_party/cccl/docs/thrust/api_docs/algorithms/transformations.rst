@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6b67820e1a7f092c6df0e24162cab33bf91d73a55a1f64e0219a1272e63bf7f1
-size 270
+.. _thrust-module-api-algorithms-transformations:
+
+Transformations
+-----------------
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   transformations/filling
+   transformations/modifying
+   transformations/replacing
+   ${repo_docs_api_path}/*function_group__transformations*

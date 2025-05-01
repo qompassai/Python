@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ec08c6a1bc4ce77f65d4589f007b03ddbeab8089b250afa4b42b4d341d02791a
-size 120
+Update :data:`sys.version` to identify whether the build is default build or
+free-threading build. Patch By Donghee Na.

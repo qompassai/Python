@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4c52b0860a54aa429c24a1b168f8d4b4b800a07acc496020d4a969b844ce4fbb
-size 204
+from cupy._core.core cimport _ndarray_base
+
+from libcpp.pair cimport pair
+
+
+cpdef pair[Py_ssize_t, Py_ssize_t] get_bound(_ndarray_base array)
+cpdef bint may_share_bounds(_ndarray_base a, _ndarray_base b)

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1e30293157e6ca74b4f6c1df9773009b5f2133afe29e9d9f6269dce4488f26d7
-size 149
+Fix performance regression in the :mod:`tokenize` module by caching the ``line``
+token attribute and calculating the column offset more efficiently.

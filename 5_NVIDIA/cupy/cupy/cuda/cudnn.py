@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fea583617087b0bdff4b3b67810f7bd44cfbb64a4c237cb2c008c1ae1ff22bc0
-size 334
+"""
+cuDNN Wrapper
+
+Use `cupy_backends.cuda.libs.cudnn` directly in CuPy codebase.
+"""
+
+from cupy import _environment
+
+
+available = True
+
+try:
+    _environment._preload_library('cudnn')
+    from cupy_backends.cuda.libs.cudnn import *  # NOQA
+except ImportError as e:
+    available = False
+    _environment._preload_warning('cudnn', e)

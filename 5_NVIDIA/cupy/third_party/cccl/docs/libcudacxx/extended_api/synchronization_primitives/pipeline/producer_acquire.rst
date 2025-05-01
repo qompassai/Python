@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c254b1f5d5a1bebe0ec93e20f1fd4f19834b5b847903a9684cba6fde6a353c32
-size 631
+.. _libcudacxx-extended-api-synchronization-pipeline-pipeline-producer-aquire:
+
+cuda::pipeline::producer_acquire
+====================================
+
+Defined in header ``<cuda/pipeline>``:
+
+.. code:: cuda
+
+   template <cuda::thread_scope Scope>
+   __host__ __device__
+   void cuda::pipeline<Scope>::producer_acquire();
+
+Blocks the current thread until the next *pipeline stage* is available.
+
+.. note::
+
+   - If the calling thread is a *consumer thread*, the behavior is undefined.
+   - If the pipeline is in a :ref:`quitted state <libcudacxx-extended-api-synchronization-pipeline-pipeline-quit>`,
+     the behavior is undefined.

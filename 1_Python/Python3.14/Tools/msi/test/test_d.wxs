@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2940ca811414e49e5f6bf76c87b9af966939d2ad73f1d0598ffc79359f81cf64
-size 677
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Language="!(loc.LCID)" Name="!(loc.Title_d)" Version="$(var.Version)" Manufacturer="!(loc.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
+        <Package InstallerVersion="500" Compressed="yes" InstallScope="perUser" />
+        <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+        
+        <PropertyRef Id="UpgradeTable" />
+        
+        <Feature Id="DebugBinaries" AllowAdvertise="no" Title="!(loc.Title_d)" Description="!(loc.Description_d)">
+            <ComponentGroupRef Id="test_extensions_d" />
+        </Feature>
+    </Product>
+</Wix>

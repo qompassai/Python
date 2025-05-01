@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ef1f5a593338f29d27d5ea1db7dd98c44d9fdf72ea4d8185d4216ee7fb06ece3
-size 294
+"""Object-oriented filesystem paths.
+
+This module provides classes to represent abstract paths and concrete
+paths with operations that have semantics appropriate for different
+operating systems.
+"""
+
+from ._os import *
+from ._local import *
+
+__all__ = (_os.__all__ +
+           _local.__all__)

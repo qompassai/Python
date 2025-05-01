@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d66fbeaad9f3fc56ba3ef5e51eae897fcad5871fa29de5abe5a5be0092b05bd3
-size 116
+Fix issue where :meth:`pathlib.PurePath.with_suffix` didn't raise
+:exc:`TypeError` when given ``None`` as a suffix.

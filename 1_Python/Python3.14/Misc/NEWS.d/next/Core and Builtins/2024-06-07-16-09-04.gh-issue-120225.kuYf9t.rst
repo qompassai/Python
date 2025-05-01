@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dbaf8c8fda0f94d92de6d2f7067eb5860b2e14a9d62ba3ba05d72eb287386363
-size 66
+Fix crash in compiler on empty block at end of exception handler.

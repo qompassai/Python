@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a84ec601c8786daf0564e978c97c0e14095c23f9a08bb64950f9cb541b074b3a
-size 496
+"Test scrolledlist, coverage 38%."
+
+from idlelib.scrolledlist import ScrolledList
+import unittest
+from test.support import requires
+requires('gui')
+from tkinter import Tk
+
+
+class ScrolledListTest(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Tk()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.root.destroy()
+        del cls.root
+
+
+    def test_init(self):
+        ScrolledList(self.root)
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

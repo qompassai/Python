@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cdcae21745a58be82c258c092ff501b02baf7be5866219a50dc13f37f39015b5
-size 122
+Added a :option:`--with-app-store-compliance` option to patch out known
+issues with macOS/iOS App Store review processes.

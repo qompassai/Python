@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a7c8cf9a3bd32e20a2203e6f4bfa17b9bca586d6e9c39a1bd188c80bb4ae48a4
-size 713
+#!/usr/bin/env python
+
+import hpccm
+
+hpccm.config.set_container_format('docker')
+
+Stage0 += hpccm.primitives.baseimage(image='nvidia/cuda:12.2.0-devel-ubuntu22.04')
+Stage0 += hpccm.building_blocks.apt_get(ospackages=['git', 'tmux', 'gcc', 'g++', 'vim', 'python3', 'python-is-python3', 'ninja-build'])
+# Stage0 += hpccm.building_blocks.llvm(version='15', extra_tools=True, toolset=True)
+Stage0 += hpccm.building_blocks.cmake(eula=True, version='3.26.3')
+# Stage0 += hpccm.building_blocks.nsight_compute(eula=True, version='2023.1.1')
+Stage0 += hpccm.building_blocks.pip(packages=['fpzip', 'numpy', 'pandas', 'pynvml'], pip='pip3')
+Stage0 += hpccm.primitives.environment(variables={'CUDA_MODULE_LOADING': 'EAGER'})

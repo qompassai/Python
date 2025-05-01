@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:abc7ef273500c8ffc754f181c6fb1d735ead4130f50753c57f0d0a1916e22f2d
-size 212
+#!/bin/bash
+set -e
+
+## Usage: dump_and_check test.a test.cu PREFIX
+input_archive=$1
+input_testfile=$2
+input_prefix=$3
+
+cuobjdump --dump-ptx $input_archive | FileCheck --check-prefix $input_prefix $input_testfile

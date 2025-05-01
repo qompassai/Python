@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9341abd02acf0780d4290cde6ed35701c927d5b35917b506ba66a3ade1435fec
-size 314
+import pytest
+
+from sdgx.models.manager import ModelManager
+
+
+@pytest.fixture
+def manager():
+    yield ModelManager()
+
+
+def test_registed_model(manager: ModelManager):
+    assert manager._normalize_name("DummyModel") in manager.registed_models
+
+
+if __name__ == "__main__":
+    pytest.main(["-vv", "-s", __file__])

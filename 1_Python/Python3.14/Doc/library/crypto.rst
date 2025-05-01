@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b7d45eb2b2214684202a0a4e8d7ed66c880d78c001e8eb7bbbe749fe7fe94614
-size 347
+.. _crypto:
+
+**********************
+Cryptographic Services
+**********************
+
+.. index:: single: cryptography
+
+The modules described in this chapter implement various algorithms of a
+cryptographic nature.  They are available at the discretion of the installation.
+Here's an overview:
+
+
+.. toctree::
+
+   hashlib.rst
+   hmac.rst
+   secrets.rst

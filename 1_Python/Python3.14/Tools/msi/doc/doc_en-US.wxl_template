@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:140a8180c3dd9576d273d32ab30e85b41e9cef7563c594c4a3b8251769f1f91f
-size 425
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="ShortDescriptor">doc</String>
+    <String Id="Descriptor">Documentation</String>
+    <String Id="ShortcutName">Python {{ShortVersion}} Manuals ({{Bitness}})</String>
+    <String Id="ShortcutDescription">View the !(loc.ProductName) documentation.</String>
+</WixLocalization>

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f6e995d652c07a4a1dfc73a4a9b0b2e86cf91b525f3fbdde3ab77d9f951c2030
-size 427
+import unittest
+
+from cupy import _core
+
+
+class TestArrayOwndata(unittest.TestCase):
+
+    def setUp(self):
+        self.a = _core.ndarray(())
+
+    def test_original_array(self):
+        assert self.a.flags.owndata is True
+
+    def test_view_array(self):
+        v = self.a.view()
+        assert v.flags.owndata is False
+
+    def test_reshaped_array(self):
+        r = self.a.reshape(())
+        assert r.flags.owndata is False

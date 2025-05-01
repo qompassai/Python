@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d3680054601360d7513d85c54f8eb060c097e5b53dfdb2f0e291fa93b652605f
-size 549
+Binary operations
+=================
+
+.. Hint:: `NumPy API Reference: Binary operations <https://numpy.org/doc/stable/reference/routines.bitwise.html>`_
+
+.. currentmodule:: cupy
+
+Elementwise bit operations
+--------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   bitwise_and
+   bitwise_or
+   bitwise_xor
+   invert
+   left_shift
+   right_shift
+
+
+Bit packing
+-----------
+
+.. autosummary::
+   :toctree: generated/
+
+   packbits
+   unpackbits
+
+
+Output formatting
+-----------------
+
+.. autosummary::
+   :toctree: generated/
+
+   binary_repr

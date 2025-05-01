@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:80c7a5b4ff6977aaca18f0e534561900d60c3ff093600d1f46ee5af0ef129c0f
-size 717
+import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="micrograd",
+    version="0.1.0",
+    author="Andrej Karpathy",
+    author_email="andrej.karpathy@gmail.com",
+    description="A tiny scalar-valued autograd engine with a small PyTorch-like neural network library on top.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/karpathy/micrograd",
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
+)

@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:922f18cb56914189acc4e4ab57ffac4d3424c29d1c4cfee188a81fdfdd530fb6
-size 560
+.. _libcudacxx-extended-api-memory-access-shapes:
+
+Shapes
+======
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   shapes/aligned_size_t
+
+.. list-table::
+   :widths: 25 45 30
+   :header-rows: 0
+
+   * - `cuda::std::size_t <https://en.cppreference.com/w/cpp/types/size_t>`_
+     - Defines an extent of bytes
+     - libcu++ 1.0.0 / CCCL 2.0.0 / CUDA 10.2
+   * - :ref:`cuda::aligned_size_t <libcudacxx-extended-api-memory-access-shapes-aligned-size>`
+     - Defines an extent of bytes with a statically defined alignment.
+     - libcu++ 1.2.0 / CCCL 2.0.0 / CUDA 11.1

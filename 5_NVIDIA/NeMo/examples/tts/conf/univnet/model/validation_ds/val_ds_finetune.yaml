@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4b196a27fad3d71ba1c714143e4b52384e11aa3b8efb2640c33652e3d7585d2d
-size 420
+dataset:
+  _target_: "nemo.collections.tts.data.dataset.VocoderDataset"
+  manifest_filepath: ${validation_datasets}
+  sample_rate: ${sample_rate}
+  n_segments: ${val_n_segments}
+  max_duration: ${val_max_duration}
+  min_duration: ${val_min_duration}
+  load_precomputed_mel: true
+  hop_length: ${n_window_stride}
+dataloader_params:
+  drop_last: false
+  shuffle: false
+  batch_size: 16
+  num_workers: 4
+  pin_memory: true

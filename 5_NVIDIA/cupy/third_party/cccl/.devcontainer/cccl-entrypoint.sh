@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8c6920557cd9570f7eee290aab28626b43fed45868deb62812eea38c998199d0
-size 261
+#!/usr/bin/env bash
+
+# shellcheck disable=SC1091
+
+set -e;
+
+devcontainer-utils-post-create-command;
+devcontainer-utils-init-git;
+devcontainer-utils-post-attach-command;
+
+cd /home/coder/cccl/
+
+if test $# -gt 0; then
+    exec "$@";
+else
+    exec /bin/bash -li;
+fi

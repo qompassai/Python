@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:36ef2726a106881a6a7f20f024d032c2baaaf7fb984efbc3db3a6bca256e5dd7
-size 147
+     CHECK: range        10 20 30 40
+CHECK-NEXT: two tiles:   10 20 30 40 10 20 30 40
+CHECK-NEXT: three tiles: 10 20 30 40 10 20 30 40 10 20 30 40

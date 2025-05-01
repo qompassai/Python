@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4525000f8753aaffdd7a98612a9fd4960e6a40f83e9c47f2e520cca28d742368
-size 125
+streamlit
+pandas
+numpy
+groq
+langchain_community
+langchain_groq
+yfinance
+plotly
+langchain_core
+nbformat>=4.2.0
+ipython
+kaleido

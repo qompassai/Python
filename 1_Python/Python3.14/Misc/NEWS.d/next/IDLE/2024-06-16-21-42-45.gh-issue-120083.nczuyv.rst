@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:420b2d222b85025eaaca085cb16ca637fa19633a2233ac21e8c739fa196c805a
-size 155
+Add explicit black IDLE Hovertip foreground color needed for recent macOS.  Fixes Sonoma showing unreadable white on pale yellow.  Patch by John Riggles.

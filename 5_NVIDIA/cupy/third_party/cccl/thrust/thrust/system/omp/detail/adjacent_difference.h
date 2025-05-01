@@ -1,3 +1,54 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cc9afbd48e89e5bd97e83661044bce63db49b47c624f8e11b3a20a0179f034ee
-size 1693
+/*
+ *  Copyright 2008-2013 NVIDIA Corporation
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+#pragma once
+
+#include <thrust/detail/config.h>
+
+#if defined(_CCCL_IMPLICIT_SYSTEM_HEADER_GCC)
+#  pragma GCC system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_CLANG)
+#  pragma clang system_header
+#elif defined(_CCCL_IMPLICIT_SYSTEM_HEADER_MSVC)
+#  pragma system_header
+#endif // no system header
+#include <thrust/system/detail/generic/adjacent_difference.h>
+#include <thrust/system/omp/detail/execution_policy.h>
+
+THRUST_NAMESPACE_BEGIN
+namespace system
+{
+namespace omp
+{
+namespace detail
+{
+
+template <typename DerivedPolicy, typename InputIterator, typename OutputIterator, typename BinaryFunction>
+OutputIterator adjacent_difference(
+  execution_policy<DerivedPolicy>& exec,
+  InputIterator first,
+  InputIterator last,
+  OutputIterator result,
+  BinaryFunction binary_op)
+{
+  // omp prefers generic::adjacent_difference to cpp::adjacent_difference
+  return thrust::system::detail::generic::adjacent_difference(exec, first, last, result, binary_op);
+} // end adjacent_difference()
+
+} // namespace detail
+} // namespace omp
+} // namespace system
+THRUST_NAMESPACE_END

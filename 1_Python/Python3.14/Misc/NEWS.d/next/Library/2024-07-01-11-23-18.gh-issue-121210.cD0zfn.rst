@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ed4f87527d93b9ab13c06e9df80b90156056d14885f9ed706be241c3bc5fb326
-size 109
+Handle AST nodes with missing runtime fields or attributes in
+:func:`ast.compare`. Patch by Bénédikt Tran.

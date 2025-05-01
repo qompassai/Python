@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4fe03f5d0e9bcc1034cc06ae25f14c09bbb482d0280332bf14abc26138708609
-size 125
+include requirements.txt
+include README.md
+include LICENSE
+include whisper/assets/*
+include whisper/normalizers/english.json

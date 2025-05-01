@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fb92d7487a0ce7005db32b9262b2f88ae717bdae6985969da82db91229237184
-size 771
+#!%prefix%/Resources/Python.app/Contents/MacOS/%exe%
+
+import sys, os
+execdir = os.path.dirname(sys.argv[0])
+executable = os.path.join(execdir, "Python")
+resdir = os.path.join(os.path.dirname(execdir), "Resources")
+libdir = os.path.join(os.path.dirname(execdir), "Frameworks")
+mainprogram = os.path.join(resdir, "idlemain.py")
+
+sys.argv.insert(1, mainprogram)
+if 0 or 0:
+    os.environ["PYTHONPATH"] = resdir
+    if 0:
+        os.environ["PYTHONHOME"] = resdir
+else:
+    pypath = os.getenv("PYTHONPATH", "")
+    if pypath:
+        pypath = ":" + pypath
+    os.environ["PYTHONPATH"] = resdir + pypath
+os.environ["PYTHONEXECUTABLE"] = executable
+os.environ["DYLD_LIBRARY_PATH"] = libdir
+os.environ["DYLD_FRAMEWORK_PATH"] = libdir
+os.execve(executable, sys.argv, os.environ)

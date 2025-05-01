@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d323fdfcbcf1ce96ed31417f62e51ce14de3db68d3f496a841aeec3c2fce448f
-size 228
+import torch
+
+
+@torch.jit.script
+def gelu_impl(x):
+    """OpenAI's gelu implementation."""
+    return 0.5 * x * (1.0 + torch.tanh(0.7978845608028654 * x * (1.0 + 0.044715 * x * x)))
+
+
+def openai_gelu(x):
+    return gelu_impl(x)

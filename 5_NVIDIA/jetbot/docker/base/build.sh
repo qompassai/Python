@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61341b63d85c566dd151e4d7377224684ef705ab49687a0c700b4566350b7628
-size 279
+cp /etc/apt/trusted.gpg.d/jetson-ota-public.asc ../.. # copy to jetbot root
+
+sudo docker build \
+    --build-arg BASE_IMAGE=$JETBOT_BASE_IMAGE \
+    -t $JETBOT_DOCKER_REMOTE/jetbot:base-$JETBOT_VERSION-$L4T_VERSION \
+    -f Dockerfile \
+    ../..  # jetbot repo root as context
+

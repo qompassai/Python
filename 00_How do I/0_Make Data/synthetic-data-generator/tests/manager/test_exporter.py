@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2a440effc384867418f59f67b9f02bd4f59489f267adb4be14f80c56ff2cbaef
-size 452
+import pytest
+
+from sdgx.data_exporters.manager import DataExporterManager
+
+
+@pytest.fixture
+def manager():
+    yield DataExporterManager()
+
+
+@pytest.mark.parametrize(
+    "supportd_exporter",
+    [
+        "CsvExporter",
+    ],
+)
+def test_manager(supportd_exporter, manager: DataExporterManager):
+    assert manager._normalize_name(supportd_exporter) in manager.registed_exporters
+
+
+if __name__ == "__main__":
+    pytest.main(["-vv", "-s", __file__])

@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:acbaf07cf2397cd255e2bf38a736b27bbf00d2f1a5c2b457490b8558e2cd3a07
-size 220
+     CHECK: Computing C = A + B for sparse vectors A and B
+CHECK-NEXT: A (2,10) (3,60) (5,20) (8,40)
+CHECK-NEXT: B (1,50) (2,30) (4,80) (5,30) (7,90) (8,10)
+CHECK-NEXT: C (1,50) (2,40) (3,60) (4,80) (5,50) (7,90) (8,50)

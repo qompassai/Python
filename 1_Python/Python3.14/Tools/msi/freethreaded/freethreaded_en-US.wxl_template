@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a7c830ffb72fb335e0577bd5bc623b636a18e8c47d37af043c2483b00edf0c71
-size 527
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="Descriptor">Freethreaded Interpreter</String>
+    <String Id="ShortDescriptor">freethreaded</String>
+    <String Id="ShortcutName">Python {{ShortVersion}} ({{Bitness}}, freethreaded)</String>
+    <String Id="ShortcutDescription">Launches the !(loc.ProductName) freethreaded interpreter.</String>
+    <String Id="SupportUrl">https://www.python.org/</String>
+</WixLocalization>

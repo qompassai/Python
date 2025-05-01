@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:19567626e47982c44ecff2037a919beb3d1360b43d7f994fa7428f1786f5405f
-size 353
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+version: 2
+submodules:
+    include: all
+    recursive: true
+build:
+    os: ubuntu-22.04
+    tools:
+        python: "3.9"
+formats: all
+sphinx:
+    configuration: docs/source/conf.py
+python:
+    install:
+    - method: pip
+      path: .
+    - requirements: docs/requirements.txt

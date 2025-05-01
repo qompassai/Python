@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:057ab357b4882fdfc5ae9b4e0f69df5c6ea729ea1f81f41d171f31ec97f27ff3
-size 102
+Fix issue with :func:`shutil.rmtree` where a :exc:`RecursionError` is raised
+on deep directory trees.

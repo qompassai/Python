@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4d3446358f47db1253d7d50844eec44a57be51d155d48ad3b101eb0430b4b478
-size 441
+.. _api_reference:
+
+API Reference
+===============
+
+.. toctree::
+    :maxdepth: 2
+
+    Synthesizer <synthesizer>
+    Data Connector <data_connectors/index>
+    Data Models <data_models/index>
+    Data Loader <data_loader>
+    Cacher for DataLoader <cachers/index>
+    Data Processor <data_processors/index>
+    Models <models/index>
+    Data Exporter <data_exporters/index>
+    Manager <manager>
+    Exceptions <exceptions>
+    Utils <utils>

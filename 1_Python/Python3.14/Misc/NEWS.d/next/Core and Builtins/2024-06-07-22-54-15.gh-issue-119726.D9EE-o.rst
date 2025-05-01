@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:916efcda3eeeb20c9a212c6602ddf407b6f4aeacfd74d73501e394e55c7c7e8a
-size 80
+JIT: Re-use trampolines on AArch64 when creating stencils. Patch by Diego Russo

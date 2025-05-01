@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a5da1b73b2a1ed6042968fd36baaf4926eb4d04a3e1686133e98885be99151bc
-size 181
+.. bpo: 0
+.. date: 2017-12-18
+.. no changes: True
+.. nonce: qH8KPG
+.. release date: 2017-12-18
+.. section: Library
+
+There were no new code changes in version 3.6.4 since v3.6.4rc1.

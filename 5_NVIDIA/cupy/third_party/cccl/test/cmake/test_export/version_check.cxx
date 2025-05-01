@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f6909985ec28ca3bd5cd5e98a06cd73cc6d87a8a698da37c3abd4395415fb446
-size 434
+// Compile with:
+//   -DVERSION_HEADER=include/path/for/version.h
+//   -DEXPECTED_VERSION=XXYYZZ
+//   -DVERSION_MACRO=PROJECT_VERSION
+
+#define HEADER <VERSION_HEADER>
+#include HEADER
+
+#include <cstdio>
+
+#define DETECTED_VERSION VERSION_MACRO
+
+int main()
+{
+  printf("Expected version: %d\n"
+         "Detected version: %d\n",
+         EXPECTED_VERSION,
+         VERSION_MACRO);
+  return EXPECTED_VERSION == DETECTED_VERSION ? 0 : 1;
+}

@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b1acd63b6dccd939c276762a2f7195f5b7ec1c5760258ada43d8a47c1dd7b060
-size 329
+blank_issues_enabled: true
+contact_links:
+  - name: Question
+    url: https://github.com/NVIDIA/cccl/discussions
+    about: Check out our Discussions page to ask and answer questions.
+  - name: CUDA C++ Core Libraries Discord
+    url: https://discord.gg/nvidiadeveloper
+    about: Come chat about using and contributing to CCCL!

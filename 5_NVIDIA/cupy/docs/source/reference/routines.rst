@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:10a47e0aefc22279220a4fce77f6e43a44e994034527e6c13723bd45efdd236e
-size 453
+----------------
+Routines (NumPy)
+----------------
+
+The following pages describe NumPy-compatible routines.
+These functions cover a subset of
+`NumPy routines <https://numpy.org/doc/stable/reference/routines.html>`_.
+
+.. toctree::
+   :maxdepth: 2
+
+   creation
+   manipulation
+   binary
+   dtype
+   fft
+   functional
+   indexing
+   io
+   linalg
+   logic
+   math
+   misc
+   pad
+   polynomials
+   random
+   set
+   sorting
+   statistics
+   testing
+   window

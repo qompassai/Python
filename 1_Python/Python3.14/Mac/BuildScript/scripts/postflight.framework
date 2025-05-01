@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b95b1e8923c277df39a12d3fb62834d2c3d095352b251277952a55376a0e0808
-size 857
+#!/bin/sh
+#
+# Recompile the .py files.
+#
+
+PYVER="@PYVER@"
+FWK="/Library/Frameworks/Python.framework/Versions/@PYVER@"
+
+"${FWK}/bin/python@PYVER@" -E -s -Wi \
+    "${FWK}/lib/python${PYVER}/compileall.py" -q -j0 \
+    -f -x 'bad_coding|badsyntax|site-packages' \
+    "${FWK}/lib/python${PYVER}"
+
+"${FWK}/bin/python@PYVER@" -E -s -Wi -O \
+    "${FWK}/lib/python${PYVER}/compileall.py" -q -j0 \
+    -f -x 'bad_coding|badsyntax|site-packages' \
+    "${FWK}/lib/python${PYVER}"
+
+"${FWK}/bin/python@PYVER@" -E -s -Wi \
+    "${FWK}/lib/python${PYVER}/compileall.py" -q -j0 \
+    -f -x badsyntax \
+    "${FWK}/lib/python${PYVER}/site-packages"
+
+"${FWK}/bin/python@PYVER@" -E -s -Wi -O \
+    "${FWK}/lib/python${PYVER}/compileall.py" -q -j0 \
+    -f -x badsyntax \
+    "${FWK}/lib/python${PYVER}/site-packages"
+
+chgrp -R admin "${FWK}"
+chmod -R g+w "${FWK}"
+
+exit 0

@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fb14def36a4c095a3971d577b3c355960abdc0c154938d1c9ddfc269f3c1db84
-size 823
+:orphan:
+
+.. This page is to generate documentation for deprecated APIs removed from the
+   public table of contents.
+
+DLPack helper
+-------------
+
+.. autosummary::
+   :toctree: generated/
+
+   cupy.fromDlpack
+
+Time range
+----------
+
+.. autosummary::
+   :toctree: generated/
+
+   cupy.prof.TimeRangeDecorator
+   cupy.prof.time_range
+
+Timing helper
+-------------
+
+.. autosummary::
+   :toctree: generated/
+
+   cupyx.time.repeat
+
+Profiler
+--------
+
+.. autosummary::
+   :toctree: generated/
+
+   cupy.cuda.profile
+   cupy.cuda.profiler.start
+   cupy.cuda.profiler.stop
+
+Device synchronization detection
+--------------------------------
+
+.. warning::
+
+   These APIs are deprecated in CuPy v10 and will be removed in future releases.
+
+.. autosummary::
+   :toctree: generated/
+
+   cupyx.allow_synchronize
+   cupyx.DeviceSynchronized

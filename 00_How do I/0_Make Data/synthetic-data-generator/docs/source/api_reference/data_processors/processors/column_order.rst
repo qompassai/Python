@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4499893e7ec26f128d5efe76774603dc987f9276cfaaa7de10d904af6237b280
-size 243
+Column Order Transformer
+============================
+
+.. autoclass:: sdgx.data_processors.transformers.column_order.ColumnOrderTransformer
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:
+    :private-members:

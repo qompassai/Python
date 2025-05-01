@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5629cdc4f60ba4837b0912e69980b8e2886af7922d399b7113a1169d65edc17a
-size 739
+//===----------------------------------------------------------------------===//
+//
+// Part of CUDA Experimental in CUDA C++ Core Libraries,
+// under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// SPDX-FileCopyrightText: Copyright (c) 2024 NVIDIA CORPORATION & AFFILIATES.
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef __CUDAX_DETAIL_UTILITY_H
+#define __CUDAX_DETAIL_UTILITY_H
+
+namespace cuda::experimental
+{
+struct uninit_t
+{
+  explicit uninit_t() = default;
+};
+
+inline constexpr uninit_t uninit{};
+} // namespace cuda::experimental
+
+#endif // __CUDAX_DETAIL_UTILITY_H

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:48513927299ee90d2363f2e9535dbff8d7ced70e37d79f893f5b53c1dfe23cd5
-size 124
+Fix :func:`unittest.mock.patch` to not read attributes of the target when
+``new_callable`` is set. Patch by Robert Collins.

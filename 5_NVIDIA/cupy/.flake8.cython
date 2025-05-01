@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4f642d7724406badd2d34758dae923d1a46cf67e9711a9aab318ec914f78a137
-size 122
+[flake8]
+filename = *.pyx, *.pxd, *.pxi
+exclude = .git, .eggs, *.py
+ignore = W503,W504,E211,E225,E226,E227,E275,E402,E999

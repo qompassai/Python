@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f460388a6680ed942ad0810ea1ed98ac02aded9ff30ed42b7e8334988517f88d
-size 129
+Allow ``restart`` in post-mortem debugging of :mod:`pdb`. Removed restart message
+when the user quits pdb from post-mortem mode.

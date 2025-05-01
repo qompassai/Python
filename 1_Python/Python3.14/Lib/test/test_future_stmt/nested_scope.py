@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6b2ee686927e378d60bc1dab9f69dd291b824fdc09de8abaf11dcad3937a2038
-size 163
+"""This is a test"""
+
+from __future__ import nested_scopes; import site  # noqa: F401
+
+def f(x):
+    def g(y):
+        return x + y
+    return g
+
+result = f(2)(4)

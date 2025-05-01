@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:72d59440ceb6b5485ac6abd2faeb90dc6f54789a54c269b69001496bcbb20c0a
-size 266
+include_guard(GLOBAL)
+include(CheckCXXCompilerFlag)
+
+macro (APPEND_OPTION_IF_AVAILABLE _FLAG _LIST)
+
+string(MAKE_C_IDENTIFIER "CXX_FLAG_${_FLAG}" _VAR)
+check_cxx_compiler_flag(${_FLAG} ${_VAR})
+
+if (${${_VAR}})
+  list(APPEND ${_LIST} ${_FLAG})
+endif ()
+
+endmacro ()

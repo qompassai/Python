@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1b7a1e0b0acea1b95007d1a0403516d94af692253421bd672c6db4506930f474
-size 453
+#!/bin/bash
+
+# Based on cuda122.sh
+
+set -uex
+
+ACTIONS="$(dirname $0)/actions"
+. "$ACTIONS/_environment.sh"
+
+export NVCC="ccache nvcc"
+
+export CUPY_ACCELERATORS="cutensor,cub"
+
+# Make the build faster.
+export CUPY_NVCC_GENERATE_CODE="arch=compute_70,code=sm_70"
+
+"$ACTIONS/build.sh"
+
+# Make sure that CuPy can be imported without CUDA Toolkit installed.
+rm -rf /usr/local/cuda*
+pushd tests/import_tests
+python3 test_import.py
+popd
+
+"$ACTIONS/cleanup.sh"

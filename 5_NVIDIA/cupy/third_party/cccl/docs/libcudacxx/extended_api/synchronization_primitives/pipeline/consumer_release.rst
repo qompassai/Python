@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:18b6ba16c4aa1aa5b929dd5b874635408ef46a4d058c0972bcc7201c1cbd0c40
-size 599
+.. _libcudacxx-extended-api-synchronization-pipeline-pipeline-consumer-release:
+
+cuda::pipeline::consumer_release
+====================================
+
+Defined in header ``<cuda/pipeline>``:
+
+.. code:: cuda
+
+   template <cuda::thread_scope Scope>
+   __host__ __device__
+   void cuda::pipeline<Scope>::consumer_release();
+
+Releases the current *pipeline stage*.
+
+.. note::
+
+   - If the calling thread is a *producer thread*, the behavior is undefined.
+   - If the pipeline is in a :ref:`quitted state <libcudacxx-extended-api-synchronization-pipeline-pipeline-quit>`,
+     the behavior is undefined.

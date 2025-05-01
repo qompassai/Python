@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:010401e1fb3b6891801bbfad825023db595e47764421bf3ed1c6c54830f10f2b
-size 311
+Hard-coded breakpoints (:func:`breakpoint` and :func:`pdb.set_trace()`) now
+reuse the most recent ``Pdb`` instance that calls ``Pdb.set_trace()``,
+instead of creating a new one each time. As a result, all the instance specific
+data like ``display`` and ``commands`` are preserved across Hard-coded breakpoints.

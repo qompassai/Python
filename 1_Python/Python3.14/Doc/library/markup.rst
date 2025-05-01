@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fd1fb5ab3ecaf7d5b2e913406bd5bb44ad62c53b97f96d5400b06d6d441b0f08
-size 679
+.. _markup:
+
+**********************************
+Structured Markup Processing Tools
+**********************************
+
+Python supports a variety of modules to work with various forms of structured
+data markup.  This includes modules to work with the Standard Generalized Markup
+Language (SGML) and the Hypertext Markup Language (HTML), and several interfaces
+for working with the Extensible Markup Language (XML).
+
+
+.. toctree::
+
+   html.rst
+   html.parser.rst
+   html.entities.rst
+   xml.rst
+   xml.etree.elementtree.rst
+   xml.dom.rst
+   xml.dom.minidom.rst
+   xml.dom.pulldom.rst
+   xml.sax.rst
+   xml.sax.handler.rst
+   xml.sax.utils.rst
+   xml.sax.reader.rst
+   pyexpat.rst

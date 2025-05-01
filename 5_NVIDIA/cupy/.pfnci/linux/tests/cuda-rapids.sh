@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ded16648c0cbc88ce1d313674d4bdbd7e7bd53c3bcc41830bf6651aeb4c7ead2
-size 557
+#!/bin/bash
+
+set -uex
+
+ACTIONS="$(dirname $0)/actions"
+. "$ACTIONS/_environment.sh"
+
+export CUPY_NVCC_GENERATE_CODE="current"
+export NVCC="ccache nvcc"
+
+# Overwrite:
+#  - CXX to use ccache
+#  - CUDA_PATH set in conda to build CuPy
+CXX=/usr/lib/ccache/g++ CUDA_PATH="/usr/local/cuda" pip install -v ".[test]"
+"$ACTIONS/unittest.sh" "not slow" \
+    "cupyx_tests/scipy_tests/sparse_tests/csgraph_tests" \
+    "cupyx_tests/scipy_tests/spatial_tests/test_kdtree_pylibraft.py" \
+    "cupyx_tests/scipy_tests/spatial_tests/test_distance.py"
+"$ACTIONS/cleanup.sh"

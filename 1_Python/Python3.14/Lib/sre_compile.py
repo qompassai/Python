@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f7fd87f8ac9dad7d1387e2401761ec05806c5108201a6d1ede6ab2f481f6df54
-size 231
+import warnings
+warnings.warn(f"module {__name__!r} is deprecated",
+              DeprecationWarning,
+              stacklevel=2)
+
+from re import _compiler as _
+globals().update({k: v for k, v in vars(_).items() if k[:2] != '__'})

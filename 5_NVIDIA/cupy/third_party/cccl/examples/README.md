@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:35185443cc896cdf4fd03b20b812dde3c32ae3f76b3f1a990a613af7c4e8bef7
-size 465
+
+This directory contains examples of how to use CCCL in your project.
+
+See the `README.md` in each subdirectory for more information.
+
+To build and run only the examples, run the following commands from the root directory of the repository:
+
+```bash
+cmake -S . -B build -DCCCL_ENABLE_EXAMPLES=ON -DCCCL_ENABLE_THRUST=OFF -DCCCL_ENABLE_CUB=OFF -DCCCL_ENABLE_LIBCUDACXX=OFF -DCCCL_ENABLE_TESTING=OFF
+cmake --build build
+ctest --test-dir build --output-on-failure
+```

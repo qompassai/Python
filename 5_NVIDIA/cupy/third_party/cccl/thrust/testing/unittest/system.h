@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:206e1b4993f34810804c09a4fc97863f201a6596343fb230b2b385d5f4aa21d9
-size 518
+#pragma once
+
+// for demangling the result of type_info.name()
+// with msvc, type_info.name() is already demangled
+#ifdef __GNUC__
+#  include <cxxabi.h>
+#endif // __GNUC__
+
+#include <cstdlib>
+#include <string>
+
+namespace unittest
+{
+inline std::string demangle(const char* name)
+{
+#if __GNUC__ && !_NVHPC_CUDA
+  int status     = 0;
+  char* realname = abi::__cxa_demangle(name, 0, 0, &status);
+  std::string result(realname);
+  std::free(realname);
+  return result;
+#else
+  return name;
+#endif
+}
+} // namespace unittest

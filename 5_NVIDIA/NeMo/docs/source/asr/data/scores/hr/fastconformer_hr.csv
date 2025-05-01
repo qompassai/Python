@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b8d9c4ec0acdef677d670f6918cd0c51fa3c62ad78e843d7f88f45fd9f722c66
-size 198
+Model Name,Language,ParlaSpeech Dev-Set v1.0 (hr),ParlaSpeech Test-Set v1.0 (hr),Parlaspeech Dev-Set (v??) (hr),Parlaspeech Test-Set (v??) (hr)
+stt_hr_fastconformer_hybrid_large_pc,hr,,,4.5 %,4.2 %

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3bb3bd08c2b2e8e72d11ba3d9de16fc9353719e4c99bfb68d1d2038acb4191ce
-size 409
+.. _user_guides:
+
+Guides for users
+==================================================
+
+The Guides for users section includes SDG usage for different scenarios.
+
+.. toctree::
+    :maxdepth: 2
+
+        Use CLI directly <cli>
+        Use SDG as a library <library>
+        Synthetic single-table data <single_table>
+        Synthetic multi-table data <multi_table>
+        Evaluation synthetic data <evaluation>

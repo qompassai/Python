@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d8b9d012d0c54e74b14b6add0f8cb2c6022741130537c25a01e998b5d0e5696d
-size 112
+Fix build failure when the developer use ``--enable-pystats`` arguments in configuration command after #118450.

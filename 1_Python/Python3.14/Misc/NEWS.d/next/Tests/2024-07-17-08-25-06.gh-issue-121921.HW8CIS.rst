@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac86bb1cdd46d1bdd95992f03ea1bb29358fac923cd98a2649f65c17b25e75e6
-size 82
+Update ``Lib/test/crashers/bogus_code_obj.py`` so that it crashes properly
+again.

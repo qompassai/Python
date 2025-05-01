@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e20b79cf65b8aa42beb3018205a365118eb43683203c0d14c67e4ca3809ba7a7
-size 125
+Fix missing sanity check for ``parties`` arg in :class:`threading.Barrier`
+constructor. Patch by Clinton Christian (pygeek).

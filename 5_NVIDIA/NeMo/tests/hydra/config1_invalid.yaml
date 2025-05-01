@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c11879c414ddc7c54e2d23986ba3980e6563fb2ed7a00bac6e0c4a512ec8dd05
-size 36
+dataset_name: magic
+password: secret

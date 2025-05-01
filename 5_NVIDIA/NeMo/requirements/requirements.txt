@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a52dee6bb747777af3f7328c3c130a8a16bb046d0ced184cb6f9c09e0e11f887
-size 176
+fiddle
+huggingface_hub>=0.24
+numba
+numpy>=1.22
+onnx>=1.7.0
+python-dateutil
+ruamel.yaml
+scikit-learn
+setuptools>=65.5.1
+tensorboard
+text-unidecode
+torch
+tqdm>=4.41.0
+wget
+wrapt

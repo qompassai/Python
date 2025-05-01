@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aa64e8f0a037f6aae0c5ae3923a22e10da0a152838c764f9270ca67887c3b081
-size 580
+document.addEventListener("DOMContentLoaded", function () {
+    var params = window.location.search.substring(1).split("&").reduce(function (params, param) {
+        if (!param) {
+            return params;
+        }
+
+        var values = param.split("=");
+        var name = values[0];
+        var value = values[1];
+        params[name] = value;
+        return params;
+    }, {});
+
+    var form = document.getElementById("feedback-form");
+    for (var name in params) {
+        var input = form.querySelector("[name=" + name + "]");
+        input.value = params[name];
+    }
+});

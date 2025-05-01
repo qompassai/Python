@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11e7dcf3015452abbcccdb69371f86d0619e5af9d77f109b79aaa7ddb0f25625
-size 277
+# Disable unreachable code warnings.
+# This test unconditionally throws in some places, the compiler will detect that
+# control flow will never reach some instructions. This is intentional.
+target_link_libraries(${test_target} PRIVATE thrust.silence_unreachable_code_warnings)

@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fd07bf16bd29af06f9da50642b6837091cdc0121301466110e348fb21c781c86
-size 103
+Fix truncation of strings with embedded null characters in some internal
+operations in :mod:`tkinter`.

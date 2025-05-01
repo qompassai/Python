@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cb0f79d956b07315e518a1633397e80975af617dbedb2b3e666f2ff607153d56
-size 67
+Ensures correct import libraries are included in Windows installs.

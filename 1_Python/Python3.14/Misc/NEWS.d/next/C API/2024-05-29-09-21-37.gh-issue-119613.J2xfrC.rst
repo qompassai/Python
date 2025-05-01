@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b22cbcf79739fdc31bd3c045f68de624f35024f350ab207c7e04da3c54ca38e2
-size 91
+Macros ``Py_IS_NAN``, ``Py_IS_INFINITY`` and ``Py_IS_FINITE``
+are :term:`soft deprecated`.

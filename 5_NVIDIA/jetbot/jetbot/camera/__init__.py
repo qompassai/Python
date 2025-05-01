@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:38a9b860824b102a889bdfe56e897f5bfbc80503b7637d808ead6d248776d477
-size 272
+import os
+
+DEFAULT_CAMERA = os.environ.get('JETBOT_DEFAULT_CAMERA', 'opencv_gst_camera')
+
+if DEFAULT_CAMERA == 'zmq_camera':
+    from .zmq_camera import ZmqCamera
+    Camera = ZmqCamera
+else:
+    from .opencv_gst_camera import OpenCvGstCamera
+    Camera = OpenCvGstCamera

@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bdab3219cc0616ee8bd08c4c4ec961c2f2cc35b118a72e869c483a1479048716
-size 534
+/*
+ * Expat configuration for python. This file is not part of the expat
+ * distribution.
+ */
+#ifndef EXPAT_CONFIG_H
+#define EXPAT_CONFIG_H
+
+#include <pyconfig.h>
+#ifdef WORDS_BIGENDIAN
+#define BYTEORDER 4321
+#else
+#define BYTEORDER 1234
+#endif
+
+#define HAVE_MEMMOVE 1
+
+#define XML_NS 1
+#define XML_DTD 1
+#define XML_GE 1
+#define XML_CONTEXT_BYTES 1024
+
+// bpo-30947: Python uses best available entropy sources to
+// call XML_SetHashSalt(), expat entropy sources are not needed
+#define XML_POOR_ENTROPY 1
+
+#endif /* EXPAT_CONFIG_H */

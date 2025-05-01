@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7af1ee8d430a65df6fd38d78e3e8aaad82dd14d27321043a8a6de8abbdc47d93
-size 81
+:mod:`datetime` no longer crashes in certain complex reference cycle
+situations.

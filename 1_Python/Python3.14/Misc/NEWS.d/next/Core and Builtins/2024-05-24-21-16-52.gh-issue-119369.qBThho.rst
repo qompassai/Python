@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d5c5a113aef1dfe60b9412d931218d8e2d12f2eb15611d3442a05d0830b36a64
-size 115
+Fix deadlock during thread deletion in free-threaded build, which could
+occur when the GIL was enabled at runtime.

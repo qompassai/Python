@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11d180d6ea95e0dfb3df40843004e693b33b4c4b24744c2398c4006924ffdf66
-size 600
+import re
+import unicodedata
+import functools
+
+ANSI_ESCAPE_SEQUENCE = re.compile(r"\x1b\[[ -@]*[A-~]")
+
+
+@functools.cache
+def str_width(c: str) -> int:
+    if ord(c) < 128:
+        return 1
+    w = unicodedata.east_asian_width(c)
+    if w in ('N', 'Na', 'H', 'A'):
+        return 1
+    return 2
+
+
+def wlen(s: str) -> int:
+    if len(s) == 1:
+        return str_width(s)
+    length = sum(str_width(i) for i in s)
+    # remove lengths of any escape sequences
+    sequence = ANSI_ESCAPE_SEQUENCE.findall(s)
+    ctrl_z_cnt = s.count('\x1a')
+    return length - sum(len(i) for i in sequence) + ctrl_z_cnt

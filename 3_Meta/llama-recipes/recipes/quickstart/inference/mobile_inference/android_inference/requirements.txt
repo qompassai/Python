@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7a7218c35d04d84525e3cd8297c96ff3a5bf9f88a75ef476ddb87854c5dbbaa9
-size 146
+--pre
+--find-links https://mlc.ai/wheels
+mlc-llm-nightly
+mlc-ai-nightly
+attrs
+decorator
+numpy
+psutil
+pydantic
+requests
+scipy
+setuptools
+torch
+tqdm

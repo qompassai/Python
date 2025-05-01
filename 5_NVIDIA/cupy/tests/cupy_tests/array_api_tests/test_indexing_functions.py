@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:031a744eebb4adfe6580459476faeeb8ca86f9047cae300402c0c4da24e97a85
-size 541
+import pytest
+
+from cupy import array_api as xp
+
+
+@pytest.mark.parametrize(
+    "obj, ind, axis, expected",
+    [
+        ([0, 1, 2, 3], [1, 3], -1, [1, 3]),
+        ([0, 1, 2, 3], [2, 0], 0, [2, 0]),
+        ([[0, 1, 2, 3]], [0, 0, 0], 0, [[0, 1, 2, 3]] * 3),
+        ([[0, 1, 2, 3]], [1, 2, 1], 1, [[1, 2, 1]]),
+    ],
+)
+def test_take(obj, ind, axis, expected):
+    """
+    Tests xp.take function
+    """
+    x = xp.asarray(obj)
+    ind = xp.asarray(ind)
+    out = xp.take(x, ind, axis=axis)
+    assert xp.all(out == xp.asarray(expected))

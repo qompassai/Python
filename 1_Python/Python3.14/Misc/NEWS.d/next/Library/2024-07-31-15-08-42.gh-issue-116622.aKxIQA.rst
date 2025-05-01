@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a5c8e15ff0e689c1356a468a4409ccf0d949db3b6e5271bb9764abdbbdc18956
-size 138
+On Android, the ``FICLONE`` and ``FICLONERANGE`` constants are no longer
+exposed by :mod:`fcntl`, as these ioctls are blocked by SELinux.

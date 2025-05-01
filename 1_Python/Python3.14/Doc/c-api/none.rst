@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c7deb8d080b97f198d6b026810c729115ec0882ef83f9d2ff62153a3978b17b1
-size 655
+.. highlight:: c
+
+.. _noneobject:
+
+The ``None`` Object
+-------------------
+
+.. index:: pair: object; None
+
+Note that the :c:type:`PyTypeObject` for ``None`` is not directly exposed in the
+Python/C API.  Since ``None`` is a singleton, testing for object identity (using
+``==`` in C) is sufficient. There is no :c:func:`!PyNone_Check` function for the
+same reason.
+
+
+.. c:var:: PyObject* Py_None
+
+   The Python ``None`` object, denoting lack of value.  This object has no methods
+   and is :term:`immortal`.
+
+   .. versionchanged:: 3.12
+      :c:data:`Py_None` is :term:`immortal`.
+
+.. c:macro:: Py_RETURN_NONE
+
+   Return :c:data:`Py_None` from a function.

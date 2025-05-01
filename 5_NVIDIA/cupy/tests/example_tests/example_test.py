@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b097b000f0a7852cf0b678df38144aca24a372b96181e45827e87a3d729b3c91
-size 490
+import os
+import subprocess
+import sys
+
+
+def run_example(path, *args):
+    examples_path = os.path.join(
+        os.path.dirname(__file__), '..', '..', 'examples')
+    fullpath = os.path.join(examples_path, path)
+
+    try:
+        return subprocess.check_output(
+            (sys.executable, fullpath) + args,
+            stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError as e:
+        print('Original error message:')
+        print(e.output.decode('utf-8'))
+        raise

@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e8b97ad8547fa056a40ef52c7b37ab033e413f52429f8348eb623545998334c2
-size 585
+Param(
+    [Parameter(Mandatory = $false)]
+    [Alias("std")]
+    [ValidateNotNullOrEmpty()]
+    [ValidateSet(11, 14, 17, 20)]
+    [int]$CXX_STANDARD = 17
+)
+
+$ErrorActionPreference = "Stop"
+
+$CURRENT_PATH = Split-Path $pwd -leaf
+If($CURRENT_PATH -ne "ci") {
+    Write-Host "Moving to ci folder"
+    pushd "$PSScriptRoot/.."
+}
+
+Import-Module $PSScriptRoot/build_common.psm1 -ArgumentList $CXX_STANDARD, $GPU_ARCHS
+
+$PRESET = "libcudacxx-cpp${CXX_STANDARD}"
+$CMAKE_OPTIONS = ""
+
+configure_and_build_preset "libcudacxx" "$PRESET" "$CMAKE_OPTIONS"
+
+If($CURRENT_PATH -ne "ci") {
+    popd
+}

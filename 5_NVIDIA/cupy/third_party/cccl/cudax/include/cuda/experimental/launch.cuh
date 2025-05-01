@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:885872eff80cc763929192a261ce7f3c77360e9d0d5b41eded6b9e8f2e0f58a4
-size 590
+//===----------------------------------------------------------------------===//
+//
+// Part of CUDA Experimental in CUDA C++ Core Libraries,
+// under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// SPDX-FileCopyrightText: Copyright (c) 2024 NVIDIA CORPORATION & AFFILIATES.
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef __CUDAX_LAUNCH___
+#define __CUDAX_LAUNCH___
+
+#include <cuda/experimental/__launch/launch.cuh>
+
+#endif

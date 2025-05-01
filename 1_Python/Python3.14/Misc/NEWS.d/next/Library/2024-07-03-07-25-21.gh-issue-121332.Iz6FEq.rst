@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d789271889b75b67bd25485425f8e8568a5273fa2aaf946be85b30ed558709a0
-size 276
+Fix constructor of :mod:`ast` nodes with custom ``_attributes``. Previously,
+passing custom attributes would raise a :py:exc:`DeprecationWarning`. Passing
+arguments to the constructor that are not in ``_fields`` or ``_attributes``
+remains deprecated. Patch by Jelle Zijlstra.

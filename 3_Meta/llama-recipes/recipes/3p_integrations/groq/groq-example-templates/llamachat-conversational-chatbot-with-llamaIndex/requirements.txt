@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5c663576b0e161ab85a662cd535a592c3a8bd05281f5d4f86c3be49d36cfe1c2
-size 33
+llama_index
+llama-index-llms-groq

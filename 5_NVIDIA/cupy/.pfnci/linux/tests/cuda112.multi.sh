@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:05a36281180d04a620323726e7b9cbb01f57cc55b0176a1502cacf3f175e9259
-size 335
+#!/bin/bash
+
+# AUTO GENERATED: DO NOT EDIT!
+
+set -uex
+
+ACTIONS="$(dirname $0)/actions"
+. "$ACTIONS/_environment.sh"
+
+export NVCC="ccache nvcc"
+
+export CUPY_ACCELERATORS=""
+
+"$ACTIONS/build.sh"
+export OMPI_ALLOW_RUN_AS_ROOT=1
+export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+"$ACTIONS/unittest.sh" "not slow and multi_gpu"
+"$ACTIONS/cleanup.sh"

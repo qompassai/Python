@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:80dd4e69b4a29c19351bfb8f42ada020ffb28c6b53b687d815fa20be29ab70b4
-size 211
+<config remotes="cloudfront">
+    <remote2 name="cloudfront">
+        <transport actions="download" protocol="https" packageLocation="d4i3qtqj3r0z5.cloudfront.net/${name}@${version}" />
+    </remote2>
+</config>

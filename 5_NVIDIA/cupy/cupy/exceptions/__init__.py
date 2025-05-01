@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d7fe6be6a4d030b56a66879b3431789e81fe578d70a780e9825aa96784caa10d
-size 700
+# mypy: ignore-errors
+import numpy
+
+if numpy.__version__ < '2':
+    from numpy import AxisError  # NOQA
+    from numpy import ComplexWarning  # NOQA
+    from numpy import ModuleDeprecationWarning  # NOQA
+    from numpy import TooHardError  # NOQA
+    from numpy import VisibleDeprecationWarning  # NOQA
+    from numpy import RankWarning   # NOQA
+else:
+    from numpy.exceptions import AxisError  # NOQA
+    from numpy.exceptions import ComplexWarning  # NOQA
+    from numpy.exceptions import ModuleDeprecationWarning  # NOQA
+    from numpy.exceptions import TooHardError  # NOQA
+    from numpy.exceptions import VisibleDeprecationWarning  # NOQA
+    from numpy.exceptions import RankWarning   # NOQA

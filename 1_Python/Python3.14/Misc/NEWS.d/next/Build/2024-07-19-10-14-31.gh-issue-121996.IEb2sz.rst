@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a1c31139dda84417bdc1460ef97459506f166bae0a8efcf18f7a8c6e0331db92
-size 96
+Introduce ./configure --disable-safety and --enable-slower-safety options.
+Patch by Donghee Na.

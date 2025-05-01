@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2dabaecb8e9b3d87a9e0c5ba7e7e360f016db570049d9ea677eb370ccb7b7f79
-size 160
+[build-system]
+build-backend = 'trampolim'
+requires = ['trampolim']
+
+[project]
+name = 'example2'
+version = '1.0.0'
+
+[project.scripts]
+example = 'example2:main'

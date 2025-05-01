@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b297b624556b452b52f0c905ae8933c14657d33ccba278020a31084ab55fa18a
-size 208
+#!/bin/bash
+
+# AUTO GENERATED: DO NOT EDIT!
+
+set -uex
+
+ACTIONS="$(dirname $0)/actions"
+. "$ACTIONS/_environment.sh"
+
+export NVCC="ccache nvcc"
+
+"$ACTIONS/build.sh"
+"$ACTIONS/doctest.sh"
+"$ACTIONS/cleanup.sh"

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f7605f8a1a46a4491c43c7e6b982ea15782984106af722279c347179a759ee06
-size 343
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="Descriptor">Append to Path</String>
+    <String Id="ShortDescriptor">AppendPath</String>
+    <String Id="NoPython">No !(loc.ProductName) installation was detected.</String>
+</WixLocalization>

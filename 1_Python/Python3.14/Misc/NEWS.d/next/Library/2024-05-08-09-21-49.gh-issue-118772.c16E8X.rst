@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c75f7f2cadaf6ee8abfdeae9fbb849f98a28812d0989a0cdf3c2fd5e38445b43
-size 136
+Allow :class:`typing.TypeVar` instances without a default to follow
+instances without a default in some cases. Patch by Jelle Zijlstra.

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:217e23d725c5b9feaa8cecccc003255f67f4df910ff752381f799a049785b50e
-size 94
+git+https://github.com/MTG/freesound-python.git
+joblib
+librosa
+requests
+requests_oauthlib
+sox

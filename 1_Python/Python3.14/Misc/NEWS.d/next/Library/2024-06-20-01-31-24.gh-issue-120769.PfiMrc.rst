@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ceb677a69c2c5a4c223bf6ce205a87833f085cb0dfa4cdf7b96bf6131492f4ef
-size 99
+Make empty line in :mod:`pdb` repeats the last command even when the command is from ``cmdqueue``.

@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2df4f54059533f388b952aee64c9e8a5660fbed8e99ee2b32064a4e7463d1b11
-size 69
+Allow users to use EOF to exit ``commands`` definition in :mod:`pdb`

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:51ec713286709a82dbba9285fb4a34d9ae7745265246c996b8633cb496d1defe
-size 157
+     CHECK: Before A->B Copy
+CHECK-NEXT: A: 0 1 2 3 4
+CHECK-NEXT: B: 0 0 0 0 0
+CHECK-NEXT: After A->B Copy
+CHECK-NEXT: A: 0 1 2 3 4
+CHECK-NEXT: B: 0 1 2 3 4

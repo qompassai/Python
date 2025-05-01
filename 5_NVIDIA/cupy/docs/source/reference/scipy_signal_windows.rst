@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:663bf711695599e14ba770ebc703ed53036589cda6d5250e18573e8f163a22eb
-size 745
+.. module:: cupyx.scipy.signal.windows
+
+Signal processing windows (:mod:`cupyx.scipy.signal.windows`)
+=============================================================
+
+The suite of window functions for filtering and spectral estimation.
+
+.. Hint:: `SciPy API Reference: Signal processing windows (scipy.signal.windows) <https://docs.scipy.org/doc/scipy/reference/signal.windows.html>`_
+
+.. autosummary::
+   :toctree: generated/
+
+   get_window
+   barthann
+   bartlett
+   blackman
+   blackmanharris
+   bohman
+   boxcar
+   chebwin
+   cosine
+   exponential
+   flattop
+   gaussian
+   general_cosine
+   general_gaussian
+   general_hamming
+   hamming
+   hann
+   kaiser
+   kaiser_bessel_derived
+   nuttall
+   parzen
+   taylor
+   triang
+   lanczos
+   tukey

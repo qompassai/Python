@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:67447e790ad69f18129c32f09efb8b79df1910304deccebeed868e601ad46335
-size 209
+.. _thrust-module-api-function-objects:
+
+Function Objects
+=================
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+
+   function_objects/adaptors
+   function_objects/placeholder
+   function_objects/predefined

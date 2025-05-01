@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cce9d2f255f4f0e136c8c46bf355e16ab27d8adc6296d0f337b561986592986b
-size 370
+.. _libcudacxx-standard-api-utility-expected:
+
+<cuda/std/expected>
+=======================
+
+See the documentation of the standard header `\<expected\> <https://en.cppreference.com/w/cpp/header/expected>`_
+
+Extensions
+----------
+
+-  All features are available from C++14 onwards.
+
+Restrictions
+------------
+
+-  On device no exceptions are thrown in case of a bad access.

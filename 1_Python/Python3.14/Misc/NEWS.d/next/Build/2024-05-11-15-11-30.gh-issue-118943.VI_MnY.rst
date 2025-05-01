@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b559f05a87c4558d3cc017c313f76485edcbf15a03f2b85581180df10a0ebe1
-size 189
+Fix a possible race condition affecting parallel builds configured with
+``--enable-experimental-jit``, in which compilation errors could be caused
+by an incompletely-generated header file.

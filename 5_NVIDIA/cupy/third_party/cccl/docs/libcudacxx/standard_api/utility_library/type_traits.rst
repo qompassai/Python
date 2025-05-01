@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c5c7ac62925a5bf40f808bba8fb847ecca30521facea6572cd7f6357a13aba9
-size 290
+.. _libcudacxx-standard-api-utility-type-traits:
+
+<cuda/std/type_traits>
+=======================
+
+See the documentation of the standard header `\<type_traits\> <https://en.cppreference.com/w/cpp/header/type_traits>`_
+
+Extensions
+----------
+
+-  Most type traits are made available in C++11.

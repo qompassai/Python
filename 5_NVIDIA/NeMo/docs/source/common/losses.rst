@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a949b0d8759dadabac2fa9181897bfcfa97ad1286c97b4f36a5742e0194b265
-size 481
+Losses
+------
+.. autoclass:: nemo.collections.common.losses.AggregatorLoss
+    :special-members: __init__
+
+.. autoclass:: nemo.collections.common.losses.CrossEntropyLoss
+    :special-members: __init__
+
+.. autoclass:: nemo.collections.common.losses.MSELoss
+    :special-members: __init__
+
+.. autoclass:: nemo.collections.common.losses.SmoothedCrossEntropyLoss
+    :special-members: __init__
+
+.. autoclass:: nemo.collections.common.losses.SpanningLoss
+    :special-members: __init__

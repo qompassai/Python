@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:04e06bacc5627802add2ecff994d88dcb2ce2e0bacc317ab6649085392db0c29
-size 246
+
+text_service_ip: '0.0.0.0'
+text_service_port: 5555
+combo_service_ip: '0.0.0.0'
+combo_service_port: 17181
+
+share: False  # whether create a public URL
+username: test # user name for web client
+password: test2  # password for web client
+port: 7777

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:db7ba912d53ed93caca7df229ad75fefd00e75677018d784ab6c727e2ecfc6c0
-size 680
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E98E7539-64E7-4DCE-AACD-01E3ADE40EFD}</ProjectGuid>
+        <SchemaVersion>2.0</SchemaVersion>
+        <OutputName>core_pdb</OutputName>
+        <OutputType>Package</OutputType>
+    </PropertyGroup>
+    <Import Project="..\msi.props" />
+    <ItemGroup>
+        <Compile Include="core_pdb.wxs" />
+        <Compile Include="core_files.wxs" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="*.wxl" />
+    </ItemGroup>
+
+    <Import Project="..\msi.targets" />
+</Project>

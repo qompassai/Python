@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:be3120ea2b46f614b9a7aa5b85b1644aa24bcce0dff48ac7058a48201e4e1788
-size 331
+.. _mmedia:
+
+*******************
+Multimedia Services
+*******************
+
+The modules described in this chapter implement various algorithms or interfaces
+that are mainly useful for multimedia applications.  They are available at the
+discretion of the installation.  Here's an overview:
+
+
+.. toctree::
+
+   wave.rst
+   colorsys.rst

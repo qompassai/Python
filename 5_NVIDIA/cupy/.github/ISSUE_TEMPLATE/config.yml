@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11afb20f74c6094db84bd467d22d2b8309b548dbeeda01068a05522e545ae8cc
-size 185
+blank_issues_enabled: true
+contact_links:
+  - name: ✋ Questions / Help / Support
+    url: https://github.com/cupy/cupy/wiki/Getting-Help
+    about: See the list of support resources.

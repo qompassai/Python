@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5bf66764a16ebbc53ecec75ad57de0291547bce217009b352fdfd704a4f01ca
-size 282
+from cupy import testing
+import cupyx.scipy.linalg._uarray
+
+
+@testing.with_requires('scipy>=1.5')
+def test_implements_names():
+    # With the newest SciPy, the decorator `@implements` must find the
+    # matching scipy functions.
+    assert not cupyx.scipy.linalg._uarray._notfound

@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df8b5565e29e217caee82c49afe3604ff666b03a87959cd64859b9452c7c9331
-size 55
+*.asc
+.ipynb_checkpoints
+
+# MkDocs documentation
+site/

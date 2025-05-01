@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:de4a245dc6f0b0566946ec7d91cff19415e6858600f50d223a7ef73307cf7984
-size 1677
+<?xml version="1.0"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <PackageGroup Id="launcher">
+            <!-- The All Users launcher is always the 32-bit version -->
+            <MsiPackage Id="launcher_AllUsers"
+                        SourceFile="!(bindpath.build32)en-us\launcher.msi"
+                        Compressed="$(var.CompressMSI)"
+                        DownloadUrl="$(var.DownloadUrl)"
+                        ForcePerMachine="yes"
+                        EnableFeatureSelection="yes"
+                        Permanent="yes"
+                        Visible="yes"
+                        InstallCondition="(InstallAllUsers or InstallLauncherAllUsers) and Include_launcher and not BlockedLauncher">
+                <?if $(var.Platform)~="ARM64" ?>
+                <MsiProperty Name="ARM64_SHELLEXT" Value="1" />
+                <?endif ?>
+            </MsiPackage>
+
+            <MsiPackage Id="launcher_JustForMe"
+                        SourceFile="!(bindpath.build32)en-us\launcher.msi"
+                        Compressed="$(var.CompressMSI)"
+                        DownloadUrl="$(var.DownloadUrl)"
+                        ForcePerMachine="no"
+                        EnableFeatureSelection="yes"
+                        Permanent="yes"
+                        Visible="yes"
+                        InstallCondition="not (InstallAllUsers or InstallLauncherAllUsers) and Include_launcher and not BlockedLauncher">
+                <?if $(var.Platform)~="ARM64" ?>
+                <MsiProperty Name="ARM64_SHELLEXT" Value="1" />
+                <?endif ?>
+            </MsiPackage>
+        </PackageGroup>
+    </Fragment>
+</Wix>

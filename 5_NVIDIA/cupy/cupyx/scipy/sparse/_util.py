@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cad506ced26e238ec54986e6e4141c33c23c81c2c6afdde0d6f67258469a5e59
-size 490
+import cupy
+from cupy._core import core
+
+
+def isdense(x):
+    return isinstance(x, core.ndarray)
+
+
+def isintlike(x):
+    try:
+        return bool(int(x) == x)
+    except (TypeError, ValueError):
+        return False
+
+
+def isscalarlike(x):
+    return cupy.isscalar(x) or (isdense(x) and x.ndim == 0)
+
+
+def isshape(x):
+    if not isinstance(x, tuple) or len(x) != 2:
+        return False
+    m, n = x
+    if isinstance(n, tuple):
+        return False
+    return isintlike(m) and isintlike(n)

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a6dc52e9002979c6cc5e22c08f56fd5b791dc2118db6d29bb26c6fc44dc2b73f
-size 249
+#ifndef TEST_INCOMPLETE_TYPE_HELPER_H
+#define TEST_INCOMPLETE_TYPE_HELPER_H
+
+#include "min_allocator.h"
+
+namespace NS
+{
+struct Incomplete;
+}
+
+template <class T>
+struct Holder
+{
+  T value;
+};
+
+typedef Holder<NS::Incomplete> IncompleteHolder;
+
+#endif

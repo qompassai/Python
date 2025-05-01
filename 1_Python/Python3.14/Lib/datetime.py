@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7dccb02d5ec4990ffa095eddc917944383853ce5f672446de3176edca42420fb
-size 296
+try:
+    from _datetime import *
+    from _datetime import __doc__  # noqa: F401
+except ImportError:
+    from _pydatetime import *
+    from _pydatetime import __doc__  # noqa: F401
+
+__all__ = ("date", "datetime", "time", "timedelta", "timezone", "tzinfo",
+           "MINYEAR", "MAXYEAR", "UTC")

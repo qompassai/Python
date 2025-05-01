@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e725da9ad420f8fcf5aabe85cafca31c99dcf5f7dd0bd024fac65aa2b4e00fc8
-size 213
+If the C version of the ``decimal`` module is available, ``int(str)`` now uses it to supply an asymptotically much faster conversion. However, this only applies if the string contains over about 2 million digits.

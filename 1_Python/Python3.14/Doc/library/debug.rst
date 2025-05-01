@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37a1b8053e37232e117857e98b08705ad8d0dce3eab55aee644a656f08228c3c
-size 611
+***********************
+Debugging and Profiling
+***********************
+
+These libraries help you with Python development: the debugger enables you to
+step through code, analyze stack frames and set breakpoints etc., and the
+profilers run code and give you a detailed breakdown of execution times,
+allowing you to identify bottlenecks in your programs. Auditing events
+provide visibility into runtime behaviors that would otherwise require
+intrusive debugging or patching.
+
+.. toctree::
+
+   audit_events.rst
+   bdb.rst
+   faulthandler.rst
+   pdb.rst
+   profile.rst
+   timeit.rst
+   trace.rst
+   tracemalloc.rst

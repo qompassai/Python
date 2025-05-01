@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:096fa0f3c1e8f4f0038552f064de99c2bafd558db74d9eb7907c20103ccc8a61
-size 1148
+:mod:`!keyword` --- Testing for Python keywords
+===============================================
+
+.. module:: keyword
+   :synopsis: Test whether a string is a keyword in Python.
+
+**Source code:** :source:`Lib/keyword.py`
+
+--------------
+
+This module allows a Python program to determine if a string is a
+:ref:`keyword <keywords>` or :ref:`soft keyword <soft-keywords>`.
+
+
+.. function:: iskeyword(s)
+
+   Return ``True`` if *s* is a Python :ref:`keyword <keywords>`.
+
+
+.. data:: kwlist
+
+   Sequence containing all the :ref:`keywords <keywords>` defined for the
+   interpreter.  If any keywords are defined to only be active when particular
+   :mod:`__future__` statements are in effect, these will be included as well.
+
+
+.. function:: issoftkeyword(s)
+
+   Return ``True`` if *s* is a Python :ref:`soft keyword <soft-keywords>`.
+
+   .. versionadded:: 3.9
+
+
+.. data:: softkwlist
+
+   Sequence containing all the :ref:`soft keywords <soft-keywords>` defined for the
+   interpreter.  If any soft keywords are defined to only be active when particular
+   :mod:`__future__` statements are in effect, these will be included as well.
+
+   .. versionadded:: 3.9

@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bb0f14a6aeb9bbc91dcaaf2b4b4d1f9b0051ed61de6c819534eeced23cbf5db7
-size 515
+.. _cupy_reference:
+
+*************
+API Reference
+*************
+
+* :ref:`genindex`
+* :ref:`modindex`
+
+----
+
+.. currentmodule:: cupy
+
+..
+  For NumPy/SciPy-compatible APIs (ndarray, ufunc, routines, scipy),
+  omit the module name prefix in the API list, following the convention in
+  NumPy/SciPy documentation.
+  For CuPy-specific APIs, use fully-qualified names.
+
+.. toctree::
+   :maxdepth: 2
+
+   ndarray
+   ufunc
+   routines
+   scipy
+   ext
+   cuda
+   kernel
+   distributed
+   environment
+   comparison
+   array_api

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11c7e5861cca3c81be7a136270f006554af91a380d2054506fe7dacadb6f80f8
-size 312
+#!/bin/bash
+
+# AUTO GENERATED: DO NOT EDIT!
+
+set -uex
+
+ACTIONS="$(dirname $0)/actions"
+. "$ACTIONS/_environment.sh"
+
+export NVCC="ccache nvcc"
+
+export CUPY_ACCELERATORS="cutensor,cub"
+
+export CUPY_USE_CUDA_PYTHON="1"
+
+"$ACTIONS/build.sh"
+"$ACTIONS/unittest.sh" "not slow and not multi_gpu"
+"$ACTIONS/cleanup.sh"

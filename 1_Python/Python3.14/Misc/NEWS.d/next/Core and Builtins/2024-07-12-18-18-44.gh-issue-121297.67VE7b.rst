@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6949f4f055aa47e1e7dd07719f834ce49a720e8932c5e76307d50d1c7663e6fb
-size 229
+Previously, incorrect usage of :keyword:`await` or asynchronous
+comprehensions in code removed by the :option:`-O` option was not flagged by
+the Python compiler. Now, such code raises :exc:`SyntaxError`. Patch by
+Jelle Zijlstra.

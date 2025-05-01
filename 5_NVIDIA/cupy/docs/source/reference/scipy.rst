@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6df35adea4bd3ec93ba27c260ca9b389e11a65721da12c12ec94acd9b1b27566
-size 540
+----------------
+Routines (SciPy)
+----------------
+
+The following pages describe SciPy-compatible routines.
+These functions cover a subset of
+`SciPy routines <https://docs.scipy.org/doc/scipy/reference/#api-reference>`_.
+
+
+.. module:: cupyx.scipy
+
+.. toctree::
+   :maxdepth: 2
+
+   scipy_fft
+   scipy_fftpack
+   scipy_interpolate
+   scipy_linalg
+   scipy_ndimage
+   scipy_signal
+   scipy_signal_windows
+   scipy_sparse
+   scipy_sparse_linalg
+   scipy_sparse_csgraph
+   scipy_spatial
+   scipy_spatial_distance
+   scipy_special
+   scipy_stats

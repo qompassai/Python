@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2a533a428c8671375811d5c847fad85158278744b803e1e2212d40ffdee9855b
-size 584
+.. _stringservices:
+.. _textservices:
+
+************************
+Text Processing Services
+************************
+
+The modules described in this chapter provide a wide range of string
+manipulation operations and other text processing services.
+
+The :mod:`codecs` module described under :ref:`binaryservices` is also
+highly relevant to text processing. In addition, see the documentation for
+Python's built-in string type in :ref:`textseq`.
+
+
+.. toctree::
+
+   string.rst
+   re.rst
+   difflib.rst
+   textwrap.rst
+   unicodedata.rst
+   stringprep.rst
+   readline.rst
+   rlcompleter.rst
+

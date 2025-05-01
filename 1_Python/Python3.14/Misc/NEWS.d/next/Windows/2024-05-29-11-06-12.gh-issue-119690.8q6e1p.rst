@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:da4f0011f7922fcb8e85fb9bd21414aaea82384325b34b598bd9ae82d1fe30dd
-size 77
+Adds Unicode support and fixes audit events for ``_winapi.CreateNamedPipe``.

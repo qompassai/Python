@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61f38016bc60b535ffcfdf8d3548d87ef03879deb49cfcc643a1687d692c32d1
-size 103
+:func:`unittest.mock.Mock.attach_mock` no longer triggers a call to a ``PropertyMock`` being attached.

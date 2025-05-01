@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c2b223fb4ab987c1d669ffdb45de7da6d63a644e5bd2eaf9f6713db2e4e292d4
-size 314
+#ifndef Py_CRITICAL_SECTION_H
+#define Py_CRITICAL_SECTION_H
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifndef Py_LIMITED_API
+#  define Py_CPYTHON_CRITICAL_SECTION_H
+#  include "cpython/critical_section.h"
+#  undef Py_CPYTHON_CRITICAL_SECTION_H
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+#endif /* !Py_CRITICAL_SECTION_H */

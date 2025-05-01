@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bcefe07512e4562727721303e4a550c6ef4a45bb29a5de487197819e13d5966a
-size 211
+.. _design:
+
+Design of Synthetic Data Generator
+==================================================
+
+.. toctree::
+    :maxdepth: 2
+
+    Architecture <architecture>
+    Our motivation of this project <motivation>

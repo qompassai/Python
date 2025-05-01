@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3640a22c73a8c8c339ed1ed87e79918b3b40c7855594d0750e35cd10d7de8c79
-size 511
+cdef object _thread_local
+cdef dict _contexts
+
+
+cdef class _OptimizationConfig:
+
+    cdef readonly object optimize_impl
+    cdef readonly int max_trials
+    cdef readonly float timeout
+    cdef readonly float expected_total_time_per_trial
+    cdef readonly float max_total_time_per_trial
+
+
+cdef class _OptimizationContext:
+
+    cdef readonly str key
+    cdef readonly _OptimizationConfig config
+    cdef readonly dict _params_map
+    cdef readonly bint _dirty
+
+
+cpdef _OptimizationContext get_current_context()

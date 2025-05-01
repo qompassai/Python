@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d859ef2e9b13f8297bb70f63922f9961fa27c548c5e58d185b2660da27c12d47
-size 113
+Add :c:func:`PyUnstable_Object_ClearWeakRefsNoCallbacks`, which clears
+weakrefs without calling their callbacks.

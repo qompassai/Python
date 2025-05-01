@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c4da54c0715da98f1dba75624d9134a962ab199a6ce848ff6ccd7e00591bb0ec
-size 384
+sudo systemctl restart nvargus-daemon
+
+sudo docker run -it -d \
+    --restart always \
+    --runtime nvidia \
+    --network host \
+    --privileged \
+    --device /dev/video* \
+    --volume /dev/bus/usb:/dev/bus/usb \
+    --volume /tmp/argus_socket:/tmp/argus_socket \
+    --privileged \
+    --name=jetbot_camera \
+    $JETBOT_DOCKER_REMOTE/jetbot:camera-$JETBOT_VERSION-$L4T_VERSION

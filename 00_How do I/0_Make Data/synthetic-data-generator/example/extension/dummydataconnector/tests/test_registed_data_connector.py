@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8cff5f8b9c2e74f3bd92e7b272cf72c2e3c7158c7f7d6a365d4ecd3713b5044
-size 373
+import pytest
+
+from sdgx.data_connectors.manager import DataConnectorManager
+
+
+@pytest.fixture
+def manager():
+    yield DataConnectorManager()
+
+
+def test_registed_data_connector(manager: DataConnectorManager):
+    assert manager._normalize_name("DummyDataConnector") in manager.registed_data_connectors
+
+
+if __name__ == "__main__":
+    pytest.main(["-vv", "-s", __file__])

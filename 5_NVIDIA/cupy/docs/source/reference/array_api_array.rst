@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:587313376166904d1f8f690b042af95115ef2781f4d3ff3e97c5ae9681be4ce5
-size 643
+Array API Compliant Object
+==========================
+
+:class:`~cupy.array_api._array_object.Array` is a wrapper class built upon :class:`cupy.ndarray`
+to enforce strict compliance with the array API standard. See the
+`documentation <https://data-apis.org/array-api/latest/API_specification/array_object.html>`_
+for detail.
+
+This object should not be constructed directly. Rather, use one of the
+`creation functions <https://data-apis.org/array-api/latest/API_specification/creation_functions.html>`_,
+such as :func:`cupy.array_api.asarray`.
+
+.. currentmodule:: cupy.array_api._array_object
+
+.. autosummary::
+   :toctree: generated/
+
+   Array

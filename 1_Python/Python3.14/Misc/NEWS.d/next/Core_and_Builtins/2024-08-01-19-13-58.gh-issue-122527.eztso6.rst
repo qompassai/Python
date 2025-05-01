@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9e0bc1cce5defe47ecc7fd79cb27b0ac03cd58451d92fbe7664b693e1f6161ec
-size 273
+Fix a crash that occurred when a ``PyStructSequence`` was deallocated after
+its type's dictionary was cleared by the GC.  The type's
+:c:member:`~PyTypeObject.tp_basicsize` now accounts for non-sequence fields
+that aren't included in the :c:macro:`Py_SIZE` of the sequence.

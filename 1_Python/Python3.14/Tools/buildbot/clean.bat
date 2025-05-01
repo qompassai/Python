@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ad5b900fd3383fc74dd94ec4445087b1b03ba91545c9f06c1abfe56cd377ec5b
-size 403
+@echo off
+rem Used by the buildbot "clean" step.
+
+setlocal
+set root=%~dp0..\..
+set pcbuild=%root%\PCbuild
+
+echo Deleting build
+call "%pcbuild%\build.bat" -t Clean -k %*
+call "%pcbuild%\build.bat" -t Clean -k -d %*
+
+echo Deleting .pyc/.pyo files ...
+del /s "%root%\Lib\*.pyc" "%root%\Lib\*.pyo"
+
+echo Deleting test leftovers ...
+rmdir /s /q "%root%\build"
+del /s "%pcbuild%\python*.zip"

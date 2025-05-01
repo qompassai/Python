@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a3e0ab95eef4fe8e12c8278fd8440e0e8c17329c7aa3451e4234a33302591d83
-size 717
+# Build with hatch, you can use any build tool you like.
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dummymodel"
+
+dependencies = ["sdgx"]
+dynamic = ["version"]
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+# This is the entry point for the Manager to find the extension.
+[project.entry-points."sdgx.model"]
+dummymodel = "dummymodel.model"
+
+[tool.hatch.version]
+path = "dummymodel/__init__.py"

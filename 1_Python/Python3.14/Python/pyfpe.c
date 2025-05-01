@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c0e4331840c1c6b4902b586ffd1c73d654e570767234098bc0c21ddab3fd1d6a
-size 374
+/* These variables used to be used when Python was built with --with-fpectl,
+ * but support for that was dropped in 3.7. We continue to define them,
+ * though, because they may be referenced by extensions using the stable ABI.
+ */
+
+#ifdef HAVE_SETJMP_H
+#include <setjmp.h>
+
+jmp_buf PyFPE_jbuf;
+#endif
+
+int PyFPE_counter;
+
+double
+PyFPE_dummy(void *dummy)
+{
+    return 1.0;
+}

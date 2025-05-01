@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9d1f2cd0362c9d4f934fe41818ef8b1a8ab23af8661dcd21b89b560f24c297aa
-size 268
+from __future__ import annotations
+
+from sdgx.data_exporters.base import DataExporter
+
+
+class MyOwnExporter(DataExporter): ...
+
+
+from sdgx.data_exporters.extension import hookimpl
+
+
+@hookimpl
+def register(manager):
+    manager.register("MyOwnExporter", MyOwnExporter)

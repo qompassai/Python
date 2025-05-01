@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:65cf32c00a59f1eaceb96e28a2705fdcfcde6c0a433f435b1ab5e7b451919062
-size 660
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{71CDE213-CB39-4BD9-B89D-BBB878689144}</ProjectGuid>
+        <OutputName>python</OutputName>
+        <OutputSuffix>webinstall</OutputSuffix>
+    </PropertyGroup>
+
+    <Import Project="..\msi.props" />
+
+    <PropertyGroup>
+        <DefineConstants>
+            $(DefineConstants);
+            CompressMSI=no;
+            CompressPDB=no;
+            CompressMSI_D=no
+        </DefineConstants>
+    </PropertyGroup>
+    
+    <Import Project="bundle.targets" />
+</Project>

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b4a552c1cf6f20d08850fa28fc3f348f6e06bbb5767b6e85828015ee2099309
-size 461
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <String Id="CRTDescription">C Runtime Update (KB2999226)</String>
+  <String Id="CompileAllDescription">Precompiling standard library</String>
+  <String Id="CompileAllODescription">Precompiling standard library (-O)</String>
+  <String Id="CompileAllOODescription">Precompiling standard library (-OO)</String>
+</WixLocalization>

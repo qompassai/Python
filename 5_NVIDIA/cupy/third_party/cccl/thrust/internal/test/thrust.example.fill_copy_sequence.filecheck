@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:72de1b76caadb18e5f17053bef82f05d01a4ee8dd9f8bc7f29159596e7ceeaa3
-size 210
+     CHECK: D[0] = 0
+CHECK-NEXT: D[1] = 1
+CHECK-NEXT: D[2] = 2
+CHECK-NEXT: D[3] = 3
+CHECK-NEXT: D[4] = 4
+CHECK-NEXT: D[5] = 9
+CHECK-NEXT: D[6] = 9
+CHECK-NEXT: D[7] = 1
+CHECK-NEXT: D[8] = 1
+CHECK-NEXT: D[9] = 1

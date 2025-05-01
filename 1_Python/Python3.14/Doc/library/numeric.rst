@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:561ed7f28344fef0888752322989f5ef07f74130af78a8d8fa5cb3e2d9046c80
-size 696
+
+.. _numeric:
+
+********************************
+Numeric and Mathematical Modules
+********************************
+
+The modules described in this chapter provide numeric and math-related functions
+and data types. The :mod:`numbers` module defines an abstract hierarchy of
+numeric types. The :mod:`math` and :mod:`cmath` modules contain various
+mathematical functions for floating-point and complex numbers. The :mod:`decimal`
+module supports exact representations of decimal numbers, using arbitrary precision
+arithmetic.
+
+The following modules are documented in this chapter:
+
+
+.. toctree::
+
+   numbers.rst
+   math.rst
+   cmath.rst
+   decimal.rst
+   fractions.rst
+   random.rst
+   statistics.rst

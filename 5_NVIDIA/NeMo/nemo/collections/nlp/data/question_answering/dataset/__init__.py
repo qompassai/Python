@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:562eb807f1f9b82187a52fb21e64bb76fc1e30dd6ce6f3c8500e47c0671b2f51
-size 978
+# Copyright (c) 2022, NVIDIA CORPORATION.  All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+from nemo.collections.nlp.data.question_answering.dataset.qa_bert_dataset import BERTQADataset
+from nemo.collections.nlp.data.question_answering.dataset.qa_dataset import QADataset
+from nemo.collections.nlp.data.question_answering.dataset.qa_gpt_dataset import GPTQADataset
+from nemo.collections.nlp.data.question_answering.dataset.qa_s2s_dataset import S2SQADataset

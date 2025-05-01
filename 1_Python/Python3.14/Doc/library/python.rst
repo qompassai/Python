@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1c662a64145f9aed820725797d91ff2d6cad177d561f28616fb69a61d84ef6b6
-size 502
+.. _python:
+
+***********************
+Python Runtime Services
+***********************
+
+The modules described in this chapter provide a wide range of services related
+to the Python interpreter and its interaction with its environment.  Here's an
+overview:
+
+
+.. toctree::
+
+   sys.rst
+   sys.monitoring.rst
+   sysconfig.rst
+   builtins.rst
+   __main__.rst
+   warnings.rst
+   dataclasses.rst
+   contextlib.rst
+   abc.rst
+   atexit.rst
+   traceback.rst
+   __future__.rst
+   gc.rst
+   inspect.rst
+   site.rst

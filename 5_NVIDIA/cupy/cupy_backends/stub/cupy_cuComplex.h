@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:638d16e1726330270d7548db05d8723387c2ef0826cc4710862dfba94850639e
-size 490
+// This file is a stub header file of cuda for Read the Docs.
+
+#ifndef INCLUDE_GUARD_STUB_CUPY_COMPLEX_H
+#define INCLUDE_GUARD_STUB_CUPY_COMPLEX_H
+
+extern "C" {
+
+///////////////////////////////////////////////////////////////////////////////
+// cuComplex.h
+///////////////////////////////////////////////////////////////////////////////
+
+struct cuComplex{
+    float x, y;
+};
+
+struct cuDoubleComplex{
+    double x, y;
+};
+
+} // extern "C"
+
+#endif // #ifndef INCLUDE_GUARD_STUB_CUPY_COMPLEX_H

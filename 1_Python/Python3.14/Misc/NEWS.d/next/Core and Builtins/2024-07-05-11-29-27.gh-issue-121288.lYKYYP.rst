@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75dfc1040cc195d64c324950d4838a8a4b9c79defe0a8615939a3bb077386c3d
-size 338
+:exc:`ValueError` messages for :meth:`!list.index()`, :meth:`!range.index()`,
+:meth:`!deque.index()`, :meth:`!deque.remove()` and
+:meth:`!ShareableList.index()` no longer contain the repr of the searched
+value (which can be arbitrary large) and are consistent with error messages
+for other :meth:`!index()` and :meth:`!remove()` methods.

@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77828e96ce02141aa8bb6cb1264e47f5d1e74bc31d2466dfe6adc7bf0dfae16f
-size 155
+import gc
+
+def start():
+    gc.collect(0)
+    gc.collect(1)
+    gc.collect(2)
+    l = []
+    l.append(l)
+    del l
+    gc.collect(2)
+
+gc.collect()
+start()

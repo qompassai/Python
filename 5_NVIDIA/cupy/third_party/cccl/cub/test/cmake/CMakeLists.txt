@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9a4d4909a099e52b304312cfdb42e2b9b57eef5ad14d0dc219bc13b3b2fb61e8
-size 262
+# Check source code for issues that can be found by pattern matching:
+add_test(
+  NAME cub.test.cmake.check_source_files
+  COMMAND
+    "${CMAKE_COMMAND}"
+      -D "CUB_SOURCE_DIR=${CUB_SOURCE_DIR}"
+      -P "${CMAKE_CURRENT_LIST_DIR}/check_source_files.cmake"
+)

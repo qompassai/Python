@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:89b977f93c7a7e87b449f79100ed0828c55fb558ca347fd85ea3329671e74ff5
-size 146
+black~=24.3
+click>=8.1
+isort>5.1.0,<6.0.0
+parameterized
+pytest
+pytest-mock
+pytest-runner
+ruamel.yaml
+sphinx
+sphinxcontrib-bibtex
+wandb
+wget
+wrapt

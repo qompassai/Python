@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3387974cc3234e126db161201ce2e99f6506f37afc6e7104cd7c599467d9b238
-size 165
+include: {$EVAL_PATH}/lm_eval/tasks/hellaswag/hellaswag.yaml
+task: hellaswag_10_shot
+task_alias: hellaswag 10 shot
+num_fewshot: 10
+metric_list:
+  - metric: acc_norm

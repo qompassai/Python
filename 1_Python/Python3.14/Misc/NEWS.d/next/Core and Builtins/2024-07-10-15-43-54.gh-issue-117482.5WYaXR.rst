@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a3d9b876a29c0e915b2d99a711000af8bbe069438a31ef71dabc1d61ff000f9
-size 92
+Unexpected slot wrappers are no longer created for builtin static types in
+subinterpreters.

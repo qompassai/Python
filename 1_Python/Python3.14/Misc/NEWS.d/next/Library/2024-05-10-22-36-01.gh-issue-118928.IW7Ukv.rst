@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c6f94db87a05fdfa3f42c864e4ba918e852bbdccf29b512d3240cf59c12b6c1e
-size 119
+Disallow using a sequence of parameters with named placeholders in
+:mod:`sqlite3` queries. Patch by Erlend E. Aasland.

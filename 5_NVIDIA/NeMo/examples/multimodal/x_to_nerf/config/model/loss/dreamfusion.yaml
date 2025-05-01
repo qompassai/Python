@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f33b692272fa37a51f21693c3278719608280910a1de33aece43e028aceda14d
-size 191
+lambda_sds: 1.0
+lambda_opacity: 0.0
+lambda_entropy: 1e-3
+lambda_orientation: 1e-2
+lambda_2d_normal_smooth: 0.0
+lambda_3d_normal_smooth: 0.0
+lambda_mesh_normal: 0.0
+lambda_mesh_laplacian: 0.0

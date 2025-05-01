@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2d50cedf1fb2f1ebaeb35e6b7d416bb926fb1288baa459460f4baac740129847
-size 62
+transformers
+requests
+azure-core
+azure-ai-contentsafety
+torch

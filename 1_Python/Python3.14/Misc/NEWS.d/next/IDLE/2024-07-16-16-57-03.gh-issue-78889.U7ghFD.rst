@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37d163614b0a03be0e8c23af31ae73b7e3282af601fbfef2f53213040d76142c
-size 109
+Stop Shell freezes by blocking user access to non-method sys.stdout.shell attributes,
+which are all private.

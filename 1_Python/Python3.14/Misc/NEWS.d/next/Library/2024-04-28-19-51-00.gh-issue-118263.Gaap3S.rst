@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:78d555a3e96c2e73ade66c21027c78100b24bcdfd5524bb39ab9b404b490a43b
-size 84
+Speed up :func:`os.path.splitroot` & :func:`os.path.normpath` with a direct C call.

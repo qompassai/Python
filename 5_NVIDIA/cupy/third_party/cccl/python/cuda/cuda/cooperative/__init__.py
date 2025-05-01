@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4043cc8c44208bd0766436d996c9f96a1f49ed251ac8d6a2a610a85f9ef1ef3d
-size 224
+# Copyright (c) 2024, NVIDIA CORPORATION & AFFILIATES. ALL RIGHTS RESERVED.
+#
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+import cuda.cooperative.experimental
+from cuda.cooperative._version import __version__

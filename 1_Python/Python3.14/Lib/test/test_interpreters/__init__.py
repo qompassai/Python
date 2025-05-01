@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2fcd9be2041d8335c482b12021868cfdedc530e192ecd4c5c61552c59bc7806b
-size 240
+import os
+from test.support import load_package_tests, Py_GIL_DISABLED
+import unittest
+
+if Py_GIL_DISABLED:
+    raise unittest.SkipTest("GIL disabled")
+
+def load_tests(*args):
+    return load_package_tests(os.path.dirname(__file__), *args)

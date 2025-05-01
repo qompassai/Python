@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5a4f87b0d762aba73bebd85fb1cd1cfe4e599f663101a87eeb74b2cd243c57dd
-size 190
+#include <cufftXt.h>
+#include <cstdint>
+#include <stdexcept>
+
+
+extern "C" {
+
+cufftResult set_callback(cufftHandle plan, cufftXtCallbackType cbType, bool cb_load, void** callerInfo=NULL);
+
+}

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:995b30b455bc6ff58e605f4ab120181d621ecf5e8b919d7859c76befcceddc8d
-size 224
+#!/bin/bash
+
+source "$(dirname "$0")/build_common.sh"
+
+print_environment_details
+
+PRESET="libcudacxx-cpp${CXX_STANDARD}"
+CMAKE_OPTIONS=""
+
+configure_and_build_preset libcudacxx "$PRESET" "$CMAKE_OPTIONS"
+
+print_time_summary

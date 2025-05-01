@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dcc6d03116b335eb36cb128cd36888fb1d4085add6f220e01a4c236ff84cea39
-size 383
+import unittest
+
+from . import _from_install_import
+
+
+utils = _from_install_import('cupy_builder.install_utils')
+
+
+class TestPrintWarning(unittest.TestCase):
+
+    def test_print_warning(self):
+        utils.print_warning('This is a test.')
+
+
+class TestSearchOnPath(unittest.TestCase):
+
+    def test_exec_not_found(self):
+        assert utils.search_on_path(['no_such_exec']) is None

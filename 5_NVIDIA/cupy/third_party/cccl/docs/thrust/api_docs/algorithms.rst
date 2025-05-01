@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b59910846e4236256b4dea09847a34e81c68ef25ac4177e71c399400bee48f4f
-size 323
+.. _thrust-module-api-algorithms:
+
+Algorithms
+===========
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+
+   algorithms/copying
+   algorithms/merging
+   algorithms/prefix_sum
+   algorithms/reductions
+   algorithms/reordering
+   algorithms/searching
+   algorithms/set_operations
+   algorithms/sorting
+   algorithms/transformations

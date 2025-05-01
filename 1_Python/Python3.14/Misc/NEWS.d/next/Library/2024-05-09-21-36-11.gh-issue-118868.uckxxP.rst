@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5fb9f9760a7807a74898fb1ee604078a570fb9377579194d99c726d9df26c3c
-size 83
+Fixed issue where kwargs were no longer passed to the logging handler
+QueueHandler

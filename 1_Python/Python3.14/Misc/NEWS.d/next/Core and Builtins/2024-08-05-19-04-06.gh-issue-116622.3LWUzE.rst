@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bfa659da3efe3351ca2bf1eef03ff171251a4b0b06bf1e6b404d872c3718e638
-size 64
+Fix Android stdout and stderr messages being truncated or lost.

@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7edcbefd30e906eb32f5497d56dda0a13c2d59c8fa8a87ebb5e14d04ab41e239
-size 444
+# Script used to test Py_FrozenMain(): see test_embed.test_frozenmain().
+# Run "make regen-test-frozenmain" if you modify this test.
+
+import sys
+import _testinternalcapi
+
+print("Frozen Hello World")
+print("sys.argv", sys.argv)
+config = _testinternalcapi.get_configs()['config']
+for key in (
+    'program_name',
+    'executable',
+    'use_environment',
+    'configure_c_stdio',
+    'buffered_stdio',
+):
+    print(f"config {key}: {config[key]}")

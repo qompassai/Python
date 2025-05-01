@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77619e772847ffb79c64989ba0939841b2abe5e804321b26ff0f05bc28a7cdce
-size 235
+# Makefile to test freeze
+# set PYTHON to path of Python interpreter to test
+PYTHON=python
+# set OUTDIR to the temp directory for freeze
+OUTDIR=outdir
+
+test:
+	$(PYTHON) ../freeze.py -o $(OUTDIR) ok.py
+	make -C $(OUTDIR)
+	$(OUTDIR)/ok
+

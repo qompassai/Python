@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:db161a5b69a8d87b1794e945cce74de84b0ae60423b8e01bc12d8885ece25f6b
-size 175
+Model,Model Base Class,Model Card
+stt_kab_conformer_transducer_large,EncDecRNNTBPEModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_kab_conformer_transducer_large"

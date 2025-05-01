@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:688aa1d4d07fc27ac87a3ec9f8a1674b8194d831766aa73d5e9c24cf95eacbf4
-size 231
+// %PARAM% TEST_ERR err 0:1
+
+int main()
+{
+#if TEST_ERR == 0
+  static_assert(false, "fail one"); // expected-error-0 {{"fail one"}}
+#elif TEST_ERR == 1
+  static_assert(false, "fail two"); // expected-error-1 {{"fail two"}}
+#endif
+}

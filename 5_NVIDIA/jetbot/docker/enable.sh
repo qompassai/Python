@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1ccc503f9ff1063d4f497557d6feb2478cd6d2c6a2037e551751f2c566681ece
-size 273
+source configure.sh
+
+JUPYTER_WORKSPACE=${1:-$HOME}  # default to $HOME
+JETBOT_CAMERA=${2:-opencv_gst_camera}  # default to opencv
+
+if [ "$JETBOT_CAMERA" = "zmq_camera" ]
+then
+	./camera/enable.sh
+fi
+
+./display/enable.sh
+./jupyter/enable.sh $JUPYTER_WORKSPACE $JETBOT_CAMERA

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77bf11bf52827f5a744436fd19efe2bbab778566a4f5e1288e22519bb6f9f61e
-size 297
+#include <cuda/std/atomic>
+
+#include <cstdio>
+
+int main()
+{
+  cuda::std::atomic<int> x{0};
+
+  printf("Built with libcudacxx version %d.%d.%d.\n",
+         _LIBCUDACXX_CUDA_API_VERSION_MAJOR,
+         _LIBCUDACXX_CUDA_API_VERSION_MINOR,
+         _LIBCUDACXX_CUDA_API_VERSION_PATCH);
+
+  return x;
+}

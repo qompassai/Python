@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6c1307c0cc6e52e60a76eb757e247ad68d498d39cb3861c7be67a0a68a54d47c
-size 78
+Fix bug where names are unexpectedly mangled in the bases of generic
+classes.

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:824ac7c419d540d0b1a74ea08d99a0921fd992abccf03fe28c6d8f935b1100e8
-size 331
+//
+//  main.m
+//  iOSTestbed
+//
+
+#import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+
+int main(int argc, char * argv[]) {
+    NSString * appDelegateClassName;
+    @autoreleasepool {
+        appDelegateClassName = NSStringFromClass([AppDelegate class]);
+
+        return UIApplicationMain(argc, argv, nil, appDelegateClassName);
+    }
+}

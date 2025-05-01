@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:71b02032a04e7ad6bb2e0e15a5b8d9acca84b50730e96221e98b7c0a8873c629
-size 275
+#ifndef _LEXER_BUFFER_H_
+#define _LEXER_BUFFER_H_
+
+#include "pyport.h"
+
+void _PyLexer_remember_fstring_buffers(struct tok_state *tok);
+void _PyLexer_restore_fstring_buffers(struct tok_state *tok);
+int _PyLexer_tok_reserve_buf(struct tok_state *tok, Py_ssize_t size);
+
+#endif

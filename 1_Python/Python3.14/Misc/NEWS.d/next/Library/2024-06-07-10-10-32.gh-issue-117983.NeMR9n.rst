@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df5009d009b5fea7ace027bd26120dd504ef75736d5a07500146d3ddaf9e7acb
-size 81
+Defer the ``threading`` import in ``importlib.util`` until lazy loading is
+used.

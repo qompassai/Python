@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a33356340f7b630eddb49be0808dc399df3ee3d18749366f98629d11e5a25966
-size 330
+.. include for modules that don't work on WASM or iOS
+
+.. availability:: not WASI, not iOS.
+
+   This module does not work or is not available on WebAssembly platforms, or
+   on iOS. See :ref:`wasm-availability` for more information on WASM
+   availability; see :ref:`iOS-availability` for more information on iOS
+   availability.

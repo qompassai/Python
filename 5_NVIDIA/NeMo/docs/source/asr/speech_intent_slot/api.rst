@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:163aa8f7622f00a7b6580cffe237f2a83020d7297d7e6e11f45e53ff83e36929
-size 513
+NeMo Speech Intent Classification and Slot Filling collection API
+=================================================================
+
+
+Model Classes
+-------------
+.. autoclass:: nemo.collections.asr.models.SLUIntentSlotBPEModel
+    :show-inheritance:
+    :members: 
+
+
+Mixins
+------
+
+.. autoclass:: nemo.collections.asr.parts.mixins.ASRModuleMixin
+    :show-inheritance:
+    :members:
+    :no-index:
+
+.. autoclass:: nemo.collections.asr.parts.mixins.ASRBPEMixin
+    :show-inheritance:
+    :members:
+    :no-index:
+

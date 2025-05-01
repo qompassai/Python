@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:28b591f9537800378b8b096c60cb0d527ed5bd448d58b68c68e6f08c6383de29
-size 338
+project(nvrtcc)
+
+enable_language(CUDA)
+find_package(CUDAToolkit REQUIRED)
+
+add_executable(libcudacxx.nvrtcc nvrtcc.cpp)
+
+set_target_properties(libcudacxx.nvrtcc PROPERTIES OUTPUT_NAME nvrtcc)
+target_link_libraries(libcudacxx.nvrtcc CUDA::nvrtc CUDA::cudart CUDA::cuda_driver)
+target_compile_features(libcudacxx.nvrtcc PRIVATE cxx_std_17)

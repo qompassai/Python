@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:50bec768b5a49e8a52c9b903c9de6e9e0935ababedd9058715268c3357edd7f7
-size 286
+On POSIX systems, the pkg-config (``.pc``) filenames now include the ABI
+flags, which may include debug ("d") and free-threaded ("t").  For example:
+* ``python-3.14.pc`` (default, non-debug build)
+* ``python-3.14d.pc`` (default, debug build)
+* ``python-3.14t.pc`` (free-threaded build)

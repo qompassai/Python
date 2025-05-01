@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c52148ff1a33c0c09e5a1588abc3ead8db62ba3f7ffdaf3db4c1d3f1ae96aaa4
-size 786
+Model,Model Base Class,Model Card
+stt_de_quartznet15x5,EncDecCTCModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_de_quartznet15x5"
+stt_de_citrinet_1024,EncDecCTCModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_de_citrinet_1024"
+stt_de_contextnet_1024,EncDecRNNTBPEModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_de_contextnet_1024"
+stt_de_conformer_ctc_large,EncDecCTCModelBPE,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_de_conformer_ctc_large"
+stt_de_conformer_transducer_large,EncDecRNNTBPEModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_de_conformer_transducer_large"
+stt_de_fastconformer_hybrid_large_pc,EncDecHybridRNNTCTCBPEModel,"https://ngc.nvidia.com/catalog/models/nvidia:nemo:stt_de_fastconformer_hybrid_large_pc"

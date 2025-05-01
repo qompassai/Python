@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1bcb43eef7fcddf6d8f18c6d5ee9bd350090ed183a1009d4f1c9b4d81a205bb9
-size 548
+## Primitives:
+
+- `prim.c` contains Windows primitives for OS allocation.
+
+## Event Tracing for Windows (ETW)
+
+- `etw.h` is generated from `etw.man` which contains the manifest for mimalloc events.
+  (100 is an allocation, 101 is for a free)
+
+- `etw-mimalloc.wprp` is a profile for the Windows Performance Recorder (WPR).
+  In an admin prompt, you can use:
+  ```
+  > wpr -start src\prim\windows\etw-mimalloc.wprp -filemode
+  > <my mimalloc program>
+  > wpr -stop test.etl
+  ``` 
+  and then open `test.etl` in the Windows Performance Analyzer (WPA).

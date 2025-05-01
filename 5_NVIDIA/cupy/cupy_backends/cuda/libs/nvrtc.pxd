@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7f98eef092ad7cdfb6e636d2bb2dac33e5f55568c50e68683c58da479218ee07
-size 1112
+from libc.stdint cimport intptr_t
+
+
+###############################################################################
+# Types
+###############################################################################
+
+IF CUPY_USE_CUDA_PYTHON:
+    from cuda.cnvrtc cimport *
+    # Aliases for compatibillity with existing CuPy codebase.
+    # TODO(kmaehashi): Remove these aliases.
+    ctypedef nvrtcProgram Program
+
+cpdef check_status(int status)
+
+cpdef tuple getVersion()
+cpdef tuple getSupportedArchs()
+
+
+###############################################################################
+# Program
+###############################################################################
+
+cpdef intptr_t createProgram(unicode src, unicode name, headers,
+                             include_names) except? 0
+cpdef destroyProgram(intptr_t prog)
+cpdef compileProgram(intptr_t prog, options)
+cpdef bytes getPTX(intptr_t prog)
+cpdef bytes getCUBIN(intptr_t prog)
+cpdef bytes getNVVM(intptr_t prog)
+cpdef unicode getProgramLog(intptr_t prog)
+cpdef addNameExpression(intptr_t prog, str name)
+cpdef str getLoweredName(intptr_t prog, str name)

@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5a818dba351d730f2584769d99526be52e3533f04b39f1e123b00bb01981ca0d
-size 45
+     CHECK: result= [ -0.666667 -2.66667 2 ]

@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d6652d760a2c1116471b22c0b2f7250b6c0c3be57084f6e91ebd4e5bbd5983d9
-size 45
+Fix the signature of :meth:`str.format_map`.

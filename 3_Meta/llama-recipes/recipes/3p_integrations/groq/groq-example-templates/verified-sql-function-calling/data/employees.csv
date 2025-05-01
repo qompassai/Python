@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a700c3c76dedcd81d1ffc438d9715418db734487dd52d013ff0878a6c3bf638
-size 275
+employee_id,name,email
+1,Richard Hendricks,richard@piedpiper.com
+2,Erlich Bachman,erlich@aviato.com
+3,Dinesh Chugtai,dinesh@piedpiper.com
+4,Bertram Gilfoyle,gilfoyle@piedpiper.com
+5,Jared Dunn,jared@piedpiper.com
+6,Monica Hall,monica@raviga.com
+7,Gavin Belson,gavin@hooli.com

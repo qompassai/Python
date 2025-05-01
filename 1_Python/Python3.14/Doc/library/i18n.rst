@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:69096e0e9a744f748b6cd7b6591437b7d94d93b1c363f1a2a328b6ccf684b014
-size 408
+.. _i18n:
+
+********************
+Internationalization
+********************
+
+The modules described in this chapter help you write software that is
+independent of language and locale by providing mechanisms for selecting a
+language to be used in  program messages or by tailoring output to match local
+conventions.
+
+The list of modules described in this chapter is:
+
+
+.. toctree::
+
+   gettext.rst
+   locale.rst

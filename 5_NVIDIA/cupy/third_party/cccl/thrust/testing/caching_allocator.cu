@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc6a34edd6f74685386fa2b32b64ed179339f1e1c25984a38414dd7dcf07fdc6
-size 631
+#include <thrust/detail/config.h>
+
+#include <thrust/detail/caching_allocator.h>
+
+#include <unittest/unittest.h>
+
+template <typename Allocator>
+void test_implementation(Allocator alloc)
+{
+  using Traits = typename thrust::detail::allocator_traits<Allocator>;
+  using Ptr    = typename Allocator::pointer;
+
+  Ptr p = Traits::allocate(alloc, 123);
+  Traits::deallocate(alloc, p, 123);
+
+  Ptr p2 = Traits::allocate(alloc, 123);
+  ASSERT_EQUAL(p, p2);
+}
+
+void TestSingleDeviceTLSCachingAllocator()
+{
+  test_implementation(thrust::detail::single_device_tls_caching_allocator());
+};
+DECLARE_UNITTEST(TestSingleDeviceTLSCachingAllocator);

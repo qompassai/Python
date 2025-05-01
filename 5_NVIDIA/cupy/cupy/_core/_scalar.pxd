@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9805f018baf98b0f31e805f328cff278a7e5a2a96f53c6751c32946d244dad39
-size 764
+cimport cython  # NOQA
+
+from libc.stdint cimport int8_t
+from libc.stdint cimport int32_t
+
+from cupy.cuda.function cimport CPointer
+
+
+@cython.final
+cdef class CScalar(CPointer):
+
+    cdef:
+        char kind
+        int8_t size
+
+    @staticmethod
+    cdef CScalar from_int32(int32_t value)
+
+    @staticmethod
+    cdef CScalar from_numpy_scalar_with_dtype(object x, object dtype)
+
+    @staticmethod
+    cdef CScalar _from_python_scalar(object x)
+
+    @staticmethod
+    cdef CScalar _from_numpy_scalar(object x)
+
+    cpdef apply_dtype(self, dtype)
+    cpdef get_numpy_type(self)
+
+
+cpdef str get_typename(dtype)
+
+cdef set scalar_type_set
+cdef CScalar scalar_to_c_scalar(object x)
+cdef object scalar_to_numpy_scalar(object x)
+cpdef str _get_cuda_scalar_repr(obj, dtype)

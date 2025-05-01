@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5ecfa7a0d0259d1da64057cd996728f429dbffd38a01c8e417e9e54e4f7f022b
-size 476
+#ifndef Py_TOKENIZER_H
+#define Py_TOKENIZER_H
+
+#include "Python.h"
+
+struct tok_state *_PyTokenizer_FromString(const char *, int, int);
+struct tok_state *_PyTokenizer_FromUTF8(const char *, int, int);
+struct tok_state *_PyTokenizer_FromReadline(PyObject*, const char*, int, int);
+struct tok_state *_PyTokenizer_FromFile(FILE *, const char*,
+                                              const char *, const char *);
+
+#define tok_dump _Py_tok_dump
+
+#endif /* !Py_TOKENIZER_H */

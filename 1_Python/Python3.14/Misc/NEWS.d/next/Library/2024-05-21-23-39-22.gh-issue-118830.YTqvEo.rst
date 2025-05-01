@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:76ce2afd502453a91961594c2311556d3bd4b7e1a4cf80d0a28fa912ce2e15c6
-size 46
+Bump :mod:`pickle` default protocol to ``5``.

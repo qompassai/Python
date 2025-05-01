@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7afd63619922defc49941092a4d2cbe7bd039f89dbbb8d8d5dac15eb674a7c19
-size 162
+:mod:`csv` now correctly parses numeric fields (when used with :const:`csv.QUOTE_NONNUMERIC` or :const:`csv.QUOTE_STRINGS`) which start with an escape character.

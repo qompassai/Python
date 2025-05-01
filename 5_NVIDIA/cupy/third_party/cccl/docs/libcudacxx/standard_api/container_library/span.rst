@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b7c9861d1fdb4bb5d7863b5eac3ccc5e80259f1a6afe0564fc1aa499c4a4a7e0
-size 405
+.. _libcudacxx-standard-api-container-span:
+
+``<cuda/std/span>``
+======================
+
+Extensions
+----------
+
+-  All features of ``<span>`` are made available in C++14 onwards
+-  All features of ``<span>`` are made constexpr in C++14 onwards
+
+Restrictions
+------------
+
+-  On device no exceptions are thrown in case of a bad access.
+-  The range based constructors are emulated but not 100% equivalent.

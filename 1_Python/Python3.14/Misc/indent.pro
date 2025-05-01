@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e0812dac74d45c6290f97c7d6a0415bc73f2c8c016dc9b872ff9a65c27916cf8
-size 557
+--blank-lines-after-declarations
+--blank-lines-after-procedures
+--braces-after-func-def-line
+--braces-on-if-line
+--braces-on-struct-decl-line
+--break-after-boolean-operator
+--comment-indentation25
+--comment-line-length79
+--continue-at-parentheses
+--dont-cuddle-do-while
+--dont-cuddle-else
+--indent-level4
+--line-length79
+--no-space-after-casts
+--no-space-after-function-call-names
+--no-space-after-parentheses
+--no-tabs
+--procnames-start-lines
+--space-after-for
+--space-after-if
+--space-after-while
+--swallow-optional-blank-lines
+-T PyCFunction
+-T PyObject

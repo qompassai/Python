@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f12ab4f997c0ff4a256d2997ef51571e2c45d3d3f5dd59f6d5584403837e2a39
-size 40
+Fix :mod:`tkinter.ttk` with Tcl/Tk 9.0.

@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d10b2f2d3cbd61d310d084a0d67fb8cc99e6c0cde50d251c1a1735a1978c3a99
-size 177
+Model Name,Language,MCV Dev-Set (v??) (ca),MCV Dev-Set v9.0 (ca),MCV Test-Set v9.0 (ca)
+stt_ca_conformer_ctc_large,ca,,4.70,4.27
+stt_ca_conformer_transducer_large,ca,,4.43,3.85

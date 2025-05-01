@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:da02893f0584cb14d5cd47bf722cea287f209c198fb9b8e884dd45c785bf6d3d
-size 219
+cdef list _elementwise_accelerators
+
+cdef list _reduction_accelerators
+
+cdef list _routine_accelerators
+
+cpdef enum accelerator_type:
+    ACCELERATOR_CUB = 1
+    ACCELERATOR_CUTENSOR = 2
+    ACCELERATOR_CUTENSORNET = 3

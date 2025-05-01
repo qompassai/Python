@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6798a4cfe7a87371ce506eeef6e33d8eec7752d7d8a77b2e157e5998c89088f4
-size 203
+purchase_id,purchase_date,product_name,employee_id,amount
+1,'2024-02-01',iPhone,1,750
+2,'2024-02-02',Tesla,2,70000
+3,'2024-02-03',Humane pin,3,500
+4,'2024-02-04',iPhone,4,700
+5,'2024-02-05',Tesla,5,75000

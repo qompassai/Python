@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:503bb760e5ef7ee375f8c370ab56c9969b203444b3df0b15b68eda874a4fd102
-size 851
+import unittest
+
+import pytest
+
+import cupy
+import cupyx
+
+
+class TestSyncDetect(unittest.TestCase):
+
+    def test_disallowed(self):
+        a = cupy.array([2, 3])
+        with cupyx.allow_synchronize(False):
+            with pytest.raises(cupyx.DeviceSynchronized):
+                a.get()
+
+    def test_allowed(self):
+        a = cupy.array([2, 3])
+        with cupyx.allow_synchronize(True):
+            a.get()
+
+    def test_nested_disallowed(self):
+        a = cupy.array([2, 3])
+        with cupyx.allow_synchronize(True):
+            with cupyx.allow_synchronize(False):
+                with pytest.raises(cupyx.DeviceSynchronized):
+                    a.get()
+
+    def test_nested_allowed(self):
+        a = cupy.array([2, 3])
+        with cupyx.allow_synchronize(False):
+            with cupyx.allow_synchronize(True):
+                a.get()

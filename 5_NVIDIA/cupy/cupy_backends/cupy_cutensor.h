@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:48c9954c12f679248a4f1468d1a4ee59437b276458bf0a14ac884207c49f4856
-size 411
+#ifndef INCLUDE_GUARD_CUPY_CUTENSOR_H
+#define INCLUDE_GUARD_CUPY_CUTENSOR_H
+
+#ifdef CUPY_USE_HIP
+
+// Since ROCm/HIP does not have cuTENSOR, we simply include the stubs here
+// to avoid code dup.
+#include "stub/cupy_cutensor.h"
+
+#elif !defined(CUPY_NO_CUDA)
+
+#include "cuda/cupy_cutensor.h"
+
+#else
+
+#include "stub/cupy_cutensor.h"
+
+#endif // #ifndef CUPY_NO_CUDA
+
+#endif // #ifndef INCLUDE_GUARD_CUPY_CUTENSOR_H

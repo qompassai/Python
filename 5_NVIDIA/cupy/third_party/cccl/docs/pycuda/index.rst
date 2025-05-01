@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ca016b7e8e5f47adb840b5c0272bf19318ec69204f0ffc61897125a02af1c1f
-size 409
+.. _pycudax-module:
+
+CUDA
+==================================================
+
+.. warning::
+  Python exposure of cooperative algorithms is in public beta.
+  The API is subject to change without notice.
+
+.. automodule:: cuda.cooperative.experimental.warp
+  :members:
+  :undoc-members:
+  :imported-members:
+
+
+.. automodule:: cuda.cooperative.experimental.block
+  :members:
+  :undoc-members:
+  :imported-members:

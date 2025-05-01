@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:09855ab83e4826a5570672861822d45e5c9e851edf618bbb53fd91628a8d1466
-size 426
+.. _developer_guides:
+
+Guides for developers
+==================================================
+
+Before you start, maybe you are interested in :ref:`architecture` and :ref:`Our motivation <Our motivation of this project>` of our project.
+
+.. toctree::
+    :maxdepth: 2
+
+    Extented Synthetic Data Generator <extension/index>
+    Contributing to our project directly <contributing>
+    Data Models Specification <data_models>

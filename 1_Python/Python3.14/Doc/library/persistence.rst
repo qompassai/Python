@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:41ff7a8bf895b77f42812c4c5fe4eb1f3d64ecbc7b6857aae51786bfeee2d361
-size 591
+.. _persistence:
+
+****************
+Data Persistence
+****************
+
+The modules described in this chapter support storing Python data in a
+persistent form on disk.  The :mod:`pickle` and :mod:`marshal` modules can turn
+many Python data types into a stream of bytes and then recreate the objects from
+the bytes.  The various DBM-related modules support a family of hash-based file
+formats that store a mapping of strings to other strings.
+
+The list of modules described in this chapter is:
+
+
+.. toctree::
+
+   pickle.rst
+   copyreg.rst
+   shelve.rst
+   marshal.rst
+   dbm.rst
+   sqlite3.rst

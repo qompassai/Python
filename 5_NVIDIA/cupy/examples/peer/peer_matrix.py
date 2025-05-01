@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3e01f05d7aa6aff79af3ff93247f0010f0c638c050d7a7078cad8b602c934998
-size 440
+import cupy
+
+
+def main():
+    gpus = cupy.cuda.runtime.getDeviceCount()
+    for peerDevice in range(gpus):
+        for device in range(gpus):
+            if peerDevice == device:
+                continue
+            flag = cupy.cuda.runtime.deviceCanAccessPeer(device, peerDevice)
+            print(
+                f'Can access #{peerDevice} memory from #{device}: '
+                f'{flag == 1}')
+
+
+if __name__ == '__main__':
+    main()

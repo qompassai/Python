@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:25688c8033e1aafaff08126fcb0ba9c7da5e30b49c85047c4e224f8a026d8377
-size 963
+#ifndef Py_INTERNAL_STRUCTSEQ_H
+#define Py_INTERNAL_STRUCTSEQ_H
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifndef Py_BUILD_CORE
+#  error "this header requires Py_BUILD_CORE define"
+#endif
+
+
+/* other API */
+
+// Export for '_curses' shared extension
+PyAPI_FUNC(PyTypeObject*) _PyStructSequence_NewType(
+    PyStructSequence_Desc *desc,
+    unsigned long tp_flags);
+
+extern int _PyStructSequence_InitBuiltinWithFlags(
+    PyInterpreterState *interp,
+    PyTypeObject *type,
+    PyStructSequence_Desc *desc,
+    unsigned long tp_flags);
+
+static inline int
+_PyStructSequence_InitBuiltin(PyInterpreterState *interp,
+                              PyTypeObject *type,
+                              PyStructSequence_Desc *desc)
+{
+    return _PyStructSequence_InitBuiltinWithFlags(interp, type, desc, 0);
+}
+
+extern void _PyStructSequence_FiniBuiltin(
+    PyInterpreterState *interp,
+    PyTypeObject *type);
+
+#ifdef __cplusplus
+}
+#endif
+#endif /* !Py_INTERNAL_STRUCTSEQ_H */

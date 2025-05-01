@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:88d4f054bfaf944ea05860d05087463b86e684fdc1c2cf42c810a2f18dd97b31
-size 347
+"""Utilities for bivariate copulas."""
+
+import numpy as np
+
+
+def split_matrix(X):
+    """Split an (n,2) numpy.array into two vectors.
+
+    Args:
+        X(numpy.array): Matrix of shape (n,2)
+
+    Returns:
+        tuple[numpy.array]: Both of shape (n,)
+
+    """
+    if len(X):
+        return X[:, 0], X[:, 1]
+
+    return np.array([]), np.array([])
