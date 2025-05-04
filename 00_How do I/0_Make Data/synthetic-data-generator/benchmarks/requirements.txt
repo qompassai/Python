@@ -1,3 +1,0 @@
-click
-memory_profiler
-psutil
