@@ -5,7 +5,7 @@
   "language": "eng",
   "upload_type": "software",
   "access_right": "open",
-  "version": "2025-04-27-8-ga90e3527",
+  "version": "2025-04-27-10-g51f4e0e8",
   "publication_date": "2025-05-03",
   "creators": [
     {
@@ -15,7 +15,7 @@
       "type": "Author"
     }
   ],
-  "keywords": ["AI","Education","Healthcare","Post-Quantum Cryptography","Quantum","data science","machine learning","python"],
+  "keywords": ["AI","Education","Healthcare","Post-Quantum Cryptography","Quantum","opensource","software"],
   "related_identifiers": [
     { "identifier": "https://github.com/qompassai/Python", "relation": "isSupplementTo", "resource_type": "software" },
     { "identifier": "https://github.com/qompassai/Python/releases/tag/2025-05-03", "relation": "isIdenticalTo", "resource_type": "software" },
