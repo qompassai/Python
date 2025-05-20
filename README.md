@@ -7,6 +7,9 @@
 <h3> Qompass AI on Python </h3>
 
 ![Repository Views](https://komarev.com/ghpvc/?username=qompassai-python)
+
+[![Making Python useful for AI datasets](https://img.youtube.com/vi/T-XGHgaJIPU/hqdefault.jpg)](https://www.youtube.com/watch?v=T-XGHgaJIPU&t=511s)
+
   <a href="https://www.python.org/">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
 </a>
