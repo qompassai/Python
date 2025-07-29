@@ -16,7 +16,7 @@ mkdir -p "$HOME/.cache/torch"
 mkdir -p "$HOME/.config/ipython"
 mkdir -p "$HOME/.config/jupyter"
 mkdir -p "$HOME/.config/matplotlib"
-mkdir -p "$HOME/.config"  # For pythonrc.py
+mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.local/share/poetry"
 mkdir -p "$HOME/.virtualenvs"
 PYTHON_VERSION=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
@@ -24,7 +24,7 @@ mkdir -p "$HOME/.local/lib/python${PYTHON_VERSION}/site-packages"
 chmod 755 "$HOME/.cache" "$HOME/.config" "$HOME/.local" "$HOME/.virtualenvs" 2>/dev/null || true
 chmod -R 755 "$HOME/.cache"/* "$HOME/.config"/* "$HOME/.local"/* 2>/dev/null || true
 if [[ ! -f "$HOME/.config/pythonrc.py" ]]; then
-    cat > "$HOME/.config/pythonrc.py" << 'EOF'
+    cat >"$HOME/.config/pythonrc.py" <<'EOF'
 # Python startup configuration
 import sys
 import os
