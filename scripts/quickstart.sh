@@ -18,23 +18,7 @@ case ":$PATH:" in
 *":$BIN_DIR:"*) ;;
 *) export PATH="$BIN_DIR:$PATH" ;;
 esac
-NEEDED_TOOLS="git curl tar make gcc clang bzip2 xz unzip openssl zlib gdbm readline sqlite3 libffi tk tcl build-essential libbz2-dev libssl-dev libreadline-dev libsqlite3-dev zlib1g-dev libffi-dev"
-MISSING=""
-for tool in $NEEDED_TOOLS; do
-        if ! command -v "$tool" >/dev/null 2>&1; then
-                if [ -x "/usr/bin/$tool" ]; then
-                        ln -sf "/usr/bin/$tool" "$BIN_DIR/$tool"
-                        echo " → Added symlink for $tool in $BIN_DIR (not originally in PATH)"
-                else
-                        MISSING="$MISSING $tool"
-                fi
-        fi
-done
-if [ -n "$MISSING" ]; then
-        echo "⚠ Warning: These tools/libraries are missing (not found or not symlinkable):$MISSING"
-        echo "Please install them with your package manager (e.g. pacman, apt, dnf) to continue."
-        exit 1
-fi
+NEEDED_TOOLS="git curl tar make gcc clang"
 PY_VERS="3.13.5"
 PY_MAJ="3.13"
 printf '╭────────────────────────────────────────────╮\n'
@@ -63,12 +47,13 @@ git fetch origin
 git checkout "v$PY_VERS"
 git clean -fdx
 echo "→ Configuring Python build..."
-CONFIG_FLAGS="--prefix=$LOCAL_PREFIX --enable-optimizations --with-lto"
+CONFIG_FLAGS="--prefix=$LOCAL_PREFIX"
 if [ "$FREE_THREADED" = "yes" ]; then
         CONFIG_FLAGS="$CONFIG_FLAGS --enable-free-threaded-interpreter"
 fi
 ./configure "$CONFIG_FLAGS"
 echo "→ Building Python (this may take several minutes, enabling PGO/LTO optimization)..."
+export CFLAGS="-Wno-error=date-time"
 make -j"$(nproc)"
 echo "→ Installing Python (no sudo needed)..."
 make install
