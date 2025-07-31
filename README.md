@@ -9,8 +9,6 @@
 ![Repository Views](https://komarev.com/ghpvc/?username=qompassai-python)
 ![GitHub all releases](https://img.shields.io/github/downloads/qompassai/python/total?style=flat-square)
 
-[![Making Python useful for AI datasets](https://img.youtube.com/vi/T-XGHgaJIPU/hqdefault.jpg)](https://www.youtube.com/watch?v=T-XGHgaJIPU&t=511s)
-
 <p align="center">
   <a href="https://www.python.org/">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
@@ -27,86 +25,149 @@
   <a href="./LICENSE-QCDA"><img src="https://img.shields.io/badge/license-Q--CDA-lightgrey.svg" alt="License: Q-CDA"></a>
 </p>
 
+<details>
+  <summary style="font-size: 1.4em; font-weight: bold; padding: 15px; background: #667eea; color: white; border-radius: 10px; cursor: pointer; margin: 10px 0;">
+    <strong>
+      <img src="https://raw.githubusercontent.com/qompassai/svg/main/assets/icons/python/python.svg"
+           alt="Qmopass AI Python Logo"
+           style="height: 1em; vertical-align: -0.2em; margin-right: 0.25em;" />
+      Python Solutions     </strong>
+  </summary>
+  <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 10px; font-family: monospace;">
+
+* [Qompass Radar](https://github.com/qompassai/radar)    
+* [Qompass Qonfig](https://github.com/qompassai/qonfig)
+
+  </div>
+
+<details>
+  <summary style="font-size: 1.4em; font-weight: bold; padding: 15px; background: #667eea; color: white; border-radius: 10px; cursor: pointer; margin: 10px 0;">
+    <strong>
+      <img src="https://raw.githubusercontent.com/qompassai/svg/main/assets/icons/edu/edu.svg"
+           alt="Ferris the Crab"
+           style="height: 1em; vertical-align: -0.2em; margin-right: 0.25em;" />
+      Educational Videos
+    </strong>
+  </summary>
+  <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 10px; font-family: monospace;">
+
+  [![Making Python useful for AI datasets](https://img.youtube.com/vi/T-XGHgaJIPU/hqdefault.jpg)](https://www.youtube.com/watch?v=T-XGHgaJIPU&t=511s)
+
+  </div>
+
+</details>
+</details>
 
   <details>
-    <summary
-      style="font-size: 1.4em; font-weight: bold; padding: 15px; background: #667eea; color: white; border-radius: 10px; cursor: pointer; margin: 10px 0;">
-      <strong>▶️ Qompass AI Quick Start</strong>
-    </summary>
-    <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 10px; font-family: monospace;">
-      ```bash
-      bash <(curl -fsSL https://raw.githubusercontent.com/qompassai/python/main/scripts/quickstart.sh) ``` </div>
-        <blockquote
-          style="font-size: 1.2em; line-height: 1.8; padding: 25px; background: #f8f9fa; border-left: 6px solid #667eea; border-radius: 8px; margin: 15px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <details>
-            <summary
-              style="font-size: 1em; font-weight: bold; padding: 10px; background: #e9ecef; color: #333; border-radius: 5px; cursor: pointer; margin: 10px 0;">
-                 <strong>📄 We advise you read the script BEFORE running it 😉</strong>
-            </summary>
-            <pre style="background: #fff; padding: 15px; border-radius: 5px; border: 1px solid #ddd; overflow-x: auto;">
+  <summary style="font-size: 1.4em; font-weight: bold; padding: 15px; background: #667eea; color: white; border-radius: 10px; cursor: pointer; margin: 10px 0;">
+    <strong>▶️ Qompass AI Quick Start</strong>
+  </summary>
+  <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 10px; font-family: monospace;">
+
+```sh  
+curl -fsSL https://raw.githubusercontent.com/qompassai/python/main/scripts/quickstart.sh | sh
+```
+  </div>
+  <blockquote style="font-size: 1.2em; line-height: 1.8; padding: 25px; background: #f8f9fa; border-left: 6px solid #667eea; border-radius: 8px; margin: 15px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <details>
+      <summary style="font-size: 1em; font-weight: bold; padding: 10px; background: #e9ecef; color: #333; border-radius: 5px; cursor: pointer; margin: 10px 0;">
+        <strong>📄 We advise you read the script BEFORE running it 😉</strong>
+      </summary>
+      <pre style="background: #fff; padding: 15px; border-radius: 5px; border: 1px solid #ddd; overflow-x: auto;">
 #!/bin/sh
 # /qompassai/python/scripts/quickstart.sh
-# Qompass AI Python Quick Start + pyenv/ruff/uv + config
+# Qompass AI Python Quick Start
 # Copyright (C) 2025 Qompass AI, All rights reserved
 #########################################################
 set -eu
-IFS='
-'
+PREFIX="$HOME/.local"
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 LOCAL_PREFIX="$HOME/.local"
 BIN_DIR="$LOCAL_PREFIX/bin"
 LIB_DIR="$LOCAL_PREFIX/lib"
 SHARE_DIR="$LOCAL_PREFIX/share"
-SRC_DIR="$HOME/.local/src/python"
-PYENV_ROOT="$HOME/.pyenv"
-mkdir -p "$BIN_DIR" "$LIB_DIR" "$SHARE_DIR" "$SRC_DIR" "$XDG_CONFIG_HOME/python"
-case ":$PATH:" in
-*":$BIN_DIR:"*) ;;
-*) export PATH="$BIN_DIR:$PATH" ;;
-esac
-NEEDED_TOOLS="git curl tar make gcc clang"
-PY_VERS="3.13.5"
-PY_MAJ="3.13"
+SRC_DIR="$LOCAL_PREFIX/src/python"
+mkdir -p "$PREFIX/bin"
+PY_VERSIONS="
+1|3.6.15
+2|3.7.17
+3|3.8.19
+4|3.9.19
+5|3.10.14
+6|3.11.9
+7|3.12.3
+8|3.13.5
+9|3.14.0a6
+"
 printf '╭────────────────────────────────────────────╮\n'
 printf '│      Qompass AI · Python Quick‑Start       │\n'
 printf '╰────────────────────────────────────────────╯\n'
 printf '   © 2025 Qompass AI. All rights reserved   \n\n'
-echo "Which Python do you want to build?"
-echo " 1) Classic CPython (${PY_VERS})"
-echo " 2) Free-threaded (GIL-free, experimental, --enable-free-threaded-interpreter)"
+echo "Which Python version would you like to build?"
+echo "$PY_VERSIONS" | while IFS="|" read num version; do
+        [ -z "$num" ] && continue
+        echo " $num) Python $version"
+done
+echo " a) All"
+echo " q) Quit"
+printf "Choose [8]: "
+read -r choice
+[ -z "$choice" ] && choice=8
+[ "$choice" = "q" ] && exit 0
+PY_FINALS_LIST="3.6.15 3.7.17 3.8.19 3.9.19 3.10.14 3.11.9 3.12.3 3.13.5 3.14.0a6"
+if [ "$choice" = "a" ] || [ "$choice" = "A" ]; then
+        VERSIONS_TO_BUILD="$PY_FINALS_LIST"
+elif printf '%s\n' $PY_FINALS_LIST | awk "NR==$choice" | grep -q .; then
+        VERSIONS_TO_BUILD=$(printf '%s\n' $PY_FINALS_LIST | awk "NR==$choice")
+else
+        echo "Invalid selection." >&2
+        exit 1
+fi
+echo
+echo "You selected: $VERSIONS_TO_BUILD"
+echo "Which build configuration?"
+echo " 1) Classic CPython"
+echo " 2) Free-threaded (GIL-free, experimental)"
+echo " 3) Classic with FULL OPTIMIZATIONS (PGO, LTO, LTO_FLAGS)"
+echo " 4) Free-threaded + FULL OPTIMIZATIONS"
 echo " q) Quit"
 printf "Choose [1]: "
-read -r ans
-[ -z "$ans" ] && ans=1
-[ "$ans" = "q" ] && exit 0
+read -r cbuild
+[ -z "$cbuild" ] && cbuild=1
+[ "$cbuild" = "q" ] && exit 0
 FREE_THREADED="no"
-if [ "$ans" = "2" ]; then
+DO_OPTIMIZE="no"
+case "$cbuild" in
+2) FREE_THREADED="yes" ;;
+3) DO_OPTIMIZE="yes" ;;
+4)
         FREE_THREADED="yes"
-fi
-cd "$SRC_DIR"
-if [ ! -d "cpython" ]; then
-        echo "→ Cloning Python source (cpython)..."
-        git clone --branch "v$PY_VERS" https://github.com/python/cpython.git
-fi
-cd cpython
-git fetch origin
-git checkout "v$PY_VERS"
-git clean -fdx
-echo "→ Configuring Python build..."
-CONFIG_FLAGS="--prefix=$LOCAL_PREFIX"
-if [ "$FREE_THREADED" = "yes" ]; then
-        CONFIG_FLAGS="$CONFIG_FLAGS --enable-free-threaded-interpreter"
-fi
-./configure "$CONFIG_FLAGS"
-echo "→ Building Python (this may take several minutes, enabling PGO/LTO optimization)..."
-export CFLAGS="-Wno-error=date-time"
-make -j"$(nproc)"
-echo "→ Installing Python (no sudo needed)..."
-make install
-case ":$PATH:" in
-*":$BIN_DIR:"*) ;;
-*) export PATH="$BIN_DIR:$PATH" ;;
+        DO_OPTIMIZE="yes"
+        ;;
 esac
+for PY_VERS in $VERSIONS_TO_BUILD; do
+        PY_MAJ="$(echo "$PY_VERS" | cut -d. -f1-2)"
+        cd "$SRC_DIR"
+        if [ ! -d "cpython-$PY_VERS" ]; then
+                echo "→ Cloning Python source (cpython $PY_VERS)..."
+                git clone --branch "v$PY_VERS" https://github.com/python/cpython.git "cpython-$PY_VERS"
+        fi
+        cd "cpython-$PY_VERS"
+        git fetch origin
+        git checkout "v$PY_VERS"
+        git clean -fdx
+        echo "→ Configuring Python $PY_VERS build..."
+        CONFIG_FLAGS="--prefix=$LOCAL_PREFIX"
+        [ "$FREE_THREADED" = "yes" ] && CONFIG_FLAGS="$CONFIG_FLAGS --enable-free-threaded-interpreter"
+        [ "$DO_OPTIMIZE" = "yes" ] && CONFIG_FLAGS="$CONFIG_FLAGS --enable-optimizations --with-lto"
+        ./configure "$CONFIG_FLAGS"
+        echo "→ Building Python $PY_VERS (this may take several minutes)..."
+        export CFLAGS="-Wno-error=date-time"
+        make -j"$(nproc)"
+        echo "→ Installing Python $PY_VERS (no sudo needed)..."
+        make install
+done
+case ":$PATH:" in *":$BIN_DIR:"*) ;; *) export PATH="$BIN_DIR:$PATH" ;; esac
 add_path_to_shell_rc() {
         rcfile=$1
         line="export PATH=\"$BIN_DIR:\$PATH\""
@@ -120,6 +181,7 @@ add_path_to_shell_rc() {
 add_path_to_shell_rc "$HOME/.bashrc"
 add_path_to_shell_rc "$HOME/.zshrc"
 add_path_to_shell_rc "$HOME/.profile"
+PY_MAJ="$(echo "$PY_VERS" | cut -d. -f1-2)"
 PIP_PATH="$BIN_DIR/pip$PY_MAJ"
 PYTHON_PATH="$BIN_DIR/python$PY_MAJ"
 echo "→ Upgrading pip and installing core wheels..."
@@ -132,11 +194,10 @@ read -r ans
 if [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
         if [ ! -d "$PYENV_ROOT" ]; then
                 curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-                # Add pyenv to shell
                 for rc in "$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.profile"; do
                         if [ -f "$rc" ]; then
                                 if ! grep -q "pyenv init" "$rc"; then
-                                        printf '\n# Pyenv config\nexport PYENV_ROOT="%s"\nexport PATH="$PYENV_ROOT/bin:$PATH"\neval "$(pyenv init --path)"\n' "$PYENV_ROOT" >>"$rc"
+                                        printf "\n# Pyenv config\nexport PYENV_ROOT=\"%s\"\nexport PATH=\"\\\$PYENV_ROOT/bin:\\\$PATH\"\neval \"\\\$(pyenv init --path)\"\n" "$PYENV_ROOT" >>"$rc"
                                         echo " → Added pyenv setup to $rc"
                                 fi
                         fi
@@ -165,6 +226,64 @@ if [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
         fi
         echo "→ uv installed"
 fi
+echo
+echo "Would you like to install editor tooling for Python development?"
+echo " 1) python-lsp-server (LSP support, compatible with most editors)"
+echo " 2) pyright (Microsoft, static type checker/LSP, Node.js required)"
+echo " 3) basedpyright (Rust-based, fast drop-in Pyright alternative, LSP)"
+echo " 4) debugpy (VSCode-compatible debugger, works in editors/Jupyter)"
+echo " 5) ipython (enhanced interactive Python prompt)"
+echo " 6) pdbpp (better pdb, drop-in REPL/debugger)"
+echo " a) All of the above"
+echo " n) None (skip)"
+printf "Choose [a]: "
+read -r pytools_ans
+[ -z "$pytools_ans" ] && pytools_ans="a"
+INSTALL_LSP_TOOL() {
+        tool="$1"
+        pkg="$2"
+        if [ "$tool" = "pyright" ]; then
+                if command -v npm >/dev/null 2>&1; then
+                        echo "→ Installing pyright (npm)..."
+                        npm install -g pyright
+                else
+                        echo "npm not found, falling back to pipx/pip."
+                        if command -v pipx >/dev/null 2>&1; then
+                                pipx install pyright
+                        else
+                                "$PIP_PATH" install --user pyright
+                        fi
+                fi
+        elif [ "$tool" = "basedpyright" ]; then
+                if command -v pipx >/dev/null 2>&1; then
+                        echo "→ Installing basedpyright (pipx)..."
+                        pipx install basedpyright
+                else
+                        "$PIP_PATH" install --user basedpyright
+                fi
+        else
+                echo "→ Installing $tool..."
+                "$PIP_PATH" install --user "$pkg"
+        fi
+}
+case "$pytools_ans" in
+1) INSTALL_LSP_TOOL "python-lsp-server" "python-lsp-server[all]" ;;
+2) INSTALL_LSP_TOOL "pyright" "pyright" ;;
+3) INSTALL_LSP_TOOL "basedpyright" "basedpyright" ;;
+4) INSTALL_LSP_TOOL "debugpy" "debugpy" ;;
+5) INSTALL_LSP_TOOL "ipython" "ipython" ;;
+6) INSTALL_LSP_TOOL "pdbpp" "pdbpp" ;;
+a | A)
+        INSTALL_LSP_TOOL "python-lsp-server" "python-lsp-server[all]"
+        INSTALL_LSP_TOOL "pyright" "pyright"
+        INSTALL_LSP_TOOL "basedpyright" "basedpyright"
+        INSTALL_LSP_TOOL "debugpy" "debugpy"
+        INSTALL_LSP_TOOL "ipython" "ipython"
+        INSTALL_LSP_TOOL "pdbpp" "pdbpp"
+        ;;
+n | N) echo "Skipping extra tooling." ;;
+*) echo "Unknown selection, skipping." ;;
+esac
 create_xdg_config() {
         tool="$1"
         default_content="$2"
@@ -190,7 +309,7 @@ create_xdg_config "ruff" "$RUFF_CFG"
 create_xdg_config "uv" "$UV_CFG"
 create_xdg_config "python" "$PYTHON_CFG"
 echo
-echo "✅ Python $PY_VERS has been built and installed in $BIN_DIR"
+echo "✅ Python $VERSIONS_TO_BUILD has been built and installed in $BIN_DIR"
 if [ "$FREE_THREADED" = "yes" ]; then
         echo " (Free-threaded interpreter enabled!)"
 fi
@@ -201,12 +320,10 @@ echo "→ ruff and uv are installed in ~/.local/bin (and can be configured in $X
 echo "→ All binaries/libs/configs are under ~/.local/, ~/.pyenv/, ~/.config/"
 echo "→ Add '$BIN_DIR' to your shell \$PATH if not already present."
 echo "→ For custom packages, use: $PIP_PATH install --user ..."
-echo "→ To uninstall, just rm -rf $LOCAL_PREFIX/{bin/lib/share} $SRC_DIR/cpython ~/.pyenv ~/.cache/ruff ~/.cache/uv $XDG_CONFIG_HOME/ruff $XDG_CONFIG_HOME/uv"
+echo "→ To uninstall, just rm -rf $LOCAL_PREFIX/{bin/lib/share} $SRC_DIR/cpython-* ~/.pyenv ~/.cache/ruff ~/.cache/uv $XDG_CONFIG_HOME/ruff $XDG_CONFIG_HOME/uv"
 echo "─ Ready, Set, Python! ─"
-exit 0
-
- </pre>
-</details> <p>Or, <a href="https://github.com/qompassai/qonfig/blob/main/scripts/quickstart.sh" target="_blank">View
+exit 0 </pre>
+</details> <p>Or, <a href="https://github.com/qompassai/python/blob/main/scripts/quickstart.sh" target="_blank">View
 the quickstart script</a>.</p>
  </details>
 

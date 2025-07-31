@@ -1,4 +1,3 @@
-# Ignore common binary files that might trigger Git LFS
 *.png
 *.jpg
 *.jpeg
@@ -18,9 +17,7 @@
 *.exe
 *.dll
 *.jar
-/1_AI gifs/
-/'00_How do I'/
 /2_Hf/
 /3_Meta/
 /4_OpenAI/
-
+/.forge/
