@@ -1,0 +1,52 @@
+# /qompassai/python/.pre-commit-config.yaml
+# Qompass AI Python Pre-Commit Config
+# Copyright (C) 2025 Qompass AI, All rights reserved
+####################################################
+default_stages: ['pre-commit']
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.7
+    hooks:
+      - id: ruff
+        args: ["--extend-select", "I", "--fix"]
+      - id: ruff-format
+      - id: ruff
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+    - id: check-added-large-files
+      args: ['--maxkb=5000']
+    - id: check-merge-conflict
+    - id: check-symlinks
+    - id: check-yaml
+    - id: destroyed-symlinks
+    - id: detect-private-key
+    - id: check-ast
+    - id: check-docstring-first
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.3.0
+    hooks:
+    - id: flake8
+      args: [--config=.flake8]
+      fail_fast: true
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.17.1
+    hooks:
+    - id: mypy
+      args: [
+        '--config-file=pyproject.toml'
+      ]
+      fail_fast: true
+      additional_dependencies:
+        - pydantic
+        - pytest
+        - cryptography
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        fail_fast: true
+        require_serial: true
