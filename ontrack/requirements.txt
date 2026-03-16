@@ -1,0 +1,11 @@
+customtkinter
+pandas
+openpyxl
+geopy
+routingpy
+ortools
+folium
+python-dotenv
+pyinstaller
+pyshortcuts
+Pillow
