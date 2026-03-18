@@ -1,0 +1,32 @@
+[build-system]
+requires = ["maturin>=1.4,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "ontrack"
+version = "0.1.0"
+description = "Ontrack Python bindings powered by PyO3 and maturin"
+readme = "README.md"
+license = "MIT"
+authors = [
+  { name = "Matt Porter", email = "ma@eqompassai.ai" }
+]
+requires-python = ">=3.9"
+classifiers = [
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Rust",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+"fastapi>=0.115.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/qompassai/Python"
+Repository = "https://github.com/qompassai/Python"
+
+[tool.maturin]
+cargo-extra-args = ["--manifest-path", "ontrack/Cargo.toml"]
