@@ -1,3 +1,6 @@
+# /qompassai/python/ontrack/requirements.txt
+# Qompass AI Ontrack Requirements
+# ---------------------------------------------------
 customtkinter
 pandas
 openpyxl

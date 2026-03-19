@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from geopy.geocoders import Nominatim
 
 geolocator = Nominatim(user_agent="ontrack")

@@ -34,7 +34,7 @@ kivy.app = main:OnTrackApp
 kivy.kv_files = ontrack.kv,home.kv,results.kv,settings.kv
 presplash.color = #FFFFFF
 log_level = 2
-android.copy_libs = 1                                     
+android.copy_libs = 1
 [buildozer]                                                
 log_level = 2
 build_workers = 0                                         

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import csv
 
 def export_csv(ordered_addresses: list[str], output_path: str):
