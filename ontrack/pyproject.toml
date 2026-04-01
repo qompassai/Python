@@ -30,3 +30,23 @@ Repository = "https://github.com/qompassai/Python"
 
 [tool.maturin]
 cargo-extra-args = ["--manifest-path", "ontrack/Cargo.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+markers = [
+  "linux:   Linux x86_64 build checks",
+  "windows: Windows 11 build checks",
+  "android: Android/Buildozer packaging checks",
+]
+
+[tool.coverage.run]
+source = ["core", "config"]
+omit = ["tests/*", "gui/*", "assets/*"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 70
