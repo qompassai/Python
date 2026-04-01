@@ -170,54 +170,71 @@ class HomeView(ctk.CTkFrame):
             right, text="Route Options",
             font=ctk.CTkFont(size=16, weight="bold"),
             text_color=TDS_WHITE,
-        ).grid(row=0, column=0, padx=20, pady=(14, 8), sticky="w")
+        ).grid(row=0, column=0, padx=20, pady=(14, 4), sticky="w")
 
-        # Options grid
-        opts = ctk.CTkFrame(right, fg_color="transparent")
-        opts.grid(row=1, column=0, padx=20, pady=4, sticky="ew")
-        opts.grid_columnconfigure(1, weight=1)
+        # ── Route type (simple, always visible) ──────────────────────────────
+        simple_opts = ctk.CTkFrame(right, fg_color="transparent")
+        simple_opts.grid(row=1, column=0, padx=20, pady=(0, 4), sticky="ew")
+        simple_opts.grid_columnconfigure(1, weight=1)
 
-        def _label(text, row):
-            ctk.CTkLabel(opts, text=text, font=ctk.CTkFont(size=13),
-                         text_color="#9DB8D6").grid(
-                row=row, column=0, sticky="w", pady=6, padx=(0, 16))
-
-        _label("Distance backend:", 0)
-        self.backend_var = ctk.StringVar(value="osrm")
+        ctk.CTkLabel(simple_opts, text="Route type:",
+                     font=ctk.CTkFont(size=13), text_color="#9DB8D6",
+                     ).grid(row=0, column=0, sticky="w", padx=(0, 16), pady=6)
+        self.route_type_var = ctk.StringVar(value="open (no return)")
         ctk.CTkOptionMenu(
-            opts, values=["osrm", "google", "haversine"],
-            variable=self.backend_var, width=200, height=34,
-            fg_color="#243044", button_color=TDS_BLUE,
-            text_color=TDS_WHITE,
+            simple_opts, values=["open (no return)", "round trip"],
+            variable=self.route_type_var, width=200, height=34,
+            fg_color="#243044", button_color=TDS_BLUE, text_color=TDS_WHITE,
         ).grid(row=0, column=1, sticky="w")
 
-        _label("Route type:", 1)
-        self.route_type_var = ctk.StringVar(value="open")
-        ctk.CTkOptionMenu(
-            opts, values=["open (no return)", "round trip"],
-            variable=self.route_type_var, width=200, height=34,
-            fg_color="#243044", button_color=TDS_BLUE,
-            text_color=TDS_WHITE,
-        ).grid(row=1, column=1, sticky="w")
-
-        _label("Starting stop:", 2)
+        ctk.CTkLabel(simple_opts, text="Starting stop:",
+                     font=ctk.CTkFont(size=13), text_color="#9DB8D6",
+                     ).grid(row=1, column=0, sticky="w", padx=(0, 16), pady=6)
         self.depot_var = ctk.StringVar(value="First in list")
         self.depot_menu = ctk.CTkOptionMenu(
-            opts, values=["First in list"],
+            simple_opts, values=["First in list"],
             variable=self.depot_var, width=200, height=34,
-            fg_color="#243044", button_color=TDS_BLUE,
-            text_color=TDS_WHITE,
+            fg_color="#243044", button_color=TDS_BLUE, text_color=TDS_WHITE,
         )
-        self.depot_menu.grid(row=2, column=1, sticky="w")
+        self.depot_menu.grid(row=1, column=1, sticky="w")
 
-        _label("Solver time limit:", 3)
+        # ── Advanced toggle ────────────────────────────────────────────────
+        self._adv_open = tk.BooleanVar(value=False)
+        adv_toggle = ctk.CTkButton(
+            right, text="▶ Advanced options",
+            height=30, fg_color="transparent",
+            hover_color=TDS_SURFACE, text_color=TDS_GRAY,
+            font=ctk.CTkFont(size=12), anchor="w",
+            command=self._toggle_advanced,
+        )
+        adv_toggle.grid(row=2, column=0, padx=16, pady=(2, 0), sticky="w")
+        self._adv_toggle_btn = adv_toggle
+
+        # Advanced options frame (hidden by default)
+        self._adv_frame = ctk.CTkFrame(right, fg_color="#1A2535", corner_radius=8)
+        # NOT gridded yet — shown on toggle
+        self._adv_frame.grid_columnconfigure(1, weight=1)
+
+        def _adv_label(text, row):
+            ctk.CTkLabel(self._adv_frame, text=text, font=ctk.CTkFont(size=12),
+                         text_color="#9DB8D6").grid(
+                row=row, column=0, sticky="w", pady=5, padx=(12, 14))
+
+        _adv_label("Distance backend:", 0)
+        self.backend_var = ctk.StringVar(value="osrm")
+        ctk.CTkOptionMenu(
+            self._adv_frame, values=["osrm (free)", "google (API key needed)", "haversine"],
+            variable=self.backend_var, width=220, height=32,
+            fg_color="#243044", button_color=TDS_BLUE, text_color=TDS_WHITE,
+        ).grid(row=0, column=1, sticky="w", pady=5, padx=(0, 12))
+
+        _adv_label("Solver time limit:", 1)
         self.time_limit_var = ctk.StringVar(value="30s")
         ctk.CTkOptionMenu(
-            opts, values=["10s", "30s", "60s", "120s"],
-            variable=self.time_limit_var, width=200, height=34,
-            fg_color="#243044", button_color=TDS_BLUE,
-            text_color=TDS_WHITE,
-        ).grid(row=3, column=1, sticky="w")
+            self._adv_frame, values=["10s", "30s", "60s", "120s"],
+            variable=self.time_limit_var, width=220, height=32,
+            fg_color="#243044", button_color=TDS_BLUE, text_color=TDS_WHITE,
+        ).grid(row=1, column=1, sticky="w", pady=5, padx=(0, 12))
 
         # Status / progress
         self._status_var = tk.StringVar(value="Add stops to get started.")
@@ -292,6 +309,16 @@ class HomeView(ctk.CTkFrame):
             self.after(0, lambda: self._on_location(loc))
 
         threading.Thread(target=_fetch, daemon=True).start()
+
+    def _toggle_advanced(self):
+        if self._adv_open.get():
+            self._adv_frame.grid_forget()
+            self._adv_open.set(False)
+            self._adv_toggle_btn.configure(text="▶ Advanced options")
+        else:
+            self._adv_frame.grid(row=3, column=0, padx=20, pady=(2, 4), sticky="ew")
+            self._adv_open.set(True)
+            self._adv_toggle_btn.configure(text="▼ Advanced options")
 
     def _on_location(self, loc):
         if loc:
@@ -393,7 +420,9 @@ class HomeView(ctk.CTkFrame):
             from config.settings import GOOGLE_MAPS_API_KEY, OSRM_BASE_URL
 
             # Step 1 — geocode
-            use_google = self.backend_var.get() == "google"
+            # backend_var may include a suffix like "osrm (free)" — extract the key word
+            backend_raw = self.backend_var.get().split()[0]  # "osrm", "google", "haversine"
+            use_google = backend_raw == "google"
             self.after(0, lambda: self._status_var.set("Geocoding addresses…"))
             locations = geocode_addresses(
                 addrs,
@@ -418,7 +447,7 @@ class HomeView(ctk.CTkFrame):
 
             # Step 2 — distance matrix
             self.after(0, lambda: self._status_var.set("Building distance matrix…"))
-            backend = self.backend_var.get()
+            backend = self.backend_var.get().split()[0]  # strip any "(free)" suffix
             matrix = build_distance_matrix(
                 good,
                 backend=backend,

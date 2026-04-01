@@ -93,10 +93,12 @@ class ResultsScreen(Screen):
                                  size_hint_y=None, height=dp(20))
         sv_card.add_widget(self.sv_addr_lbl)
 
+        # Use free OSM tile URL by default; replaced with Street View URL if API key set
         self.sv_image = AsyncImage(
             source="",
             allow_stretch=True, keep_ratio=True,
             size_hint_y=None, height=dp(160),
+            nocache=True,
         )
         sv_card.add_widget(self.sv_image)
         root.add_widget(sv_card)
@@ -180,6 +182,12 @@ class ResultsScreen(Screen):
         self._load_sv(idx, addr, app.locations)
 
     def _load_sv(self, idx: int, addr: str, locs: list[dict]):
+        """
+        Load a preview for the selected stop.
+        - With Google API key: loads Street View Static image
+        - Without key: loads a free OSM static map tile
+        Both require no setup from end users.
+        """
         from config.settings import GOOGLE_MAPS_API_KEY
         from core.exporter import build_streetview_url
         lat = lng = None
@@ -187,16 +195,29 @@ class ResultsScreen(Screen):
             if loc["address"] == addr:
                 lat, lng = loc.get("lat"), loc.get("lng")
                 break
+
         key = GOOGLE_MAPS_API_KEY
-        if not key:
-            self.sv_addr_lbl.text += "  (No API key — set in Settings)"
-            return
-        try:
-            url = build_streetview_url(lat, lng, addr, api_key=key, width=600, height=300)
-            self.sv_image.source = url
+        if key and lat is not None and lng is not None:
+            try:
+                url = build_streetview_url(lat, lng, addr, api_key=key, width=600, height=300)
+                self.sv_image.source = url
+                self.sv_image.reload()
+                return
+            except Exception:
+                pass  # fall through to OSM
+
+        # Free OSM static map (no key required)
+        if lat is not None and lng is not None:
+            zoom = 16
+            import math
+            x = int((lng + 180) / 360 * 2**zoom)
+            y = int((1 - math.log(math.tan(math.radians(lat)) + 1/math.cos(math.radians(lat))) / math.pi) / 2 * 2**zoom)
+            osm_url = f"https://tile.openstreetmap.org/{zoom}/{x}/{y}.png"
+            self.sv_image.source = osm_url
             self.sv_image.reload()
-        except Exception as e:
-            self.sv_addr_lbl.text += f"  (Error: {e})"
+            self.sv_addr_lbl.text = f"Stop {idx+1}: {addr}  ·  OpenStreetMap"
+        else:
+            self.sv_addr_lbl.text = f"Stop {idx+1}: {addr}  ·  (location unknown)"
 
     def _add_stop(self):
         addr = self.add_input.text.strip()

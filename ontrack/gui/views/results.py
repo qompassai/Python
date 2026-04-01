@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
-gui/views/results.py — Route results, Street View preview, and map launch.
+gui/views/results.py — Route results, map preview, and map launch.
 
 Features:
   - Ordered stop table (stop #, address, ETA)
   - Add extra stop inline, remove stop, reorder stop
   - Re-solve with modified stop list
-  - Street View preview panel (embeds Street View Static API image or webview)
-  - Launch in Google Maps (all stops as waypoints)
-  - Launch in ArcGIS FieldMaps (per-stop deep link)
+  - Location preview panel:
+      • Always: free OSM map tile (no API key)
+      • With Google key: Street View Static image
+  - Launch in Google Maps (all stops as waypoints, no key needed)
+  - Launch in ArcGIS FieldMaps (per-stop deep link, no key needed)
   - Copy route as text / export CSV
   - Summary banner (stops, est. duration)
 """
@@ -16,13 +18,14 @@ Features:
 from __future__ import annotations
 import threading
 import webbrowser
+import math
 import os
 import io
 
 import customtkinter as ctk
 import tkinter as tk
 from tkinter import filedialog, messagebox
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageDraw, ImageFont
 import requests
 
 from core.exporter import (
@@ -45,7 +48,76 @@ TDS_BG      = "#111827"
 TDS_GREEN   = "#22C55E"
 TDS_RED     = "#EF4444"
 
-_NO_SV_MSG = "No Street View\nimage available"
+OSM_TILE_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+OSM_HEADERS  = {"User-Agent": "OnTrack-TDS/2.0 (field route optimizer)"}
+
+
+def _latlon_to_tile(lat: float, lng: float, zoom: int) -> tuple[int, int]:
+    x = int((lng + 180) / 360 * 2**zoom)
+    y = int((1 - math.log(math.tan(math.radians(lat)) + 1 / math.cos(math.radians(lat))) / math.pi) / 2 * 2**zoom)
+    return x, y
+
+
+def _fetch_osm_tile(lat: float, lng: float, zoom: int = 16) -> Image.Image | None:
+    """Fetch a single OSM tile and return a PIL Image, or None on failure."""
+    try:
+        x, y = _latlon_to_tile(lat, lng, zoom)
+        url = OSM_TILE_URL.format(z=zoom, x=x, y=y)
+        resp = requests.get(url, headers=OSM_HEADERS, timeout=6)
+        resp.raise_for_status()
+        return Image.open(io.BytesIO(resp.content)).convert("RGB")
+    except Exception:
+        return None
+
+
+def _build_map_image(lat: float, lng: float, width: int = 300, height: int = 200) -> Image.Image:
+    """
+    Build a map preview image centred on lat/lng using OSM tiles (no API key).
+    Fetches a 3×3 tile grid around the centre tile and stitches them,
+    then crops to the requested pixel size with a red pin in the centre.
+    """
+    zoom = 16
+    cx, cy = _latlon_to_tile(lat, lng, zoom)
+    tile_size = 256
+
+    # Fetch 3×3 grid around the centre tile
+    canvas = Image.new("RGB", (tile_size * 3, tile_size * 3), (30, 40, 60))
+    for dy in range(-1, 2):
+        for dx in range(-1, 2):
+            tile = _fetch_osm_tile.__wrapped__(lat, lng, zoom) if False else None
+            try:
+                url = OSM_TILE_URL.format(z=zoom, x=cx + dx, y=cy + dy)
+                resp = requests.get(url, headers=OSM_HEADERS, timeout=6)
+                resp.raise_for_status()
+                tile = Image.open(io.BytesIO(resp.content)).convert("RGB")
+            except Exception:
+                tile = Image.new("RGB", (tile_size, tile_size), (30, 40, 60))
+            canvas.paste(tile, ((dx + 1) * tile_size, (dy + 1) * tile_size))
+
+    # Precise pixel offset of the lat/lng within the centre tile
+    n = 2**zoom
+    x_frac = (lng + 180) / 360 * n - cx  # 0..1 within tile
+    lat_rad = math.radians(lat)
+    y_frac = (1 - math.log(math.tan(lat_rad) + 1 / math.cos(lat_rad)) / math.pi) / 2 * n - cy
+
+    pin_x = int(tile_size + x_frac * tile_size)
+    pin_y = int(tile_size + y_frac * tile_size)
+
+    # Crop around the pin
+    left   = max(0, pin_x - width  // 2)
+    top    = max(0, pin_y - height // 2)
+    right  = left + width
+    bottom = top  + height
+    cropped = canvas.crop((left, top, right, bottom))
+
+    # Draw a red pin circle
+    draw = ImageDraw.Draw(cropped)
+    px, py = pin_x - left, pin_y - top
+    r = 8
+    draw.ellipse([px - r, py - r, px + r, py + r], fill="#EF4444", outline="white", width=2)
+    draw.ellipse([px - 3, py - 3, px + 3, py + 3], fill="white")
+
+    return cropped
 
 
 class ResultsView(ctk.CTkFrame):
@@ -139,23 +211,34 @@ class ResultsView(ctk.CTkFrame):
         right.grid_rowconfigure(2, weight=1)
         right.grid_columnconfigure(0, weight=1)
 
-        ctk.CTkLabel(right, text="Street View",
+        # Panel header row
+        preview_header = ctk.CTkFrame(right, fg_color="transparent")
+        preview_header.grid(row=0, column=0, padx=14, pady=(14, 2), sticky="ew")
+        preview_header.grid_columnconfigure(0, weight=1)
+
+        ctk.CTkLabel(preview_header, text="Location Preview",
                      font=ctk.CTkFont(size=15, weight="bold"),
                      text_color=TDS_WHITE,
-                     ).grid(row=0, column=0, padx=16, pady=(14, 4), sticky="w")
+                     ).grid(row=0, column=0, sticky="w")
+
+        # Small badge showing data source
+        self._preview_source_var = tk.StringVar(value="OpenStreetMap")
+        ctk.CTkLabel(preview_header, textvariable=self._preview_source_var,
+                     font=ctk.CTkFont(size=10), text_color=TDS_GRAY,
+                     ).grid(row=0, column=1, sticky="e", padx=(0, 2))
 
         self._sv_addr_var = tk.StringVar(value="Select a stop to preview")
         ctk.CTkLabel(right, textvariable=self._sv_addr_var,
                      font=ctk.CTkFont(size=11), text_color=TDS_GRAY,
                      wraplength=290,
-                     ).grid(row=1, column=0, padx=16, pady=(0, 6), sticky="w")
+                     ).grid(row=1, column=0, padx=16, pady=(0, 4), sticky="w")
 
-        # Street View image display
+        # Preview image canvas (OSM map tile by default, Street View if key present)
         self.sv_canvas = tk.Canvas(right, bg="#0D1421", highlightthickness=0,
                                    width=300, height=200)
         self.sv_canvas.grid(row=2, column=0, padx=14, pady=0, sticky="nsew")
         self._sv_msg_id = self.sv_canvas.create_text(
-            150, 100, text="Select a stop\nto preview Street View",
+            150, 100, text="Select a stop\nto see its location",
             fill=TDS_GRAY, font=("Segoe UI", 12), justify="center",
         )
 
@@ -164,7 +247,7 @@ class ResultsView(ctk.CTkFrame):
         sv_actions.grid(row=3, column=0, padx=14, pady=10, sticky="ew")
 
         ctk.CTkButton(
-            sv_actions, text="🗺 Maps", width=90, height=32,
+            sv_actions, text="🗺 Navigate", width=100, height=32,
             fg_color=TDS_BLUE, hover_color=TDS_NAVY, text_color=TDS_WHITE,
             command=self._open_maps_single,
         ).pack(side="left", padx=(0, 6))
@@ -296,39 +379,68 @@ class ResultsView(ctk.CTkFrame):
             self._load_sv_image(idx, addr, lat, lng)
 
     def _load_sv_image(self, idx: int, addr: str, lat, lng):
+        """
+        Load a location preview image.
+        Priority:
+          1. OSM map tile (free, no key) — always attempted if lat/lng known
+          2. Google Street View Static API — only if API key is configured
+        Falls back to a plain text message if both fail.
+        """
         from config.settings import GOOGLE_MAPS_API_KEY
 
         self.sv_canvas.itemconfigure(self._sv_msg_id, text="Loading…")
+        key = GOOGLE_MAPS_API_KEY or os.getenv("GOOGLE_MAPS_API_KEY", "")
 
         def _fetch():
-            try:
-                key = GOOGLE_MAPS_API_KEY or os.getenv("GOOGLE_MAPS_API_KEY", "")
-                w = self.sv_canvas.winfo_width() or 300
-                h = self.sv_canvas.winfo_height() or 200
-                url = build_streetview_url(lat, lng, addr, api_key=key,
-                                           width=max(w, 200), height=max(h, 160))
-                resp = requests.get(url, timeout=10)
-                resp.raise_for_status()
+            w = max(self.sv_canvas.winfo_width() or 300, 200)
+            h = max(self.sv_canvas.winfo_height() or 200, 160)
 
-                img_data = resp.content
-                img = Image.open(io.BytesIO(img_data))
+            img: Image.Image | None = None
+            source = "OpenStreetMap"
+
+            # ── 1. Google Street View (if key available) ──────────────────
+            if key and lat is not None and lng is not None:
+                try:
+                    sv_url = build_streetview_url(lat, lng, addr, api_key=key,
+                                                  width=w, height=h)
+                    resp = requests.get(sv_url, timeout=10)
+                    resp.raise_for_status()
+                    # Google returns a grey "no imagery" image for missing locations;
+                    # check Content-Type — real SV images are image/jpeg
+                    if "image/jpeg" in resp.headers.get("Content-Type", ""):
+                        img = Image.open(io.BytesIO(resp.content))
+                        source = "Google Street View"
+                except Exception:
+                    pass  # fall through to OSM
+
+            # ── 2. OSM map tile (free fallback, always works) ─────────────
+            if img is None and lat is not None and lng is not None:
+                try:
+                    img = _build_map_image(lat, lng, width=w, height=h)
+                    source = "OpenStreetMap"
+                except Exception:
+                    pass
+
+            if img is not None:
+                img = img.resize((w, h), Image.LANCZOS)
                 photo = ImageTk.PhotoImage(img)
                 self._sv_cache[idx] = photo
-                self.after(0, lambda: self._show_sv_image(photo))
-            except Exception as e:
+                self.after(0, lambda p=photo, s=source: self._show_sv_image(p, s))
+            else:
                 self.after(0, lambda: self.sv_canvas.itemconfigure(
-                    self._sv_msg_id, text=_NO_SV_MSG + f"\n({type(e).__name__})"
+                    self._sv_msg_id, text="Location preview\nnot available"
                 ))
 
         threading.Thread(target=_fetch, daemon=True).start()
 
-    def _show_sv_image(self, photo: ImageTk.PhotoImage):
+    def _show_sv_image(self, photo: ImageTk.PhotoImage, source: str = "OpenStreetMap"):
         self.sv_canvas.delete("img")
         self.sv_canvas.itemconfigure(self._sv_msg_id, text="")
         w = self.sv_canvas.winfo_width() or 300
         h = self.sv_canvas.winfo_height() or 200
         self.sv_canvas.create_image(w // 2, h // 2, image=photo, anchor="center", tags="img")
         self._current_photo = photo  # keep reference
+        self._preview_source_var.set(source)
 
     # ── Inline stop editing ────────────────────────────────────────────────
 
