@@ -1,14 +1,27 @@
-# /qompassai/python/ontrack/requirements.txt
-# Qompass AI Ontrack Requirements
-# ---------------------------------------------------
-customtkinter
-pandas
-openpyxl
-geopy
-routingpy
-ortools
-folium
-python-dotenv
-pyinstaller
-pyshortcuts
-Pillow
+# OnTrack v2 — Desktop (Windows / Linux x86_64) requirements
+# Install: pip install -r requirements.txt
+
+# ── Core logic ──────────────────────────────────────────────────────────────
+pandas>=1.5
+openpyxl>=3.0
+geopy>=2.3
+requests>=2.28
+ortools>=9.5
+python-dotenv>=1.0
+routingpy>=1.0
+
+# ── Desktop GUI ──────────────────────────────────────────────────────────────
+customtkinter>=5.2
+Pillow>=9.0
+
+# ── Desktop packaging ────────────────────────────────────────────────────────
+pyinstaller>=6.0
+pyshortcuts>=1.9
+
+# ── Map rendering (desktop preview panel) ───────────────────────────────────
+folium>=0.14
+
+# ── Dev / test ───────────────────────────────────────────────────────────────
+pytest>=8.0
+pytest-mock>=3.12
+pytest-cov>=5.0

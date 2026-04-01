@@ -1,155 +1,166 @@
-<p align="center">
-  <img src="assets/ontrack.jpg" alt="ONTrack" width="150"/>
-</p>
+# OnTrack v2 — TDS Telecom Field Route Optimizer
 
-<h1 align="center">ONTrack</h1>
-
-<p align="center">
-  <b>Route Optimizer for Folks in a Hurry</b><br/>
-  Built with Python · OR-Tools · CustomTkinter
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/python-3.11+-blue?style=flat-square"/>
-  <img src="https://img.shields.io/badge/platform-Windows-informational?style=flat-square"/>
-  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square"/>
-  <img src="https://img.shields.io/badge/status-active-brightgreen?style=flat-square"/>
-  <img src="https://img.shields.io/badge/OR--Tools-routing-orange?style=flat-square"/>
-  <img src="https://img.shields.io/badge/🚧%20WIP-not%20production%20ready-yellow?style=flat-square"/>
-</p>
-
-> [!WARNING]
-> ONTrack is a **work in progress**. Core routing logic is functional but the GUI, installer, and map preview are still being built out. Not recommended for production field use yet.
+Route optimization tool for TDS field service technicians.  
+Enter addresses manually or load a CSV/Excel file, optimize the drive order, preview each stop in Street View, and launch turn-by-turn navigation in Google Maps or ArcGIS FieldMaps.
 
 ---
 
-## What It Does
+## Features
 
-ONTrack takes a CSV or Excel file of street addresses, geocodes them, builds a real-road distance matrix, and solves the optimal drive order using Google OR-Tools — then exports the route and opens it directly in Google Maps.
+| Feature | Desktop | Android |
+|---|---|---|
+| Manual address entry | ✓ | ✓ |
+| CSV / Excel import | ✓ | – |
+| Current location as start | ✓ (IP) | ✓ (GPS) |
+| Drag-to-reorder stops | ✓ | ✓ (delete/add) |
+| TSP route optimization | OR-Tools | Nearest-neighbor |
+| Distance backend: OSRM | ✓ | ✓ |
+| Distance backend: Google | ✓ (key) | ✓ (key) |
+| Street View preview | ✓ (key) | ✓ (key) |
+| Launch Google Maps | ✓ | ✓ |
+| Launch ArcGIS FieldMaps | ✓ | ✓ |
+| Launch Waze | ✓ | ✓ |
+| Add/remove stops after solve | ✓ | ✓ |
+| Re-optimize after edits | ✓ | ✓ |
+| CSV export | ✓ | – |
 
 ---
 
-## Quick Start
+## Setup
 
-> [!NOTE]
-> Requires Python 3.11+ and pip. Windows `.exe` build coming soon.
-
+### 1. Copy the example environment file
 ```bash
-git clone https://github.com/qompassai/python.git
-cd python/ontrack
+cp .env.example .env
+```
+Edit `.env` and add your Google Maps API key and ArcGIS item ID.  
+You can also set these values from the **Settings** screen inside the app.
+
+### 2. Install desktop dependencies
+```bash
 pip install -r requirements.txt
+```
+
+### 3. Run on desktop
+```bash
 python main.py
 ```
 
 ---
 
-## How It Works
+## Build — Desktop
 
-| Step | Module             | Description                                               |
-|------|--------------------|-----------------------------------------------------------|
-| 1    | `core/parser.py`   | Reads CSV or Excel, extracts address column               |
-| 2    | `core/geocoder.py` | Geocodes each address to lat/lng via Nominatim or Google  |
-| 3    | `core/matrix.py`   | Builds NxN real-road distance matrix via OSRM             |
-| 4    | `core/solver.py`   | Solves TSP with OR-Tools, returns ordered stop list       |
-| 5    | `core/exporter.py` | Exports sorted CSV + opens Google Maps deep link          |
+### Windows (one-file EXE)
+```powershell
+pip install pyinstaller
+pyinstaller ontrack.spec
+# Output: dist/OnTrack.exe
+```
 
----
-
-## Configuration
-
-ONTrack works **fully out of the box with no API keys**. All default services are free and open:
-
-| Service      | Provider                   | Key Required |
-|--------------|----------------------------|--------------|
-| Geocoding    | Nominatim (OpenStreetMap)  | ❌ None      |
-| Routing      | OSRM public server         | ❌ None      |
-| Map preview  | Folium + OpenStreetMap     | ❌ None      |
-| Route export | Google Maps URL            | ❌ None      |
-
-Optionally drop a `.env` file in the project root to upgrade to Google Maps Platform for better rural accuracy:
-
+### Linux x86_64 (one-file binary)
 ```bash
-cp .env.example .env
-# Then add your key:
-# GOOGLE_MAPS_API_KEY=your_key_here
+pip install pyinstaller
+pyinstaller ontrack.spec
+# Output: dist/OnTrack
 ```
 
 ---
 
-## Roadmap
+## Build — Android APK
 
-- [x] Project scaffold and structure
-- [x] CSV/Excel parser (`core/parser.py`)
-- [x] Geocoder with Nominatim (`core/geocoder.py`)
-- [ ] OSRM distance matrix builder
-- [ ] OR-Tools TSP solver
-- [ ] CustomTkinter GUI
-- [ ] Google Maps deep link export
-- [ ] PyInstaller `.exe` build
-- [ ] Desktop shortcut + icon installer
+**Prerequisites:** Ubuntu/Debian Linux (or WSL2), Java 17, Android SDK/NDK.
+
+```bash
+pip install buildozer
+
+# First build (downloads Android SDK + NDK — takes 20–40 min)
+buildozer android debug
+
+# APK output:
+# bin/ontrack-2.0.0-arm64-v8a-debug.apk
+```
+
+> **Note:** OR-Tools has no python-for-android recipe.  
+> The Android build uses a pure-Python nearest-neighbor solver instead.  
+> This gives good-quality routes for typical field routes (≤ 30 stops).
+
+### Sign for Play Store
+```bash
+# Build release AAB
+buildozer android release
+# Then sign with your keystore and upload to Google Play Console.
+```
 
 ---
 
-## Project Structure
+## API Keys
+
+All keys are optional — the app works without them using free fallbacks.
+
+| Key | Used for | Get it |
+|---|---|---|
+| `GOOGLE_MAPS_API_KEY` | Street View images, Google geocoding, Google distance matrix | [console.cloud.google.com](https://console.cloud.google.com/google/maps-apis/credentials) |
+| `ARCGIS_ITEM_ID` | Opens correct web map in ArcGIS FieldMaps | Your ArcGIS Online map URL |
+
+---
+
+## Distance Backends
+
+| Backend | Requires | Quality |
+|---|---|---|
+| `osrm` (default) | None (uses public router) | Good — real road distances |
+| `google` | `GOOGLE_MAPS_API_KEY` | Best — live traffic aware |
+| `haversine` | None | Fast — straight-line only |
+
+---
+
+## Address File Format
+
+CSV or Excel with a column named `address`:
+
+```csv
+address
+123 Main St Spokane WA
+456 Elm St Coeur d'Alene ID
+789 Oak Ave Post Falls ID
+```
+
+---
+
+## Architecture
 
 ```
 ontrack/
-├── main.py                  # Entrypoint
-├── ontrack.spec             # PyInstaller build spec
-├── README.md
-├── requirements.txt
-│
-├── gui/
-│   ├── app.py               # CTk root window
-│   ├── views/
-│   │   ├── home.py          # File picker + depot input
-│   │   ├── results.py       # Route display table
-│   │   └── settings.py      # API keys + prefs
-│   └── components/
-│       ├── file_picker.py
-│       ├── address_table.py
-│       └── map_preview.py
-│
+├── main.py                 # Entry point — detects desktop vs Android
 ├── core/
-│   ├── parser.py            # CSV/Excel → address list
-│   ├── geocoder.py          # Address → lat/lng
-│   ├── matrix.py            # Distance matrix (OSRM)
-│   ├── solver.py            # OR-Tools TSP
-│   └── exporter.py          # CSV + Maps URL
-│
-├── assets/
-│   ├── ontrack.jpg
-│   ├── ontrack.png
-│   ├── ontrack.ico
-│   └── themes/ontrack.json
-│
+│   ├── parser.py           # CSV/Excel → address list
+│   ├── geocoder.py         # Address → lat/lng (Nominatim or Google)
+│   ├── matrix.py           # Distance matrix (OSRM / Google / Haversine)
+│   ├── solver.py           # TSP optimizer (OR-Tools or nearest-neighbor)
+│   └── exporter.py         # CSV export, Maps URL, FieldMaps URL, Street View URL
+├── gui/                    # Desktop UI (CustomTkinter)
+│   ├── app.py
+│   └── views/
+│       ├── home.py         # Address input + solve
+│       ├── results.py      # Route table + Street View + map launch
+│       └── settings.py     # API keys + preferences
+├── mobile/                 # Android UI (Kivy)
+│   ├── app.py
+│   └── screens/
+│       ├── home.py
+│       ├── results.py
+│       └── settings.py
 ├── config/
-│   └── settings.py          # dotenv API key loader
-│
-└── tests/
-    ├── test_parser.py
-    ├── test_geocoder.py
-    ├── test_solver.py
-    └── sample_addresses.csv
+│   └── settings.py         # Env var loader
+├── assets/                 # Icons, splash
+├── buildozer.spec          # Android build config
+├── ontrack.spec            # PyInstaller desktop build config
+└── tests/                  # pytest test suite
 ```
 
 ---
 
-## Building the Windows `.exe`
+## TDS Internal Notes
 
-```bash
-pyinstaller --onefile --windowed \
-  --icon=assets/ontrack.ico \
-  --name="ONTrack" \
-  --add-data "assets;assets" \
-  --hidden-import ortools \
-  main.py
-```
-
-Output: `dist/ONTrack.exe` — no Python install required on the target machine.
-
----
-
-## License
-
-MIT © [Qompass AI](https://github.com/qompassai)
+- The app does not transmit any address data to TDS servers. All routing uses OSRM (free, no account) or the technician's own Google Maps API key.  
+- ArcGIS FieldMaps deep links open the technician's configured web map and search for the stop address.  
+- For enterprise deployment, set `OSRM_BASE_URL` to a self-hosted OSRM instance on TDS infrastructure for offline-capable routing.
