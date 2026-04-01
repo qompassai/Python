@@ -1,0 +1,56 @@
+---
+.title = "Rust Implementation",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+## Overview
+
+The Rust implementation (`ontrack-rs/`) is a performance-focused rewrite of OnTrack. It compiles to native binaries with no runtime dependencies and provides both a CLI and a desktop GUI.
+
+## Workspace Structure
+
+OnTrack-rs is a Cargo workspace with three crates:
+
+```
+ontrack-rs/
+├── Cargo.toml            # Workspace root
+├── ontrack-core/         # Shared library
+│   └── src/
+│       ├── lib.rs        # Module re-exports
+│       ├── config.rs     # .env configuration
+│       ├── parser.rs     # Address parsing
+│       ├── geocoder.rs   # Geocoding (Nominatim/Google)
+│       ├── matrix.rs     # Distance matrix
+│       ├── solver.rs     # TSP solver (2-opt, NN)
+│       └── exporter.rs   # Output generation
+├── ontrack-cli/          # CLI binary
+│   └── src/main.rs
+└── ontrack-gui/          # GUI binary (egui)
+    └── src/main.rs
+```
+
+## Key Technical Choices
+
+| Choice | Rationale |
+|--------|-----------|
+| Rust edition 2021 | Stable, well-supported |
+| tokio (full) | Async runtime for concurrent HTTP requests |
+| reqwest + rustls-tls | HTTP client without OpenSSL dependency at runtime |
+| serde + serde_json | Zero-copy JSON deserialization |
+| anyhow + thiserror | Ergonomic error handling |
+| clap (derive) | Type-safe CLI argument parsing |
+| eframe/egui | Immediate-mode GPU-accelerated GUI |
+
+## Version
+
+Current version: **2.0.0** (defined in workspace `Cargo.toml`)
+
+## Pages in This Section
+
+- [ontrack-core](/rust/core) — Shared library crate
+- [CLI Usage](/rust/cli) — Command-line interface
+- [GUI (egui)](/rust/gui) — Desktop application
+- [Testing](/rust/testing) — Rust test suite

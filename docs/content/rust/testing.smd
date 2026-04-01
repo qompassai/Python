@@ -1,0 +1,97 @@
+---
+.title = "Rust Testing",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+## Running Tests
+
+```bash
+cd ontrack-rs
+
+# Run all tests
+cargo test
+
+# Run tests for a specific crate
+cargo test -p ontrack-core
+cargo test -p ontrack-cli
+
+# Run with output
+cargo test -- --nocapture
+
+# Run a specific test
+cargo test test_haversine
+```
+
+## Test Organization
+
+Tests live in the standard Rust locations:
+
+- **Unit tests**: `#[cfg(test)] mod tests` at the bottom of each source file
+- **Integration tests**: In `tests/` directories within each crate
+- **Dev dependencies**: `tempfile` crate for temporary file handling in tests
+
+## What Is Tested
+
+### ontrack-core
+
+- **parser**: CSV parsing with headers, plain text parsing, empty input
+- **geocoder**: Nominatim response parsing, coordinate extraction
+- **matrix**: Haversine distance calculation, matrix shape validation
+- **solver**: 2-opt produces a valid tour, nearest-neighbor produces a valid tour, edge cases (2 stops, identical locations)
+- **exporter**: Google Maps URL format, CSV output, URL chunking
+
+### ontrack-cli
+
+- **CLI parsing**: clap argument validation, subcommand routing
+- **Integration**: End-to-end with sample CSV (mocked HTTP)
+
+## Linting
+
+Clippy is run with `-D warnings` to enforce clean code:
+
+```bash
+cargo clippy -- -D warnings
+```
+
+This is also a Nix flake check — `nix flake check` runs clippy automatically.
+
+## Security Auditing
+
+Two tools check for vulnerabilities and license compliance:
+
+### cargo audit
+
+Checks dependencies against the [RustSec Advisory Database](https://rustsec.org/):
+
+```bash
+cargo audit
+```
+
+### cargo deny
+
+Checks licenses, advisories, and dependency sources:
+
+```bash
+cargo deny check
+```
+
+Both are included in the Nix flake checks and the `devShells.rust` environment.
+
+## Continuous Integration
+
+The Nix flake `checks` attribute runs all of these automatically:
+
+```bash
+nix flake check
+```
+
+This executes:
+1. `cargo clippy -- -D warnings`
+2. `cargo test`
+3. `cargo audit`
+4. `cargo deny check`
+
+All checks must pass for the flake to be considered valid.

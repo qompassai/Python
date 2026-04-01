@@ -1,0 +1,79 @@
+---
+.title = "Python Implementation",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+## Overview
+
+The Python implementation of OnTrack (`ontrack/`) is the original version, featuring:
+
+- **Desktop GUI** built with CustomTkinter — runs on Windows, Linux, and macOS
+- **Android app** built with Kivy — deployable via buildozer as an APK
+- **Google OR-Tools** integration for production-grade TSP/VRP solving
+- **PyO3/maturin** build system for optional Rust-accelerated components
+
+## Project Structure
+
+```
+ontrack/
+├── main.py                 # Entry point — detects desktop vs Android
+├── core/                   # Business logic (platform-independent)
+│   ├── parser.py           # CSV/Excel/text → address list
+│   ├── geocoder.py         # Address → lat/lng coordinates
+│   ├── matrix.py           # Distance/duration matrix
+│   ├── solver.py           # TSP optimizer (OR-Tools + NN fallback)
+│   └── exporter.py         # CSV export, Maps/FieldMaps URLs
+├── gui/                    # Desktop GUI (CustomTkinter)
+│   ├── app.py              # Main application window
+│   ├── components/         # Reusable widgets
+│   └── views/              # Screen views (home, results, settings)
+├── mobile/                 # Android GUI (Kivy)
+│   ├── app.py              # Kivy application
+│   └── screens/            # Mobile screens
+├── tests/                  # pytest test suite
+├── assets/                 # Images, themes
+├── pyproject.toml          # Build config (maturin)
+├── requirements.txt        # Desktop dependencies
+├── requirements-android.txt # Android dependencies
+├── ontrack.spec            # PyInstaller config
+└── buildozer.spec          # Android build config
+```
+
+## Key Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| pandas | DataFrame operations for address data |
+| openpyxl | Excel file reading |
+| geopy | Geocoding abstraction layer |
+| requests | HTTP client for APIs |
+| ortools | Google OR-Tools TSP/VRP solver |
+| python-dotenv | .env file loading |
+| routingpy | Routing engine abstraction |
+| customtkinter | Modern Tkinter-based GUI |
+| Pillow | Image processing |
+| folium | Map rendering |
+
+## Platform Detection
+
+`main.py` auto-detects the runtime environment:
+
+```python
+try:
+    import android
+    _PLATFORM = "android"
+except ImportError:
+    _PLATFORM = "desktop"
+```
+
+On Android (built via buildozer/python-for-android), the `android` module is available. On desktop, it falls back to the CustomTkinter GUI. The `--mobile` flag can force mobile mode for testing.
+
+## Pages in This Section
+
+- [Core Modules](/python/core) — Parser, geocoder, matrix, solver, exporter
+- [Desktop GUI](/python/gui) — CustomTkinter application
+- [Android App](/python/mobile) — Kivy mobile app
+- [Testing](/python/testing) — pytest suite and coverage

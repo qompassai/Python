@@ -1,0 +1,128 @@
+---
+.title = "CLI Usage",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+The OnTrack CLI (`ontrack`) is a full-featured command-line interface for route optimization.
+
+## Installation
+
+```bash
+# Via Nix
+nix run github:qompassai/Python#ontrack-cli
+
+# Build from source
+cd ontrack-rs
+cargo build --release
+# Binary: target/release/ontrack
+```
+
+## Commands
+
+### `ontrack route` — Optimize a Route
+
+```bash
+# From a CSV file
+ontrack route stops.csv
+
+# Interactive mode — type addresses one per line
+ontrack route --interactive
+
+# With options
+ontrack route stops.csv \
+  --backend osrm \
+  --solver 2opt \
+  --depot 0 \
+  --open-maps \
+  --export route.csv
+```
+
+**Flags:**
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `--backend` | `osrm` | Distance matrix: `osrm`, `google`, `haversine` |
+| `--solver` | `2opt` | TSP algorithm: `2opt`, `nn` |
+| `--depot` | `0` | Starting stop index |
+| `--open-maps` | off | Open route in Google Maps |
+| `--open-fieldmaps` | off | Open first stop in ArcGIS FieldMaps |
+| `--open-waze` | off | Open first stop in Waze |
+| `--export FILE` | none | Export route to CSV |
+| `--open-route` | `true` | Open route (don't return to start) |
+| `--interactive` | off | Enter addresses interactively |
+
+### `ontrack geocode` — Geocode Addresses
+
+```bash
+ontrack geocode "123 Main St, Madison, WI" "456 Oak Ave, Madison, WI"
+```
+
+Prints lat/lng for each address. Useful for verifying geocoding accuracy.
+
+### `ontrack location` — Current Location
+
+```bash
+ontrack location
+```
+
+Shows approximate device location via IP geolocation.
+
+### `ontrack config` — Show Configuration
+
+```bash
+ontrack config
+```
+
+Displays current `.env` settings (API keys, OSRM URL, etc.).
+
+## Global Flags
+
+| Flag | Description |
+|------|-------------|
+| `-v, --verbose` | Enable debug logging |
+| `--help` | Show help |
+| `--version` | Show version (2.0.0) |
+
+## Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `ONTRACK_BACKEND` | Default matrix backend (overrides `--backend`) |
+| `ONTRACK_SOLVER` | Default solver (overrides `--solver`) |
+| `GOOGLE_MAPS_API_KEY` | Google Maps API key |
+| `OSRM_BASE_URL` | OSRM server URL |
+
+## Output Example
+
+```
+✓ 5 addresses loaded
+✓ 5 stops after geocoding
+
+✓ Route ready  5 stops  ·  42m 18s  ·  solver: TwoOpt  ·  matrix: osrm
+
+   1.  123 Main St, Madison, WI
+   2.  789 Pine Rd, Madison, WI
+   3.  456 Oak Ave, Madison, WI
+   4.  321 Elm St, Madison, WI
+   5.  654 Maple Dr, Madison, WI
+
+Google Maps:
+  https://www.google.com/maps/dir/...
+ArcGIS FieldMaps:
+  https://fieldmaps.arcgis.com/...
+```
+
+## CSV Input Format
+
+The input CSV needs an `address` column:
+
+```csv
+address
+"123 Main St, Madison, WI"
+"456 Oak Ave, Madison, WI"
+```
+
+Extra columns are ignored. If no header is detected, each line is treated as an address.

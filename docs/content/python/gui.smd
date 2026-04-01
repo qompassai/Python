@@ -1,0 +1,79 @@
+---
+.title = "Desktop GUI (CustomTkinter)",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+The desktop GUI is built with [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter), a modern-looking extension of Python's built-in Tkinter framework.
+
+## Application Structure
+
+```
+gui/
+├── app.py                 # ONTrackApp — main window and navigation
+├── components/
+│   ├── address_table.py   # Scrollable address list widget
+│   ├── file_picker.py     # File selection with drag-and-drop
+│   └── map_preview.py     # Folium map preview panel
+└── views/
+    ├── home.py            # Address input + optimize button
+    ├── results.py         # Route table, Street View, launch maps
+    └── settings.py        # API key and preference configuration
+```
+
+## Views
+
+### Home View
+- **File picker**: Load CSV or Excel files
+- **Text area**: Manually enter or paste addresses (one per line)
+- **Optimize button**: Triggers the geocode → matrix → solve pipeline
+- **Progress indicator**: Shows geocoding and solving progress
+
+### Results View
+- **Route table**: Numbered list of optimized stops
+- **Action buttons**: Open in Google Maps, FieldMaps, or Waze
+- **Street View**: Thumbnail previews for each stop
+- **Export**: Save route to CSV
+- **Map preview**: Interactive Folium map with route markers
+
+### Settings View
+- **Google Maps API Key**: Optional — enables Google backends
+- **OSRM Base URL**: Custom OSRM server (default: public demo)
+- **ArcGIS Item ID**: For FieldMaps deep links
+- **Solver preference**: OR-Tools vs nearest-neighbor
+- **Matrix backend**: OSRM, Google, or Haversine
+
+## Running the Desktop GUI
+
+```bash
+cd ontrack
+pip install -r requirements.txt
+python main.py
+```
+
+On Linux, ensure Tk is installed:
+```bash
+# Debian/Ubuntu
+sudo apt install python3-tk
+
+# Fedora
+sudo dnf install python3-tkinter
+```
+
+## Building a Standalone Binary
+
+PyInstaller creates a single executable with all dependencies bundled:
+
+```bash
+cd ontrack
+pyinstaller ontrack.spec
+# Output: dist/ontrack (or dist/ontrack.exe on Windows)
+```
+
+The `.spec` file includes CustomTkinter themes and asset files.
+
+## Theming
+
+OnTrack uses a custom theme defined in `assets/themes/ontrack.json`. CustomTkinter supports light and dark modes — the theme follows the system preference.

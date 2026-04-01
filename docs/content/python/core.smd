@@ -1,0 +1,91 @@
+---
+.title = "Python Core Modules",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+The `core/` directory contains all platform-independent business logic. These modules are used by both the desktop GUI and Android app.
+
+## parser.py — Address Parsing
+
+Reads addresses from multiple input formats:
+
+- **CSV** with an `address` column header
+- **Excel (.xlsx)** with an `address` column
+- **Plain text** with one address per line
+
+Returns a list of address strings for geocoding.
+
+## geocoder.py — Geocoding Pipeline
+
+Converts street addresses to latitude/longitude coordinates.
+
+### Backends
+
+1. **Nominatim** (default) — Free OpenStreetMap-based geocoding. Rate-limited to 1 request/second per Nominatim usage policy.
+2. **Google Maps** — Higher accuracy, requires `GOOGLE_MAPS_API_KEY` in `.env`. Used when the key is set and the Google backend is selected.
+
+### Behavior
+
+- Each address is geocoded independently
+- Failed geocodes produce a warning but do not halt processing
+- A progress callback reports completion status to the UI
+- IP-based geolocation is available for "current location" features
+
+## matrix.py — Distance Matrix
+
+Builds an N×N matrix of travel times (in seconds) between all geocoded locations.
+
+### Backends
+
+| Backend | How It Works | When to Use |
+|---------|-------------|-------------|
+| **OSRM** | Queries the Open Source Routing Machine for real driving times | Default — free and accurate |
+| **Google** | Uses Google Distance Matrix API | When you need traffic-aware estimates |
+| **Haversine** | Calculates straight-line distance using the Haversine formula | Offline fallback, least accurate |
+
+The backend is selected at runtime via CLI flag or GUI setting.
+
+## solver.py — TSP Solver
+
+The core route optimization engine.
+
+### OR-Tools Solver (Primary)
+
+Google OR-Tools provides an industrial-strength Constraint Programming solver:
+
+- **Initial solution**: `PATH_CHEAPEST_ARC` — greedy algorithm that picks the cheapest next arc
+- **Metaheuristic**: `GUIDED_LOCAL_SEARCH` — iteratively improves the solution by penalizing frequently-used arcs
+- **Time limit**: Configurable (default 30 seconds)
+- **Supports VRP**: Multiple vehicles, time windows, and disjunction penalties for droppable nodes
+- **Matrix scaling**: Large duration values are divided by a configurable scale factor to avoid integer overflow
+
+### Nearest-Neighbor Solver (Fallback)
+
+A pure Python greedy heuristic for environments where OR-Tools is unavailable (notably Android via python-for-android):
+
+- O(n²) complexity — acceptable for typical field routes (under 50 stops)
+- Starts at the depot, always visits the nearest unvisited node
+- No optimization pass — produces a good-enough solution quickly
+
+### Public API
+
+```python
+solve_tsp(locations, matrix, depot_index=0, force_backend=None) -> RouteResult
+solve_open_tsp(locations, matrix, start_index=0) -> RouteResult
+```
+
+`solve_open_tsp` adds a zero-cost dummy sink node so the driver does not return to the starting location.
+
+## exporter.py — Output Generation
+
+Produces multiple output formats from the solved route:
+
+- **CSV export** — ordered address list with sequence numbers
+- **Google Maps URL** — deep link with waypoints (auto-chunked for >10 stops)
+- **ArcGIS FieldMaps URL** — deep link with lat/lng and optional item ID
+- **Waze URL** — navigation link to the first stop
+- **Street View links** — for each address in the route
+- **Plain text** — formatted route summary for terminal or clipboard

@@ -1,0 +1,83 @@
+---
+.title = "Android App (Kivy)",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+The Android app is built with [Kivy](https://kivy.org/), a Python framework for cross-platform touch interfaces. It is packaged as an APK using [buildozer](https://github.com/kivy/buildozer).
+
+## Structure
+
+```
+mobile/
+├── app.py              # OnTrackMobileApp — Kivy application entry
+└── screens/
+    ├── home.py         # Address input screen
+    ├── results.py      # Route results screen
+    └── settings.py     # Configuration screen
+```
+
+## Key Differences from Desktop
+
+| Feature | Desktop | Android |
+|---------|---------|---------|
+| GUI framework | CustomTkinter | Kivy |
+| TSP solver | OR-Tools (primary) | Nearest-neighbor only |
+| File picker | Native OS dialog | Android file intent |
+| Map preview | Folium (HTML) | Opens in Maps app |
+
+OR-Tools is not available on Android because python-for-android lacks an OR-Tools recipe. The nearest-neighbor fallback is used instead — it produces good results for typical field routes.
+
+## Building the APK
+
+### Prerequisites
+
+- Python 3.11+
+- buildozer (`pip install buildozer`)
+- Android SDK and NDK (buildozer downloads these automatically on first build)
+- Java JDK 17
+
+### Build Commands
+
+```bash
+cd ontrack
+
+# Debug APK (faster build, larger file)
+buildozer android debug
+
+# Release APK (optimized, requires signing)
+buildozer android release
+
+# Deploy to connected device
+buildozer android debug deploy run
+```
+
+The first build takes 15-30 minutes as buildozer downloads the Android SDK, NDK, and compiles all Python dependencies.
+
+### buildozer.spec
+
+Key settings in `buildozer.spec`:
+
+```ini
+[app]
+title = OnTrack
+package.name = ontrack
+package.domain = ai.qompass
+source.include_exts = py,png,jpg,json,csv,txt
+requirements = python3,kivy,requests,geopy,python-dotenv
+android.permissions = INTERNET
+```
+
+## Testing Android-Specific Code
+
+The CI pipeline validates Android configuration without building a full APK:
+
+```bash
+# Run Android-marked tests
+pytest -m android
+
+# Validate buildozer.spec parsing
+python -c "import configparser; c = configparser.ConfigParser(); c.read('buildozer.spec')"
+```

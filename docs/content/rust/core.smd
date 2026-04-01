@@ -1,0 +1,113 @@
+---
+.title = "ontrack-core Crate",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+`ontrack-core` is the shared library crate containing all route optimization logic. It is used by both the CLI and GUI crates.
+
+## Public API
+
+```rust
+// Re-exported at crate root
+pub use geocoder::Location;
+pub use solver::{RouteResult, SolverBackend};
+pub use matrix::MatrixBackend;
+```
+
+## Modules
+
+### config.rs
+
+Loads configuration from environment variables and `.env` files via `dotenvy`:
+
+- `GOOGLE_MAPS_API_KEY` — optional Google API key
+- `OSRM_BASE_URL` — OSRM server (default: public demo)
+- `ARCGIS_ITEM_ID` — optional ArcGIS FieldMaps item
+
+### parser.rs
+
+Reads addresses from files:
+
+- **CSV**: Parses files with an `address` column header using the `csv` crate
+- **Plain text**: One address per line, trimmed and filtered for empty lines
+
+### geocoder.rs
+
+Async geocoding with progress callbacks:
+
+- **Nominatim**: Queries `nominatim.openstreetmap.org` with URL-encoded addresses
+- **Google**: Uses the Google Geocoding API when a key is available
+- **IP geolocation**: `get_current_location_ip()` for coarse device location
+
+All geocoding is async via `reqwest` and `tokio`, enabling concurrent requests (within rate limits).
+
+### matrix.rs
+
+Builds the N×N travel time matrix:
+
+```rust
+pub enum MatrixBackend {
+    Osrm,
+    Google,
+    Haversine,
+}
+```
+
+- **OSRM**: Sends all coordinates to the OSRM table service in a single request
+- **Google**: Uses the Distance Matrix API (batched)
+- **Haversine**: Pure math using `libm` — calculates great-circle distance, estimates travel time at 40 km/h average
+
+### solver.rs
+
+TSP solver with two algorithms:
+
+```rust
+pub enum SolverBackend {
+    TwoOpt,
+    NearestNeighbor,
+}
+```
+
+**2-opt algorithm**:
+1. Start with a nearest-neighbor initial tour
+2. For each pair of edges, check if reversing the segment between them reduces total distance
+3. Repeat until no improvement is found (local optimum)
+4. Time complexity: O(n²) per improvement pass, typically converges quickly
+
+**Nearest-neighbor**:
+- Same greedy algorithm as the Python version
+- Always visits the closest unvisited node
+- O(n²) total
+
+Both solvers produce a `RouteResult` with ordered addresses, indices, total duration, and the backend used.
+
+### exporter.rs
+
+Output formatting:
+
+- `build_maps_url()` — Google Maps directions URL
+- `build_maps_url_chunked()` — splits >10 stops into multiple URLs
+- `build_fieldmaps_url()` — ArcGIS FieldMaps deep link
+- `build_waze_url()` — Waze navigation link
+- `export_csv()` — writes ordered addresses to a CSV file
+- `format_route_text()` — human-readable route summary
+
+## Dependencies
+
+All dependencies are declared in the workspace `Cargo.toml` and inherited:
+
+```toml
+tokio       = { version = "1",    features = ["full"] }
+reqwest     = { version = "0.12", features = ["json", "rustls-tls"] }
+serde       = { version = "1",    features = ["derive"] }
+serde_json  = "1"
+anyhow      = "1"
+thiserror   = "1"
+csv         = "1"
+urlencoding = "2"
+tracing     = "0.1"
+libm        = "0.2"  # core-only: math for Haversine
+```

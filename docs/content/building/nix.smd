@@ -1,0 +1,123 @@
+---
+.title = "Nix Flake Guide",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+The repository root contains a unified Nix flake that builds both the Python and Rust OnTrack implementations.
+
+## Prerequisites
+
+- Nix with flakes enabled
+- Add `experimental-features = nix-command flakes` to `~/.config/nix/nix.conf`
+
+## Flake Inputs
+
+| Input | Purpose |
+|-------|---------|
+| `nixpkgs` | Package repository (nixos-unstable) |
+| `flake-utils` | Multi-platform system iteration |
+| `rust-overlay` | Pinned Rust toolchain with clippy, rustfmt, rust-analyzer |
+| `crane` | Incremental Rust builds with shared cargo artifacts |
+
+## Packages
+
+```bash
+# Rust CLI binary
+nix build .#ontrack-rs-cli
+
+# Rust GUI binary
+nix build .#ontrack-rs-gui
+
+# Python package (maturin/PyO3)
+nix build .#ontrack-py
+```
+
+## Apps
+
+```bash
+# Run the CLI
+nix run .#ontrack-cli -- route stops.csv
+
+# Run the GUI
+nix run .#ontrack-gui
+```
+
+## Dev Shells
+
+Three development shells are available:
+
+```bash
+# Combined — Rust + Python + all dev tools
+nix develop
+
+# Python only — Python, pytest, maturin, linters
+nix develop .#python
+
+# Rust only — Rust toolchain, cargo-audit, cargo-deny
+nix develop .#rust
+```
+
+### What's in each shell
+
+**default (combined)**:
+- Rust toolchain (stable) with clippy, rustfmt, rust-analyzer
+- Python 3.12 with pip, pytest, pandas, and all OnTrack dependencies
+- maturin, cargo-audit, cargo-deny, cargo-watch
+- alejandra (Nix formatter), ruff, black
+- System libraries for egui (Linux: wayland, X11, OpenGL, Vulkan)
+
+**python**:
+- Python 3.12 with full test and build toolchain
+- maturin for PyO3 builds
+- bandit for security scanning
+- ruff and black for formatting
+
+**rust**:
+- Rust stable with all extensions
+- cargo-audit, cargo-deny, cargo-watch
+- System libraries for egui
+
+## Checks
+
+```bash
+nix flake check
+```
+
+Runs all of the following:
+
+| Check | What It Does |
+|-------|-------------|
+| `clippy` | `cargo clippy -- -D warnings` on the Rust workspace |
+| `rust-test` | `cargo test` on the Rust workspace |
+| `cargo-audit` | Checks Rust deps against RustSec advisory database |
+| `cargo-deny` | License compliance and advisory checks |
+| `pytest` | Python test suite via pytest |
+| `bandit` | Python security linting |
+
+## Multi-Platform Support
+
+The flake builds for four platforms:
+
+- `x86_64-linux` — Linux on Intel/AMD (primary)
+- `aarch64-linux` — Linux on ARM (Raspberry Pi, ARM servers)
+- `x86_64-darwin` — macOS on Intel
+- `aarch64-darwin` — macOS on Apple Silicon
+
+Platform-specific system dependencies (GUI libraries, macOS frameworks) are automatically included based on the host system.
+
+## Overlays
+
+The flake provides a default overlay for pinning package versions:
+
+```nix
+overlays.default = final: prev: {
+  ontrack-openssl = prev.openssl_3;
+};
+```
+
+## The Old ontrack/flake.nix
+
+The previous `ontrack/flake.nix` has been replaced with a thin wrapper that delegates to the root flake. Use the root flake for all operations.

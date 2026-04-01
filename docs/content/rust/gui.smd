@@ -1,0 +1,73 @@
+---
+.title = "GUI (egui)",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+The Rust GUI (`ontrack-gui`) is a native desktop application built with [egui](https://github.com/emilk/egui) via the [eframe](https://github.com/emilk/egui/tree/master/crates/eframe) framework.
+
+## Features
+
+- Native GPU-accelerated rendering (OpenGL/Vulkan/Metal)
+- TDS Telecom branding
+- File picker via `rfd` (native file dialogs)
+- Background route computation via `crossbeam-channel`
+- Persistence of settings between sessions
+
+## System Requirements
+
+### Linux
+Requires windowing system libraries. On NixOS these are provided by the flake. On other distros:
+
+```bash
+# Debian/Ubuntu
+sudo apt install libxkbcommon-dev libgl-dev libwayland-dev \
+  libx11-dev libxcursor-dev libxi-dev libxrandr-dev \
+  libvulkan-dev libfontconfig-dev libfreetype-dev
+
+# Fedora
+sudo dnf install libxkbcommon-devel mesa-libGL-devel wayland-devel \
+  libX11-devel libXcursor-devel libXi-devel libXrandr-devel \
+  vulkan-loader-devel fontconfig-devel freetype-devel
+```
+
+### macOS
+Requires Xcode command-line tools. AppKit, Metal, and CoreGraphics frameworks are used automatically.
+
+### Windows
+Works out of the box with the MSVC toolchain. The `x86_64-pc-windows-gnu` cross-target can build Windows binaries from Linux, but GUI support requires manual setup.
+
+## Running
+
+```bash
+# Via Nix
+nix run .#ontrack-gui
+
+# Build from source
+cd ontrack-rs
+cargo run -p ontrack-gui --release
+```
+
+## Architecture
+
+The GUI uses egui's immediate-mode pattern:
+
+1. **Main thread**: Runs the egui render loop, handles input, draws UI
+2. **Background thread**: Performs geocoding, matrix computation, and solving
+3. **Channel**: `crossbeam-channel` sends results from background to UI
+
+This prevents the UI from freezing during long operations.
+
+## Dependencies
+
+```toml
+eframe      = { version = "0.27", features = ["default_fonts", "persistence"] }
+egui        = "0.27"
+egui_extras = { version = "0.27", features = ["image"] }
+image       = { version = "0.25", features = ["png"] }
+rfd         = "0.14"
+crossbeam-channel = "0.5"
+open        = "5"
+```

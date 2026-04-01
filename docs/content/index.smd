@@ -1,0 +1,30 @@
+---
+.title = "OnTrack Documentation",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "index.shtml",
+.draft = false,
+---
+
+# OnTrack
+
+**TDS Telecom Field Route Optimizer**
+
+OnTrack helps field service technicians plan the most efficient driving route through their daily stops. Load addresses from a spreadsheet, and OnTrack calculates the optimal order — saving time, fuel, and mileage.
+
+## Two Implementations, One Mission
+
+### Python (`ontrack/`)
+The original implementation — desktop GUI with CustomTkinter, Android app with Kivy, and Google OR-Tools for industrial-strength TSP solving.
+
+### Rust (`ontrack-rs/`)
+The performance-focused rewrite — a blazing-fast CLI and native egui desktop app, with a 2-opt/nearest-neighbor solver that requires zero external dependencies.
+
+## Quick Links
+
+- [What is OnTrack?](/overview) — Non-technical overview
+- [Getting Started](/getting-started) — Installation and first run
+- [Python Implementation](/python/) — Python code and modules
+- [Rust Implementation](/rust/) — Rust crates and binaries
+- [Building](/building/) — Nix, cross-compilation, and packaging
+- [FAQ](/faq) — Common questions

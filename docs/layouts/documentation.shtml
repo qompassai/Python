@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><ctx :title/> — OnTrack Docs</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="/" class="logo">OnTrack</a>
+            <nav>
+                <a href="/overview">Overview</a>
+                <a href="/getting-started">Get Started</a>
+                <a href="/python/">Python</a>
+                <a href="/rust/">Rust</a>
+                <a href="/building/">Building</a>
+                <a href="/faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="docs-layout">
+        <aside class="sidebar">
+            <h3>Python</h3>
+            <ul>
+                <li><a href="/python/">Overview</a></li>
+                <li><a href="/python/core">Core Modules</a></li>
+                <li><a href="/python/gui">Desktop GUI</a></li>
+                <li><a href="/python/mobile">Android</a></li>
+                <li><a href="/python/testing">Testing</a></li>
+            </ul>
+
+            <h3>Rust</h3>
+            <ul>
+                <li><a href="/rust/">Overview</a></li>
+                <li><a href="/rust/core">ontrack-core</a></li>
+                <li><a href="/rust/cli">CLI Usage</a></li>
+                <li><a href="/rust/gui">GUI (egui)</a></li>
+                <li><a href="/rust/testing">Testing</a></li>
+            </ul>
+
+            <h3>Building</h3>
+            <ul>
+                <li><a href="/building/">Overview</a></li>
+                <li><a href="/building/nix">Nix Flake</a></li>
+                <li><a href="/building/cross">Cross-Compilation</a></li>
+                <li><a href="/building/platforms">Platforms</a></li>
+            </ul>
+        </aside>
+
+        <main class="docs-content">
+            <article>
+                <h1><ctx :title/></h1>
+                <ctx :content/>
+            </article>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>OnTrack — TDS Telecom Field Route Optimizer</p>
+            <p>Copyright 2025 Qompass AI. Licensed under AGPL-3.0.</p>
+        </div>
+    </footer>
+</body>
+</html>

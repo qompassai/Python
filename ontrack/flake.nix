@@ -1,58 +1,13 @@
-# /qompassai/python/ontrack/flake.nix
-# Qompass AI Ontrack Nix Flake
-# ---------------------------------------------------
+# This flake is superseded by the unified root flake at ../flake.nix
+# Use `nix build .#ontrack-py` from the repository root instead.
+#
+# To enter a Python dev shell:   nix develop .#python   (from repo root)
+# To build the Python package:   nix build .#ontrack-py (from repo root)
+# To run all checks:             nix flake check        (from repo root)
 {
-  description = "Ontrack PyO3/maturin crate";
+  description = "DEPRECATED — see root flake.nix for unified OnTrack builds";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  };
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-      python = pkgs.python312;
-      pythonPackages = python.pkgs;
-    in
-    {
-      apps.${system}.default = {
-        program = "${self.packages.${system}.default}/bin/ontrack";
-        type = "app";
-      };
-      devShells.${system}.default = pkgs.mkShell {
-        packages = [
-          pkgs.cargo
-          pkgs.maturin
-          pkgs.rustc
-          python
-          pythonPackages.pip
-        ];
-        shellHook = ''
-          echo "Dev shell for ontrack (PyO3/maturin)"
-        '';
-      };
-      packages.${system}.default = pythonPackages.buildPythonPackage rec {
-        cargoDeps = pkgs.rustPlatform.fetchCargoTarball {
-          name = "${pname}-${version}-crate-deps";
-          src = ./.;
-        };
-        format = "pyproject";
-        nativeBuildInputs = [
-          pkgs.cargo
-          pkgs.maturin
-          pkgs.openssl
-          pkgs.pkg-config
-          pkgs.rustc
-        ];
-        pname = "ontrack";
-        propagatedBuildInputs = [ ];
-        src = ./.;
-        version = "0.1.0";
-      };
-    };
+  inputs.root.url = "path:..";
+
+  outputs = { root, ... }: root;
 }

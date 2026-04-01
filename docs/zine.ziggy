@@ -1,0 +1,4 @@
+.title = "OnTrack Documentation",
+.host_url = "https://qompassai.github.io/Python",
+.language = .{ .code = "en" },
+.description = "Documentation for OnTrack — TDS Telecom Field Route Optimizer",

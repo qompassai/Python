@@ -1,0 +1,77 @@
+---
+.title = "Building OnTrack",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+OnTrack supports multiple build methods to suit different workflows and target platforms.
+
+## Build Methods at a Glance
+
+| Method | Best For | Reproducible | Cross-Platform |
+|--------|----------|-------------|----------------|
+| **Nix flake** | NixOS users, CI, reproducible builds | Yes | Yes (4 platforms) |
+| **Cargo** | Rust developers | No | Via cross-rs |
+| **pip/maturin** | Python developers | No | Host only |
+| **PyInstaller** | Distributing desktop binaries | No | Host only |
+| **buildozer** | Android APK | No | Android only |
+| **Build scripts** | One-command builds | No | Yes |
+
+## Quick Reference
+
+```bash
+# Nix — build everything
+nix build .#ontrack-rs-cli
+nix build .#ontrack-rs-gui
+nix build .#ontrack-py
+
+# Nix — run checks
+nix flake check
+
+# Nix — enter dev shell
+nix develop          # combined
+nix develop .#python # python only
+nix develop .#rust   # rust only
+
+# Scripts — build everything
+./scripts/build-all.sh --all
+
+# Scripts — cross-compile Rust
+./scripts/cross-compile-rs.sh --target aarch64-unknown-linux-gnu
+
+# Scripts — build Python
+./scripts/build-python.sh --all
+```
+
+## Output Directory
+
+All build scripts output to `dist/` at the repository root:
+
+```
+dist/
+├── rust/
+│   └── host/
+│       ├── ontrack          # CLI binary
+│       └── ontrack-gui      # GUI binary
+├── python/
+│   ├── wheel/               # Python wheel
+│   ├── standalone/          # PyInstaller binary
+│   └── android/             # APK file
+├── x86_64-unknown-linux-gnu/
+│   ├── ontrack
+│   └── ontrack-gui
+├── aarch64-unknown-linux-gnu/
+│   └── ontrack
+└── nix/
+    ├── ontrack-rs-cli/
+    ├── ontrack-rs-gui/
+    └── ontrack-py/
+```
+
+## Pages in This Section
+
+- [Nix Flake Guide](/building/nix) — How the unified flake works
+- [Cross-Compilation](/building/cross) — Building for other platforms
+- [Platform-Specific Notes](/building/platforms) — Per-platform gotchas

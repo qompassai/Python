@@ -1,0 +1,88 @@
+---
+.title = "Platform-Specific Notes",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+## Linux x86_64 (Primary)
+
+The primary development and deployment platform.
+
+### Rust
+- Builds out of the box with `cargo build`
+- GUI requires: libxkbcommon, libGL, wayland, X11 libs, Vulkan loader, fontconfig, freetype
+- On NixOS, `nix develop` provides everything
+- On Debian/Ubuntu: `sudo apt install libxkbcommon-dev libgl-dev libwayland-dev libx11-dev libxcursor-dev libxi-dev libxrandr-dev libvulkan-dev libfontconfig-dev libfreetype-dev`
+
+### Python
+- Full support — OR-Tools, CustomTkinter, PyInstaller
+- Tk required for GUI: `sudo apt install python3-tk`
+- CI tests run on Ubuntu with `xvfb` for headless GUI testing
+
+## Linux ARM64 (aarch64-linux)
+
+Supported for Raspberry Pi, ARM servers, and cloud instances.
+
+### Rust
+- CLI works well via cross-rs
+- GUI builds but requires ARM-compatible GPU drivers for rendering
+- egui falls back to software rendering if no GPU is available
+
+### Python
+- OR-Tools has ARM64 wheels for Linux
+- CustomTkinter works if Tk is available
+- PyInstaller produces ARM64 binaries natively
+
+## macOS Intel (x86_64-darwin)
+
+### Rust
+- Requires Xcode command-line tools
+- Uses AppKit, Metal, CoreGraphics, CoreText frameworks for GUI
+- Can only build macOS targets on macOS (Apple SDK requirement)
+- `cargo build --release` works out of the box
+
+### Python
+- Full support — all dependencies have macOS wheels
+- GUI uses CustomTkinter (Tk is bundled with macOS Python)
+- PyInstaller produces `.app` bundles
+
+## macOS Apple Silicon (aarch64-darwin)
+
+### Rust
+- Same as Intel macOS but uses native ARM instructions
+- Metal rendering is particularly fast on Apple Silicon
+- Universal binaries possible with `lipo` (combine x86_64 + aarch64)
+
+### Python
+- Full support via native ARM Python from python.org or Homebrew
+- OR-Tools provides ARM64 macOS wheels
+- Rosetta 2 can run x86_64 builds if needed
+
+## Windows
+
+### Rust
+- Native build requires MSVC toolchain (Visual Studio Build Tools)
+- Cross-compilation from Linux uses `x86_64-pc-windows-gnu` target
+- CLI works fully cross-compiled
+- GUI cross-compilation is limited (needs MinGW windowing libraries)
+- Recommended: build natively on Windows for GUI
+
+### Python
+- Full support — CI tests run on Windows 11
+- CustomTkinter works natively (Tk bundled with Python)
+- PyInstaller produces `.exe` files
+- OR-Tools provides Windows wheels
+
+## Android
+
+### Python only
+- Built with Kivy + buildozer
+- OR-Tools unavailable — uses nearest-neighbor solver
+- Requires Android SDK/NDK (buildozer downloads automatically)
+- Tested via CI with spec validation (full APK build requires self-hosted runner)
+
+### Rust
+- Not currently targeted for Android
+- theoretically possible via cargo-ndk for CLI use via Termux

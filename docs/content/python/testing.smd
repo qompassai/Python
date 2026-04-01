@@ -1,0 +1,113 @@
+---
+.title = "Python Testing",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+The Python test suite uses pytest with coverage reporting.
+
+## Test Files
+
+```
+tests/
+├── conftest.py              # Shared fixtures
+├── sample_addresses.csv     # Test data
+├── test_parser.py           # Parser unit tests
+├── test_geocoder.py         # Geocoder tests (mocked HTTP)
+├── test_matrix.py           # Distance matrix tests
+├── test_solver.py           # TSP solver tests
+├── test_exporter.py         # Export format tests
+└── test_platform_compat.py  # Cross-platform compatibility
+```
+
+## Running Tests
+
+```bash
+cd ontrack
+
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=core --cov-report=term-missing
+
+# Run specific test file
+pytest tests/test_solver.py -v
+
+# Run platform-specific markers
+pytest -m linux
+pytest -m android
+```
+
+## Test Markers
+
+Tests are tagged with platform markers:
+
+```python
+@pytest.mark.linux    # Linux-specific tests
+@pytest.mark.windows  # Windows-specific tests
+@pytest.mark.android  # Android/buildozer tests
+```
+
+## Coverage
+
+Coverage is configured in `pyproject.toml`:
+
+```toml
+[tool.coverage.run]
+source = ["core", "config"]
+omit = ["tests/*", "gui/*", "assets/*"]
+
+[tool.coverage.report]
+fail_under = 70
+```
+
+The minimum threshold is **70%** coverage on the `core/` and `config/` modules. GUI and asset code is excluded from coverage reporting.
+
+## What the Tests Cover
+
+### test_solver.py
+- Solver with a small set of known addresses and a pre-computed matrix
+- OR-Tools and nearest-neighbor backends produce valid routes
+- Edge cases: single address, two addresses, depot index validation
+- Open TSP (no return to origin)
+
+### test_geocoder.py
+- Nominatim response parsing
+- Google geocoding response parsing
+- Failed geocode handling (graceful skip)
+- IP geolocation
+
+### test_matrix.py
+- OSRM matrix response parsing
+- Haversine distance calculation
+- Matrix shape validation (N×N)
+
+### test_parser.py
+- CSV with header row
+- Excel file parsing
+- Plain text (one address per line)
+- Empty input handling
+
+### test_exporter.py
+- CSV export format
+- Google Maps URL construction
+- URL chunking for >10 stops
+- FieldMaps and Waze URL formats
+
+### test_platform_compat.py
+- Platform detection logic
+- Import availability checks
+- Feature flag behavior per platform
+
+## Security Scanning
+
+[Bandit](https://bandit.readthedocs.io/) scans the Python code for common security issues:
+
+```bash
+bandit -r core/ -f txt
+```
+
+This is also run as a Nix flake check via `nix flake check`.

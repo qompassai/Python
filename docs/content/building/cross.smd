@@ -1,0 +1,124 @@
+---
+.title = "Cross-Compilation",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+OnTrack Rust binaries can be cross-compiled for multiple platforms from a single host machine.
+
+## Supported Targets
+
+| Target Triple | Platform | CLI | GUI |
+|--------------|----------|-----|-----|
+| `x86_64-unknown-linux-gnu` | Linux x86_64 | Yes | Yes |
+| `aarch64-unknown-linux-gnu` | Linux ARM64 | Yes | Yes |
+| `x86_64-apple-darwin` | macOS Intel | Yes | Yes |
+| `aarch64-apple-darwin` | macOS Apple Silicon | Yes | Yes |
+| `x86_64-pc-windows-gnu` | Windows x86_64 | Yes | Limited |
+
+GUI cross-compilation for Windows is limited because egui's system dependencies require manual setup of the MinGW windowing libraries.
+
+## Using cross-rs (Recommended)
+
+[cross-rs](https://github.com/cross-rs/cross) uses Docker containers with pre-configured toolchains for each target.
+
+### Install
+
+```bash
+cargo install cross --git https://github.com/cross-rs/cross
+```
+
+### Build
+
+```bash
+cd ontrack-rs
+
+# Single target
+cross build --release --target aarch64-unknown-linux-gnu
+
+# Using the build script
+../scripts/cross-compile-rs.sh --target aarch64-unknown-linux-gnu
+
+# All targets
+../scripts/cross-compile-rs.sh --all
+```
+
+## Using cargo (Native Targets Only)
+
+Without cross-rs, cargo can build for targets that match your host toolchain:
+
+```bash
+# Add the target
+rustup target add aarch64-unknown-linux-gnu
+
+# Build (requires a linker for the target)
+cargo build --release --target aarch64-unknown-linux-gnu
+```
+
+You need the appropriate cross-linker installed:
+- `aarch64-linux-gnu-gcc` for ARM64 Linux
+- Xcode for macOS targets (must build on macOS)
+
+## Build Script
+
+The `scripts/cross-compile-rs.sh` script automates the process:
+
+```bash
+# Build CLI only for a specific target
+./scripts/cross-compile-rs.sh --target x86_64-unknown-linux-gnu --cli-only
+
+# Build everything for all targets
+./scripts/cross-compile-rs.sh --all
+
+# List available targets
+./scripts/cross-compile-rs.sh --list
+```
+
+Binaries are placed in `dist/<target>/`:
+
+```
+dist/
+├── x86_64-unknown-linux-gnu/
+│   ├── ontrack
+│   └── ontrack-gui
+├── aarch64-unknown-linux-gnu/
+│   └── ontrack
+└── x86_64-pc-windows-gnu/
+    └── ontrack.exe
+```
+
+## Master Build Script
+
+`scripts/build-all.sh` builds both Python and Rust:
+
+```bash
+# Build everything for host
+./scripts/build-all.sh --all
+
+# Build Rust with cross-compilation
+./scripts/build-all.sh --rust --target aarch64-unknown-linux-gnu
+
+# List all available targets
+./scripts/build-all.sh --list-targets
+```
+
+## Nix-Based Cross-Compilation
+
+The Nix flake can build for any of its supported systems:
+
+```bash
+# Build for a specific system
+nix build .#packages.aarch64-linux.ontrack-rs-cli
+
+# Build and check everything
+./scripts/nix-build-all.sh --all
+```
+
+## Tips
+
+- **macOS targets** can only be built natively on macOS due to Apple SDK requirements
+- **Windows targets** work best for CLI-only builds; GUI requires MinGW windowing libs
+- **ARM64 Linux** builds work well with cross-rs from any Linux host
+- **Static linking** via `RUSTFLAGS="-C target-feature=+crt-static"` produces binaries with no runtime dependencies (Linux/Windows only)

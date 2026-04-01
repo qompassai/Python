@@ -1,0 +1,129 @@
+---
+.title = "FAQ",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "page.shtml",
+.draft = false,
+---
+
+## General
+
+### What does OnTrack do?
+
+OnTrack takes a list of addresses and finds the most efficient driving order. It solves the "Traveling Salesman Problem" — visiting all locations with the shortest total drive time.
+
+### Do I need a Google Maps API key?
+
+No. OnTrack works without any API keys using free services:
+- **Nominatim** for geocoding (converting addresses to coordinates)
+- **OSRM** for driving distances (real road routing)
+
+A Google Maps API key enables Google's geocoding and distance matrix services, which may be more accurate in some regions, but it is entirely optional.
+
+### How many stops can OnTrack handle?
+
+OnTrack works best with up to 50 stops — the typical range for a field technician's daily route. The OR-Tools solver (Python) can handle hundreds of stops given enough time. The Rust 2-opt solver is fast for up to ~100 stops.
+
+### Is my data sent to the internet?
+
+Addresses are sent to geocoding services (Nominatim or Google) and routing services (OSRM or Google) to convert them to coordinates and calculate driving distances. No addresses are stored on any server. Use Haversine mode for fully offline operation (less accurate but no network calls).
+
+### What is the difference between the Python and Rust versions?
+
+Both do the same thing. The Python version has more features (Android app, OR-Tools solver, more GUI options). The Rust version is faster, produces smaller binaries, and has no runtime dependencies.
+
+## Using the GUI
+
+### How do I load addresses?
+
+Click **Load File** and select a CSV or Excel file. The file should have a column named `address`. You can also type or paste addresses directly into the text area, one per line.
+
+### What file formats are supported?
+
+- CSV files (`.csv`) with an `address` column
+- Excel files (`.xlsx`) with an `address` column
+- Plain text files with one address per line
+
+### The geocoding failed for some addresses. What should I do?
+
+OnTrack shows a warning for addresses it cannot find. Try:
+1. Check for typos in the address
+2. Add city and state (e.g., "123 Main St, Madison, WI")
+3. Use a more specific address (street number, not just street name)
+4. Try with a Google API key for better coverage
+
+Failed addresses are skipped — the route is optimized with the remaining addresses.
+
+### Can I change the starting location?
+
+Yes. The `--depot` flag (CLI) or the starting stop selector (GUI) lets you choose which address to start from. By default, the first address in your list is the starting point.
+
+## Building and Development
+
+### How do I build from source?
+
+**Rust CLI** (fastest):
+```bash
+cd ontrack-rs && cargo build --release
+```
+
+**Python GUI**:
+```bash
+cd ontrack && pip install -r requirements.txt && python main.py
+```
+
+**With Nix** (reproducible):
+```bash
+nix build .#ontrack-rs-cli
+```
+
+### What is the Nix flake for?
+
+The Nix flake provides reproducible builds — the same source always produces the same binary, regardless of what is installed on your system. It also provides development shells with all required tools pre-configured.
+
+### How do I run the tests?
+
+```bash
+# Python
+cd ontrack && pytest
+
+# Rust
+cd ontrack-rs && cargo test
+
+# Everything via Nix
+nix flake check
+```
+
+### How do I build for another platform?
+
+Use the cross-compilation scripts:
+
+```bash
+# Rust cross-compile
+./scripts/cross-compile-rs.sh --target aarch64-unknown-linux-gnu
+
+# All platforms
+./scripts/cross-compile-rs.sh --all
+```
+
+See the [Cross-Compilation guide](/building/cross) for details.
+
+## Technical
+
+### What TSP algorithm does OnTrack use?
+
+**Python**: Google OR-Tools with `PATH_CHEAPEST_ARC` initial solution and `GUIDED_LOCAL_SEARCH` metaheuristic. Falls back to nearest-neighbor on Android.
+
+**Rust**: 2-opt local search (start with nearest-neighbor, iteratively improve by reversing segments). Also supports pure nearest-neighbor.
+
+### What is OSRM?
+
+[Open Source Routing Machine](http://project-osrm.org/) — a free, open-source routing engine that calculates real driving distances and times using OpenStreetMap road data. OnTrack uses the public demo server by default, but you can run your own OSRM instance for offline use.
+
+### What is the Haversine fallback?
+
+The Haversine formula calculates the straight-line distance between two points on Earth's surface. It is less accurate than road-based routing but works completely offline and requires no API calls. Travel time is estimated assuming 40 km/h average speed.
+
+### Can OnTrack solve the Vehicle Routing Problem (VRP)?
+
+The Python version with OR-Tools supports VRP — multiple vehicles with time windows and capacity constraints. Set `num_vehicles > 1` in the solver. The Rust version currently supports single-vehicle TSP only.

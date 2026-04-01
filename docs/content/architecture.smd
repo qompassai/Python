@@ -1,0 +1,89 @@
+---
+.title = "Technical Architecture",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "documentation.shtml",
+.draft = false,
+---
+
+## Repository Structure
+
+The project lives in the `qompassai/Python` repository with two separate implementations sharing the same algorithmic approach:
+
+```
+Python/
+├── ontrack/              # Python implementation
+│   ├── core/             # Business logic modules
+│   ├── gui/              # CustomTkinter desktop GUI
+│   ├── mobile/           # Kivy Android GUI
+│   ├── tests/            # pytest suite
+│   └── main.py           # Entry point (detects platform)
+├── ontrack-rs/           # Rust implementation
+│   ├── ontrack-core/     # Shared library crate
+│   ├── ontrack-cli/      # CLI binary crate
+│   └── ontrack-gui/      # egui GUI binary crate
+├── scripts/              # Build and cross-compilation scripts
+├── docs/                 # This documentation (Zine)
+└── flake.nix             # Unified Nix flake
+```
+
+## Processing Pipeline
+
+Both implementations follow the same five-stage pipeline:
+
+```
+Input → Geocode → Distance Matrix → TSP Solve → Output
+```
+
+### Stage 1: Input (Parser)
+- **Python**: `core/parser.py` — reads CSV, Excel (.xlsx), or plain text
+- **Rust**: `ontrack-core/src/parser.rs` — reads CSV or line-delimited text
+
+### Stage 2: Geocoding
+- **Primary**: Nominatim (OpenStreetMap) — free, no API key
+- **Fallback**: Google Maps Geocoding API — requires API key, higher accuracy
+- **Python**: `core/geocoder.py` with rate limiting (1 req/sec for Nominatim)
+- **Rust**: `ontrack-core/src/geocoder.rs` with async reqwest
+
+### Stage 3: Distance Matrix
+Three backends, selectable at runtime:
+
+| Backend | Source | Cost | Accuracy |
+|---------|--------|------|----------|
+| OSRM | Open Source Routing Machine | Free | High (real roads) |
+| Google | Google Distance Matrix API | Paid | Highest |
+| Haversine | Mathematical formula | Free | Low (straight-line) |
+
+- **Python**: `core/matrix.py`
+- **Rust**: `ontrack-core/src/matrix.rs`
+
+### Stage 4: TSP Solver
+- **Python (OR-Tools)**: Google OR-Tools constraint solver — industrial-strength, supports VRP with time windows, vehicle capacities, and node penalties. Uses `PATH_CHEAPEST_ARC` for initial solution and `GUIDED_LOCAL_SEARCH` metaheuristic for refinement.
+- **Python (nearest-neighbor)**: Greedy O(n²) fallback for Android where OR-Tools is unavailable.
+- **Rust (2-opt)**: Local search that iteratively reverses route segments to reduce total distance. Fast and effective for typical field routes (under 50 stops).
+- **Rust (nearest-neighbor)**: Same greedy algorithm as Python, used as initial solution or standalone.
+
+### Stage 5: Output
+- Google Maps URL (auto-chunked for >10 stops)
+- ArcGIS FieldMaps deep link
+- Waze navigation link
+- CSV export with ordered addresses
+- Street View links for each stop (Python GUI)
+
+## Configuration
+
+Both implementations read from a `.env` file:
+
+```
+GOOGLE_MAPS_API_KEY=""           # Optional
+OSRM_BASE_URL="http://router.project-osrm.org"
+ARCGIS_ITEM_ID=""                # Optional
+```
+
+When no Google API key is set, OnTrack uses the free Nominatim + OSRM stack with no degradation in core functionality.
+
+## Error Handling
+
+- Geocoding failures are non-fatal — failed addresses are skipped with a warning
+- Network errors fall back gracefully (OSRM → Haversine)
+- The solver requires at least 2 resolved addresses to produce a route

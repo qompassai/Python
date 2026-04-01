@@ -1,0 +1,41 @@
+---
+.title = "What is OnTrack?",
+.date = @date("2025-01-01T00:00:00"),
+.author = "Matt Porter",
+.layout = "page.shtml",
+.draft = false,
+---
+
+## The Problem
+
+Field technicians at TDS Telecom visit multiple customer sites each day. Planning the best route manually is time-consuming and often suboptimal — leading to wasted fuel, longer drives, and fewer completed jobs.
+
+## The Solution
+
+OnTrack takes a list of addresses and automatically finds the most efficient driving order. It uses the same class of algorithm (Traveling Salesman Problem) used by logistics companies like UPS and FedEx.
+
+## How It Works
+
+1. **Input addresses** — Paste them in, type them, or load from a CSV/Excel file
+2. **Geocoding** — OnTrack converts street addresses to GPS coordinates using Nominatim (free) or Google Maps
+3. **Distance matrix** — Real driving distances and times are fetched from OSRM (free) or Google Maps
+4. **Route optimization** — A TSP solver finds the shortest-time ordering of all stops
+5. **Navigate** — Open the optimized route directly in Google Maps, ArcGIS FieldMaps, or Waze
+
+## Who Is It For?
+
+- **Field technicians** who drive to multiple customer locations daily
+- **Dispatchers** planning routes for service teams
+- **Anyone** who needs to visit multiple addresses efficiently
+
+## Key Features
+
+- Works offline with Haversine (straight-line) distances as a fallback
+- No Google API key required — free backends available for everything
+- Exports route to CSV for record-keeping
+- Desktop app (Windows, Linux, macOS) and Android app
+- Both a visual GUI and a command-line interface
+
+## Privacy
+
+OnTrack does not store your addresses on any server. All processing happens locally on your device. When using online geocoding or routing services, addresses are sent to those services according to their privacy policies.
