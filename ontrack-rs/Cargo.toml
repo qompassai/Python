@@ -8,6 +8,7 @@ members = [
     "ontrack-core",
     "ontrack-cli",
     "ontrack-gui",
+    "ontrack-installer",
 ]
 
 [workspace.package]
