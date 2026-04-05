@@ -21,6 +21,15 @@ pyshortcuts>=1.9
 # ── Map rendering (desktop preview panel) ───────────────────────────────────
 folium>=0.14
 
+# ── Voice recognition ──────────────────────────────────────────────────────
+# Offline speech transcription via Whisper (CTranslate2 backend, fast CPU/GPU)
+faster-whisper>=1.0
+# Cross-platform audio capture (Linux PipeWire-ALSA, Windows WASAPI, macOS CoreAudio)
+sounddevice>=0.4.6
+soundfile>=0.12
+# Optional: GPU acceleration for faster-whisper
+# torch>=2.0   # uncomment if CUDA GPU is available
+
 # ── Dev / test ───────────────────────────────────────────────────────────────
 pytest>=8.0
 pytest-mock>=3.12

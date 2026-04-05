@@ -88,6 +88,19 @@ class HomeView(ctk.CTkFrame):
             command=self._add_address,
         ).grid(row=0, column=1)
 
+        # Voice button — speak an address instead of typing
+        try:
+            from gui.components.voice_button import VoiceButton
+            self._voice_btn = VoiceButton(
+                entry_frame,
+                on_result=self._on_voice_address,
+                model_size="base",
+                width=80,
+            )
+            self._voice_btn.grid(row=0, column=2, padx=(6, 0))
+        except ImportError:
+            pass  # voice deps not installed — button simply not shown
+
         # Action buttons row
         btn_row = ctk.CTkFrame(left, fg_color="transparent")
         btn_row.grid(row=2, column=0, columnspan=2, padx=12, pady=(2, 8), sticky="ew")
@@ -273,6 +286,13 @@ class HomeView(ctk.CTkFrame):
         ).grid(row=5, column=0, padx=20, pady=0, sticky="w")
 
     # ── Address list management ────────────────────────────────────────────
+
+    def _on_voice_address(self, text: str):
+        """Called when voice recognition returns a transcribed address."""
+        if text:
+            self.addr_entry.delete(0, tk.END)
+            self.addr_entry.insert(0, text)
+            self._add_address()
 
     def _add_address(self):
         addr = self.addr_entry.get().strip()

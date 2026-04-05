@@ -10,3 +10,8 @@ Pillow>=9.0
 
 # plyer provides GPS access via p4a recipe
 plyer>=2.1
+
+# Voice recognition — offline Whisper on Android
+# NOTE: faster-whisper requires CTranslate2 which has an ARM64 wheel for Android
+# If build fails, pin to: faster-whisper==0.10.1 ctranslate2==3.24.0
+faster-whisper>=1.0

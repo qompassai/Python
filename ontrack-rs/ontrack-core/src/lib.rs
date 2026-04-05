@@ -7,6 +7,8 @@ pub mod geocoder;
 pub mod matrix;
 pub mod parser;
 pub mod solver;
+#[cfg(feature = "voice")]
+pub mod voice;
 
 // Re-export the most commonly used types at the crate root
 pub use geocoder::Location;
