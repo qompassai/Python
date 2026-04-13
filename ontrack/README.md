@@ -1,4 +1,4 @@
-# OnTrack v2 — TDS Telecom Field Route Optimizer
+# OnTrack — TDS Telecom Field Route Optimizer
 
 Route optimization tool for TDS field service technicians.  
 Enter addresses manually or load a CSV/Excel file, optimize the drive order, preview each stop in Street View, and launch turn-by-turn navigation in Google Maps or ArcGIS FieldMaps.
@@ -72,11 +72,8 @@ pyinstaller ontrack.spec
 ```bash
 pip install buildozer
 
-# First build (downloads Android SDK + NDK — takes 20–40 min)
 buildozer android debug
 
-# APK output:
-# bin/ontrack-2.0.0-arm64-v8a-debug.apk
 ```
 
 > **Note:** OR-Tools has no python-for-android recipe.  
@@ -85,9 +82,7 @@ buildozer android debug
 
 ### Sign for Play Store
 ```bash
-# Build release AAB
 buildozer android release
-# Then sign with your keystore and upload to Google Play Console.
 ```
 
 ---
