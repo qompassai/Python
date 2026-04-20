@@ -1,64 +1,66 @@
 [app]
-title = OnTrack
-package.name = ontrack
-package.domain = com.tds.ontrack
-version = 2.0.0
+title                        = OnTrack
+package.name                 = ontrack
+package.domain               = com.tds.ontrack
+version                      = 2.0.0
+source.dir                   = .
+source.include_exts          = csv,ico,jpeg,jpg,json,kv,png,py
+source.include_patterns      = assets/*,config/*,core/*,mobile/*
+source.exclude_dirs = .buildozer,.git,.github,.mypy_cache,__pycache__,bin,build,dist,tests,venv,.venv
+
+
+requirements =
+    geopy,
+    kivy==2.3.0,
+    Pillow,
+    plyer,
+    python3,
+    python-dotenv,
+    requests
+
+orientation                  = portrait
+orientations                 = portrait,landscape
+fullscreen                   = 0
+icon.filename                = %(source.dir)s/assets/ontrack.png
+presplash.filename           = %(source.dir)s/assets/ontrack.jpg
+presplash.color              = #002855
+presplash.keep_on_top        = 1
+
+android.api                  = 35
+android.minapi               = 26
+android.ndk                  = 29
+android.ndk_api              = 26
+android.ndk_path             = /opt/android-ndk
+android.archs                = armeabi-v7a,arm64-v8a
+android.copy_libs            = 1
+android.allow_backup         = 0
+android.hide_statusbar       = 0
 android.manifest.application_name = OnTrack
-p4a.branch      = master
-source.dir = .
-source.include_exts = py,kv,png,jpg,jpeg,ico,json,csv
-source.include_patterns = assets/*,mobile/*,core/*,config/*
-source.exclude_dirs = tests,__pycache__,.git,.github,venv,.venv,.mypy_cache,gui,dist,build,.buildozer,bin
+android.category             = PRODUCTIVITY
+android.features             = android.hardware.location,android.hardware.location.gps
 
-entrypoint = main.py
-icon.filename            = %(source.dir)s/assets/ontrack.png
-presplash.filename       = %(source.dir)s/assets/ontrack.jpg
-presplash.color          = #002855
-presplash.keep_on_top    = 1
-fullscreen               = 0
-orientation              = portrait
-orientations             = portrait,landscape
-android.api     = 35
-android.minapi  = 26
-android.ndk     = 25c
-android.sdk     = 35
-android.ndk_api = 26
-
-android.permissions = \
-    INTERNET,\
-    ACCESS_NETWORK_STATE,\
-    ACCESS_FINE_LOCATION,\
-    ACCESS_COARSE_LOCATION,\
-    ACCESS_BACKGROUND_LOCATION,\
-    READ_EXTERNAL_STORAGE,\
+android.permissions =
+    ACCESS_BACKGROUND_LOCATION,
+    ACCESS_COARSE_LOCATION,
+    ACCESS_FINE_LOCATION,
+    ACCESS_NETWORK_STATE,
+    INTERNET,
+    READ_EXTERNAL_STORAGE,
     WRITE_EXTERNAL_STORAGE
 
-android.features = android.hardware.location,android.hardware.location.gps
+p4a.bootstrap                = sdl2
+p4a.branch                   = develop
 
-android.archs           = armeabi-v7a,arm64-v8a
-p4a.bootstrap           = sdl2
-android.allow_backup    = 0
-android.hide_statusbar  = 0
-android.category        = PRODUCTIVITY
-android.copy_libs       = 1
-android.manifest.intent_filters =
+languages                    = en
+entrypoint                   = main.py
 
-requirements = \
-    python3,\
-    kivy==2.2.1,\
-    requests,\
-    geopy,\
-    python-dotenv,\
-    Pillow,\
-    plyer
-
-languages = en
 [buildozer]
-log_level     = 2
-build_workers = 0
-warn_on_root  = 1
-bin_dir       = ./bin
-build_dir     = ./.buildozer
-clean_build   = 0
+android.pip_args = --index-url https://pypi.org/simple/ --no-extra-index-url
+bin_dir          = /var/tmp/buildozer/ontrack/bin
+build_dir        = /var/tmp/buildozer/ontrack/build
+build_workers    = 0
+clean_build      = 0
+log_level        = 2
+warn_on_root     = 1
 
 [python-for-android]
