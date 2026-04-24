@@ -1,12 +1,7 @@
 # OnTrack — Build & Correctness TODO
 
 > Repo: `qompassai/Python` → `ontrack/`
-> Last reviewed: 2026-04-22
-> Covers: desktop (CustomTkinter/PyInstaller), Android (Kivy/Buildozer), Nix devShell, tests.
-
 ---
-
-## 🔴 CRITICAL — Will not build or run without these
 
 ### 1. Missing `Cargo.toml` and `src/lib.rs` — maturin build backend has no source
 
